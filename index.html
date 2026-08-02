@@ -1,0 +1,610 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Villa Aliris Liberia, Guanacaste | Nature, Rest, and Transformation</title>
+
+    <!-- Google Fonts: Montserrat -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* RESET Y ESTILOS BASE */
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        background-color: #f8fafc;
+        color: #1e293b;
+        font-family: "Montserrat", sans-serif;
+        line-height: 1.8;
+      }
+      .container {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 0 1.5rem;
+      }
+      h1,
+      h2,
+      h3 {
+        color: #111827;
+        font-weight: 700;
+        letter-spacing: -0.5px;
+      }
+      p {
+        margin-bottom: 1.5rem;
+        color: #475569;
+      }
+
+      /* ENCABEZADO CON LOGO (MÁXIMO TAMAÑO) */
+      header {
+        background: white;
+        padding: 2rem 0;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+      header .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        text-decoration: none;
+      }
+      .logo-img {
+        height: 120px; /* Tamaño grande ajustado */
+        width: auto;
+        object-fit: contain;
+      }
+      header h2 {
+        font-size: 3rem; /* Tamaño grande ajustado */
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin: 0;
+        line-height: 1;
+      }
+
+      /* HERO SECTION (IMAGEN Y BIENVENIDA) */
+      .hero {
+        text-align: center;
+        padding: 10rem 1rem;
+        background:
+          linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.4)),
+          url("Images/MainPage/main.jpeg") center/cover no-repeat;
+        color: white;
+      }
+
+      .hero h1 {
+        font-size: 3.5rem;
+        color: white;
+        margin-bottom: 1rem;
+      }
+      .hero p {
+        font-size: 1.4rem;
+        color: rgba(255, 255, 255, 0.9);
+        max-width: 600px;
+        margin: 0 auto;
+        font-weight: 400;
+      }
+
+      /* SECCIONES GENERALES */
+      section {
+        padding: 6rem 0;
+      }
+      section h2 {
+        text-align: center;
+        font-size: 2.2rem;
+        margin-bottom: 3.5rem;
+        position: relative;
+        padding-bottom: 1rem;
+      }
+      section h2::after {
+        content: "";
+        display: block;
+        width: 60px;
+        height: 4px;
+        background: #10b981;
+        margin: 1rem auto 0;
+        border-radius: 2px;
+      }
+
+      /* ACERCA DE / NUESTRA HISTORIA */
+      .acerca-de {
+        background: white;
+        text-align: center;
+      }
+      .acerca-de p {
+        max-width: 750px;
+        margin-left: auto;
+        margin-right: auto;
+        font-size: 1.1rem;
+      }
+
+      /* GALERÍA MODERNA */
+      .grid-galeria {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1.5rem;
+      }
+      .grid-galeria img {
+        width: 100%;
+        height: 280px;
+        object-fit: cover;
+        border-radius: 16px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        transition: transform 0.3s ease;
+      }
+      .grid-galeria img:hover {
+        transform: scale(1.02);
+      }
+
+      /* AMENIDADES */
+      .amenidades-list {
+        list-style: none;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.5rem;
+      }
+      .amenidades-list li {
+        background: white;
+        padding: 2rem;
+        border-radius: 16px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+        display: flex;
+        align-items: center;
+        font-weight: 600;
+        font-size: 1.05rem;
+      }
+      .amenidades-list li span {
+        font-size: 1.8rem;
+        margin-right: 1.2rem;
+      }
+
+      /* SECCIÓN FAUNA Y AVES LOCALES */
+      .fauna {
+        background-color: white;
+      }
+      .grid-aves {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2rem;
+      }
+      .ave-card {
+        background: #f8fafc;
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+        transition: transform 0.3s ease;
+      }
+      .ave-card:hover {
+        transform: translateY(-5px);
+      }
+      .ave-card img {
+        width: 100%;
+        height: 220px;
+        object-fit: cover;
+      }
+      .ave-info {
+        padding: 1.5rem;
+      }
+      .ave-info h3 {
+        font-size: 1.2rem;
+        margin-bottom: 0.5rem;
+        color: #0f172a;
+      }
+      .ave-info p {
+        font-size: 0.95rem;
+        color: #64748b;
+        margin-bottom: 0;
+      }
+
+      /* UBICACIÓN Y MAPA */
+      .mapa-container {
+        width: 100%;
+        height: 400px;
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        margin-top: 2rem;
+      }
+      .puntos-interes {
+        margin-top: 2rem;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1rem;
+        text-align: center;
+      }
+      .puntos-interes div {
+        background: white;
+        padding: 1rem;
+        border-radius: 8px;
+        font-size: 0.9rem;
+        font-weight: 600;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+      }
+
+      /* ANFITRIONES */
+      .anfitriones {
+        background: white;
+      }
+      .anfitriones-content {
+        display: flex;
+        align-items: center;
+        gap: 3rem;
+        max-width: 800px;
+        margin: 0 auto;
+        background: #f8fafc;
+        padding: 3rem;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+      }
+      .anfitriones-img {
+        width: 220px;
+        height: 220px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 5px solid white;
+        flex-shrink: 0;
+      }
+
+      .anfitriones-text h3 {
+        margin-bottom: 0.5rem;
+      }
+
+      /* CONTACTO FINAL */
+      .contacto {
+        text-align: center;
+        background: #0f172a;
+        color: white;
+        padding: 8rem 1rem;
+      }
+      .contacto h2 {
+        color: white;
+      }
+      .contacto h2::after {
+        background: white;
+      }
+      .contacto p {
+        color: #cbd5e1;
+        max-width: 500px;
+        margin: 0 auto 3rem;
+      }
+
+      /* BOTONES DE CONTACTO */
+      .btn-contacto {
+        display: inline-block;
+        padding: 1.2rem 2.5rem;
+        border-radius: 12px;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 1.1rem;
+        transition: all 0.2s;
+        margin: 0 0.5rem 1rem 0.5rem;
+      }
+      .btn-whatsapp {
+        background-color: #25d366;
+        color: white;
+        box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+      }
+      .btn-whatsapp:hover {
+        background-color: #1eb956;
+        transform: translateY(-3px);
+      }
+      .btn-email {
+        background-color: white;
+        color: #0f172a;
+        box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
+      }
+      .btn-email:hover {
+        background-color: #f1f5f9;
+        transform: translateY(-3px);
+      }
+
+      .iconos-ubicacion {
+        display: inline-flex;
+        gap: 4px;
+      }
+
+      /* FOOTER */
+      footer {
+        text-align: center;
+        padding: 3rem;
+        background: #0f172a;
+        color: #94a3b8;
+        border-top: 1px solid #1e293b;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 1. ENCABEZADO CON LOGO Y TÍTULO -->
+    <header>
+      <div class="container">
+        <div class="brand">
+          <img
+            src="Images/MainPage/logo.jpeg"
+            alt="Logo Villa Aliris Guanacaste"
+            class="logo-img"
+          />
+          <h2>Villa Aliris Liberia</h2>
+        </div>
+      </div>
+    </header>
+
+    <!-- 2. HERO SECTION -->
+    <section class="hero">
+      <div class="container">
+        <h1>Reconecta. Descansa. Regresa transformado.</h1>
+        <p>
+          Un refugio privado en Guanacaste diseñado para silenciar el estrés
+          diario, descansar profundamente y renovar tu energía en perfecta
+          armonía con la naturaleza.
+        </p>
+      </div>
+    </section>
+
+    <!-- 3. ACERCA DE -->
+    <section class="acerca-de">
+      <div class="container">
+        <h2>Nuestra Filosofía</h2>
+        <p>
+          Reconecta con la naturaleza. Descansa profundamente. Regresa
+          transformado. Villa Aliris es un refugio diseñado para silenciar la
+          prisa diaria. Te invitamos a habitar el presente, disfrutar de la
+          simplicidad de la naturaleza y regalarte el descanso que transforma.
+        </p>
+      </div>
+    </section>
+
+    <main class="container">
+      <!-- 4. GALERÍA DE LA PROPIEDAD -->
+      <section id="galeria">
+        <h2>Explora la Propiedad</h2>
+        <div class="grid-galeria">
+          <img
+            src="Images/MainPage/Property/fachada.jpeg"
+            alt="Fachada de Villa Aliris"
+          />
+          <img
+            src="Images/MainPage/Property/pasillo.jpg"
+            alt="Pasillo"
+          />
+          <img
+            src="Images/MainPage/Property/principal.jpg"
+            alt="Habitación Principal"
+          />
+          <img
+            src="Images/MainPage/Property/secundario.jpg"
+            alt="Habitación Secundaria"
+          />
+          <img src="Images/MainPage/Property/bath.jpg" alt="Baño moderno" />
+          <img
+            src="Images/MainPage/Property/cocina.jpeg"
+            alt="Área de cocina"
+          />
+          <img src="Images/MainPage/Property/piscina.jpeg" alt="Piscina" />
+        </div>
+      </section>
+
+      <!-- 5. AMENIDADES -->
+      <section id="amenidades">
+        <h2>Lo más destacado</h2>
+        <ul class="amenidades-list">
+          <li><span>🚀</span> Wi-Fi de Alta Velocidad</li>
+          <li><span>❄️</span> Aire Acondicionado</li>
+          <li><span>🏊‍♂️</span> Piscina Privada</li>
+          <li><span>🍃</span> Senderos</li>
+          <li><span>🔒</span> Estacionamiento Seguro</li>
+          <li>
+            <span class="iconos-ubicacion">
+              <span>🏙️</span>
+              <span>🏝️</span>
+              <span>🌋</span>
+            </span>
+            Cerca de Liberia, playas y Volcán Rincón de la Vieja
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <!-- 6. SECCIÓN DE AVES Y FAUNA LOCAL -->
+    <section id="fauna" class="fauna">
+      <div class="container">
+        <h2>Naturaleza a tu Alcance</h2>
+        <p style="text-align: center; max-width: 700px; margin: 0 auto 3rem">
+          Nuestra propiedad está rodeada de frondosa vegetación donde
+          frecuentemente nos visitan hermosas especies de aves locales.
+        </p>
+
+        <div class="grid-aves">
+          <div class="ave-card">
+            <img
+              src="Images/Birds/urraca.jpeg"
+              alt="Urraca Copetona"
+              onerror="
+                this.src = 'Images/urraca.jpeg?auto=format&fit=crop&w=600&q=80'
+              "
+            />
+            <div class="ave-info">
+              <h3>Urraca Copetona</h3>
+              <p>Frecuente en los árboles del jardín por las mañanas.</p>
+            </div>
+          </div>
+
+          <div class="ave-card">
+            <img
+              src="Images/Birds/perico.jpeg"
+              alt="Pericos"
+              style="object-position: center bottom"
+              onerror="
+                this.src = 'Images/perico.jpeg?auto=format&fit=crop&w=600&q=80'
+              "
+            />
+            <div class="ave-info">
+              <h3>Pericos</h3>
+              <p>Suelen sobrevolar la propiedad en parvadas al atardecer.</p>
+            </div>
+          </div>
+
+          <div class="ave-card">
+            <img
+              src="Images/Birds/buho.jpeg"
+              alt="Búhos"
+              onerror="
+                this.src = 'Images/buho.jpeg?auto=format&fit=crop&w=600&q=80'
+              "
+            />
+            <div class="ave-info">
+              <h3>Búhos</h3>
+              <p>Suelen sorprender en las mañanas.</p>
+            </div>
+          </div>
+
+          <div class="ave-card">
+            <img
+              src="Images/Birds/piche.jpeg"
+              alt="Piches"
+              onerror="
+                this.src = 'Images/piche.jpeg?auto=format&fit=crop&w=600&q=80'
+              "
+            />
+            <div class="ave-info">
+              <h3>Piches</h3>
+              <p>Simplemente majestuosos.</p>
+            </div>
+          </div>
+
+          <div class="ave-card">
+            <img
+              src="Images/Birds/trogon.jpeg"
+              alt="Trogones"
+              onerror="
+                this.src = 'Images/trogon.jpeg?auto=format&fit=crop&w=600&q=80'
+              "
+            />
+            <div class="ave-info">
+              <h3>Trogones</h3>
+              <p>Elegancia y colorido.</p>
+            </div>
+          </div>
+
+          <div class="ave-card">
+            <img
+              src="Images/Birds/bobo.jpeg"
+              alt="Bobo"
+              onerror="
+                this.src = 'Images/bobo.jpeg?auto=format&fit=crop&w=600&q=80'
+              "
+            />
+            <div class="ave-info">
+              <h3>Bobos</h3>
+              <p>Simplemente majestuosos.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <main class="container">
+      <!-- 7. UBICACIÓN -->
+      <section id="ubicacion">
+        <h2>Nuestra Ubicación</h2>
+        <p style="text-align: center">
+          Situados en una ubicación privilegiada en Liberia, Guanacaste, cerca
+          de todo lo que necesitas.
+        </p>
+
+        <div class="mapa-container">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15712.34567890123!2d-85.8!3d10.4!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f9e000000000001%3A0x0000000000000000!2sPlaya%20Conchal!5e0!3m2!1ses!2scr!4v1610000000000!5m2!1ses!2scr"
+            width="100%"
+            height="100%"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+          ></iframe>
+        </div>
+
+        <div class="puntos-interes">
+          <div>🏝️ Liberia Centro: 12 min auto (aprox. 6 km)</div>
+          <div>🌋 Volcán Rincón de La Vieja: 54 min auto (aprox. 24 km)</div>
+          <div>🌊 Catarata La Leona: 18 min auto (aprox. 12.5 km)</div>
+          <div>🌊 Poza Los Coyotes: 20 min auto (aprox. 13 km)</div>
+          <div>🌊 Poza La Pipa: 19 min auto (aprox. 12 km)</div>
+          <div>🛒 Walmart: 12 min auto (aprox. 6.4 km)</div>
+          <div>🦓 Ponderosa: 20 min auto (aprox. 17.8 km)</div>
+          <div>✈️ Aeropuerto LIR: 30 min auto</div>
+        </div>
+      </section>
+
+      <!-- 8. ANFITRIONES -->
+      <section id="anfitriones" class="anfitriones">
+        <h2>Tus Anfitriones</h2>
+        <div class="anfitriones-content">
+          <img
+            src="Images/Hosts/jose1.jpeg"
+            alt="Tu Foto"
+            class="anfitriones-img"
+          />
+          <div class="anfitriones-text">
+            <h3>¡Hola! Un gusto saludarle. Mi nombre es José Rafael Villegas García</h3>
+            <p>
+              Diseñamos Villa Aliris para compartir nuestra
+              pasión por la naturaleza y la tranquilidad. Estamos a su
+              disposición para ofrecerle recomendaciones locales y asegurarnos
+              de que su visita sea inolvidable.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- 9. SECCIÓN DE CONTACTO FINAL -->
+    <section id="contacto" class="contacto">
+      <div class="container">
+        <h2>¿Deseas más información?</h2>
+        <p>
+          Nuestra web es un espacio informativo para que conozcas la
+          experiencia. Para consultar disponibilidad, tarifas o resolver
+          cualquier duda, escríbenos directamente y con gusto te atenderemos.
+        </p>
+
+        <a
+          href="https://wa.me/50688247176?text=Hola!%20Me%20interesa%20información%20sobre%20la%20propiedad"
+          target="_blank"
+          class="btn-contacto btn-whatsapp"
+          >Consultar por WhatsApp</a
+        >
+
+        <a
+          href="mailto:villaaliris@gmail.com?subject=Consulta%20sobre%20Villa%20Aliris"
+          class="btn-contacto btn-email"
+          >Enviar un Correo</a
+        >
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="container">
+        <p>
+          &copy; 2026 Villa Aliris Liberia, Guanacaste — Todos los derechos reservados.
+        </p>
+        <p style="font-size: 0.8rem; margin-top: 0.5rem">
+          Guanacaste, Costa Rica
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>
