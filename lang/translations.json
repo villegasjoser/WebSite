@@ -5,6 +5,7 @@
     "menu_gallery": "Propiedad",
     "menu_amenities": "Amenidades",
     "menu_fauna": "Naturaleza",
+    "menu_activities": "Actividades",
     "menu_location": "Ubicación",
     "menu_contact": "Contacto",
     "hero_title": "Reconecta. Descansa. Regresa transformado.",
@@ -55,28 +56,28 @@
     "loc_8": "Aeropuerto LIR: 30 min auto (aprox. 15 km)",
     "activities_title": "Aventuras y Experiencias Cercanas",
     "activities_subtitle": "Planifica tu visita con los detalles clave de cada lugar imperdible en los alrededores.",
-    
+
     "activity_volcano_title": "Parque Nacional Rincón de la Vieja",
     "activity_volcano_desc": "Senderos entre volcanes, pailas de lodo hirviendo y aguas termales.",
     "volcano_hours": "Horario: Martes a domingo, 8:00 a.m. - 3:00 p.m.",
     "volcano_cost": "Costo: Nacionales ₡1,000 / Extranjeros $15 USD",
-    
+
     "activity_water_title": "Catarata La Leona",
     "activity_water_desc": "Aventura de cañón, nado en aguas turquesas y guías locales.",
     "leona_hours": "Horario: Lunes a domingo, 8:00 a.m. - 4:00 p.m.",
     "leona_cost": "Costo: Varía según tour guiado (aprox. $25 - $35 USD)",
     "leona_tip": "Se recomienda reservar con guía local.",
-    
+
     "activity_safari_title": "Ponderosa Adventure Park",
     "activity_safari_desc": "Safari con animales en libertad, cataratas y canopy.",
     "ponderosa_hours": "Horario: Lunes a domingo, 8:00 a.m. - 5:00 p.m.",
     "ponderosa_cost": "Costo: Desde $35 USD (según el paquete elegido)",
-    
+
     "activity_city_title": "Liberia Centro & Walmart",
     "activity_city_desc": "Cultura, gastronomía típica, cajeros, farmacias y abastos.",
     "liberia_hours": "Walmart: Lunes a domingo, 8:00 a.m. - 10:00 p.m.",
     "liberia_dist": "Distancia: A solo 12 minutos de la villa.",
-    
+
     "btn_website": "Sitio Web Oficial",
     "hosts_title": "Tus Anfitriones",
     "hosts_greeting": "¡Hola! Un gusto saludarle. Mi nombre es José Rafael Villegas García",
@@ -100,6 +101,7 @@
     "menu_gallery": "Property",
     "menu_amenities": "Amenities",
     "menu_fauna": "Nature",
+    "menu_activities": "Activities",
     "menu_location": "Location",
     "menu_contact": "Contact",
     "hero_title": "Reconnect. Rest. Return transformed.",
@@ -150,28 +152,28 @@
     "loc_8": "LIR Airport: 30 min drive (approx. 15 km)",
     "activities_title": "Nearby Adventures and Experiences",
     "activities_subtitle": "Plan your visit with key details of each must-see spot in the surrounding area.",
-    
+
     "activity_volcano_title": "Rincón de la Vieja National Park",
     "activity_volcano_desc": "Trails between volcanoes, boiling mud pots, and hot springs.",
     "volcano_hours": "Hours: Tuesday to Sunday, 8:00 a.m. - 3:00 p.m.",
     "volcano_cost": "Cost: Locals ₡1,000 / Foreigners $15 USD",
-    
+
     "activity_water_title": "La Leona Waterfall",
     "activity_water_desc": "Canyon adventure, swimming in turquoise waters, and local guides.",
     "leona_hours": "Hours: Monday to Sunday, 8:00 a.m. - 4:00 p.m.",
     "leona_cost": "Cost: Varies by guided tour (approx. $25 - $35 USD)",
     "leona_tip": "Booking with a local guide is recommended.",
-    
+
     "activity_safari_title": "Ponderosa Adventure Park",
     "activity_safari_desc": "Safari with free-roaming animals, waterfalls, and canopy.",
     "ponderosa_hours": "Hours: Monday to Sunday, 8:00 a.m. - 5:00 p.m.",
     "ponderosa_cost": "Cost: From $35 USD (depending on chosen package)",
-    
+
     "activity_city_title": "Downtown Liberia & Walmart",
     "activity_city_desc": "Culture, traditional gastronomy, ATMs, pharmacies, and supplies.",
     "liberia_hours": "Walmart: Monday to Sunday, 8:00 a.m. - 10:00 p.m.",
     "liberia_dist": "Distance: Just 12 minutes from the villa.",
-    
+
     "btn_website": "Official Website",
     "hosts_title": "Your Hosts",
     "hosts_greeting": "Hello! It's a pleasure to greet you. My name is José Rafael Villegas García",
@@ -195,6 +197,7 @@
     "menu_gallery": "Propriedade",
     "menu_amenities": "Comodidades",
     "menu_fauna": "Natureza",
+    "menu_activities": "Atividades",
     "menu_location": "Localização",
     "menu_contact": "Contato",
     "hero_title": "Reconecte. Descanse. Retorne transformado.",
@@ -245,28 +248,28 @@
     "loc_8": "Aeropuerto LIR: 30 min de carro (aprox. 15 km)",
     "activities_title": "Aventuras e Experiências Próximas",
     "activities_subtitle": "Planeje sua visita com os detalhes principais de cada local imperdível ao redor.",
-    
+
     "activity_volcano_title": "Parque Nacional Rincón de la Vieja",
     "activity_volcano_desc": "Trilhas entre vulcões, caldeiras de lama fervente e fontes termais.",
     "volcano_hours": "Horário: Terça a domingo, 8:00 - 15:00",
     "volcano_cost": "Custo: Nacionais ₡1,000 / Estrangeiros $15 USD",
-    
+
     "activity_water_title": "Cachoeira La Leona",
     "activity_water_desc": "Aventura em cânion, natação em águas turquesas e guias locais.",
     "leona_hours": "Horário: Segunda a domingo, 8:00 - 16:00",
     "leona_cost": "Custo: Varia conforme o passeio guiado (aprox. $25 - $35 USD)",
     "leona_tip": "Recomenda-se reservar com um guia local.",
-    
+
     "activity_safari_title": "Ponderosa Adventure Park",
     "activity_safari_desc": "Safári com animais soltos, cachoeiras e arvorismo.",
     "ponderosa_hours": "Horário: Segunda a domingo, 8:00 - 17:00",
     "ponderosa_cost": "Custo: A partir de $35 USD (conforme o pacote escolhido)",
-    
+
     "activity_city_title": "Centro de Liberia & Walmart",
     "activity_city_desc": "Cultura, gastronomia típica, caixas eletrônicos, farmácias e suprimentos.",
     "liberia_hours": "Walmart: Segunda a domingo, 8:00 - 22:00",
     "liberia_dist": "Distância: Apenas 12 minutos da vila.",
-    
+
     "btn_website": "Site Oficial",
     "hosts_title": "Seus Anfitriões",
     "hosts_greeting": "Olá! É um prazer cumprimentá-lo. Meu nome é José Rafael Villegas García",
