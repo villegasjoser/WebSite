@@ -64,19 +64,19 @@
         text-decoration: none;
       }
       .logo-img {
-        height: 120px; /* Tamaño grande ajustado */
+        height: 120px;
         width: auto;
         object-fit: contain;
       }
       header h2 {
-        font-size: 3rem; /* Tamaño grande ajustado */
+        font-size: 3rem;
         text-transform: uppercase;
         letter-spacing: 1px;
         margin: 0;
         line-height: 1;
       }
 
-      /* HERO SECTION (IMAGEN Y BIENVENIDA) */
+      /* HERO SECTION */
       .hero {
         text-align: center;
         padding: 10rem 1rem;
@@ -85,7 +85,6 @@
           url("Images/MainPage/main.jpeg") center/cover no-repeat;
         color: white;
       }
-
       .hero h1 {
         font-size: 3.5rem;
         color: white;
@@ -120,7 +119,7 @@
         border-radius: 2px;
       }
 
-      /* ACERCA DE / NUESTRA HISTORIA */
+      /* ACERCA DE */
       .acerca-de {
         background: white;
         text-align: center;
@@ -132,11 +131,16 @@
         font-size: 1.1rem;
       }
 
-      /* GALERÍA MODERNA */
+      /* GALERÍA MODERNA Y CLASE PARA ZOOM */
       .grid-galeria {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
         gap: 1.5rem;
+      }
+      .grid-galeria img,
+      .ave-card img,
+      .anfitriones-img {
+        cursor: pointer; /* Cambia el cursor a una manita para indicar que es interactivo */
       }
       .grid-galeria img {
         width: 100%;
@@ -172,7 +176,7 @@
         margin-right: 1.2rem;
       }
 
-      /* SECCIÓN FAUNA Y AVES LOCALES */
+      /* FAUNA */
       .fauna {
         background-color: white;
       }
@@ -210,7 +214,7 @@
         margin-bottom: 0;
       }
 
-      /* UBICACIÓN Y MAPA */
+      /* UBICACIÓN */
       .mapa-container {
         width: 100%;
         height: 400px;
@@ -258,12 +262,11 @@
         border: 5px solid white;
         flex-shrink: 0;
       }
-
       .anfitriones-text h3 {
         margin-bottom: 0.5rem;
       }
 
-      /* CONTACTO FINAL */
+      /* CONTACTO */
       .contacto {
         text-align: center;
         background: #0f172a;
@@ -282,7 +285,6 @@
         margin: 0 auto 3rem;
       }
 
-      /* BOTONES DE CONTACTO */
       .btn-contacto {
         display: inline-block;
         padding: 1.2rem 2.5rem;
@@ -311,10 +313,55 @@
         background-color: #f1f5f9;
         transform: translateY(-3px);
       }
-
       .iconos-ubicacion {
         display: inline-flex;
         gap: 4px;
+      }
+
+      /* ESTILOS PARA EL MODAL / LIGHTBOX DE IMÁGENES */
+      .modal-lightbox {
+        display: none; /* Oculto por defecto */
+        position: fixed;
+        z-index: 9999;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.85); /* Fondo oscuro translúcido */
+        justify-content: center;
+        align-items: center;
+        padding: 2rem;
+      }
+      .modal-lightbox.activo {
+        display: flex; /* Se muestra al agregar la clase activo */
+      }
+      .modal-contenido {
+        position: relative;
+        max-width: 90%;
+        max-height: 90vh;
+      }
+      .modal-contenido img {
+        display: block;
+        max-width: 100%;
+        max-height: 85vh;
+        object-fit: contain;
+        border-radius: 8px;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+      }
+      .modal-cerrar {
+        position: absolute;
+        top: -40px;
+        right: 0;
+        color: white;
+        font-size: 2.5rem;
+        font-weight: bold;
+        cursor: pointer;
+        background: none;
+        border: none;
+        line-height: 1;
+      }
+      .modal-cerrar:hover {
+        color: #10b981;
       }
 
       /* FOOTER */
@@ -372,27 +419,12 @@
       <section id="galeria">
         <h2>Explora la Propiedad</h2>
         <div class="grid-galeria">
-          <img
-            src="Images/MainPage/Property/fachada.jpeg"
-            alt="Fachada de Villa Aliris"
-          />
-          <img
-            src="Images/MainPage/Property/pasillo.jpg"
-            alt="Pasillo"
-          />
-          <img
-            src="Images/MainPage/Property/principal.jpg"
-            alt="Habitación Principal"
-          />
-          <img
-            src="Images/MainPage/Property/secundario.jpg"
-            alt="Habitación Secundaria"
-          />
+          <img src="Images/MainPage/Property/fachada.jpeg" alt="Fachada de Villa Aliris" />
+          <img src="Images/MainPage/Property/pasillo.jpg" alt="Pasillo" />
+          <img src="Images/MainPage/Property/principal.jpg" alt="Habitación Principal" />
+          <img src="Images/MainPage/Property/secundario.jpg" alt="Habitación Secundaria" />
           <img src="Images/MainPage/Property/bath.jpg" alt="Baño moderno" />
-          <img
-            src="Images/MainPage/Property/cocina.jpeg"
-            alt="Área de cocina"
-          />
+          <img src="Images/MainPage/Property/cocina.jpeg" alt="Área de cocina" />
           <img src="Images/MainPage/Property/piscina.jpeg" alt="Piscina" />
         </div>
       </section>
@@ -406,7 +438,7 @@
           <li><span>🏊‍♂️</span> Piscina Privada</li>
           <li><span>🍃</span> Senderos</li>
           <li><span>🔒</span> Estacionamiento Seguro</li>
-        <li>
+          <li>
             <span class="iconos-ubicacion">
               <span>🏙️</span>
               <span>🏝️</span>
@@ -432,13 +464,7 @@
 
         <div class="grid-aves">
           <div class="ave-card">
-            <img
-              src="Images/Birds/urraca.jpeg"
-              alt="Urraca Copetona"
-              onerror="
-                this.src = 'Images/urraca.jpeg?auto=format&fit=crop&w=600&q=80'
-              "
-            />
+            <img src="Images/Birds/urraca.jpeg" alt="Urraca Copetona" onerror="this.src = 'Images/urraca.jpeg?auto=format&fit=crop&w=600&q=80'" />
             <div class="ave-info">
               <h3>Urraca Copetona</h3>
               <p>Sociables y muy vistosas, es común verlas en grupo explorando las ramas más altas durante las primeras horas del día.</p>
@@ -446,14 +472,7 @@
           </div>
 
           <div class="ave-card">
-            <img
-              src="Images/Birds/perico.jpeg"
-              alt="Pericos"
-              style="object-position: center bottom"
-              onerror="
-                this.src = 'Images/perico.jpeg?auto=format&fit=crop&w=600&q=80'
-              "
-            />
+            <img src="Images/Birds/perico.jpeg" alt="Pericos" style="object-position: center bottom" onerror="this.src = 'Images/perico.jpeg?auto=format&fit=crop&w=600&q=80'" />
             <div class="ave-info">
               <h3>Pericos</h3>
               <p>Con su característico vuelo enérgico y juguetón, llenan el cielo de color y sonido al regresar en parvadas cuando cae la tarde.</p>
@@ -461,13 +480,7 @@
           </div>
 
           <div class="ave-card">
-            <img
-              src="Images/Birds/buho.jpeg"
-              alt="Búhos"
-              onerror="
-                this.src = 'Images/buho.jpeg?auto=format&fit=crop&w=600&q=80'
-              "
-            />
+            <img src="Images/Birds/buho.jpeg" alt="Búhos" onerror="this.src = 'Images/buho.jpeg?auto=format&fit=crop&w=600&q=80'" />
             <div class="ave-info">
               <h3>Búhos</h3>
               <p>Guardianes silenciosos de la bruma matutina; encontrarse con su mirada fija y enigmática entre las ramas es siempre un momento mágico.</p>
@@ -475,13 +488,7 @@
           </div>
 
           <div class="ave-card">
-            <img
-              src="Images/Birds/piche.jpeg"
-              alt="Piches"
-              onerror="
-                this.src = 'Images/piche.jpeg?auto=format&fit=crop&w=600&q=80'
-              "
-            />
+            <img src="Images/Birds/piche.jpeg" alt="Piches" onerror="this.src = 'Images/piche.jpeg?auto=format&fit=crop&w=600&q=80'" />
             <div class="ave-info">
               <h3>Piches</h3>
               <p>Un espectáculo de gracia natural; su silueta y comportamiento aportan un toque único de tranquilidad al paisaje.</p>
@@ -489,13 +496,7 @@
           </div>
 
           <div class="ave-card">
-            <img
-              src="Images/Birds/trogon.jpeg"
-              alt="Trogones"
-              onerror="
-                this.src = 'Images/trogon.jpeg?auto=format&fit=crop&w=600&q=80'
-              "
-            />
+            <img src="Images/Birds/trogon.jpeg" alt="Trogones" onerror="this.src = 'Images/trogon.jpeg?auto=format&fit=crop&w=600&q=80'" />
             <div class="ave-info">
               <h3>Trogones</h3>
               <p>Verdaderas joyas de la naturaleza; su plumaje vibrante y su postura tranquila personifican la armonía y la belleza del trópico.</p>
@@ -503,13 +504,7 @@
           </div>
 
           <div class="ave-card">
-            <img
-              src="Images/Birds/bobo.jpeg"
-              alt="Bobo"
-              onerror="
-                this.src = 'Images/bobo.jpeg?auto=format&fit=crop&w=600&q=80'
-              "
-            />
+            <img src="Images/Birds/bobo.jpeg" alt="Bobo" onerror="this.src = 'Images/bobo.jpeg?auto=format&fit=crop&w=600&q=80'" />
             <div class="ave-info">
               <h3>Bobos</h3>
               <p>Con una estampa inconfundible y una tranquilidad innata, capturan la atención de cualquier amante de la naturaleza.</p>
@@ -598,6 +593,14 @@
       </div>
     </section>
 
+    <!-- COMPONENTE MODAL LIGHTBOX PARA EL ZOOM DE IMÁGENES -->
+    <div id="lightboxModal" class="modal-lightbox">
+      <div class="modal-contenido">
+        <button id="lightboxCerrar" class="modal-cerrar">&times;</button>
+        <img id="lightboxImg" src="" alt="Imagen ampliada" />
+      </div>
+    </div>
+
     <!-- FOOTER -->
     <footer>
       <div class="container">
@@ -609,5 +612,47 @@
         </p>
       </div>
     </footer>
+
+    <!-- SCRIPT DE JAVASCRIPT PARA CONTROLAR EL ZOOM -->
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const modal = document.getElementById("lightboxModal");
+        const modalImg = document.getElementById("lightboxImg");
+        const cerrarBtn = document.getElementById("lightboxCerrar");
+
+        // Seleccionamos todas las imágenes principales de la galería y de aves/anfitrión
+        const imagenes = document.querySelectorAll(".grid-galeria img, .ave-card img, .anfitriones-img");
+
+        imagenes.forEach((img) => {
+          img.addEventListener("click", () => {
+            modal.classList.add("activo");
+            modalImg.src = img.src;
+            modalImg.alt = img.alt;
+          });
+        });
+
+        // Función para cerrar el modal
+        const cerrarModal = () => {
+          modal.classList.remove("activo");
+          modalImg.src = "";
+        };
+
+        cerrarBtn.addEventListener("click", cerrarModal);
+
+        // Cerrar también si se hace clic fuera de la imagen (en el fondo oscuro)
+        modal.addEventListener("click", (e) => {
+          if (e.target === modal) {
+            cerrarModal();
+          }
+        });
+
+        // Cerrar presionando la tecla Escape del teclado
+        document.addEventListener("keydown", (e) => {
+          if (e.key === "Escape" && modal.classList.contains("activo")) {
+            cerrarModal();
+          }
+        });
+      });
+    </script>
   </body>
 </html>
