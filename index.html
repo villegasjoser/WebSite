@@ -120,6 +120,13 @@
         background: #e2e8f0;
         border-color: #94a3b8;
       }
+      /* ESTILO PARA EL BOTÓN DE IDIOMA ACTIVO */
+      .lang-btn.activo {
+        background: #10b981;
+        color: white;
+        border-color: #059669;
+        box-shadow: 0 2px 8px rgba(16, 185, 129, 0.3);
+      }
 
       /* HERO SECTION */
       .hero {
@@ -370,10 +377,6 @@
         background-color: #059669;
         transform: translateY(-3px);
       }
-      .iconos-ubicacion {
-        display: inline-flex;
-        gap: 4px;
-      }
 
       /* ESTILOS PARA EL MODAL / LIGHTBOX DE IMÁGENES Y FORMULARIO */
       .modal-lightbox {
@@ -548,7 +551,7 @@
             <img src="Images/Birds/piche.jpeg" alt="Piches" />
             <div class="ave-info">
               <h3 data-i18n="bird_piche_title">Piches</h3>
-              <p data-i18n="bird_piche_desc">Un espectáculo de gracia natural; sua silueta y comportamiento aportan un toque único de tranquilidad al paisaje.</p>
+              <p data-i18n="bird_piche_desc">Un espectáculo de gracia natural; su silueta y comportamiento aportan un toque único de tranquilidad al paisaje.</p>
             </div>
           </div>
 
@@ -727,6 +730,15 @@
         if (!traducciones[lang]) return;
         localStorage.setItem('idioma_villa', lang);
         
+        // Quitar la clase 'activo' de todos los botones y ponérsela al seleccionado
+        const botonesLang = document.querySelectorAll('.lang-btn');
+        botonesLang.forEach(btn => btn.classList.remove('activo'));
+        
+        const botonActivo = document.querySelector(`.lang-btn[onclick*="${lang}"]`);
+        if (botonActivo) {
+          botonActivo.classList.add('activo');
+        }
+
         const elementos = document.querySelectorAll('[data-i18n]');
         elementos.forEach(el => {
           const clave = el.getAttribute('data-i18n');
