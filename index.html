@@ -430,6 +430,107 @@
       .modal-cerrar:hover {
         color: #10b981;
       }
+
+      /* Estilos para la sección de actividades */
+.actividades-section {
+  padding: 60px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.actividades-section h2 {
+  text-align: center;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.section-subtitle {
+  text-align: center;
+  color: #6b7280;
+  margin-bottom: 40px;
+}
+
+/* Cuadrícula de tarjetas */
+.actividades-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+/* Diseño de cada tarjeta individual */
+.actividad-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.actividad-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+/* Icono superior de la tarjeta */
+.actividad-icon {
+  font-size: 28px;
+  margin-bottom: 16px;
+}
+
+.actividad-card h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #1f2937;
+}
+
+.actividad-card p {
+  font-size: 0.95rem;
+  color: #4b5563;
+  margin-bottom: 16px;
+}
+
+/* Lista de detalles (Horarios y Costos) */
+.actividad-detalles {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 16px 0;
+  font-size: 0.9rem;
+  color: #374151;
+}
+
+.actividad-detalles li {
+  margin-bottom: 8px;
+  display: flex;
+  align-items: flex-start;
+}
+
+/* Enlaces y textos extra */
+.btn-link {
+  display: inline-flex;
+  align-items: center;
+  color: #2563eb;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.9rem;
+  margin-top: auto;
+}
+
+.btn-link:hover {
+  text-decoration: underline;
+}
+
+.info-extra {
+  font-size: 0.85rem;
+  color: #6b7280;
+  display: flex;
+  align-items: center;
+  margin-top: auto;
+}
     </style>
   </head>
   <body>
@@ -770,6 +871,63 @@
               >
             </div>
           </div>
+        </div>
+      </section>
+
+      <!-- SECCIÓN: ACTIVIDADES Y ATRACCIONES CERCANAS -->
+      <section id="actividades" class="actividades-section">
+        <h2 data-i18n="activities_title">Aventuras y Experiencias Cercanas</h2>
+        <p class="section-subtitle" data-i18n="activities_subtitle">Planifica tu visita con los detalles clave de cada lugar imperdible en los alrededores.</p>
+        
+        <div class="actividades-grid">
+          
+          <!-- 1. Rincón de la Vieja -->
+          <div class="actividad-card">
+            <div class="actividad-icon"><i class="bi bi-fire" style="color: #ea580c;"></i></div>
+            <h3 data-i18n="activity_volcano_title">Parque Nacional Rincón de la Vieja</h3>
+            <p data-i18n="activity_volcano_desc">Senderos entre volcanes, pailas de lodo hirviendo y aguas termales.</p>
+            <ul class="actividad-detalles">
+              <li data-i18n="volcano_hours"><i class="bi bi-clock" style="margin-right: 6px;"></i><strong>Horario:</strong> Martes a domingo, 8:00 a.m. - 3:00 p.m.</li>
+              <li data-i18n="volcano_cost"><i class="bi bi-ticket-perforated" style="margin-right: 6px;"></i><strong>Costo:</strong> Nacionales ₡1,000 / Extranjeros $15 USD</li>
+            </ul>
+            <a href="https://www.sinac.go.cr" target="_blank" class="btn-link" data-i18n="btn_website"><i class="bi bi-globe" style="margin-right: 5px;"></i> Sitio Web Oficial</a>
+          </div>
+
+          <!-- 2. Catarata La Leona -->
+          <div class="actividad-card">
+            <div class="actividad-icon"><i class="bi bi-water" style="color: #0ea5e9;"></i></div>
+            <h3 data-i18n="activity_water_title">Catarata La Leona</h3>
+            <p data-i18n="activity_water_desc">Aventura de cañón, nado en aguas turquesas y guías locales.</p>
+            <ul class="actividad-detalles">
+              <li data-i18n="leona_hours"><i class="bi bi-clock" style="margin-right: 6px;"></i><strong>Horario:</strong> Lunes a domingo, 8:00 a.m. - 4:00 p.m.</li>
+              <li data-i18n="leona_cost"><i class="bi bi-ticket-perforated" style="margin-right: 6px;"></i><strong>Costo:</strong> Varía según tour guiado (aprox. $25 - $35 USD)</li>
+            </ul>
+            <span class="info-extra" data-i18n="leona_tip"><i class="bi bi-info-circle" style="margin-right: 6px;"></i>Se recomienda reservar con guía local.</span>
+          </div>
+
+          <!-- 3. Parque Ponderosa -->
+          <div class="actividad-card">
+            <div class="actividad-icon"><i class="bi bi-shield-fill-check" style="color: #10b981;"></i></div>
+            <h3 data-i18n="activity_safari_title">Ponderosa Adventure Park</h3>
+            <p data-i18n="activity_safari_desc">Safari con animales en libertad, cataratas y canopy.</p>
+            <ul class="actividad-detalles">
+              <li data-i18n="ponderosa_hours"><i class="bi bi-clock" style="margin-right: 6px;"></i><strong>Horario:</strong> Lunes a domingo, 8:00 a.m. - 5:00 p.m.</li>
+              <li data-i18n="ponderosa_cost"><i class="bi bi-ticket-perforated" style="margin-right: 6px;"></i><strong>Costo:</strong> Desde $35 USD (según el paquete elegido)</li>
+            </ul>
+            <a href="https://www.ponderosaadventurepark.com" target="_blank" class="btn-link" data-i18n="btn_website"><i class="bi bi-globe" style="margin-right: 5px;"></i> Sitio Web Oficial</a>
+          </div>
+
+          <!-- 4. Liberia Centro y Compras -->
+          <div class="actividad-card">
+            <div class="actividad-icon"><i class="bi bi-buildings-fill" style="color: #6366f1;"></i></div>
+            <h3 data-i18n="activity_city_title">Liberia Centro & Walmart</h3>
+            <p data-i18n="activity_city_desc">Cultura, gastronomía típica, cajeros, farmacias y abastos.</p>
+            <ul class="actividad-detalles">
+              <li data-i18n="liberia_hours"><i class="bi bi-clock" style="margin-right: 6px;"></i><strong>Walmart:</strong> Lunes a domingo, 8:00 a.m. - 10:00 p.m.</li>
+              <li data-i18n="liberia_dist"><i class="bi bi-geo-alt" style="margin-right: 6px;"></i><strong>Distancia:</strong> A solo 12 minutos de la villa.</li>
+            </ul>
+          </div>
+
         </div>
       </section>
 
