@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Villa Aliris Liberia, Guanacaste | Nature, Rest, and Transformation</title>
+    <title data-i18n="title">Villa Aliris Liberia, Guanacaste | Nature, Rest, and Transformation</title>
 
     <!-- Google Fonts: Montserrat -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -54,8 +54,10 @@
       }
       header .container {
         display: flex;
-        justify-content: center;
+        justify-content: space-between;
         align-items: center;
+        flex-wrap: wrap;
+        gap: 1rem;
       }
       .brand {
         display: flex;
@@ -74,6 +76,27 @@
         letter-spacing: 1px;
         margin: 0;
         line-height: 1;
+      }
+
+      /* SELECTOR DE IDIOMAS */
+      .lang-selector {
+        display: flex;
+        gap: 8px;
+      }
+      .lang-btn {
+        background: #f8fafc;
+        border: 1px solid #cbd5e1;
+        padding: 6px 12px;
+        border-radius: 8px;
+        cursor: pointer;
+        font-family: "Montserrat", sans-serif;
+        font-weight: 600;
+        font-size: 0.9rem;
+        transition: all 0.2s ease;
+      }
+      .lang-btn:hover {
+        background: #e2e8f0;
+        border-color: #94a3b8;
       }
 
       /* HERO SECTION */
@@ -140,7 +163,7 @@
       .grid-galeria img,
       .ave-card img,
       .anfitriones-img {
-        cursor: pointer; /* Cambia el cursor a una manita para indicar que es interactivo */
+        cursor: pointer;
       }
       .grid-galeria img {
         width: 100%;
@@ -320,20 +343,20 @@
 
       /* ESTILOS PARA EL MODAL / LIGHTBOX DE IMÁGENES */
       .modal-lightbox {
-        display: none; /* Oculto por defecto */
+        display: none;
         position: fixed;
         z-index: 9999;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
-        background-color: rgba(0, 0, 0, 0.85); /* Fondo oscuro translúcido */
+        background-color: rgba(0, 0, 0, 0.85);
         justify-content: center;
         align-items: center;
         padding: 2rem;
       }
       .modal-lightbox.activo {
-        display: flex; /* Se muestra al agregar la clase activo */
+        display: flex;
       }
       .modal-contenido {
         position: relative;
@@ -363,15 +386,6 @@
       .modal-cerrar:hover {
         color: #10b981;
       }
-
-      /* FOOTER */
-      footer {
-        text-align: center;
-        padding: 3rem;
-        background: #0f172a;
-        color: #94a3b8;
-        border-top: 1px solid #1e293b;
-      }
     </style>
   </head>
   <body>
@@ -384,7 +398,13 @@
             alt="Logo Villa Aliris Guanacaste"
             class="logo-img"
           />
-          <h2>Villa Aliris Liberia</h2>
+          <h2 data-i18n="nav_brand">Villa Aliris Liberia</h2>
+        </div>
+        <!-- SELECTOR DE IDIOMAS -->
+        <div class="lang-selector">
+          <button class="lang-btn" onclick="cambiarIdioma('es')">🇪🇸 ES</button>
+          <button class="lang-btn" onclick="cambiarIdioma('en')">🇬🇧 EN</button>
+          <button class="lang-btn" onclick="cambiarIdioma('pt')">🇧🇷 PT</button>
         </div>
       </div>
     </header>
@@ -392,8 +412,8 @@
     <!-- 2. HERO SECTION -->
     <section class="hero">
       <div class="container">
-        <h1>Reconecta. Descansa. Regresa transformado.</h1>
-        <p>
+        <h1 data-i18n="hero_title">Reconecta. Descansa. Regresa transformado.</h1>
+        <p data-i18n="hero_subtitle">
           Un refugio privado en Guanacaste diseñado para silenciar el estrés
           diario, descansar profundamente y renovar tu energía en perfecta
           armonía con la naturaleza.
@@ -404,8 +424,8 @@
     <!-- 3. ACERCA DE -->
     <section class="acerca-de">
       <div class="container">
-        <h2>Nuestra Filosofía</h2>
-        <p>
+        <h2 data-i18n="philosophy_title">Nuestra Filosofía</h2>
+        <p data-i18n="philosophy_text">
           Reconecta con la naturaleza. Descansa profundamente. Regresa
           transformado. Villa Aliris es un refugio diseñado para silenciar la
           prisa diaria. Te invitamos a habitar el presente, disfrutar de la
@@ -417,27 +437,27 @@
     <main class="container">
       <!-- 4. GALERÍA DE LA PROPIEDAD -->
       <section id="galeria">
-        <h2>Explora la Propiedad</h2>
+        <h2 data-i18n="gallery_title">Explora la Propiedad</h2>
         <div class="grid-galeria">
-          <img src="Images/MainPage/Property/fachada.jpeg" alt="Fachada de Villa Aliris" />
-          <img src="Images/MainPage/Property/pasillo.jpg" alt="Pasillo" />
-          <img src="Images/MainPage/Property/principal.jpg" alt="Habitación Principal" />
-          <img src="Images/MainPage/Property/secundario.jpg" alt="Habitación Secundaria" />
-          <img src="Images/MainPage/Property/bath.jpg" alt="Baño moderno" />
-          <img src="Images/MainPage/Property/cocina.jpeg" alt="Área de cocina" />
-          <img src="Images/MainPage/Property/piscina.jpeg" alt="Piscina" />
+          <img src="Images/MainPage/Property/fachada.jpeg" alt="Fachada de Villa Aliris" data-i18n-alt="gallery_fachada" />
+          <img src="Images/MainPage/Property/pasillo.jpg" alt="Pasillo" data-i18n-alt="gallery_pasillo" />
+          <img src="Images/MainPage/Property/principal.jpg" alt="Habitación Principal" data-i18n-alt="gallery_principal" />
+          <img src="Images/MainPage/Property/secundario.jpg" alt="Habitación Secundaria" data-i18n-alt="gallery_secundario" />
+          <img src="Images/MainPage/Property/bath.jpg" alt="Baño moderno" data-i18n-alt="gallery_bath" />
+          <img src="Images/MainPage/Property/cocina.jpeg" alt="Área de cocina" data-i18n-alt="gallery_cocina" />
+          <img src="Images/MainPage/Property/piscina.jpeg" alt="Piscina" data-i18n-alt="gallery_piscina" />
         </div>
       </section>
 
       <!-- 5. AMENIDADES -->
       <section id="amenidades">
-        <h2>Lo más destacado</h2>
+        <h2 data-i18n="amenities_title">Lo más destacado</h2>
         <ul class="amenidades-list">
-          <li><span>🚀</span> Wi-Fi de Alta Velocidad</li>
-          <li><span>❄️</span> Aire Acondicionado</li>
-          <li><span>🏊‍♂️</span> Piscina Privada</li>
-          <li><span>🍃</span> Senderos</li>
-          <li><span>🔒</span> Estacionamiento Seguro</li>
+          <li><span>🚀</span> <span data-i18n="amenity_wifi">Wi-Fi de Alta Velocidad</span></li>
+          <li><span>❄️</span> <span data-i18n="amenity_ac">Aire Acondicionado</span></li>
+          <li><span>🏊‍♂️</span> <span data-i18n="amenity_pool">Piscina Privada</span></li>
+          <li><span>🍃</span> <span data-i18n="amenity_trails">Senderos</span></li>
+          <li><span>🔒</span> <span data-i18n="amenity_parking">Estacionamiento Seguro</span></li>
           <li>
             <span class="iconos-ubicacion">
               <span>🏙️</span>
@@ -445,8 +465,8 @@
               <span>🌋</span>
             </span>
             <div class="texto-ubicacion">
-              <strong>Ubicación Estratégica</strong>
-              <small>Cerca de Liberia, playas y Volcán Rincón de la Vieja</small>
+              <strong data-i18n="amenity_location_title">Ubicación Estratégica</strong>
+              <small data-i18n="amenity_location_sub">Cerca de Liberia, playas y Volcán Rincón de la Vieja</small>
             </div>
           </li>
         </ul>
@@ -456,58 +476,58 @@
     <!-- 6. SECCIÓN DE AVES Y FAUNA LOCAL -->
     <section id="fauna" class="fauna">
       <div class="container">
-        <h2>Naturaleza a tu Alcance</h2>
-        <p style="text-align: center; max-width: 700px; margin: 0 auto 3rem">
+        <h2 data-i18n="fauna_title">Naturaleza a tu Alcance</h2>
+        <p style="text-align: center; max-width: 700px; margin: 0 auto 3rem" data-i18n="fauna_subtitle">
           Nuestra propiedad está rodeada de frondosa vegetación donde
           frecuentemente nos visitan hermosas especies de aves locales.
         </p>
 
         <div class="grid-aves">
           <div class="ave-card">
-            <img src="Images/Birds/urraca.jpeg" alt="Urraca Copetona" onerror="this.src = 'Images/urraca.jpeg?auto=format&fit=crop&w=600&q=80'" />
+            <img src="Images/Birds/urraca.jpeg" alt="Urraca Copetona" />
             <div class="ave-info">
-              <h3>Urraca Copetona</h3>
-              <p>Sociables y muy vistosas, es común verlas en grupo explorando las ramas más altas durante las primeras horas del día.</p>
+              <h3 data-i18n="bird_urraca_title">Urraca Copetona</h3>
+              <p data-i18n="bird_urraca_desc">Sociables y muy vistosas, es común verlas en grupo explorando las ramas más altas durante las primeras horas del día.</p>
             </div>
           </div>
 
           <div class="ave-card">
-            <img src="Images/Birds/perico.jpeg" alt="Pericos" style="object-position: center bottom" onerror="this.src = 'Images/perico.jpeg?auto=format&fit=crop&w=600&q=80'" />
+            <img src="Images/Birds/perico.jpeg" alt="Pericos" style="object-position: center bottom" />
             <div class="ave-info">
-              <h3>Pericos</h3>
-              <p>Con su característico vuelo enérgico y juguetón, llenan el cielo de color y sonido al regresar en parvadas cuando cae la tarde.</p>
+              <h3 data-i18n="bird_perico_title">Pericos</h3>
+              <p data-i18n="bird_perico_desc">Con su característico vuelo enérgico y juguetón, llenan el cielo de color y sonido al regresar en parvadas cuando cae la tarde.</p>
             </div>
           </div>
 
           <div class="ave-card">
-            <img src="Images/Birds/buho.jpeg" alt="Búhos" onerror="this.src = 'Images/buho.jpeg?auto=format&fit=crop&w=600&q=80'" />
+            <img src="Images/Birds/buho.jpeg" alt="Búhos" />
             <div class="ave-info">
-              <h3>Búhos</h3>
-              <p>Guardianes silenciosos de la bruma matutina; encontrarse con su mirada fija y enigmática entre las ramas es siempre un momento mágico.</p>
+              <h3 data-i18n="bird_buho_title">Búhos</h3>
+              <p data-i18n="bird_buho_desc">Guardianes silenciosos de la bruma matutina; encontrarse con su mirada fija y enigmática entre las ramas es siempre un momento mágico.</p>
             </div>
           </div>
 
           <div class="ave-card">
-            <img src="Images/Birds/piche.jpeg" alt="Piches" onerror="this.src = 'Images/piche.jpeg?auto=format&fit=crop&w=600&q=80'" />
+            <img src="Images/Birds/piche.jpeg" alt="Piches" />
             <div class="ave-info">
-              <h3>Piches</h3>
-              <p>Un espectáculo de gracia natural; su silueta y comportamiento aportan un toque único de tranquilidad al paisaje.</p>
+              <h3 data-i18n="bird_piche_title">Piches</h3>
+              <p data-i18n="bird_piche_desc">Un espectáculo de gracia natural; su silueta y comportamiento aportan un toque único de tranquilidad al paisaje.</p>
             </div>
           </div>
 
           <div class="ave-card">
-            <img src="Images/Birds/trogon.jpeg" alt="Trogones" onerror="this.src = 'Images/trogon.jpeg?auto=format&fit=crop&w=600&q=80'" />
+            <img src="Images/Birds/trogon.jpeg" alt="Trogones" />
             <div class="ave-info">
-              <h3>Trogones</h3>
-              <p>Verdaderas joyas de la naturaleza; su plumaje vibrante y su postura tranquila personifican la armonía y la belleza del trópico.</p>
+              <h3 data-i18n="bird_trogon_title">Trogones</h3>
+              <p data-i18n="bird_trogon_desc">Verdaderas joyas de la naturaleza; su plumaje vibrante y su postura tranquila personifican la armonía y la belleza del trópico.</p>
             </div>
           </div>
 
           <div class="ave-card">
-            <img src="Images/Birds/bobo.jpeg" alt="Bobo" onerror="this.src = 'Images/bobo.jpeg?auto=format&fit=crop&w=600&q=80'" />
+            <img src="Images/Birds/bobo.jpeg" alt="Bobo" />
             <div class="ave-info">
-              <h3>Bobos</h3>
-              <p>Con una estampa inconfundible y una tranquilidad innata, capturan la atención de cualquier amante de la naturaleza.</p>
+              <h3 data-i18n="bird_bobo_title">Bobos</h3>
+              <p data-i18n="bird_bobo_desc">Con una estampa inconfundible y una tranquilidad innata, capturan la atención de cualquier amante de la naturaleza.</p>
             </div>
           </div>
         </div>
@@ -517,8 +537,8 @@
     <main class="container">
       <!-- 7. UBICACIÓN -->
       <section id="ubicacion">
-        <h2>Nuestra Ubicación</h2>
-        <p style="text-align: center">
+        <h2 data-i18n="location_title">Nuestra Ubicación</h2>
+        <p style="text-align: center" data-i18n="location_subtitle">
           Situados en una ubicación privilegiada en Liberia, Guanacaste, cerca
           de todo lo que necesitas.
         </p>
@@ -535,20 +555,20 @@
         </div>
 
         <div class="puntos-interes">
-          <div>🏝️ Liberia Centro: 12 min auto (aprox. 6 km)</div>
-          <div>🌋 Volcán Rincón de La Vieja: 54 min auto (aprox. 24 km)</div>
-          <div>🌊 Catarata La Leona: 18 min auto (aprox. 12.5 km)</div>
-          <div>🌊 Poza Los Coyotes: 20 min auto (aprox. 13 km)</div>
-          <div>🌊 Poza La Pipa: 19 min auto (aprox. 12 km)</div>
-          <div>🛒 Walmart: 12 min auto (aprox. 6.4 km)</div>
-          <div>🦓 Ponderosa: 20 min auto (aprox. 17.8 km)</div>
-          <div>✈️ Aeropuerto LIR: 30 min auto</div>
+          <div data-i18n="loc_1">🏝️ Liberia Centro: 12 min auto (aprox. 6 km)</div>
+          <div data-i18n="loc_2">🌋 Volcán Rincón de La Vieja: 54 min auto (aprox. 24 km)</div>
+          <div data-i18n="loc_3">🌊 Catarata La Leona: 18 min auto (aprox. 12.5 km)</div>
+          <div data-i18n="loc_4">🌊 Poza Los Coyotes: 20 min auto (aprox. 13 km)</div>
+          <div data-i18n="loc_5">🌊 Poza La Pipa: 19 min auto (aprox. 12 km)</div>
+          <div data-i18n="loc_6">🛒 Walmart: 12 min auto (aprox. 6.4 km)</div>
+          <div data-i18n="loc_7">🦓 Ponderosa: 20 min auto (aprox. 17.8 km)</div>
+          <div data-i18n="loc_8">✈️ Aeropuerto LIR: 30 min auto</div>
         </div>
       </section>
 
       <!-- 8. ANFITRIONES -->
       <section id="anfitriones" class="anfitriones">
-        <h2>Tus Anfitriones</h2>
+        <h2 data-i18n="hosts_title">Tus Anfitriones</h2>
         <div class="anfitriones-content">
           <img
             src="Images/Hosts/jose1.jpeg"
@@ -556,8 +576,8 @@
             class="anfitriones-img"
           />
           <div class="anfitriones-text">
-            <h3>¡Hola! Un gusto saludarle. Mi nombre es José Rafael Villegas García</h3>
-            <p>
+            <h3 data-i18n="hosts_greeting">¡Hola! Un gusto saludarle. Mi nombre es José Rafael Villegas García</h3>
+            <p data-i18n="hosts_desc">
               Diseñamos Villa Aliris para compartir nuestra
               pasión por la naturaleza y la tranquilidad. Estamos a su
               disposición para ofrecerle recomendaciones locales y asegurarnos
@@ -571,8 +591,8 @@
     <!-- 9. SECCIÓN DE CONTACTO FINAL -->
     <section id="contacto" class="contacto">
       <div class="container">
-        <h2>¿Deseas más información?</h2>
-        <p>
+        <h2 data-i18n="contact_title">¿Deseas más información?</h2>
+        <p data-i18n="contact_subtitle">
           Nuestra web es un espacio informativo para que conozcas la
           experiencia. Para consultar disponibilidad, tarifas o resolver
           cualquier duda, escríbenos directamente y con gusto te atenderemos.
@@ -582,12 +602,14 @@
           href="https://wa.me/50688247176?text=Hola!%20Me%20interesa%20información%20sobre%20la%20propiedad"
           target="_blank"
           class="btn-contacto btn-whatsapp"
+          data-i18n="btn_whatsapp"
           >Consultar por WhatsApp</a
         >
 
         <a
           href="mailto:villaaliris@gmail.com?subject=Consulta%20sobre%20Villa%20Aliris"
           class="btn-contacto btn-email"
+          data-i18n="btn_email"
           >Enviar un Correo</a
         >
       </div>
@@ -604,23 +626,67 @@
     <!-- FOOTER -->
     <footer>
       <div class="container">
-        <p>
+        <p data-i18n="footer_rights">
           &copy; 2026 Villa Aliris Liberia, Guanacaste — Todos los derechos reservados.
         </p>
-        <p style="font-size: 0.8rem; margin-top: 0.5rem">
+        <p style="font-size: 0.8rem; margin-top: 0.5rem" data-i18n="footer_loc">
           Guanacaste, Costa Rica
         </p>
       </div>
     </footer>
 
-    <!-- SCRIPT DE JAVASCRIPT PARA CONTROLAR EL ZOOM -->
+    <!-- SCRIPT DE JAVASCRIPT PARA CONTROLAR EL ZOOM Y MULTILENGUAJE -->
     <script>
+      let traducciones = {};
+
+      async function cargarTraducciones() {
+        try {
+          const response = await fetch('lang/translations.json');
+          traducciones = await response.json();
+          const idiomaGuardado = localStorage.getItem('idioma_villa') || 'es';
+          cambiarIdioma(idiomaGuardado);
+        } catch (error) {
+          console.error("Error al cargar las traducciones:", error);
+        }
+      }
+
+      function cambiarIdioma(lang) {
+        if (!traducciones[lang]) return;
+        localStorage.setItem('idioma_villa', lang);
+        
+        // Traducir textos generales
+        const elementos = document.querySelectorAll('[data-i18n]');
+        elementos.forEach(el => {
+          const clave = el.getAttribute('data-i18n');
+          if (traducciones[lang][clave]) {
+            el.textContent = traducciones[lang][clave];
+          }
+        });
+
+        // Traducir atributos alt en la galería si aplica
+        const elementosAlt = document.querySelectorAll('[data-i18n-alt]');
+        elementosAlt.forEach(el => {
+          const clave = el.getAttribute('data-i18n-alt');
+          if (traducciones[lang][clave]) {
+            el.alt = traducciones[lang][clave];
+          }
+        });
+
+        // Traducir el título de la página
+        if (traducciones[lang]['title']) {
+          document.title = traducciones[lang]['title'];
+        }
+      }
+
       document.addEventListener("DOMContentLoaded", () => {
+        // Cargar motor de idiomas
+        cargarTraducciones();
+
+        // Control del Lightbox / Zoom de imágenes
         const modal = document.getElementById("lightboxModal");
         const modalImg = document.getElementById("lightboxImg");
         const cerrarBtn = document.getElementById("lightboxCerrar");
 
-        // Seleccionamos todas las imágenes principales de la galería y de aves/anfitrión
         const imagenes = document.querySelectorAll(".grid-galeria img, .ave-card img, .anfitriones-img");
 
         imagenes.forEach((img) => {
@@ -631,7 +697,6 @@
           });
         });
 
-        // Función para cerrar el modal
         const cerrarModal = () => {
           modal.classList.remove("activo");
           modalImg.src = "";
@@ -639,14 +704,12 @@
 
         cerrarBtn.addEventListener("click", cerrarModal);
 
-        // Cerrar también si se hace clic fuera de la imagen (en el fondo oscuro)
         modal.addEventListener("click", (e) => {
           if (e.target === modal) {
             cerrarModal();
           }
         });
 
-        // Cerrar presionando la tecla Escape del teclado
         document.addEventListener("keydown", (e) => {
           if (e.key === "Escape" && modal.classList.contains("activo")) {
             cerrarModal();
