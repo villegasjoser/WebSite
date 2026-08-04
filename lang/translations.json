@@ -97,7 +97,8 @@
     "form_message": "Mensaje",
     "form_send": "Enviar Mensaje",
     "footer_rights": "© 2026 Villa Aliris Liberia, Guanacaste — Todos los derechos reservados.",
-    "footer_loc": "Guanacaste, Costa Rica"
+    "footer_loc": "Guanacaste, Costa Rica",
+    "instagram_text": "También puedes seguirnos en Instagram:"
   },
   "en": {
     "title": "Villa Aliris Liberia, Guanacaste | Nature, Rest, and Transformation",
@@ -197,7 +198,8 @@
     "form_message": "Message",
     "form_send": "Send Message",
     "footer_rights": "© 2026 Villa Aliris Liberia, Guanacaste — All rights reserved.",
-    "footer_loc": "Guanacaste, Costa Rica"
+    "footer_loc": "Guanacaste, Costa Rica",
+    "instagram_text": "You can also follow us on Instagram:"
   },
   "pt": {
     "title": "Villa Aliris Liberia, Guanacaste | Natureza, Descanso e Transformação",
@@ -297,6 +299,7 @@
     "form_message": "Mensagem",
     "form_send": "Enviar Mensagem",
     "footer_rights": "© 2026 Villa Aliris Liberia, Guanacaste — Todos os direitos reservados.",
-    "footer_loc": "Guanacaste, Costa Rica"
+    "footer_loc": "Guanacaste, Costa Rica",
+    "instagram_text": "Você também pode nos seguir no Instagram:"
   }
 }

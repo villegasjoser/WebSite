@@ -533,6 +533,29 @@
         align-items: center;
         margin-top: auto;
       }
+
+      .contacto-instagram-text {
+        margin-top: 2rem; /* Le da respiración respecto a los botones superiores */
+        font-size: 1rem;
+        color: #cbd5e1; /* Gris claro/blanco opaco para que resalte sobre el fondo oscuro */
+        text-align: center;
+      }
+
+      .contacto-instagram-link {
+        color: #e1306c; /* Color rosa/mágnum distintivo de Instagram con alto contraste */
+        font-weight: 600;
+        text-decoration: none;
+        margin-left: 0.4rem;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.3rem;
+        transition: all 0.2s ease-in-out;
+      }
+
+      .contacto-instagram-link:hover {
+        color: #fd5949; /* Cambio sutil al pasar el cursor */
+        text-decoration: underline;
+      }
     </style>
   </head>
   <body>
@@ -640,7 +663,7 @@
             alt="Área de cocina"
             data-i18n-alt="gallery_cocina"
           />
-           <img
+          <img
             src="Images/MainPage/Property/oficina.jpeg"
             alt="Oficina"
             data-i18n-alt="gallery_oficina"
@@ -1081,6 +1104,20 @@
           Enviar Mensaje Directo
         </button>
       </div>
+
+      <!-- Enlace adicional debajo de los botones principales -->
+      <p class="contacto-instagram-text">
+        <span data-i18n="instagram_text"
+          >También puedes seguirnos en Instagram:</span
+        >
+        <a
+          href="https://www.instagram.com/villaaliris"
+          target="_blank"
+          class="contacto-instagram-link"
+        >
+          <i class="bi bi-instagram"></i> @villaaliris
+        </a>
+      </p>
     </section>
 
     <!-- COMPONENTE MODAL LIGHTBOX PARA EL ZOOM DE IMÁGENES -->
