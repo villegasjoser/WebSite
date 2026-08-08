@@ -53,7 +53,7 @@
         color: #475569;
       }
 
-      /* ENCABEZADO OPTIMIZADO EN UNA SOLA LÍNEA */
+      /* ENCABEZADO OPTIMIZADO */
       header {
         background: white;
         padding: 0.75rem 0;
@@ -66,7 +66,6 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        flex-wrap: nowrap;
         gap: 1rem;
       }
       .brand {
@@ -136,6 +135,31 @@
         color: white;
         border-color: #059669;
         box-shadow: 0 2px 6px rgba(16, 185, 129, 0.3);
+      }
+
+      /* RESPONSIVE HEADER PARA PANTALLAS PEQUEÑAS (Celulares y Tablets) */
+      @media (max-width: 850px) {
+        header .container {
+          flex-wrap: wrap;
+          justify-content: center;
+          gap: 0.75rem;
+        }
+
+        .nav-menu {
+          order: 2;
+          font-size: 0.85rem;
+          gap: 0.8rem;
+          overflow-x: auto;
+          max-width: 100%;
+          padding-bottom: 4px;
+        }
+
+        .lang-selector {
+          order: 3;
+          width: 100%;
+          justify-content: center;
+          margin-top: 0.2rem;
+        }
       }
 
       /* HERO SECTION */
