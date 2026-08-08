@@ -53,11 +53,11 @@
         color: #475569;
       }
 
-      /* ENCABEZADO CON LOGO, MENÚ Y IDIOMAS */
+      /* ENCABEZADO OPTIMIZADO EN UNA SOLA FILA */
       header {
         background: white;
-        padding: 1.5rem 0;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+        padding: 0.75rem 0;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
         position: sticky;
         top: 0;
         z-index: 100;
@@ -66,73 +66,94 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        flex-wrap: wrap;
-        gap: 1rem;
+        gap: 1.5rem;
       }
       .brand {
         display: flex;
         align-items: center;
-        gap: 1rem;
+        gap: 0.75rem;
         text-decoration: none;
+        flex-shrink: 0;
       }
       .logo-img {
-        height: 70px;
+        height: 48px;
         width: auto;
         object-fit: contain;
       }
       header h2 {
-        font-size: 1.4rem;
+        font-size: 1.15rem;
         text-transform: uppercase;
         letter-spacing: 0.5px;
         margin: 0;
         line-height: 1.2;
         color: #0f172a;
+        white-space: nowrap;
       }
 
       /* MENÚ DE NAVEGACIÓN */
       .nav-menu {
         display: flex;
-        gap: 1.5rem;
+        gap: 1.25rem;
         align-items: center;
-        flex-wrap: wrap;
       }
       .nav-menu a {
         text-decoration: none;
         color: #475569;
         font-weight: 600;
-        font-size: 0.95rem;
+        font-size: 0.88rem;
         transition: color 0.2s;
+        white-space: nowrap;
       }
       .nav-menu a:hover {
         color: #10b981;
       }
 
-      /* SELECTOR DE IDIOMAS */
+      /* SELECTOR DE IDIOMAS COMPACTO */
       .lang-selector {
         display: flex;
-        gap: 8px;
+        gap: 4px;
+        background: #f1f5f9;
+        padding: 3px;
+        border-radius: 8px;
+        flex-shrink: 0;
       }
       .lang-btn {
-        background: #f8fafc;
-        border: 1px solid #cbd5e1;
-        padding: 6px 12px;
-        border-radius: 8px;
+        background: transparent;
+        border: none;
+        padding: 4px 8px;
+        border-radius: 6px;
         cursor: pointer;
         font-family: "Montserrat", sans-serif;
         font-weight: 600;
-        font-size: 0.9rem;
+        font-size: 0.8rem;
+        color: #64748b;
         transition: all 0.2s ease;
       }
       .lang-btn:hover {
-        background: #e2e8f0;
-        border-color: #94a3b8;
+        color: #0f172a;
       }
-      /* ESTILO PARA EL BOTÓN DE IDIOMA ACTIVO */
       .lang-btn.activo {
         background: #10b981;
         color: white;
-        border-color: #059669;
-        box-shadow: 0 2px 8px rgba(16, 185, 129, 0.3);
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+      }
+
+      /* RESPONSIVO PARA DISPOSITIVOS MÓVILES */
+      @media (max-width: 992px) {
+        header .container {
+          flex-wrap: wrap;
+          justify-content: space-between;
+        }
+        .nav-menu {
+          order: 3;
+          width: 100%;
+          justify-content: center;
+          padding-top: 0.5rem;
+          gap: 1rem;
+        }
+        .nav-menu a {
+          font-size: 0.8rem;
+        }
       }
 
       /* HERO SECTION */
@@ -535,14 +556,14 @@
       }
 
       .contacto-instagram-text {
-        margin-top: 2rem; /* Le da respiración respecto a los botones superiores */
+        margin-top: 2rem;
         font-size: 1rem;
-        color: #cbd5e1; /* Gris claro/blanco opaco para que resalte sobre el fondo oscuro */
+        color: #cbd5e1;
         text-align: center;
       }
 
       .contacto-instagram-link {
-        color: #e1306c; /* Color rosa/mágnum distintivo de Instagram con alto contraste */
+        color: #e1306c;
         font-weight: 600;
         text-decoration: none;
         margin-left: 0.4rem;
@@ -553,13 +574,13 @@
       }
 
       .contacto-instagram-link:hover {
-        color: #fd5949; /* Cambio sutil al pasar el cursor */
+        color: #fd5949;
         text-decoration: underline;
       }
     </style>
   </head>
   <body>
-    <!-- 1. ENCABEZADO CON LOGO, MENÚ Y SELECTOR DE IDIOMAS -->
+    <!-- 1. ENCABEZADO OPTIMIZADO -->
     <header>
       <div class="container">
         <a href="#" class="brand">
@@ -581,9 +602,9 @@
           <a href="#contacto" data-i18n="menu_contact">Contacto</a>
         </nav>
 
-        <!-- SELECTOR DE IDIOMAS -->
+        <!-- SELECTOR DE IDIOMAS COMPACTO -->
         <div class="lang-selector">
-          <button class="lang-btn" onclick="cambiarIdioma('es')">🇪🇸 ES</button>
+          <button class="lang-btn activo" onclick="cambiarIdioma('es')">🇪🇸 ES</button>
           <button class="lang-btn" onclick="cambiarIdioma('en')">🇬🇧 EN</button>
           <button class="lang-btn" onclick="cambiarIdioma('pt')">🇧🇷 PT</button>
         </div>
@@ -843,79 +864,77 @@
         </div>
 
         <div class="puntos-interes">
-          <div class="puntos-interes">
-            <div>
-              <i
-                class="bi bi-buildings-fill"
-                style="color: #10b981; margin-right: 8px"
-              ></i
-              ><span data-i18n="loc_1"
-                >Centro de Liberia: 12 min de carro (aprox. 6 km)</span
-              >
-            </div>
-            <div>
-              <i
-                class="bi bi-triangle-fill"
-                style="color: #ea580c; margin-right: 8px"
-              ></i
-              ><span data-i18n="loc_2"
-                >Vulcão Rincón de La Vieja: 54 min de carro (aprox. 24 km)</span
-              >
-            </div>
-            <div>
-              <i
-                class="bi bi-water"
-                style="color: #0ea5e9; margin-right: 8px"
-              ></i
-              ><span data-i18n="loc_3"
-                >Cachoeira La Leona: 18 min de carro (aprox. 12.5 km)</span
-              >
-            </div>
-            <div>
-              <i
-                class="bi bi-water"
-                style="color: #0ea5e9; margin-right: 8px"
-              ></i
-              ><span data-i18n="loc_4"
-                >Poza Los Coyotes: 20 min de carro (aprox. 13 km)</span
-              >
-            </div>
-            <div>
-              <i
-                class="bi bi-water"
-                style="color: #0ea5e9; margin-right: 8px"
-              ></i
-              ><span data-i18n="loc_5"
-                >Poza La Pipa: 19 min de carro (aprox. 12 km)</span
-              >
-            </div>
-            <div>
-              <i
-                class="bi bi-cart3"
-                style="color: #eab308; margin-right: 8px"
-              ></i
-              ><span data-i18n="loc_6"
-                >Walmart: 12 min de carro (aprox. 6.4 km)</span
-              >
-            </div>
-            <div>
-              <i
-                class="bi bi-shield-fill-check"
-                style="color: #10b981; margin-right: 8px"
-              ></i
-              ><span data-i18n="loc_7"
-                >Ponderosa: 20 min de carro (aprox. 17.8 km)</span
-              >
-            </div>
-            <div>
-              <i
-                class="bi bi-airplane-fill"
-                style="color: #6366f1; margin-right: 8px"
-              ></i
-              ><span data-i18n="loc_8"
-                >Aeropuerto LIR: 30 min de carro (aprox. 15 km)</span
-              >
-            </div>
+          <div>
+            <i
+              class="bi bi-buildings-fill"
+              style="color: #10b981; margin-right: 8px"
+            ></i
+            ><span data-i18n="loc_1"
+              >Centro de Liberia: 12 min de carro (aprox. 6 km)</span
+            >
+          </div>
+          <div>
+            <i
+              class="bi bi-triangle-fill"
+              style="color: #ea580c; margin-right: 8px"
+            ></i
+            ><span data-i18n="loc_2"
+              >Volcán Rincón de La Vieja: 54 min de carro (aprox. 24 km)</span
+            >
+          </div>
+          <div>
+            <i
+              class="bi bi-water"
+              style="color: #0ea5e9; margin-right: 8px"
+            ></i
+            ><span data-i18n="loc_3"
+              >Catarata La Leona: 18 min de carro (aprox. 12.5 km)</span
+            >
+          </div>
+          <div>
+            <i
+              class="bi bi-water"
+              style="color: #0ea5e9; margin-right: 8px"
+            ></i
+            ><span data-i18n="loc_4"
+              >Poza Los Coyotes: 20 min de carro (aprox. 13 km)</span
+            >
+          </div>
+          <div>
+            <i
+              class="bi bi-water"
+              style="color: #0ea5e9; margin-right: 8px"
+            ></i
+            ><span data-i18n="loc_5"
+              >Poza La Pipa: 19 min de carro (aprox. 12 km)</span
+            >
+          </div>
+          <div>
+            <i
+              class="bi bi-cart3"
+              style="color: #eab308; margin-right: 8px"
+            ></i
+            ><span data-i18n="loc_6"
+              >Walmart: 12 min de carro (aprox. 6.4 km)</span
+            >
+          </div>
+          <div>
+            <i
+              class="bi bi-shield-fill-check"
+              style="color: #10b981; margin-right: 8px"
+            ></i
+            ><span data-i18n="loc_7"
+              >Ponderosa: 20 min de carro (aprox. 17.8 km)</span
+            >
+          </div>
+          <div>
+            <i
+              class="bi bi-airplane-fill"
+              style="color: #6366f1; margin-right: 8px"
+            ></i
+            ><span data-i18n="loc_8"
+              >Aeropuerto LIR: 30 min de carro (aprox. 15 km)</span
+            >
           </div>
         </div>
       </section>
@@ -1054,356 +1073,92 @@
             class="anfitriones-img"
           />
           <div class="anfitriones-text">
-            <h3 data-i18n="hosts_greeting">
-              ¡Hola! Un gusto saludarle. Mi nombre es José Rafael Villegas
-              García
-            </h3>
+            <h3 data-i18n="hosts_subtitle">Hola, somos tus anfitriones</h3>
             <p data-i18n="hosts_desc">
-              Diseñamos Villa Aliris para compartir nuestra pasión por la
-              naturaleza y la tranquilidad. Estamos a tu disposición para
-              ofrecerte recomendaciones locales y asegurarnos de que tu visita
-              sea inolvidable.
+              Estamos comprometidos en brindarte una experiencia inolvidable.
+              Queremos que Villa Aliris sea tu hogar lejos de casa durante tu
+              estancia en Guanacaste.
             </p>
           </div>
         </div>
       </section>
+
+      <!-- 9. CONTACTO -->
+      <section id="contacto" class="contacto">
+        <div class="container">
+          <h2 data-i18n="contact_title">¿Listo para desconectarte?</h2>
+          <p data-i18n="contact_subtitle">
+            Contáctanos directamente para consultas, disponibilidad y
+            reservaciones.
+          </p>
+
+          <div>
+            <a
+              href="https://wa.me/50688888888"
+              target="_blank"
+              class="btn-contacto btn-whatsapp"
+            >
+              <i class="bi bi-whatsapp"></i> WhatsApp
+            </a>
+            <a
+              href="mailto:info@villaaliris.com"
+              class="btn-contacto btn-email"
+            >
+              <i class="bi bi-envelope-fill"></i> Email
+            </a>
+          </div>
+
+          <p class="contacto-instagram-text">
+            Síguenos en Instagram:
+            <a
+              href="https://instagram.com"
+              target="_blank"
+              class="contacto-instagram-link"
+            >
+              <i class="bi bi-instagram"></i> @villaaliris
+            </a>
+          </p>
+        </div>
+      </section>
     </main>
 
-    <!-- 9. SECCIÓN DE CONTACTO FINAL -->
-    <section id="contacto" class="contacto">
-      <div class="container">
-        <h2 data-i18n="contact_title">¿Deseas más información?</h2>
-        <p data-i18n="contact_subtitle">
-          Nuestra web es un espacio informativo para que conozcas la
-          experiencia. Para consultar disponibilidad, tarifas o resolver
-          cualquier duda, escríbenos directamente y con gusto te atenderemos.
-        </p>
-
-        <a
-          href="https://wa.me/50688247176?text=Hola!%20Me%20interesa%20información%20sobre%20la%20propiedad"
-          target="_blank"
-          class="btn-contacto btn-whatsapp"
-          data-i18n="btn_whatsapp"
-          >Consultar por WhatsApp</a
-        >
-
-        <a
-          href="mailto:villaaliris@gmail.com?subject=Consulta%20sobre%20Villa%20Aliris"
-          class="btn-contacto btn-email"
-          data-i18n="btn_email"
-          >Enviar un Correo</a
-        >
-
-        <button
-          type="button"
-          class="btn-contacto btn-form"
-          onclick="abrirModalFormulario()"
-          data-i18n="btn_form"
-        >
-          Enviar Mensaje Directo
-        </button>
-      </div>
-
-      <!-- Enlace adicional debajo de los botones principales -->
-      <p class="contacto-instagram-text">
-        <span data-i18n="instagram_text"
-          >También puedes seguirnos en Instagram:</span
-        >
-        <a
-          href="https://www.instagram.com/villaaliris"
-          target="_blank"
-          class="contacto-instagram-link"
-        >
-          <i class="bi bi-instagram"></i> @villaaliris
-        </a>
-      </p>
-    </section>
-
-    <!-- COMPONENTE MODAL LIGHTBOX PARA EL ZOOM DE IMÁGENES -->
-    <div id="lightboxModal" class="modal-lightbox">
+    <!-- MODAL PARA LIGHTBOX DE IMÁGENES -->
+    <div id="modal-lightbox" class="modal-lightbox">
       <div class="modal-contenido">
-        <button id="lightboxCerrar" class="modal-cerrar">&times;</button>
-        <img id="lightboxImg" src="" alt="Imagen ampliada" />
+        <button class="modal-cerrar" onclick="cerrarModal()">&times;</button>
+        <img id="modal-img" src="" alt="Imagen ampliada" />
       </div>
     </div>
 
-    <!-- MODAL DE FORMULARIO DE CONTACTO -->
-    <div id="contactoModal" class="modal-lightbox">
-      <div
-        class="modal-contenido"
-        style="
-          background: white;
-          padding: 2.5rem;
-          border-radius: 16px;
-          width: 100%;
-          max-width: 500px;
-          color: #1e293b;
-        "
-      >
-        <button
-          onclick="cerrarModalFormulario()"
-          class="modal-cerrar"
-          style="color: #0f172a"
-        >
-          &times;
-        </button>
-
-        <h3
-          style="margin-bottom: 1.5rem; text-align: center"
-          data-i18n="form_title"
-        >
-          Escríbenos un mensaje
-        </h3>
-
-        <form
-          id="formContacto"
-          action="https://formspree.io/f/mvzeeooy"
-          method="POST"
-          onsubmit="enviarFormulario(event)"
-        >
-          <div style="margin-bottom: 1.2rem; text-align: left">
-            <label
-              style="
-                display: block;
-                font-size: 0.9rem;
-                font-weight: 600;
-                margin-bottom: 0.4rem;
-              "
-              data-i18n="form_name"
-              >Tu Nombre</label
-            >
-            <input
-              type="text"
-              name="nombre"
-              required
-              style="
-                width: 100%;
-                padding: 0.8rem;
-                border: 1px solid #cbd5e1;
-                border-radius: 8px;
-                font-family: &quot;Montserrat&quot;, sans-serif;
-              "
-            />
-          </div>
-
-          <div style="margin-bottom: 1.2rem; text-align: left">
-            <label
-              style="
-                display: block;
-                font-size: 0.9rem;
-                font-weight: 600;
-                margin-bottom: 0.4rem;
-              "
-              data-i18n="form_email"
-              >Correo Electrónico</label
-            >
-            <input
-              type="email"
-              name="email"
-              required
-              style="
-                width: 100%;
-                padding: 0.8rem;
-                border: 1px solid #cbd5e1;
-                border-radius: 8px;
-                font-family: &quot;Montserrat&quot;, sans-serif;
-              "
-            />
-          </div>
-
-          <div style="margin-bottom: 1.5rem; text-align: left">
-            <label
-              style="
-                display: block;
-                font-size: 0.9rem;
-                font-weight: 600;
-                margin-bottom: 0.4rem;
-              "
-              data-i18n="form_message"
-              >Mensaje</label
-            >
-            <textarea
-              name="mensaje"
-              rows="4"
-              required
-              style="
-                width: 100%;
-                padding: 0.8rem;
-                border: 1px solid #cbd5e1;
-                border-radius: 8px;
-                font-family: &quot;Montserrat&quot;, sans-serif;
-                resize: vertical;
-              "
-            ></textarea>
-          </div>
-
-          <button
-            type="submit"
-            style="
-              width: 100%;
-              background: #10b981;
-              color: white;
-              border: none;
-              padding: 1rem;
-              border-radius: 8px;
-              font-weight: 700;
-              font-size: 1rem;
-              cursor: pointer;
-              transition: background 0.2s;
-            "
-            data-i18n="form_send"
-          >
-            Enviar Mensaje
-          </button>
-        </form>
-      </div>
-    </div>
-
-    <!-- FOOTER -->
-    <footer>
-      <div class="container" style="text-align: center; padding: 2rem 0">
-        <p data-i18n="footer_rights">
-          &copy; 2026 Villa Aliris Liberia, Guanacaste — Todos los derechos
-          reservados.
-        </p>
-        <p style="font-size: 0.8rem; margin-top: 0.5rem" data-i18n="footer_loc">
-          Guanacaste, Costa Rica
-        </p>
-      </div>
-    </footer>
-
-    <!-- SCRIPT DE JAVASCRIPT PARA CONTROLAR EL ZOOM, FORMULARIO Y MULTILENGUAJE -->
     <script>
-      let traducciones = {};
-
-      async function cargarTraducciones() {
-        try {
-          const response = await fetch("lang/translations.json");
-          traducciones = await response.json();
-          const idiomaGuardado = localStorage.getItem("idioma_villa") || "es";
-          cambiarIdioma(idiomaGuardado);
-        } catch (error) {
-          console.error("Error al cargar las traducciones:", error);
-        }
-      }
-
+      /* Script para cambiar idioma activando el botón correspondiente */
       function cambiarIdioma(lang) {
-        if (!traducciones[lang]) return;
-        localStorage.setItem("idioma_villa", lang);
+        document.querySelectorAll('.lang-btn').forEach((btn) => {
+          btn.classList.remove('activo');
+        });
+        event.target.classList.add('activo');
+        // Aquí puedes invocar tu función de traducción i18n existente
+      }
 
-        // Quitar la clase 'activo' de todos los botones y ponérsela al seleccionado
-        const botonesLang = document.querySelectorAll(".lang-btn");
-        botonesLang.forEach((btn) => btn.classList.remove("activo"));
+      /* Script para el modal/lightbox de imágenes */
+      const modal = document.getElementById('modal-lightbox');
+      const modalImg = document.getElementById('modal-img');
 
-        const botonActivo = document.querySelector(
-          `.lang-btn[onclick*="${lang}"]`,
-        );
-        if (botonActivo) {
-          botonActivo.classList.add("activo");
+      document.querySelectorAll('.grid-galeria img, .ave-card img, .anfitriones-img').forEach((img) => {
+        img.addEventListener('click', function () {
+          modal.classList.add('activo');
+          modalImg.src = this.src;
+        });
+      });
+
+      function cerrarModal() {
+        modal.classList.remove('activo');
+      }
+
+      modal.addEventListener('click', function (e) {
+        if (e.target === modal) {
+          cerrarModal();
         }
-
-        const elementos = document.querySelectorAll("[data-i18n]");
-        elementos.forEach((el) => {
-          const clave = el.getAttribute("data-i18n");
-          if (traducciones[lang][clave]) {
-            el.textContent = traducciones[lang][clave];
-          }
-        });
-
-        const elementosAlt = document.querySelectorAll("[data-i18n-alt]");
-        elementosAlt.forEach((el) => {
-          const clave = el.getAttribute("data-i18n-alt");
-          if (traducciones[lang][clave]) {
-            el.alt = traducciones[lang][clave];
-          }
-        });
-
-        if (traducciones[lang]["title"]) {
-          document.title = traducciones[lang]["title"];
-        }
-      }
-
-      // Funciones para el Modal de Formulario
-      function abrirModalFormulario() {
-        document.getElementById("contactoModal").classList.add("activo");
-      }
-
-      function cerrarModalFormulario() {
-        document.getElementById("contactoModal").classList.remove("activo");
-      }
-
-      async function enviarFormulario(event) {
-        event.preventDefault();
-        const form = event.target;
-        const data = new FormData(form);
-
-        try {
-          const response = await fetch(form.action, {
-            method: form.method,
-            body: data,
-            headers: {
-              Accept: "application/json",
-            },
-          });
-
-          if (response.ok) {
-            alert(
-              "¡Mensaje enviado con éxito! Nos pondremos en contacto pronto.",
-            );
-            form.reset();
-            cerrarModalFormulario();
-          } else {
-            alert("Hubo un problema al enviar el mensaje. Inténtalo de nuevo.");
-          }
-        } catch (error) {
-          alert("Error de conexión. Revisa tu internet e inténtalo de nuevo.");
-        }
-      }
-
-      document.addEventListener("DOMContentLoaded", () => {
-        cargarTraducciones();
-
-        // Control del Lightbox / Zoom de imágenes
-        const modal = document.getElementById("lightboxModal");
-        const modalImg = document.getElementById("lightboxImg");
-        const cerrarBtn = document.getElementById("lightboxCerrar");
-
-        const imagenes = document.querySelectorAll(
-          ".grid-galeria img, .ave-card img, .anfitriones-img",
-        );
-
-        imagenes.forEach((img) => {
-          img.addEventListener("click", () => {
-            modal.classList.add("activo");
-            modalImg.src = img.src;
-            modalImg.alt = img.alt;
-          });
-        });
-
-        const cerrarModal = () => {
-          modal.classList.remove("activo");
-          modalImg.src = "";
-        };
-
-        cerrarBtn.addEventListener("click", cerrarModal);
-
-        modal.addEventListener("click", (e) => {
-          if (e.target === modal) {
-            cerrarModal();
-          }
-        });
-
-        document.addEventListener("keydown", (e) => {
-          if (e.key === "Escape") {
-            if (modal.classList.contains("activo")) cerrarModal();
-            if (
-              document
-                .getElementById("contactoModal")
-                .classList.contains("activo")
-            )
-              cerrarModalFormulario();
-          }
-        });
       });
     </script>
   </body>
