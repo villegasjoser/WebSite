@@ -37,6 +37,7 @@
     "amenity_office": "Oficina Privada para Teletrabajo",
     "amenity_tv_streaming_title": "TV y Streaming",
     "amenity_pets": "Apto para Mascotas",
+    "amenity_board_games": "Juegos de Mesa",
     "fauna_title": "Naturaleza a tu Alcance",
     "fauna_subtitle": "Nuestra propiedad está rodeada de frondosa vegetación donde frecuentemente nos visitan hermosas especies de aves locales.",
     "bird_urraca_title": "Urraca Copetona",
@@ -66,6 +67,7 @@
 
     "activity_volcano_title": "Parque Nacional Rincón de la Vieja",
     "activity_volcano_desc": "Senderos entre volcanes, pailas de lodo hirviendo y aguas termales.",
+    "disclaimer": "La información sobre horarios, tarifas y servicios de terceros es de carácter informativo y puede variar sin previo aviso. Recomendamos consultar los sitios web oficiales antes de su visita.",
     "volcano_hours": "Horario: Martes a domingo, 8:00 a.m. - 3:00 p.m.",
     "volcano_cost": "Costo: Nacionales ₡1,000 / Extranjeros $15 USD",
 
@@ -141,6 +143,7 @@
     "amenity_office": "Private Office for Remote Work",
     "amenity_tv_streaming_title": "TV and Streaming",
     "amenity_pets": "Pet Friendly",
+    "amenity_board_games": "Board Games",
     "fauna_title": "Nature Within Reach",
     "fauna_subtitle": "Our property is surrounded by lush vegetation where beautiful local bird species frequently visit us.",
     "bird_urraca_title": "Magpie Jay",
@@ -170,6 +173,8 @@
 
     "activity_volcano_title": "Rincón de la Vieja National Park",
     "activity_volcano_desc": "Trails between volcanoes, boiling mud pots, and hot springs.",
+    "disclaimer": "Information regarding hours, rates, and third-party services is for reference only and subject to change without notice. We recommend checking official websites prior to your visit.",
+
     "volcano_hours": "Hours: Tuesday to Sunday, 8:00 a.m. - 3:00 p.m.",
     "volcano_cost": "Cost: Locals ₡1,000 / Foreigners $15 USD",
 
@@ -245,6 +250,7 @@
     "amenity_office": "Escritório Privado para Home Office",
     "amenity_tv_streaming_title": "TV e Streaming",
     "amenity_pets": "Aceita Animais de Estimação",
+    "amenity_board_games": "Jogos de Tabuleiro",
     "fauna_title": "Natureza ao seu Alcance",
     "fauna_subtitle": "Nossa propriedade é cercada por vegetação exuberante, onde belas espécies de aves locais nos visitam frequentemente.",
     "bird_urraca_title": "Urraca-de-crista",
@@ -274,6 +280,8 @@
 
     "activity_volcano_title": "Parque Nacional Rincón de la Vieja",
     "activity_volcano_desc": "Trilhas entre vulcões, caldeiras de lama fervente e fontes termais.",
+    "disclaimer": "As informações sobre horários, tarifas e serviços de terceiros são apenas informativas e sujeitas a alterações sem aviso prévio. Recomendamos consultar os sites oficiais antes da sua visita.",
+
     "volcano_hours": "Horário: Terça a domingo, 8:00 - 15:00",
     "volcano_cost": "Custo: Nacionais ₡1,000 / Estrangeiros $15 USD",
 
