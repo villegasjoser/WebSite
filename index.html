@@ -56,6 +56,11 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap"
       rel="stylesheet"
     />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
     <!-- Bootstrap Icons -->
     <link
       rel="stylesheet"
@@ -655,6 +660,48 @@
         color: #fd5949;
         text-decoration: underline;
       }
+
+      /* Contenedor del selector e ícono */
+      .lang-selector {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+
+      /* Estilo para el ícono del globo */
+      .globe-icon {
+        font-size: 1.1rem;
+        color: #333; /* Ajusta el color según el tono de tu menú */
+      }
+
+      /* Estilo para el menú desplegable */
+      #langSelect {
+        background: transparent;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        padding: 4px 8px;
+        font-size: 0.9rem;
+        color: #333;
+        cursor: pointer;
+        outline: none;
+        transition: border-color 0.2s ease;
+      }
+
+      #langSelect:hover,
+      #langSelect:focus {
+        border-color: #888;
+      }
+
+      #langSelect {
+        border: none;
+        background: transparent;
+        font-family: inherit;
+        font-size: 0.95rem;
+        color: #333;
+        cursor: pointer;
+        outline: none;
+        padding: 2px 4px;
+      }
     </style>
   </head>
   <body>
@@ -680,11 +727,14 @@
           <a href="#contacto" data-i18n="menu_contact">Contacto</a>
         </nav>
 
-        <!-- SELECTOR DE IDIOMAS -->
-        <div class="lang-selector">
-          <button class="lang-btn" onclick="cambiarIdioma('es')">🇪🇸 ES</button>
-          <button class="lang-btn" onclick="cambiarIdioma('en')">🇬🇧 EN</button>
-          <button class="lang-btn" onclick="cambiarIdioma('pt')">🇧🇷 PT</button>
+        <!-- Contenedor del selector de idioma con ícono de globo -->
+        <div class="language-selector-wrapper">
+          <i class="fas fa-globe globe-icon" aria-hidden="true"></i>
+          <select id="langSelect" aria-label="Seleccionar idioma">
+            <option value="es" data-i18n="lang_es">Español</option>
+            <option value="en" data-i18n="lang_en">English</option>
+            <option value="pt" data-i18n="lang_pt">Português</option>
+          </select>
         </div>
       </div>
     </header>
@@ -1159,10 +1209,10 @@
           </div>
         </div>
         <p class="disclaimer-text" data-i18n="disclaimer">
-            La información sobre horarios, tarifas y servicios de terceros es de
-            carácter informativo y puede variar sin previo aviso. Recomendamos
-            consultar los sitios web oficiales antes de su visita.
-          </p>
+          La información sobre horarios, tarifas y servicios de terceros es de
+          carácter informativo y puede variar sin previo aviso. Recomendamos
+          consultar los sitios web oficiales antes de su visita.
+        </p>
       </section>
 
       <!-- 8. ANFITRIONES -->
@@ -1395,6 +1445,21 @@
     <!-- SCRIPT DE JAVASCRIPT -->
     <script>
       let traducciones = {};
+
+      // Listener para cuando el usuario seleccione una opción en el desplegable
+      document.addEventListener("DOMContentLoaded", () => {
+        const selectLang = document.getElementById("langSelect");
+        if (selectLang) {
+          // Escucha el cambio de opción en la lista
+          selectLang.addEventListener("change", (e) => {
+            cambiarIdioma(e.target.value);
+          });
+
+          // Mantener sincronizado el valor del select con el idioma guardado
+          const idiomaGuardado = localStorage.getItem("idioma_villa") || "es";
+          selectLang.value = idiomaGuardado;
+        }
+      });
 
       async function cargarTraducciones() {
         try {
