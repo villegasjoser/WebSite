@@ -1537,7 +1537,8 @@
       });
 
       function cargarAventuras() {
-        fetch("Data/adventures.json")
+        // Agrega ?v=1 o ?v=Date.now() al final de la ruta del JSON
+        fetch("/Data/adventures.json?v=" + Date.now())
           .then((response) => {
             if (!response.ok) {
               throw new Error(`Error HTTP: ${response.status}`);
