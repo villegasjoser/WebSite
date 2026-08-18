@@ -1,0 +1,150 @@
+[
+  {
+    "id": "exp-1787011334525",
+    "icono": "flame",
+    "nombre": {
+      "es": "Parque Nacional Rincón de la Vieja (Sector Las Pailas)",
+      "en": "Rincón de la Vieja National Park (Las Pailas Sector)",
+      "pt": "Parque Nacional Rincón de la Vieja (Setor Las Pailas)"
+    },
+    "descripcion": {
+      "es": "Senderos entre volcanes y bosque seco con observación de pailas de lodo hirviendo, fumarolas y pozas de barro volcánico.",
+      "en": "Trails through dry forest and active volcanic features, including boiling mud pots, steam vents, and fumaroles.",
+      "pt": "Trilhas pela floresta seca e atividade vulcânica, incluindo caldeiras de lama fervente e fumarolas."
+    },
+    "horario": {
+      "es": "Martes a Domingo, 8:00 a.m. - 3:00 p.m.",
+      "en": "Tuesday to Sunday, 8:00 a.m. - 3:00 p.m.",
+      "pt": "Terça a Domingo, 8:00 a.m. - 3:00 p.m."
+    },
+    "costo": {
+      "nacionales": {
+        "es": "₡1,130",
+        "en": "₡1,130",
+        "pt": "₡1,130"
+      },
+      "extranjeros": {
+        "es": "$17",
+        "en": "$17",
+        "pt": "$17"
+      }
+    },
+    "botonWeb": {
+      "es": "Sitio Web Oficial",
+      "en": "Official Website",
+      "pt": "Site Oficial"
+    },
+    "sitioWeb": "https://www.sinac.go.cr"
+  },
+  {
+    "id": "exp-1787011590218",
+    "icono": "water",
+    "nombre": {
+      "es": "Tour Catarata La Leona",
+      "en": "La Leona Waterfall Tour",
+      "pt": "Tour Cachoeira La Leona"
+    },
+    "descripcion": {
+      "es": "Caminata de aventura por el cañón del río Blanco, nadando entre paredes rocosas hasta llegar a una catarata oculta en una cueva.",
+      "en": "An adventure hike through the Blanco River canyon, swimming between rock walls to reach a hidden waterfall inside a cave.",
+      "pt": "Caminhada de aventura pelo cânion do rio Blanco, nadando entre paredões de rocha até chegar a uma cachoeira oculta em uma caverna."
+    },
+    "horario": {
+      "es": "Lunes a Domingo, 8:00 a.m. - 3:00 p.m.",
+      "en": "Monday to Sunday, 8:00 a.m. - 3:00 p.m.",
+      "pt": "Segunda a Domingo, 8:00 a.m. - 3:00 p.m."
+    },
+    "costo": {
+      "nacionales": {
+        "es": "₡10,000",
+        "en": "₡10,000",
+        "pt": "₡10,000"
+      },
+      "extranjeros": {
+        "es": "$30",
+        "en": "$30",
+        "pt": "$30"
+      }
+    },
+    "botonWeb": {
+      "es": "Sitio Web Oficial",
+      "en": "Official Website",
+      "pt": "Site Oficial"
+    },
+    "sitioWeb": "https://laleonawaterfall.com"
+  },
+  {
+    "id": "exp-1787011813531",
+    "icono": "water",
+    "nombre": {
+      "es": "Aguas Termales de Río Negro",
+      "en": "Río Negro Hot Springs",
+      "pt": "Aguas Termais de Río Negro"
+    },
+    "descripcion": {
+      "es": "Pozas naturales de aguas termales a diferentes temperaturas rodeadas de naturaleza, con acceso a barro volcánico reconstituyente.",
+      "en": "Natural hot spring pools heated by the volcano in a lush forest setting, complete with volcanic mud baths.",
+      "pt": "Piscinas naturais de águas termais aquecidas pelo vulcão em meio à floresta, com banho de lama vulcânica."
+    },
+    "horario": {
+      "es": "Lunes a Domingo, 9:00 a.m. - 6:00 p.m.",
+      "en": "Monday to Sunday, 9:00 a.m. - 6:00 p.m.",
+      "pt": "Segunda a Domingo, 9:00 a.m. - 6:00 p.m."
+    },
+    "costo": {
+      "nacionales": {
+        "es": "₡12,000",
+        "en": "₡12,000",
+        "pt": "₡12,000"
+      },
+      "extranjeros": {
+        "es": "$25",
+        "en": "$25",
+        "pt": "$25"
+      }
+    },
+    "botonWeb": {
+      "es": "Sitio Web Oficial",
+      "en": "Official Website",
+      "pt": "Site Oficial"
+    },
+    "sitioWeb": "https://www.guachipelin.com/"
+  },
+  {
+    "id": "exp-1787011990614",
+    "icono": "water",
+    "nombre": {
+      "es": "Catarata Oropéndola",
+      "en": "Oropéndola Waterfall",
+      "pt": "Cachoeira Oropéndola"
+    },
+    "descripcion": {
+      "es": "Espectacular caída de agua de 25 metros ubicada en un canyon con turquesas pozas naturales aptas para nadar.",
+      "en": "A stunning 82-foot waterfall located in a lush canyon with turquoise natural pools ideal for swimming.",
+      "pt": "Uma impressionante queda d'água de 25 metros em um cânion verdejante com piscinas naturais azul-turquesa perfeitas para nadar."
+    },
+    "horario": {
+      "es": "Lunes a Domingo, 8:30 a.m. - 4:30 p.m.",
+      "en": "Monday to Sunday, 8:30 a.m. - 4:30 p.m.",
+      "pt": "Segunda a Domingo, 8:30 a.m. - 4:30 p.m."
+    },
+    "costo": {
+      "nacionales": {
+        "es": "₡5,000",
+        "en": "₡5,000",
+        "pt": "₡5,000"
+      },
+      "extranjeros": {
+        "es": "$22",
+        "en": "$22",
+        "pt": "$22"
+      }
+    },
+    "botonWeb": {
+      "es": "Sitio Web Oficial",
+      "en": "Official Website",
+      "pt": "Site Web Oficial"
+    },
+    "sitioWeb": "https://www.guachipelin.com/"
+  }
+]
