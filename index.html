@@ -7,7 +7,6 @@
       Villa Aliris Liberia, Guanacaste | Nature, Rest, and Transformation
     </title>
 
-    <!-- Favicon Básico para Navegadores -->
     <link rel="icon" type="image/x-icon" href="favicon.ico" />
     <link
       rel="icon"
@@ -22,17 +21,14 @@
       href="Images/favicon-16x16.png"
     />
 
-    <!-- Favicon para dispositivos Apple (iPhone / iPad) -->
     <link
       rel="apple-touch-icon"
       sizes="180x180"
       href="Images/apple-touch-icon.png"
     />
 
-    <!-- Color de la barra del navegador en Android -->
     <meta name="theme-color" content="#0f172a" />
 
-    <!-- Ícono de alta resolución para dispositivos Android -->
     <link
       rel="icon"
       type="image/png"
@@ -46,10 +42,8 @@
       href="android-chrome-512x512.png"
     />
 
-    <!-- Archivo Manifiesto para Android / PWA -->
     <link rel="manifest" href="site.webmanifest" />
 
-    <!-- Google Fonts: Montserrat -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -61,7 +55,6 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
-    <!-- Bootstrap Icons -->
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
@@ -80,7 +73,7 @@
       body {
         background-color: #f8fafc;
         color: #1e293b;
-        font-family: "Montserrat", sans-serif;
+        font-family: 'Montserrat', sans-serif;
         line-height: 1.8;
       }
       .container {
@@ -105,7 +98,9 @@
       .ave-card img,
       .anfitriones-img,
       .logo-img {
-        transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s ease;
+        transition:
+          transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1),
+          box-shadow 0.4s ease;
       }
 
       /* ENCABEZADO OPTIMIZADO */
@@ -158,7 +153,9 @@
         color: #475569;
         font-weight: 600;
         font-size: 0.9rem;
-        transition: color 0.2s ease, transform 0.2s ease;
+        transition:
+          color 0.2s ease,
+          transform 0.2s ease;
         white-space: nowrap;
       }
       .nav-menu a:hover {
@@ -177,7 +174,7 @@
         padding: 4px 8px;
         border-radius: 6px;
         cursor: pointer;
-        font-family: "Montserrat", sans-serif;
+        font-family: 'Montserrat', sans-serif;
         font-weight: 600;
         font-size: 0.8rem;
         transition: all 0.2s ease;
@@ -423,7 +420,9 @@
         font-size: 0.9rem;
         font-weight: 600;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
-        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        transition:
+          transform 0.2s ease,
+          box-shadow 0.2s ease;
       }
       .puntos-interes div:hover {
         transform: translateY(-2px);
@@ -494,7 +493,7 @@
         margin: 0 0.5rem 1rem 0.5rem;
         border: none;
         cursor: pointer;
-        font-family: "Montserrat", sans-serif;
+        font-family: 'Montserrat', sans-serif;
       }
       .btn-contacto:hover {
         transform: translateY(-3px);
@@ -580,7 +579,9 @@
         background: none;
         border: none;
         line-height: 1;
-        transition: color 0.2s ease, transform 0.2s ease;
+        transition:
+          color 0.2s ease,
+          transform 0.2s ease;
       }
       .modal-cerrar:hover {
         color: #10b981;
@@ -738,7 +739,6 @@
     </style>
   </head>
   <body>
-    <!-- 1. ENCABEZADO OPTIMIZADO -->
     <header>
       <div class="container">
         <a href="#" class="brand">
@@ -750,7 +750,6 @@
           <h2 data-i18n="nav_brand">Villa Aliris Liberia</h2>
         </a>
 
-        <!-- MENÚ DE NAVEGACIÓN -->
         <nav class="nav-menu">
           <a href="#galeria" data-i18n="menu_gallery">Propiedad</a>
           <a href="#amenidades" data-i18n="menu_amenities">Amenidades</a>
@@ -760,7 +759,6 @@
           <a href="#contacto" data-i18n="menu_contact">Contacto</a>
         </nav>
 
-        <!-- Contenedor del selector de idioma con ícono de globo -->
         <div class="language-selector-wrapper">
           <i class="fas fa-globe globe-icon" aria-hidden="true"></i>
           <select id="langSelect" aria-label="Seleccionar idioma">
@@ -772,7 +770,6 @@
       </div>
     </header>
 
-    <!-- 2. HERO SECTION -->
     <section class="hero">
       <div class="container">
         <h1 data-i18n="hero_title">
@@ -786,7 +783,6 @@
       </div>
     </section>
 
-    <!-- 3. ACERCA DE -->
     <section class="acerca-de">
       <div class="container">
         <h2 data-i18n="philosophy_title">Nuestra Filosofía</h2>
@@ -800,11 +796,9 @@
     </section>
 
     <main class="container">
-      <!-- 4. GALERÍA DE LA PROPIEDAD CON HERO GRID -->
       <section id="galeria">
         <h2 data-i18n="gallery_title">Explora la Propiedad</h2>
         <div class="grid-galeria">
-          <!-- IMAGEN HERO DESTACADA -->
           <img
             src="Images/MainPage/Property/herogrid.jpeg"
             alt="Piscina"
@@ -874,7 +868,6 @@
         </div>
       </section>
 
-      <!-- 5. AMENIDADES -->
       <section id="amenidades">
         <h2 data-i18n="amenities_title">Lo más destacado</h2>
         <ul class="amenidades-list">
@@ -938,7 +931,6 @@
       </section>
     </main>
 
-    <!-- 6. SECCIÓN DE AVES Y FAUNA LOCAL -->
     <section id="fauna" class="fauna">
       <div class="container">
         <h2 data-i18n="fauna_title">Naturaleza a tu Alcance</h2>
@@ -1027,11 +1019,10 @@
     </section>
 
     <main class="container">
-      <!-- 7. UBICACIÓN -->
       <section id="ubicacion">
         <h2 data-i18n="location_title">Nuestra Ubicación</h2>
         <p style="text-align: center" data-i18n="location_subtitle">
-          Situados en una ubicación privilegeda en Liberia, Guanacaste, cerca de
+          Situados en una ubicación privilegiada en Liberia, Guanacaste, cerca de
           todo lo que necesitas.
         </p>
 
@@ -1047,84 +1038,81 @@
         </div>
 
         <div class="puntos-interes">
-          <div class="puntos-interes">
-            <div>
-              <i
-                class="bi bi-buildings-fill"
-                style="color: #10b981; margin-right: 8px"
-              ></i
-              ><span data-i18n="loc_1"
-                >Centro de Liberia: 12 min de carro (aprox. 6 km)</span
-              >
-            </div>
-            <div>
-              <i
-                class="bi bi-triangle-fill"
-                style="color: #ea580c; margin-right: 8px"
-              ></i
-              ><span data-i18n="loc_2"
-                >Vulcão Rincón de La Vieja: 54 min de carro (aprox. 24 km)</span
-              >
-            </div>
-            <div>
-              <i
-                class="bi bi-water"
-                style="color: #0ea5e9; margin-right: 8px"
-              ></i
-              ><span data-i18n="loc_3"
-                >Cachoeira La Leona: 18 min de carro (aprox. 12.5 km)</span
-              >
-            </div>
-            <div>
-              <i
-                class="bi bi-water"
-                style="color: #0ea5e9; margin-right: 8px"
-              ></i
-              ><span data-i18n="loc_4"
-                >Poza Los Coyotes: 20 min de carro (aprox. 13 km)</span
-              >
-            </div>
-            <div>
-              <i
-                class="bi bi-water"
-                style="color: #0ea5e9; margin-right: 8px"
-              ></i
-              ><span data-i18n="loc_5"
-                >Poza La Pipa: 19 min de carro (aprox. 12 km)</span
-              >
-            </div>
-            <div>
-              <i
-                class="bi bi-cart3"
-                style="color: #eab308; margin-right: 8px"
-              ></i
-              ><span data-i18n="loc_6"
-                >Walmart: 12 min de carro (aprox. 6.4 km)</span
-              >
-            </div>
-            <div>
-              <i
-                class="bi bi-shield-fill-check"
-                style="color: #10b981; margin-right: 8px"
-              ></i
-              ><span data-i18n="loc_7"
-                >Ponderosa: 20 min de carro (aprox. 17.8 km)</span
-              >
-            </div>
-            <div>
-              <i
-                class="bi bi-airplane-fill"
-                style="color: #6366f1; margin-right: 8px"
-              ></i
-              ><span data-i18n="loc_8"
-                >Aeropuerto LIR: 30 min de carro (aprox. 15 km)</span
-              >
-            </div>
+          <div>
+            <i
+              class="bi bi-buildings-fill"
+              style="color: #10b981; margin-right: 8px"
+            ></i
+            ><span data-i18n="loc_1"
+              >Centro de Liberia: 12 min de carro (aprox. 6 km)</span
+            >
+          </div>
+          <div>
+            <i
+              class="bi bi-triangle-fill"
+              style="color: #ea580c; margin-right: 8px"
+            ></i
+            ><span data-i18n="loc_2"
+              >Vulcão Rincón de La Vieja: 54 min de carro (aprox. 24 km)</span
+            >
+          </div>
+          <div>
+            <i
+              class="bi bi-water"
+              style="color: #0ea5e9; margin-right: 8px"
+            ></i
+            ><span data-i18n="loc_3"
+              >Cachoeira La Leona: 18 min de carro (aprox. 12.5 km)</span
+            >
+          </div>
+          <div>
+            <i
+              class="bi bi-water"
+              style="color: #0ea5e9; margin-right: 8px"
+            ></i
+            ><span data-i18n="loc_4"
+              >Poza Los Coyotes: 20 min de carro (aprox. 13 km)</span
+            >
+          </div>
+          <div>
+            <i
+              class="bi bi-water"
+              style="color: #0ea5e9; margin-right: 8px"
+            ></i
+            ><span data-i18n="loc_5"
+              >Poza La Pipa: 19 min de carro (aprox. 12 km)</span
+            >
+          </div>
+          <div>
+            <i
+              class="bi bi-cart3"
+              style="color: #eab308; margin-right: 8px"
+            ></i
+            ><span data-i18n="loc_6"
+              >Walmart: 12 min de carro (aprox. 6.4 km)</span
+            >
+          </div>
+          <div>
+            <i
+              class="bi bi-shield-fill-check"
+              style="color: #10b981; margin-right: 8px"
+            ></i
+            ><span data-i18n="loc_7"
+              >Ponderosa: 20 min de carro (aprox. 17.8 km)</span
+            >
+          </div>
+          <div>
+            <i
+              class="bi bi-airplane-fill"
+              style="color: #6366f1; margin-right: 8px"
+            ></i
+            ><span data-i18n="loc_8"
+              >Aeropuerto LIR: 30 min de carro (aprox. 15 km)</span
+            >
           </div>
         </div>
       </section>
 
-      <!-- SECCIÓN: ACTIVIDADES Y ATRACCIONES CERCANAS -->
       <section id="actividades" class="actividades-section">
         <h2 data-i18n="activities_title">Aventuras y Experiencias Cercanas</h2>
         <p class="section-subtitle" data-i18n="activities_subtitle">
@@ -1132,128 +1120,15 @@
           los alrededores.
         </p>
 
-        <div class="actividades-grid">
-          <!-- 1. Rincón de la Vieja -->
-          <div class="actividad-card">
-            <div class="actividad-icon">
-              <i class="bi bi-fire" style="color: #ea580c"></i>
-            </div>
-            <h3 data-i18n="activity_volcano_title">
-              Parque Nacional Rincón de la Vieja
-            </h3>
-            <p data-i18n="activity_volcano_desc">
-              Senderos entre volcanes, pailas de lodo hirviendo y aguas
-              termales.
-            </p>
-            <ul class="actividad-detalles">
-              <li data-i18n="volcano_hours">
-                <i class="bi bi-clock" style="margin-right: 6px"></i
-                ><strong>Horario:</strong> Martes a domingo, 8:00 a.m. - 3:00
-                p.m.
-              </li>
-              <li data-i18n="volcano_cost">
-                <i class="bi bi-ticket-perforated" style="margin-right: 6px"></i
-                ><strong>Costo:</strong> Nacionales ₡1,000 / Extranjeros $15 USD
-              </li>
-            </ul>
-            <a
-              href="https://www.sinac.go.cr"
-              target="_blank"
-              class="btn-link"
-              data-i18n="btn_website"
-              ><i class="bi bi-globe" style="margin-right: 5px"></i> Sitio Web
-              Oficial</a
-            >
-          </div>
+        <div class="actividades-grid" id="actividades-container"></div>
 
-          <!-- 2. Catarata La Leona -->
-          <div class="actividad-card">
-            <div class="actividad-icon">
-              <i class="bi bi-water" style="color: #0ea5e9"></i>
-            </div>
-            <h3 data-i18n="activity_water_title">Catarata La Leona</h3>
-            <p data-i18n="activity_water_desc">
-              Aventura de cañón, nado en aguas turquesas y guías locales.
-            </p>
-            <ul class="actividad-detalles">
-              <li data-i18n="leona_hours">
-                <i class="bi bi-clock" style="margin-right: 6px"></i
-                ><strong>Horario:</strong> Lunes a domingo, 8:00 a.m. - 4:00
-                p.m.
-              </li>
-              <li data-i18n="leona_cost">
-                <i class="bi bi-ticket-perforated" style="margin-right: 6px"></i
-                ><strong>Costo:</strong> Varía según tour guiado (aprox. $25 -
-                $35 USD)
-              </li>
-            </ul>
-            <span class="info-extra" data-i18n="leona_tip"
-              ><i class="bi bi-info-circle" style="margin-right: 6px"></i>Se
-              recomienda reservar con guía local.</span
-            >
-          </div>
-
-          <!-- 3. Parque Ponderosa -->
-          <div class="actividad-card">
-            <div class="actividad-icon">
-              <i class="bi bi-shield-fill-check" style="color: #10b981"></i>
-            </div>
-            <h3 data-i18n="activity_safari_title">Ponderosa Adventure Park</h3>
-            <p data-i18n="activity_safari_desc">
-              Safari con animales en libertad, cataratas y canopy.
-            </p>
-            <ul class="actividad-detalles">
-              <li data-i18n="ponderosa_hours">
-                <i class="bi bi-clock" style="margin-right: 6px"></i
-                ><strong>Horario:</strong> Lunes a domingo, 8:00 a.m. - 5:00
-                p.m.
-              </li>
-              <li data-i18n="ponderosa_cost">
-                <i class="bi bi-ticket-perforated" style="margin-right: 6px"></i
-                ><strong>Costo:</strong> Desde $35 USD (según el paquete
-                elegido)
-              </li>
-            </ul>
-            <a
-              href="https://www.ponderosaadventurepark.com"
-              target="_blank"
-              class="btn-link"
-              data-i18n="btn_website"
-              ><i class="bi bi-globe" style="margin-right: 5px"></i> Sitio Web
-              Oficial</a
-            >
-          </div>
-
-          <!-- 4. Liberia Centro y Compras -->
-          <div class="actividad-card">
-            <div class="actividad-icon">
-              <i class="bi bi-buildings-fill" style="color: #6366f1"></i>
-            </div>
-            <h3 data-i18n="activity_city_title">Liberia Centro & Walmart</h3>
-            <p data-i18n="activity_city_desc">
-              Cultura, gastronomía típica, cajeros, farmacias y abastos.
-            </p>
-            <ul class="actividad-detalles">
-              <li data-i18n="liberia_hours">
-                <i class="bi bi-clock" style="margin-right: 6px"></i
-                ><strong>Walmart:</strong> Lunes a domingo, 8:00 a.m. - 10:00
-                p.m.
-              </li>
-              <li data-i18n="liberia_dist">
-                <i class="bi bi-geo-alt" style="margin-right: 6px"></i
-                ><strong>Distancia:</strong> A solo 12 minutos de la villa.
-              </li>
-            </ul>
-          </div>
-        </div>
-        <p class="disclaimer-text" data-i18n="disclaimer">
+        <p class="disclaimer-text" data-i18n="disclaimer" style="font-size:0.85rem; color:#6b7280; margin-top:2rem; text-align:center;">
           La información sobre horarios, tarifas y servicios de terceros es de
           carácter informativo y puede variar sin previo aviso. Recomendamos
           consultar los sitios web oficiales antes de su visita.
         </p>
       </section>
 
-      <!-- 8. ANFITRIONES -->
       <section id="anfitriones" class="anfitriones">
         <h2 data-i18n="hosts_title">Tus Anfitriones</h2>
         <div class="anfitriones-content">
@@ -1278,7 +1153,6 @@
       </section>
     </main>
 
-    <!-- 9. SECCIÓN DE CONTACTO FINAL -->
     <section id="contacto" class="contacto">
       <div class="container">
         <h2 data-i18n="contact_title">¿Deseas más información?</h2>
@@ -1327,15 +1201,13 @@
       </p>
     </section>
 
-    <!-- COMPONENTE MODAL LIGHTBOX PARA EL ZOOM DE IMÁGENES -->
     <div id="lightboxModal" class="modal-lightbox">
       <div class="modal-contenido">
-        <button id="lightboxCerrar" class="modal-cerrar">&times;</button>
+        <button id="lightboxCerrar" class="modal-cerrar">×</button>
         <img id="lightboxImg" src="" alt="Imagen ampliada" />
       </div>
     </div>
 
-    <!-- MODAL DE FORMULARIO DE CONTACTO -->
     <div id="contactoModal" class="modal-lightbox">
       <div
         class="modal-contenido"
@@ -1353,7 +1225,7 @@
           class="modal-cerrar"
           style="color: #0f172a"
         >
-          &times;
+          ×
         </button>
 
         <h3
@@ -1389,7 +1261,7 @@
                 padding: 0.8rem;
                 border: 1px solid #cbd5e1;
                 border-radius: 8px;
-                font-family: &quot;Montserrat&quot;, sans-serif;
+                font-family: 'Montserrat', sans-serif;
               "
             />
           </div>
@@ -1414,7 +1286,7 @@
                 padding: 0.8rem;
                 border: 1px solid #cbd5e1;
                 border-radius: 8px;
-                font-family: &quot;Montserrat&quot;, sans-serif;
+                font-family: 'Montserrat', sans-serif;
               "
             />
           </div>
@@ -1439,7 +1311,7 @@
                 padding: 0.8rem;
                 border: 1px solid #cbd5e1;
                 border-radius: 8px;
-                font-family: &quot;Montserrat&quot;, sans-serif;
+                font-family: 'Montserrat', sans-serif;
                 resize: vertical;
               "
             ></textarea>
@@ -1467,11 +1339,10 @@
       </div>
     </div>
 
-    <!-- FOOTER -->
     <footer>
       <div class="container" style="text-align: center; padding: 2rem 0">
         <p data-i18n="footer_rights">
-          &copy; 2026 Villa Aliris Liberia, Guanacaste — Todos los derechos
+          © 2026 Villa Aliris Liberia, Guanacaste — Todos los derechos
           reservados.
         </p>
         <p style="font-size: 0.8rem; margin-top: 0.5rem" data-i18n="footer_loc">
@@ -1480,66 +1351,198 @@
       </div>
     </footer>
 
-    <!-- SCRIPT DE JAVASCRIPT -->
     <script>
       let traducciones = {};
+      let aventurasData = [];
+      let currentLang = localStorage.getItem("idioma_villa") || "es";
+
+      const ICON_CONFIG = {
+        flame: { class: "bi-fire", color: "#ea580c" },
+        water: { class: "bi-water", color: "#0ea5e9" },
+        safari: { class: "bi-shield-fill-check", color: "#10b981" },
+        city: { class: "bi-buildings-fill", color: "#6366f1" },
+      };
 
       document.addEventListener("DOMContentLoaded", () => {
         const selectLang = document.getElementById("langSelect");
         if (selectLang) {
+          selectLang.value = currentLang;
           selectLang.addEventListener("change", (e) => {
             cambiarIdioma(e.target.value);
           });
-
-          const idiomaGuardado = localStorage.getItem("idioma_villa") || "es";
-          selectLang.value = idiomaGuardado;
         }
+
+        cargarTraducciones();
+        cargarAventuras();
+
+        // Lightbox de imágenes
+        const modal = document.getElementById("lightboxModal");
+        const modalImg = document.getElementById("lightboxImg");
+        const cerrarBtn = document.getElementById("lightboxCerrar");
+
+        const imagenes = document.querySelectorAll(
+          ".grid-galeria img, .ave-card img, .anfitriones-img"
+        );
+
+        imagenes.forEach((img) => {
+          img.addEventListener("click", () => {
+            modal.classList.add("activo");
+            modalImg.src = img.src;
+            modalImg.alt = img.alt;
+          });
+        });
+
+        const cerrarModal = () => {
+          modal.classList.remove("activo");
+          modalImg.src = "";
+        };
+
+        if (cerrarBtn) cerrarBtn.addEventListener("click", cerrarModal);
+
+        if (modal) {
+          modal.addEventListener("click", (e) => {
+            if (e.target === modal) cerrarModal();
+          });
+        }
+
+        document.addEventListener("keydown", (e) => {
+          if (e.key === "Escape") {
+            if (modal && modal.classList.contains("activo")) cerrarModal();
+            const contactoM = document.getElementById("contactoModal");
+            if (contactoM && contactoM.classList.contains("activo")) {
+              cerrarModalFormulario();
+            }
+          }
+        });
       });
 
       async function cargarTraducciones() {
         try {
-          const response = await fetch("lang/translations.json");
+          const response = await fetch("lang/translations.json?v=" + Date.now());
           traducciones = await response.json();
-          const idiomaGuardado = localStorage.getItem("idioma_villa") || "es";
-          cambiarIdioma(idiomaGuardado);
+          cambiarIdioma(currentLang);
         } catch (error) {
           console.error("Error al cargar las traducciones:", error);
         }
       }
 
+      function cargarAventuras() {
+        fetch("adventures.json?v=" + Date.now())
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error(`Error HTTP: ${response.status}`);
+            }
+            return response.json();
+          })
+          .then((data) => {
+            aventurasData = data;
+            renderizarTarjetas(currentLang);
+          })
+          .catch((error) =>
+            console.error("Error al cargar aventuras.json:", error)
+          );
+      }
+
       function cambiarIdioma(lang) {
-        if (!traducciones[lang]) return;
+        currentLang = lang;
         localStorage.setItem("idioma_villa", lang);
 
-        const botonesLang = document.querySelectorAll(".lang-btn");
-        botonesLang.forEach((btn) => btn.classList.remove("activo"));
+        if (traducciones[lang]) {
+          const elementos = document.querySelectorAll("[data-i18n]");
+          elementos.forEach((el) => {
+            const clave = el.getAttribute("data-i18n");
+            if (traducciones[lang][clave]) {
+              el.textContent = traducciones[lang][clave];
+            }
+          });
 
-        const botonActivo = document.querySelector(
-          `.lang-btn[onclick*="${lang}"]`,
-        );
-        if (botonActivo) {
-          botonActivo.classList.add("activo");
+          const elementosAlt = document.querySelectorAll("[data-i18n-alt]");
+          elementosAlt.forEach((el) => {
+            const clave = el.getAttribute("data-i18n-alt");
+            if (traducciones[lang][clave]) {
+              el.alt = traducciones[lang][clave];
+            }
+          });
+
+          if (traducciones[lang]["title"]) {
+            document.title = traducciones[lang]["title"];
+          }
         }
 
-        const elementos = document.querySelectorAll("[data-i18n]");
-        elementos.forEach((el) => {
-          const clave = el.getAttribute("data-i18n");
-          if (traducciones[lang][clave]) {
-            el.textContent = traducciones[lang][clave];
-          }
-        });
+        renderizarTarjetas(lang);
+      }
 
-        const elementosAlt = document.querySelectorAll("[data-i18n-alt]");
-        elementosAlt.forEach((el) => {
-          const clave = el.getAttribute("data-i18n-alt");
-          if (traducciones[lang][clave]) {
-            el.alt = traducciones[lang][clave];
-          }
-        });
+      function renderizarTarjetas(lang) {
+        const container = document.getElementById("actividades-container");
+        if (!container || aventurasData.length === 0) return;
 
-        if (traducciones[lang]["title"]) {
-          document.title = traducciones[lang]["title"];
-        }
+        container.innerHTML = aventurasData
+          .map((item) => {
+            const nombre = item.nombre[lang] || item.nombre["es"];
+            const descripcion = item.descripcion[lang] || item.descripcion["es"];
+            const horario = item.horario[lang] || item.horario["es"];
+            const botonTexto = item.botonWeb
+              ? item.botonWeb[lang] || item.botonWeb["es"]
+              : "Sitio Web";
+
+            const costoNac =
+              item.costo?.nacionales?.[lang] || item.costo?.nacionales?.["es"];
+            const costoExt =
+              item.costo?.extranjeros?.[lang] || item.costo?.extranjeros?.["es"];
+
+            const labels = {
+              es: { horario: "Horario:", costo: "Costo:", nac: "Nacionales", ext: "Extranjeros" },
+              en: { horario: "Hours:", costo: "Cost:", nac: "Locals", ext: "Tourists" },
+              pt: { horario: "Horário:", costo: "Custo:", nac: "Nacionais", ext: "Estrangeiros" },
+            }[lang] || { horario: "Horario:", costo: "Costo:", nac: "Nacionales", ext: "Extranjeros" };
+
+            const iconData = ICON_CONFIG[item.icono] || {
+              class: "bi-geo-alt-fill",
+              color: "#6366f1",
+            };
+
+            let costoTexto = "";
+            if (costoNac && costoExt) {
+              costoTexto = `${labels.nac} ${costoNac} / ${labels.ext} ${costoExt}`;
+            } else if (costoExt) {
+              costoTexto = costoExt;
+            }
+
+            const linkHTML = item.sitioWeb
+              ? `
+      <a href="${item.sitioWeb}" target="_blank" rel="noopener noreferrer" class="btn-link">
+        <i class="bi bi-globe" style="margin-right: 5px"></i> ${botonTexto}
+      </a>
+    `
+              : "";
+
+            return `
+      <div class="actividad-card" id="${item.id}">
+        <div class="actividad-icon">
+          <i class="bi ${iconData.class}" style="color: ${iconData.color}"></i>
+        </div>
+        <h3>${nombre}</h3>
+        <p>${descripcion}</p>
+        <ul class="actividad-detalles">
+          <li>
+            <i class="bi bi-clock" style="margin-right: 6px"></i>
+            <strong>${labels.horario}</strong> ${horario}
+          </li>
+          ${
+            costoTexto
+              ? `
+          <li>
+            <i class="bi bi-ticket-perforated" style="margin-right: 6px"></i>
+            <strong>${labels.costo}</strong> ${costoTexto}
+          </li>`
+              : ""
+          }
+        </ul>
+        ${linkHTML}
+      </div>
+    `;
+          })
+          .join("");
       }
 
       function abrirModalFormulario() {
@@ -1559,15 +1562,11 @@
           const response = await fetch(form.action, {
             method: form.method,
             body: data,
-            headers: {
-              Accept: "application/json",
-            },
+            headers: { Accept: "application/json" },
           });
 
           if (response.ok) {
-            alert(
-              "¡Mensaje enviado con éxito! Nos pondremos en contacto pronto.",
-            );
+            alert("¡Mensaje enviado con éxito! Nos pondremos en contacto pronto.");
             form.reset();
             cerrarModalFormulario();
           } else {
@@ -1577,51 +1576,6 @@
           alert("Error de conexión. Revisa tu internet e inténtalo de nuevo.");
         }
       }
-
-      document.addEventListener("DOMContentLoaded", () => {
-        cargarTraducciones();
-
-        const modal = document.getElementById("lightboxModal");
-        const modalImg = document.getElementById("lightboxImg");
-        const cerrarBtn = document.getElementById("lightboxCerrar");
-
-        const imagenes = document.querySelectorAll(
-          ".grid-galeria img, .ave-card img, .anfitriones-img",
-        );
-
-        imagenes.forEach((img) => {
-          img.addEventListener("click", () => {
-            modal.classList.add("activo");
-            modalImg.src = img.src;
-            modalImg.alt = img.alt;
-          });
-        });
-
-        const cerrarModal = () => {
-          modal.classList.remove("activo");
-          modalImg.src = "";
-        };
-
-        cerrarBtn.addEventListener("click", cerrarModal);
-
-        modal.addEventListener("click", (e) => {
-          if (e.target === modal) {
-            cerrarModal();
-          }
-        });
-
-        document.addEventListener("keydown", (e) => {
-          if (e.key === "Escape") {
-            if (modal.classList.contains("activo")) cerrarModal();
-            if (
-              document
-                .getElementById("contactoModal")
-                .classList.contains("activo")
-            )
-              cerrarModalFormulario();
-          }
-        });
-      });
     </script>
   </body>
 </html>
