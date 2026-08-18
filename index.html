@@ -1537,7 +1537,7 @@
       });
 
       function cargarAventuras() {
-        fetch("../Data/adventures.json")
+        fetch("Data/adventures.json")
           .then((response) => {
             if (!response.ok) {
               throw new Error(`Error HTTP: ${response.status}`);
