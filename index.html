@@ -105,7 +105,9 @@
       .ave-card img,
       .anfitriones-img,
       .logo-img {
-        transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s ease;
+        transition:
+          transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1),
+          box-shadow 0.4s ease;
       }
 
       /* ENCABEZADO OPTIMIZADO */
@@ -158,7 +160,9 @@
         color: #475569;
         font-weight: 600;
         font-size: 0.9rem;
-        transition: color 0.2s ease, transform 0.2s ease;
+        transition:
+          color 0.2s ease,
+          transform 0.2s ease;
         white-space: nowrap;
       }
       .nav-menu a:hover {
@@ -423,7 +427,9 @@
         font-size: 0.9rem;
         font-weight: 600;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
-        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        transition:
+          transform 0.2s ease,
+          box-shadow 0.2s ease;
       }
       .puntos-interes div:hover {
         transform: translateY(-2px);
@@ -580,7 +586,9 @@
         background: none;
         border: none;
         line-height: 1;
-        transition: color 0.2s ease, transform 0.2s ease;
+        transition:
+          color 0.2s ease,
+          transform 0.2s ease;
       }
       .modal-cerrar:hover {
         color: #10b981;
@@ -1132,120 +1140,8 @@
           los alrededores.
         </p>
 
-        <div class="actividades-grid">
-          <!-- 1. Rincón de la Vieja -->
-          <div class="actividad-card">
-            <div class="actividad-icon">
-              <i class="bi bi-fire" style="color: #ea580c"></i>
-            </div>
-            <h3 data-i18n="activity_volcano_title">
-              Parque Nacional Rincón de la Vieja
-            </h3>
-            <p data-i18n="activity_volcano_desc">
-              Senderos entre volcanes, pailas de lodo hirviendo y aguas
-              termales.
-            </p>
-            <ul class="actividad-detalles">
-              <li data-i18n="volcano_hours">
-                <i class="bi bi-clock" style="margin-right: 6px"></i
-                ><strong>Horario:</strong> Martes a domingo, 8:00 a.m. - 3:00
-                p.m.
-              </li>
-              <li data-i18n="volcano_cost">
-                <i class="bi bi-ticket-perforated" style="margin-right: 6px"></i
-                ><strong>Costo:</strong> Nacionales ₡1,000 / Extranjeros $15 USD
-              </li>
-            </ul>
-            <a
-              href="https://www.sinac.go.cr"
-              target="_blank"
-              class="btn-link"
-              data-i18n="btn_website"
-              ><i class="bi bi-globe" style="margin-right: 5px"></i> Sitio Web
-              Oficial</a
-            >
-          </div>
+        <div class="actividades-grid" id="actividades-container"></div>
 
-          <!-- 2. Catarata La Leona -->
-          <div class="actividad-card">
-            <div class="actividad-icon">
-              <i class="bi bi-water" style="color: #0ea5e9"></i>
-            </div>
-            <h3 data-i18n="activity_water_title">Catarata La Leona</h3>
-            <p data-i18n="activity_water_desc">
-              Aventura de cañón, nado en aguas turquesas y guías locales.
-            </p>
-            <ul class="actividad-detalles">
-              <li data-i18n="leona_hours">
-                <i class="bi bi-clock" style="margin-right: 6px"></i
-                ><strong>Horario:</strong> Lunes a domingo, 8:00 a.m. - 4:00
-                p.m.
-              </li>
-              <li data-i18n="leona_cost">
-                <i class="bi bi-ticket-perforated" style="margin-right: 6px"></i
-                ><strong>Costo:</strong> Varía según tour guiado (aprox. $25 -
-                $35 USD)
-              </li>
-            </ul>
-            <span class="info-extra" data-i18n="leona_tip"
-              ><i class="bi bi-info-circle" style="margin-right: 6px"></i>Se
-              recomienda reservar con guía local.</span
-            >
-          </div>
-
-          <!-- 3. Parque Ponderosa -->
-          <div class="actividad-card">
-            <div class="actividad-icon">
-              <i class="bi bi-shield-fill-check" style="color: #10b981"></i>
-            </div>
-            <h3 data-i18n="activity_safari_title">Ponderosa Adventure Park</h3>
-            <p data-i18n="activity_safari_desc">
-              Safari con animales en libertad, cataratas y canopy.
-            </p>
-            <ul class="actividad-detalles">
-              <li data-i18n="ponderosa_hours">
-                <i class="bi bi-clock" style="margin-right: 6px"></i
-                ><strong>Horario:</strong> Lunes a domingo, 8:00 a.m. - 5:00
-                p.m.
-              </li>
-              <li data-i18n="ponderosa_cost">
-                <i class="bi bi-ticket-perforated" style="margin-right: 6px"></i
-                ><strong>Costo:</strong> Desde $35 USD (según el paquete
-                elegido)
-              </li>
-            </ul>
-            <a
-              href="https://www.ponderosaadventurepark.com"
-              target="_blank"
-              class="btn-link"
-              data-i18n="btn_website"
-              ><i class="bi bi-globe" style="margin-right: 5px"></i> Sitio Web
-              Oficial</a
-            >
-          </div>
-
-          <!-- 4. Liberia Centro y Compras -->
-          <div class="actividad-card">
-            <div class="actividad-icon">
-              <i class="bi bi-buildings-fill" style="color: #6366f1"></i>
-            </div>
-            <h3 data-i18n="activity_city_title">Liberia Centro & Walmart</h3>
-            <p data-i18n="activity_city_desc">
-              Cultura, gastronomía típica, cajeros, farmacias y abastos.
-            </p>
-            <ul class="actividad-detalles">
-              <li data-i18n="liberia_hours">
-                <i class="bi bi-clock" style="margin-right: 6px"></i
-                ><strong>Walmart:</strong> Lunes a domingo, 8:00 a.m. - 10:00
-                p.m.
-              </li>
-              <li data-i18n="liberia_dist">
-                <i class="bi bi-geo-alt" style="margin-right: 6px"></i
-                ><strong>Distancia:</strong> A solo 12 minutos de la villa.
-              </li>
-            </ul>
-          </div>
-        </div>
         <p class="disclaimer-text" data-i18n="disclaimer">
           La información sobre horarios, tarifas y servicios de terceros es de
           carácter informativo y puede variar sin previo aviso. Recomendamos
@@ -1540,6 +1436,7 @@
         if (traducciones[lang]["title"]) {
           document.title = traducciones[lang]["title"];
         }
+        cambiarIdiomaAventuras(lang);
       }
 
       function abrirModalFormulario() {
@@ -1622,6 +1519,142 @@
           }
         });
       });
+
+      // Configuración de íconos y sus colores correspondientes
+      const ICON_CONFIG = {
+        flame: { class: "bi-fire", color: "#ea580c" },
+        water: { class: "bi-water", color: "#0ea5e9" },
+        safari: { class: "bi-shield-fill-check", color: "#10b981" },
+        city: { class: "bi-buildings-fill", color: "#6366f1" },
+      };
+
+      let aventurasData = [];
+      // Obtener el idioma activo (puedes ajustar según cómo guardes el idioma actual)
+      let currentLang = localStorage.getItem("user_lang") || "es";
+
+      document.addEventListener("DOMContentLoaded", () => {
+        cargarAventuras();
+      });
+
+      function cargarAventuras() {
+        fetch("../Data/adventures.json")
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error(`Error HTTP: ${response.status}`);
+            }
+            return response.json();
+          })
+          .then((data) => {
+            aventurasData = data;
+            renderizarTarjetas(currentLang);
+          })
+          .catch((error) =>
+            console.error("Error al cargar aventuras.json:", error),
+          );
+      }
+
+      function renderizarTarjetas(lang) {
+        const container = document.getElementById("actividades-container");
+        if (!container || aventurasData.length === 0) return;
+
+        container.innerHTML = aventurasData
+          .map((item) => {
+            // Traducciones de las propiedades del JSON
+            const nombre = item.nombre[lang] || item.nombre["es"];
+            const descripcion =
+              item.descripcion[lang] || item.descripcion["es"];
+            const horario = item.horario[lang] || item.horario["es"];
+            const botonTexto = item.botonWeb
+              ? item.botonWeb[lang] || item.botonWeb["es"]
+              : "Sitio Web";
+
+            const costoNac =
+              item.costo?.nacionales?.[lang] || item.costo?.nacionales?.["es"];
+            const costoExt =
+              item.costo?.extranjeros?.[lang] ||
+              item.costo?.extranjeros?.["es"];
+
+            // Etiquetas fijas según el idioma seleccionado
+            const labels = {
+              es: {
+                horario: "Horario:",
+                costo: "Costo:",
+                nac: "Nacionales",
+                ext: "Extranjeros",
+              },
+              en: {
+                horario: "Hours:",
+                costo: "Cost:",
+                nac: "Locals",
+                ext: "Tourists",
+              },
+              pt: {
+                horario: "Horário:",
+                costo: "Custo:",
+                nac: "Nacionais",
+                ext: "Estrangeiros",
+              },
+            }[lang] || {
+              horario: "Horario:",
+              costo: "Costo:",
+              nac: "Nacionales",
+              ext: "Extranjeros",
+            };
+
+            const iconData = ICON_CONFIG[item.icono] || {
+              class: "bi-geo-alt-fill",
+              color: "#6366f1",
+            };
+
+            let costoTexto = "";
+            if (costoNac && costoExt) {
+              costoTexto = `${labels.nac} ${costoNac} / ${labels.ext} ${costoExt}`;
+            } else if (costoExt) {
+              costoTexto = costoExt;
+            }
+
+            const linkHTML = item.sitioWeb
+              ? `
+      <a href="${item.sitioWeb}" target="_blank" rel="noopener noreferrer" class="btn-link">
+        <i class="bi bi-globe" style="margin-right: 5px"></i> ${botonTexto}
+      </a>
+    `
+              : "";
+
+            return `
+      <div class="actividad-card" id="${item.id}">
+        <div class="actividad-icon">
+          <i class="bi ${iconData.class}" style="color: ${iconData.color}"></i>
+        </div>
+        <h3>${nombre}</h3>
+        <p>${descripcion}</p>
+        <ul class="actividad-detalles">
+          <li>
+            <i class="bi bi-clock" style="margin-right: 6px"></i>
+            <strong>${labels.horario}</strong> ${horario}
+          </li>
+          ${
+            costoTexto
+              ? `
+          <li>
+            <i class="bi bi-ticket-perforated" style="margin-right: 6px"></i>
+            <strong>${labels.costo}</strong> ${costoTexto}
+          </li>`
+              : ""
+          }
+        </ul>
+        ${linkHTML}
+      </div>
+    `;
+          })
+          .join("");
+      }
+
+      // Llama a esta función cada vez que el usuario cambie el idioma
+      function cambiarIdiomaAventuras(nuevoIdioma) {
+        currentLang = nuevoIdioma;
+        renderizarTarjetas(currentLang);
+      }
     </script>
   </body>
 </html>
