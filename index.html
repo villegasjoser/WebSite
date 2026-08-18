@@ -29,7 +29,7 @@
       href="Images/apple-touch-icon.png"
     />
 
-    <!-- Color de la barra del navegador en Android (puedes usar tu verde #10b981 o el oscuro #0f172a) -->
+    <!-- Color de la barra del navegador en Android -->
     <meta name="theme-color" content="#0f172a" />
 
     <!-- Ícono de alta resolución para dispositivos Android -->
@@ -100,6 +100,14 @@
         color: #475569;
       }
 
+      /* EFECTO ZOOM GENERAL PARA IMÁGENES INTERACTIVAS */
+      .grid-galeria img,
+      .ave-card img,
+      .anfitriones-img,
+      .logo-img {
+        transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s ease;
+      }
+
       /* ENCABEZADO OPTIMIZADO */
       header {
         background: white;
@@ -126,6 +134,9 @@
         width: auto;
         object-fit: contain;
       }
+      .brand:hover .logo-img {
+        transform: scale(1.08);
+      }
       header h2 {
         font-size: 1.1rem;
         text-transform: uppercase;
@@ -147,7 +158,7 @@
         color: #475569;
         font-weight: 600;
         font-size: 0.9rem;
-        transition: color 0.2s;
+        transition: color 0.2s ease, transform 0.2s ease;
         white-space: nowrap;
       }
       .nav-menu a:hover {
@@ -176,7 +187,6 @@
         background: #e2e8f0;
         border-color: #94a3b8;
       }
-      /* ESTILO PARA EL BOTÓN DE IDIOMA ACTIVO */
       .lang-btn.activo {
         background: #10b981;
         color: white;
@@ -184,7 +194,7 @@
         box-shadow: 0 2px 6px rgba(16, 185, 129, 0.3);
       }
 
-      /* RESPONSIVE HEADER Y HERO PARA PANTALLAS PEQUEÑAS (Celulares y Tablets) */
+      /* RESPONSIVE HEADER Y HERO PARA PANTALLAS PEQUEÑAS */
       @media (max-width: 850px) {
         header .container {
           flex-wrap: wrap;
@@ -214,7 +224,6 @@
           margin-top: 0.2rem;
         }
 
-        /* Ajustes Hero para celular */
         .hero {
           padding: 4rem 1rem;
         }
@@ -289,7 +298,7 @@
       .grid-galeria {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-        grid-auto-flow: dense; /* Rellena espacios vacíos automáticamente */
+        grid-auto-flow: dense;
         gap: 1.5rem;
       }
       .grid-galeria img,
@@ -304,16 +313,12 @@
         object-fit: cover;
         border-radius: 16px;
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-        transition:
-          transform 0.3s ease,
-          box-shadow 0.3s ease;
       }
       .grid-galeria img:hover {
-        transform: scale(1.02);
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        transform: scale(1.06);
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.18);
       }
 
-      /* CLASE PARA LA IMAGEN DESTACADA EN PANTALLAS DE TABLET/DESKTOP */
       @media (min-width: 768px) {
         .grid-galeria img.hero-img {
           grid-column: span 2;
@@ -338,6 +343,13 @@
         align-items: center;
         font-weight: 600;
         font-size: 1.05rem;
+        transition:
+          transform 0.3s ease,
+          box-shadow 0.3s ease;
+      }
+      .amenidades-list li:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
       }
       .amenidades-list li span {
         font-size: 1.8rem;
@@ -358,15 +370,21 @@
         border-radius: 16px;
         overflow: hidden;
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
-        transition: transform 0.3s ease;
+        transition:
+          transform 0.3s ease,
+          box-shadow 0.3s ease;
       }
       .ave-card:hover {
-        transform: translateY(-5px);
+        transform: translateY(-6px);
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
       }
       .ave-card img {
         width: 100%;
         height: 220px;
         object-fit: cover;
+      }
+      .ave-card:hover img {
+        transform: scale(1.08);
       }
       .ave-info {
         padding: 1.5rem;
@@ -405,6 +423,11 @@
         font-size: 0.9rem;
         font-weight: 600;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+      .puntos-interes div:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.06);
       }
 
       /* ANFITRIONES */
@@ -429,6 +452,10 @@
         object-fit: cover;
         border: 5px solid white;
         flex-shrink: 0;
+      }
+      .anfitriones-img:hover {
+        transform: scale(1.08);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
       }
       .anfitriones-text h3 {
         margin-bottom: 0.5rem;
@@ -460,11 +487,20 @@
         text-decoration: none;
         font-weight: 700;
         font-size: 1.1rem;
-        transition: all 0.2s;
+        transition:
+          transform 0.2s ease,
+          box-shadow 0.2s ease,
+          background-color 0.2s ease;
         margin: 0 0.5rem 1rem 0.5rem;
         border: none;
         cursor: pointer;
         font-family: "Montserrat", sans-serif;
+      }
+      .btn-contacto:hover {
+        transform: translateY(-3px);
+      }
+      .btn-contacto:active {
+        transform: translateY(-1px);
       }
       .btn-whatsapp {
         background-color: #25d366;
@@ -473,7 +509,7 @@
       }
       .btn-whatsapp:hover {
         background-color: #1eb956;
-        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(37, 211, 102, 0.45);
       }
       .btn-email {
         background-color: white;
@@ -482,7 +518,7 @@
       }
       .btn-email:hover {
         background-color: #f1f5f9;
-        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(255, 255, 255, 0.2);
       }
       .btn-form {
         background-color: #10b981;
@@ -491,12 +527,14 @@
       }
       .btn-form:hover {
         background-color: #059669;
-        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(16, 185, 129, 0.45);
       }
 
-      /* ESTILOS PARA EL MODAL / LIGHTBOX DE IMÁGENES Y FORMULARIO */
+      /* ESTILOS PARA EL MODAL / LIGHTBOX DE IMÁGENES Y FORMULARIO CON TRANSICIÓN FADE-IN */
       .modal-lightbox {
-        display: none;
+        display: flex;
+        opacity: 0;
+        pointer-events: none;
         position: fixed;
         z-index: 9999;
         top: 0;
@@ -507,14 +545,21 @@
         justify-content: center;
         align-items: center;
         padding: 2rem;
+        transition: opacity 0.3s ease;
       }
       .modal-lightbox.activo {
-        display: flex;
+        opacity: 1;
+        pointer-events: auto;
       }
       .modal-contenido {
         position: relative;
         max-width: 90%;
         max-height: 90vh;
+        transform: scale(0.95);
+        transition: transform 0.3s ease;
+      }
+      .modal-lightbox.activo .modal-contenido {
+        transform: scale(1);
       }
       .modal-contenido img {
         display: block;
@@ -535,12 +580,14 @@
         background: none;
         border: none;
         line-height: 1;
+        transition: color 0.2s ease, transform 0.2s ease;
       }
       .modal-cerrar:hover {
         color: #10b981;
+        transform: scale(1.1);
       }
 
-      /* Estilos para la sección de actividades */
+      /* ACTIVIDADES */
       .actividades-section {
         padding: 60px 20px;
         max-width: 1200px;
@@ -575,13 +622,15 @@
         flex-direction: column;
         justify-content: space-between;
         transition:
-          transform 0.2s ease,
-          box-shadow 0.2s ease;
+          transform 0.3s ease,
+          box-shadow 0.3s ease,
+          border-color 0.3s ease;
       }
 
       .actividad-card:hover {
-        transform: translateY(-4px);
-        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        transform: translateY(-6px);
+        box-shadow: 0 12px 20px -3px rgba(0, 0, 0, 0.1);
+        border-color: #cbd5e1;
       }
 
       .actividad-icon {
@@ -624,9 +673,11 @@
         font-weight: 500;
         font-size: 0.9rem;
         margin-top: auto;
+        transition: color 0.2s ease;
       }
 
       .btn-link:hover {
+        color: #1d4ed8;
         text-decoration: underline;
       }
 
@@ -659,37 +710,18 @@
       .contacto-instagram-link:hover {
         color: #fd5949;
         text-decoration: underline;
+        transform: translateY(-1px);
       }
 
-      /* Contenedor del selector e ícono */
-      .lang-selector {
+      .language-selector-wrapper {
         display: flex;
         align-items: center;
         gap: 6px;
       }
 
-      /* Estilo para el ícono del globo */
       .globe-icon {
         font-size: 1.1rem;
-        color: #333; /* Ajusta el color según el tono de tu menú */
-      }
-
-      /* Estilo para el menú desplegable */
-      #langSelect {
-        background: transparent;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        padding: 4px 8px;
-        font-size: 0.9rem;
         color: #333;
-        cursor: pointer;
-        outline: none;
-        transition: border-color 0.2s ease;
-      }
-
-      #langSelect:hover,
-      #langSelect:focus {
-        border-color: #888;
       }
 
       #langSelect {
@@ -701,6 +733,7 @@
         cursor: pointer;
         outline: none;
         padding: 2px 4px;
+        transition: border-color 0.2s ease;
       }
     </style>
   </head>
@@ -1282,7 +1315,7 @@
 
       <p class="contacto-instagram-text">
         <span data-i18n="instagram_text"
-          >También puedes seguirnos en Instagram 2025:</span
+          >También puedes seguirnos en Instagram:</span
         >
         <a
           href="https://www.instagram.com/villaaliris"
@@ -1451,16 +1484,13 @@
     <script>
       let traducciones = {};
 
-      // Listener para cuando el usuario seleccione una opción en el desplegable
       document.addEventListener("DOMContentLoaded", () => {
         const selectLang = document.getElementById("langSelect");
         if (selectLang) {
-          // Escucha el cambio de opción en la lista
           selectLang.addEventListener("change", (e) => {
             cambiarIdioma(e.target.value);
           });
 
-          // Mantener sincronizado el valor del select con el idioma guardado
           const idiomaGuardado = localStorage.getItem("idioma_villa") || "es";
           selectLang.value = idiomaGuardado;
         }
