@@ -183,5 +183,190 @@
       "pt": "Site Oficial"
     },
     "sitioWeb": "https://ponderosacostarica.com"
+  },
+  {
+    "id": "exp-1787280057256",
+    "icono": "water",
+    "nombre": {
+      "es": "Catarata Llanos del Cortés",
+      "en": "Llanos del Cortés Waterfall",
+      "pt": "Cachoeira Llanos del Cortés"
+    },
+    "descripcion": {
+      "es": "Espectacular catarata de aguas cristalinas ubicada cerca de Bagaces, Guanacaste, famosa por su caída rodeada de exuberante vegetación y su poza natural de arena blanca, ideal para nadar y relajarse.",
+      "en": "Spectacular crystal-clear waterfall located near Bagaces, Guanacaste, famous for its scenic drop surrounded by lush vegetation and a white-sand natural pool, perfect for swimming and relaxing.",
+      "pt": "Espetacular cachoeira de águas cristalinas localizada perto de Bagaces, Guanacaste, famosa por sua queda cercada por vegetação exuberante e uma piscina natural de águas rasas com areia branca, ideal para nadar e relaxar."
+    },
+    "horario": {
+      "es": "Lunes a Domingo, 8:00 a.m. - 4:00 p.m.",
+      "en": "Monday to Sunday, 8:00 a.m. - 4:00 p.m.",
+      "pt": "Segunda a Domingo, das 8h às 16h."
+    },
+    "costo": {
+      "nacionales": {
+        "es": "₡2,000",
+        "en": "₡2,000",
+        "pt": "₡2.000"
+      },
+      "extranjeros": {
+        "es": "$7",
+        "en": "$7",
+        "pt": "US$ 7"
+      }
+    },
+    "botonWeb": {
+      "es": "Sitio Web Oficial",
+      "en": "Official Website",
+      "pt": "Site Oficial"
+    },
+    "sitioWeb": "https://www.facebook.com/CatarataLlanosdelCortesOfficial"
+  },
+  {
+    "id": "exp-1787280066202",
+    "icono": "water",
+    "nombre": {
+      "es": "Catarata Llanos del Cortés",
+      "en": "Llanos del Cortés Waterfall",
+      "pt": "Cachoeira Llanos del Cortés"
+    },
+    "descripcion": {
+      "es": "Espectacular catarata de aguas cristalinas ubicada cerca de Bagaces, Guanacaste, famosa por su caída rodeada de exuberante vegetación y su poza natural de arena blanca, ideal para nadar y relajarse.",
+      "en": "Spectacular crystal-clear waterfall located near Bagaces, Guanacaste, famous for its scenic drop surrounded by lush vegetation and a white-sand natural pool, perfect for swimming and relaxing.",
+      "pt": "Espetacular cachoeira de águas cristalinas localizada perto de Bagaces, Guanacaste, famosa por sua queda cercada por vegetação exuberante e uma piscina natural de águas rasas com areia branca, ideal para nadar e relaxar."
+    },
+    "horario": {
+      "es": "Lunes a Domingo, 8:00 a.m. - 4:00 p.m.",
+      "en": "Monday to Sunday, 8:00 a.m. - 4:00 p.m.",
+      "pt": "Segunda a Domingo, das 8h às 16h."
+    },
+    "costo": {
+      "nacionales": {
+        "es": "₡2,000",
+        "en": "₡2,000",
+        "pt": "₡2.000"
+      },
+      "extranjeros": {
+        "es": "$7",
+        "en": "$7",
+        "pt": "US$ 7"
+      }
+    },
+    "botonWeb": {
+      "es": "Sitio Web Oficial",
+      "en": "Official Website",
+      "pt": "Site Oficial"
+    },
+    "sitioWeb": "https://www.facebook.com/CatarataLlanosdelCortesOfficial"
+  },
+  {
+    "id": "exp-1787280072705",
+    "icono": "water",
+    "nombre": {
+      "es": "Catarata Llanos del Cortés",
+      "en": "Llanos del Cortés Waterfall",
+      "pt": "Cachoeira Llanos del Cortés"
+    },
+    "descripcion": {
+      "es": "Espectacular catarata de aguas cristalinas ubicada cerca de Bagaces, Guanacaste, famosa por su caída rodeada de exuberante vegetación y su poza natural de arena blanca, ideal para nadar y relajarse.",
+      "en": "Spectacular crystal-clear waterfall located near Bagaces, Guanacaste, famous for its scenic drop surrounded by lush vegetation and a white-sand natural pool, perfect for swimming and relaxing.",
+      "pt": "Espetacular cachoeira de águas cristalinas localizada perto de Bagaces, Guanacaste, famosa por sua queda cercada por vegetação exuberante e uma piscina natural de águas rasas com areia branca, ideal para nadar e relaxar."
+    },
+    "horario": {
+      "es": "Lunes a Domingo, 8:00 a.m. - 4:00 p.m.",
+      "en": "Monday to Sunday, 8:00 a.m. - 4:00 p.m.",
+      "pt": "Segunda a Domingo, das 8h às 16h."
+    },
+    "costo": {
+      "nacionales": {
+        "es": "₡2,000",
+        "en": "₡2,000",
+        "pt": "₡2.000"
+      },
+      "extranjeros": {
+        "es": "$7",
+        "en": "$7",
+        "pt": "US$ 7"
+      }
+    },
+    "botonWeb": {
+      "es": "Sitio Web Oficial",
+      "en": "Official Website",
+      "pt": "Site Oficial"
+    },
+    "sitioWeb": "https://www.facebook.com/CatarataLlanosdelCortesOfficial"
+  },
+  {
+    "id": "exp-1787280073579",
+    "icono": "water",
+    "nombre": {
+      "es": "Catarata Llanos del Cortés",
+      "en": "Llanos del Cortés Waterfall",
+      "pt": "Cachoeira Llanos del Cortés"
+    },
+    "descripcion": {
+      "es": "Espectacular catarata de aguas cristalinas ubicada cerca de Bagaces, Guanacaste, famosa por su caída rodeada de exuberante vegetación y su poza natural de arena blanca, ideal para nadar y relajarse.",
+      "en": "Spectacular crystal-clear waterfall located near Bagaces, Guanacaste, famous for its scenic drop surrounded by lush vegetation and a white-sand natural pool, perfect for swimming and relaxing.",
+      "pt": "Espetacular cachoeira de águas cristalinas localizada perto de Bagaces, Guanacaste, famosa por sua queda cercada por vegetação exuberante e uma piscina natural de águas rasas com areia branca, ideal para nadar e relaxar."
+    },
+    "horario": {
+      "es": "Lunes a Domingo, 8:00 a.m. - 4:00 p.m.",
+      "en": "Monday to Sunday, 8:00 a.m. - 4:00 p.m.",
+      "pt": "Segunda a Domingo, das 8h às 16h."
+    },
+    "costo": {
+      "nacionales": {
+        "es": "₡2,000",
+        "en": "₡2,000",
+        "pt": "₡2.000"
+      },
+      "extranjeros": {
+        "es": "$7",
+        "en": "$7",
+        "pt": "US$ 7"
+      }
+    },
+    "botonWeb": {
+      "es": "Sitio Web Oficial",
+      "en": "Official Website",
+      "pt": "Site Oficial"
+    },
+    "sitioWeb": "https://www.facebook.com/CatarataLlanosdelCortesOfficial"
+  },
+  {
+    "id": "exp-1787280112497",
+    "icono": "water",
+    "nombre": {
+      "es": "Catarata Llanos del Cortés",
+      "en": "Llanos del Cortés Waterfall",
+      "pt": "Cachoeira Llanos del Cortés"
+    },
+    "descripcion": {
+      "es": "Espectacular catarata de aguas cristalinas ubicada cerca de Bagaces, Guanacaste, famosa por su caída rodeada de exuberante vegetación y su poza natural de arena blanca, ideal para nadar y relajarse.",
+      "en": "Spectacular crystal-clear waterfall located near Bagaces, Guanacaste, famous for its scenic drop surrounded by lush vegetation and a white-sand natural pool, perfect for swimming and relaxing.",
+      "pt": "Espetacular cachoeira de águas cristalinas localizada perto de Bagaces, Guanacaste, famosa por sua queda cercada por vegetação exuberante e uma piscina natural de águas rasas com areia branca, ideal para nadar e relaxar."
+    },
+    "horario": {
+      "es": "Lunes a Domingo, 8:00 a.m. - 4:00 p.m.",
+      "en": "Monday to Sunday, 8:00 a.m. - 4:00 p.m.",
+      "pt": "Segunda a Domingo, das 8h às 16h."
+    },
+    "costo": {
+      "nacionales": {
+        "es": "₡2,000",
+        "en": "₡2,000",
+        "pt": "₡2.000"
+      },
+      "extranjeros": {
+        "es": "$7",
+        "en": "$7",
+        "pt": "US$ 7"
+      }
+    },
+    "botonWeb": {
+      "es": "Sitio Web Oficial",
+      "en": "Official Website",
+      "pt": "Site Oficial"
+    },
+    "sitioWeb": "https://www.facebook.com/CatarataLlanosdelCortesOfficial"
   }
 ]
