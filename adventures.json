@@ -146,5 +146,42 @@
       "pt": "Site Web Oficial"
     },
     "sitioWeb": "https://www.guachipelin.com/"
+  },
+  {
+    "id": "exp-1787279601673",
+    "icono": "ticket",
+    "nombre": {
+      "es": "Ponderosa Adventure Park",
+      "en": "Ponderosa Adventure Park",
+      "pt": "Ponderosa Adventure Park"
+    },
+    "descripcion": {
+      "es": "arque de aventuras ubicado en Liberia, Guanacaste, que cuenta con un emocionante safari para interactuar con animales exóticos, canopy sobre el bosque seco, tour en bote/tubing en el río, paseos a caballo y la hermosa catarata La Perla.",
+      "en": "Adventure park located in Liberia, Guanacaste, featuring an exciting safari to interact with exotic animals, canopy tours over the dry forest, river tubing/boat tours, horseback riding, and the beautiful La Perla waterfall.",
+      "pt": "Parque de aventura localizado em Liberia, Guanacaste, que possui um emocionante safári para interagir com animais exóticos, tirolesa (canopy) sobre a floresta seca, passeios de barco/tubing no rio, passeios a cavalo e a bela cachoeira La Perla."
+    },
+    "horario": {
+      "es": "Todos los días, 8:00 a.m. - 5:00 p.m.",
+      "en": "Every day, 8:00 a.m. - 5:00 p.m.",
+      "pt": "Todos os dias, das 8h às 17h."
+    },
+    "costo": {
+      "nacionales": {
+        "es": "₡35,000 (Aprox. varían según paquetes o promociones vigentes; Day Pass básico desde $41.58 y Full Day aprox. $84.75)",
+        "en": "₡35,000 (Prices vary based on packages or current promotions; Day Pass from approx. $41.58)",
+        "pt": "₡35.000 (Os preços variam de acordo com pacotes ou promoções vigentes; Day Pass a partir de aprox. US$ 41,58)"
+      },
+      "extranjeros": {
+        "es": "$73.44 (Day Pass) / $84.75 (Full Day Tour)",
+        "en": "$73.44 (Day Pass) / $84.75 (Full Day Tour)",
+        "pt": "US$ 73,44 (Day Pass) / US$ 84,75 (Full Day Tour)"
+      }
+    },
+    "botonWeb": {
+      "es": "Sitio Web Oficial",
+      "en": "Official Website",
+      "pt": "Site Oficial"
+    },
+    "sitioWeb": "https://ponderosacostarica.com"
   }
 ]
