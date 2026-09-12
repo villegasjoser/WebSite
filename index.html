@@ -203,7 +203,7 @@
           justify-content: center;
         }
 
-        /* Menú con scroll horizontal visible para que NINGUNA opción quede oculta */
+        /* Menú con scroll horizontal y barra visible para no perder opciones */
         .nav-menu {
           order: 2;
           font-size: 0.8rem;
@@ -213,11 +213,10 @@
           max-width: 100%;
           padding: 0.4rem 0.5rem;
           white-space: nowrap;
-          justify-content: flex-start; /* Alineado a la izquierda para poder deslizar */
+          justify-content: flex-start;
           -webkit-overflow-scrolling: touch;
         }
 
-        /* Barra de desplazamiento discreta para indicar que hay más opciones al lado */
         .nav-menu::-webkit-scrollbar {
           height: 3px;
         }
@@ -235,16 +234,13 @@
           padding: 3.5rem 1rem;
         }
 
-        /* Título perfectamente dimensionado para que quepa sin salirse del celular */
+        /* Solución definitiva para el título: tamaño seguro y ajuste automático */
         .hero h1 {
-          font-size: 1.25rem;
+          font-size: 1.15rem;
           line-height: 1.4;
           word-break: normal;
-          overflow-wrap: normal;
-        }
-
-        .hero h1 .palabra-larga {
-          display: inline-block;
+          overflow-wrap: anywhere; /* Evita que el texto traspase los bordes de la pantalla */
+          padding: 0 0.5rem;
         }
 
         .hero p {
@@ -811,8 +807,7 @@
     <section class="hero">
       <div class="container">
         <h1 data-i18n="hero_title">
-          Reconecta. Descansa.<br />Regresa
-          <span class="palabra-larga">transformado</span>.
+          Reconecta. Descansa. Regresa transformado.
         </h1>
         <p data-i18n="hero_subtitle">
           Un refugio privado en Guanacaste diseñado para silenciar el estrés
