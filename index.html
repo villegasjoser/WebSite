@@ -192,60 +192,72 @@
       }
 
       @media (max-width: 850px) {
+        /* Asegurar que el contenedor general no oculte elementos */
+        body,
+        html {
+          overflow-x: hidden;
+        }
+
         header .container {
           flex-direction: column;
           align-items: center;
           gap: 0.5rem;
-          padding: 0.5rem 0.75rem;
+          padding: 0.5rem 1rem;
+          width: 100%;
+          max-width: 100%;
         }
 
         .brand {
           justify-content: center;
         }
 
-        /* Menú con scroll horizontal y barra visible para no perder opciones */
+        /* Menú corregido para que no corte palabras y permita deslizar con total libertad */
         .nav-menu {
           order: 2;
-          font-size: 0.8rem;
-          gap: 1rem;
+          font-size: 0.85rem;
+          gap: 1.25rem;
+          display: flex;
+          flex-wrap: nowrap;
           overflow-x: auto;
-          width: 100%;
-          max-width: 100%;
-          padding: 0.4rem 0.5rem;
-          white-space: nowrap;
-          justify-content: flex-start;
+          width: 100vw; /* Ocupa todo el ancho de la pantalla */
+          margin-left: -1rem; /* Compensa el padding del padre */
+          margin-right: -1rem;
+          padding: 0.5rem 1.5rem; /* Margen interno para que no pegue a los bordes */
+          box-sizing: border-box;
           -webkit-overflow-scrolling: touch;
         }
 
+        /* Ocultar barra fea pero mantener el desplazamiento suave */
         .nav-menu::-webkit-scrollbar {
-          height: 3px;
-        }
-        .nav-menu::-webkit-scrollbar-thumb {
-          background: #10b981;
-          border-radius: 4px;
+          display: none;
         }
 
         .language-selector-wrapper {
           order: 3;
-          margin-top: 0.2rem;
+          margin-top: 0.3rem;
         }
 
         .hero {
-          padding: 3.5rem 1rem;
+          padding: 4rem 1rem;
+          width: 100%;
+          box-sizing: border-box;
         }
 
-        /* Solución definitiva para el título: tamaño seguro y ajuste automático */
+        /* SOLUCIÓN REAL AL TÍTULO: Reducir tamaño y asegurar que quepa dentro de la caja */
         .hero h1 {
-          font-size: 1.15rem;
-          line-height: 1.4;
+          font-size: 2rem; /* Tamaño controlado para móviles */
+          line-height: 1.25;
           word-break: normal;
-          overflow-wrap: anywhere; /* Evita que el texto traspase los bordes de la pantalla */
-          padding: 0 0.5rem;
+          overflow-wrap: break-word; /* Rompe la palabra larga de forma limpia si es estrictamente necesario */
+          max-width: 100%;
+          padding: 0;
+          margin: 0 auto;
         }
 
         .hero p {
-          font-size: 0.95rem;
-          line-height: 1.5;
+          font-size: 1rem;
+          line-height: 1.6;
+          padding: 0;
         }
       }
 
