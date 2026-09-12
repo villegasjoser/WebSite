@@ -444,6 +444,27 @@
         border-radius: 20px;
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
       }
+
+      .anfitriones-content {
+        display: flex;
+        align-items: center;
+        gap: 3rem;
+        max-width: 800px;
+        margin: 0 auto;
+        background: #f8fafc;
+        padding: 3rem;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+      }
+
+      @media (max-width: 768px) {
+        .anfitriones-content {
+          flex-direction: column;
+          text-align: center;
+          padding: 2rem 1.5rem;
+          gap: 1.5rem;
+        }
+      }
       .anfitriones-img {
         width: 220px;
         height: 220px;
