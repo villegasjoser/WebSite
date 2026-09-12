@@ -103,7 +103,7 @@
           box-shadow 0.4s ease;
       }
 
-      /* ENCABEZADO OPTIMIZADO */
+      /* ENCABEZADO OPTIMIZADO EN DOS LÍNEAS */
       header {
         background: white;
         padding: 0.75rem 0;
@@ -114,9 +114,10 @@
       }
       header .container {
         display: flex;
+        flex-wrap: wrap; /* Permite que los elementos pasen a la siguiente línea */
         justify-content: space-between;
         align-items: center;
-        gap: 1rem;
+        gap: 0.75rem;
       }
       .brand {
         display: flex;
@@ -142,11 +143,16 @@
         white-space: nowrap;
       }
 
-      /* MENÚ DE NAVEGACIÓN */
+      /* MENÚ DE NAVEGACIÓN EN SEGUNDA LÍNEA */
       .nav-menu {
+        width: 100%;
+        order: 3; /* Forzaje para colocarse debajo del logo y el selector */
         display: flex;
-        gap: 1.2rem;
+        justify-content: center; /* Centra los enlaces horizontalmente */
+        gap: 1.5rem;
         align-items: center;
+        padding-top: 0.5rem;
+        border-top: 1px solid #f1f5f9; /* Línea sutil de separación */
       }
       .nav-menu a {
         text-decoration: none;
@@ -163,62 +169,40 @@
       }
 
       /* SELECTOR DE IDIOMAS COMPACTO */
-      .lang-selector {
+      .language-selector-wrapper {
         display: flex;
-        gap: 6px;
         align-items: center;
+        gap: 6px;
       }
-      .lang-btn {
-        background: #f8fafc;
-        border: 1px solid #cbd5e1;
-        padding: 4px 8px;
-        border-radius: 6px;
+      .globe-icon {
+        font-size: 1.1rem;
+        color: #333;
+      }
+      #langSelect {
+        border: none;
+        background: transparent;
+        font-family: inherit;
+        font-size: 0.95rem;
+        color: #333;
         cursor: pointer;
-        font-family: 'Montserrat', sans-serif;
-        font-weight: 600;
-        font-size: 0.8rem;
-        transition: all 0.2s ease;
-        white-space: nowrap;
-      }
-      .lang-btn:hover {
-        background: #e2e8f0;
-        border-color: #94a3b8;
-      }
-      .lang-btn.activo {
-        background: #10b981;
-        color: white;
-        border-color: #059669;
-        box-shadow: 0 2px 6px rgba(16, 185, 129, 0.3);
+        outline: none;
+        padding: 2px 4px;
+        transition: border-color 0.2s ease;
       }
 
       /* RESPONSIVE HEADER Y HERO PARA PANTALLAS PEQUEÑAS */
       @media (max-width: 850px) {
-        header .container {
-          flex-wrap: wrap;
-          justify-content: center;
-          gap: 0.75rem;
-        }
-
         .nav-menu {
-          order: 2;
-          font-size: 0.85rem;
-          gap: 1rem;
+          justify-content: flex-start;
           overflow-x: auto;
           max-width: 100%;
-          padding: 0.25rem 0.5rem;
+          padding: 0.5rem 0.5rem 0.25rem 0.5rem;
           white-space: nowrap;
           -webkit-overflow-scrolling: touch;
         }
 
         .nav-menu::-webkit-scrollbar {
           display: none;
-        }
-
-        .lang-selector {
-          order: 3;
-          width: 100%;
-          justify-content: center;
-          margin-top: 0.2rem;
         }
 
         .hero {
@@ -682,14 +666,6 @@
         text-decoration: underline;
       }
 
-      .info-extra {
-        font-size: 0.85rem;
-        color: #6b7280;
-        display: flex;
-        align-items: center;
-        margin-top: auto;
-      }
-
       .contacto-instagram-text {
         margin-top: 2rem;
         font-size: 1rem;
@@ -713,103 +689,6 @@
         text-decoration: underline;
         transform: translateY(-1px);
       }
-
-      .language-selector-wrapper {
-        display: flex;
-        align-items: center;
-        gap: 6px;
-      }
-
-      .globe-icon {
-        font-size: 1.1rem;
-        color: #333;
-      }
-
-      #langSelect {
-        border: none;
-        background: transparent;
-        font-family: inherit;
-        font-size: 0.95rem;
-        color: #333;
-        cursor: pointer;
-        outline: none;
-        padding: 2px 4px;
-        transition: border-color 0.2s ease;
-      }
-
-
-      /* Correcciones para móviles */
-@media (max-width: 850px) {
-  html,
-  body {
-    max-width: 100%;
-    overflow-x: hidden;
-  }
-
-  header .container {
-    width: 100%;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.75rem;
-  }
-
-  .brand {
-    width: 100%;
-    justify-content: center;
-  }
-
-  header h2 {
-    font-size: 1rem;
-  }
-
-  .nav-menu {
-    width: 100%;
-    max-width: 100%;
-    justify-content: flex-start;
-    overflow-x: auto;
-    padding: 0.25rem 0;
-  }
-
-  .language-selector-wrapper {
-    order: 3;
-    width: 100%;
-    justify-content: center;
-  }
-
-  .hero {
-    padding: 4rem 1rem;
-  }
-
-  .hero h1 {
-    font-size: 2.2rem;
-  }
-
-  .anfitriones-content {
-    width: 100%;
-    max-width: 100%;
-    flex-direction: column;
-    align-items: center;
-    gap: 1.5rem;
-    padding: 2rem 1.25rem;
-    text-align: center;
-  }
-
-  .anfitriones-img {
-    width: min(70vw, 220px);
-    height: min(70vw, 220px);
-  }
-
-  .anfitriones-text {
-    width: 100%;
-    min-width: 0;
-  }
-
-  .anfitriones-text h3,
-  .anfitriones-text p {
-    text-align: center;
-    overflow-wrap: anywhere;
-  }
-}
     </style>
   </head>
   <body>
@@ -824,15 +703,6 @@
           <h2 data-i18n="nav_brand">Villa Aliris Liberia</h2>
         </a>
 
-        <nav class="nav-menu">
-          <a href="#galeria" data-i18n="menu_gallery">Propiedad</a>
-          <a href="#amenidades" data-i18n="menu_amenities">Amenidades</a>
-          <a href="#fauna" data-i18n="menu_fauna">Naturaleza</a>
-          <a href="#actividades" data-i18n="menu_activities">Actividades</a>
-          <a href="#ubicacion" data-i18n="menu_location">Ubicación</a>
-          <a href="#contacto" data-i18n="menu_contact">Contacto</a>
-        </nav>
-
         <div class="language-selector-wrapper">
           <i class="fas fa-globe globe-icon" aria-hidden="true"></i>
           <select id="langSelect" aria-label="Seleccionar idioma">
@@ -841,6 +711,15 @@
             <option value="pt" data-i18n="lang_pt">Português</option>
           </select>
         </div>
+
+        <nav class="nav-menu">
+          <a href="#galeria" data-i18n="menu_gallery">Propiedad</a>
+          <a href="#amenidades" data-i18n="menu_amenities">Amenidades</a>
+          <a href="#fauna" data-i18n="menu_fauna">Naturaleza</a>
+          <a href="#actividades" data-i18n="menu_activities">Actividades</a>
+          <a href="#ubicacion" data-i18n="menu_location">Ubicación</a>
+          <a href="#contacto" data-i18n="menu_contact">Contacto</a>
+        </nav>
       </div>
     </header>
 
