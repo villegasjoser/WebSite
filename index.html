@@ -73,7 +73,7 @@
       body {
         background-color: #f8fafc;
         color: #1e293b;
-        font-family: 'Montserrat', sans-serif;
+        font-family: "Montserrat", sans-serif;
         line-height: 1.8;
       }
       .container {
@@ -174,7 +174,7 @@
         padding: 4px 8px;
         border-radius: 6px;
         cursor: pointer;
-        font-family: 'Montserrat', sans-serif;
+        font-family: "Montserrat", sans-serif;
         font-weight: 600;
         font-size: 0.8rem;
         transition: all 0.2s ease;
@@ -493,7 +493,7 @@
         margin: 0 0.5rem 1rem 0.5rem;
         border: none;
         cursor: pointer;
-        font-family: 'Montserrat', sans-serif;
+        font-family: "Montserrat", sans-serif;
       }
       .btn-contacto:hover {
         transform: translateY(-3px);
@@ -735,6 +735,79 @@
         outline: none;
         padding: 2px 4px;
         transition: border-color 0.2s ease;
+      }
+
+      /* Correcciones para móviles */
+      @media (max-width: 850px) {
+        html,
+        body {
+          max-width: 100%;
+          overflow-x: hidden;
+        }
+
+        header .container {
+          width: 100%;
+          flex-direction: column;
+          align-items: center;
+          gap: 0.75rem;
+        }
+
+        .brand {
+          width: 100%;
+          justify-content: center;
+        }
+
+        header h2 {
+          font-size: 1rem;
+        }
+
+        .nav-menu {
+          width: 100%;
+          max-width: 100%;
+          justify-content: flex-start;
+          overflow-x: auto;
+          padding: 0.25rem 0;
+        }
+
+        .language-selector-wrapper {
+          order: 3;
+          width: 100%;
+          justify-content: center;
+        }
+
+        .hero {
+          padding: 4rem 1rem;
+        }
+
+        .hero h1 {
+          font-size: 2.2rem;
+        }
+
+        .anfitriones-content {
+          width: 100%;
+          max-width: 100%;
+          flex-direction: column;
+          align-items: center;
+          gap: 1.5rem;
+          padding: 2rem 1.25rem;
+          text-align: center;
+        }
+
+        .anfitriones-img {
+          width: min(70vw, 220px);
+          height: min(70vw, 220px);
+        }
+
+        .anfitriones-text {
+          width: 100%;
+          min-width: 0;
+        }
+
+        .anfitriones-text h3,
+        .anfitriones-text p {
+          text-align: center;
+          overflow-wrap: anywhere;
+        }
       }
     </style>
   </head>
@@ -1022,8 +1095,8 @@
       <section id="ubicacion">
         <h2 data-i18n="location_title">Nuestra Ubicación</h2>
         <p style="text-align: center" data-i18n="location_subtitle">
-          Situados en una ubicación privilegiada en Liberia, Guanacaste, cerca de
-          todo lo que necesitas.
+          Situados en una ubicación privilegiada en Liberia, Guanacaste, cerca
+          de todo lo que necesitas.
         </p>
 
         <div class="mapa-container">
@@ -1057,37 +1130,25 @@
             >
           </div>
           <div>
-            <i
-              class="bi bi-water"
-              style="color: #0ea5e9; margin-right: 8px"
-            ></i
+            <i class="bi bi-water" style="color: #0ea5e9; margin-right: 8px"></i
             ><span data-i18n="loc_3"
               >Cachoeira La Leona: 18 min de carro (aprox. 12.5 km)</span
             >
           </div>
           <div>
-            <i
-              class="bi bi-water"
-              style="color: #0ea5e9; margin-right: 8px"
-            ></i
+            <i class="bi bi-water" style="color: #0ea5e9; margin-right: 8px"></i
             ><span data-i18n="loc_4"
               >Poza Los Coyotes: 20 min de carro (aprox. 13 km)</span
             >
           </div>
           <div>
-            <i
-              class="bi bi-water"
-              style="color: #0ea5e9; margin-right: 8px"
-            ></i
+            <i class="bi bi-water" style="color: #0ea5e9; margin-right: 8px"></i
             ><span data-i18n="loc_5"
               >Poza La Pipa: 19 min de carro (aprox. 12 km)</span
             >
           </div>
           <div>
-            <i
-              class="bi bi-cart3"
-              style="color: #eab308; margin-right: 8px"
-            ></i
+            <i class="bi bi-cart3" style="color: #eab308; margin-right: 8px"></i
             ><span data-i18n="loc_6"
               >Walmart: 12 min de carro (aprox. 6.4 km)</span
             >
@@ -1122,7 +1183,16 @@
 
         <div class="actividades-grid" id="actividades-container"></div>
 
-        <p class="disclaimer-text" data-i18n="disclaimer" style="font-size:0.85rem; color:#6b7280; margin-top:2rem; text-align:center;">
+        <p
+          class="disclaimer-text"
+          data-i18n="disclaimer"
+          style="
+            font-size: 0.85rem;
+            color: #6b7280;
+            margin-top: 2rem;
+            text-align: center;
+          "
+        >
           La información sobre horarios, tarifas y servicios de terceros es de
           carácter informativo y puede variar sin previo aviso. Recomendamos
           consultar los sitios web oficiales antes de su visita.
@@ -1261,7 +1331,7 @@
                 padding: 0.8rem;
                 border: 1px solid #cbd5e1;
                 border-radius: 8px;
-                font-family: 'Montserrat', sans-serif;
+                font-family: &quot;Montserrat&quot;, sans-serif;
               "
             />
           </div>
@@ -1286,7 +1356,7 @@
                 padding: 0.8rem;
                 border: 1px solid #cbd5e1;
                 border-radius: 8px;
-                font-family: 'Montserrat', sans-serif;
+                font-family: &quot;Montserrat&quot;, sans-serif;
               "
             />
           </div>
@@ -1311,7 +1381,7 @@
                 padding: 0.8rem;
                 border: 1px solid #cbd5e1;
                 border-radius: 8px;
-                font-family: 'Montserrat', sans-serif;
+                font-family: &quot;Montserrat&quot;, sans-serif;
                 resize: vertical;
               "
             ></textarea>
@@ -1381,7 +1451,7 @@
         const cerrarBtn = document.getElementById("lightboxCerrar");
 
         const imagenes = document.querySelectorAll(
-          ".grid-galeria img, .ave-card img, .anfitriones-img"
+          ".grid-galeria img, .ave-card img, .anfitriones-img",
         );
 
         imagenes.forEach((img) => {
@@ -1418,7 +1488,9 @@
 
       async function cargarTraducciones() {
         try {
-          const response = await fetch("lang/translations.json?v=" + Date.now());
+          const response = await fetch(
+            "lang/translations.json?v=" + Date.now(),
+          );
           traducciones = await response.json();
           cambiarIdioma(currentLang);
         } catch (error) {
@@ -1439,7 +1511,7 @@
             renderizarTarjetas(currentLang);
           })
           .catch((error) =>
-            console.error("Error al cargar aventuras.json:", error)
+            console.error("Error al cargar aventuras.json:", error),
           );
       }
 
@@ -1479,7 +1551,8 @@
         container.innerHTML = aventurasData
           .map((item) => {
             const nombre = item.nombre[lang] || item.nombre["es"];
-            const descripcion = item.descripcion[lang] || item.descripcion["es"];
+            const descripcion =
+              item.descripcion[lang] || item.descripcion["es"];
             const horario = item.horario[lang] || item.horario["es"];
             const botonTexto = item.botonWeb
               ? item.botonWeb[lang] || item.botonWeb["es"]
@@ -1488,13 +1561,34 @@
             const costoNac =
               item.costo?.nacionales?.[lang] || item.costo?.nacionales?.["es"];
             const costoExt =
-              item.costo?.extranjeros?.[lang] || item.costo?.extranjeros?.["es"];
+              item.costo?.extranjeros?.[lang] ||
+              item.costo?.extranjeros?.["es"];
 
             const labels = {
-              es: { horario: "Horario:", costo: "Costo:", nac: "Nacionales", ext: "Extranjeros" },
-              en: { horario: "Hours:", costo: "Cost:", nac: "Locals", ext: "Tourists" },
-              pt: { horario: "Horário:", costo: "Custo:", nac: "Nacionais", ext: "Estrangeiros" },
-            }[lang] || { horario: "Horario:", costo: "Costo:", nac: "Nacionales", ext: "Extranjeros" };
+              es: {
+                horario: "Horario:",
+                costo: "Costo:",
+                nac: "Nacionales",
+                ext: "Extranjeros",
+              },
+              en: {
+                horario: "Hours:",
+                costo: "Cost:",
+                nac: "Locals",
+                ext: "Tourists",
+              },
+              pt: {
+                horario: "Horário:",
+                costo: "Custo:",
+                nac: "Nacionais",
+                ext: "Estrangeiros",
+              },
+            }[lang] || {
+              horario: "Horario:",
+              costo: "Costo:",
+              nac: "Nacionales",
+              ext: "Extranjeros",
+            };
 
             const iconData = ICON_CONFIG[item.icono] || {
               class: "bi-geo-alt-fill",
@@ -1566,7 +1660,9 @@
           });
 
           if (response.ok) {
-            alert("¡Mensaje enviado con éxito! Nos pondremos en contacto pronto.");
+            alert(
+              "¡Mensaje enviado con éxito! Nos pondremos en contacto pronto.",
+            );
             form.reset();
             cerrarModalFormulario();
           } else {
