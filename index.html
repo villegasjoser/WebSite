@@ -192,72 +192,63 @@
       }
 
       @media (max-width: 850px) {
-        /* Asegurar que el contenedor general no oculte elementos */
-        body,
-        html {
-          overflow-x: hidden;
-        }
-
         header .container {
           flex-direction: column;
           align-items: center;
-          gap: 0.5rem;
+          gap: 0.4rem;
           padding: 0.5rem 1rem;
           width: 100%;
-          max-width: 100%;
+          box-sizing: border-box;
         }
 
         .brand {
           justify-content: center;
         }
 
-        /* Menú corregido para que no corte palabras y permita deslizar con total libertad */
+        /* Menú distribuido de forma limpia para que quepan TODAS las opciones sin cortes */
         .nav-menu {
           order: 2;
-          font-size: 0.85rem;
-          gap: 1.25rem;
+          font-size: 0.75rem;
+          gap: 0.8rem;
           display: flex;
-          flex-wrap: nowrap;
-          overflow-x: auto;
-          width: 100vw; /* Ocupa todo el ancho de la pantalla */
-          margin-left: -1rem; /* Compensa el padding del padre */
-          margin-right: -1rem;
-          padding: 0.5rem 1.5rem; /* Margen interno para que no pegue a los bordes */
-          box-sizing: border-box;
-          -webkit-overflow-scrolling: touch;
+          flex-wrap: wrap; /* Permite que las opciones bajen si no caben en una línea */
+          justify-content: center;
+          width: 100%;
+          max-width: 100%;
+          padding: 0.2rem 0;
+          overflow-x: visible;
         }
 
-        /* Ocultar barra fea pero mantener el desplazamiento suave */
         .nav-menu::-webkit-scrollbar {
           display: none;
         }
 
         .language-selector-wrapper {
           order: 3;
-          margin-top: 0.3rem;
+          margin-top: 0.2rem;
         }
 
         .hero {
-          padding: 4rem 1rem;
+          padding: 3rem 1rem;
           width: 100%;
           box-sizing: border-box;
         }
 
-        /* SOLUCIÓN REAL AL TÍTULO: Reducir tamaño y asegurar que quepa dentro de la caja */
+        /* Título impecable: tamaño seguro y sin cortes forzados de letras */
         .hero h1 {
-          font-size: 2rem; /* Tamaño controlado para móviles */
-          line-height: 1.25;
+          font-size: 1.6rem;
+          line-height: 1.4;
           word-break: normal;
-          overflow-wrap: break-word; /* Rompe la palabra larga de forma limpia si es estrictamente necesario */
-          max-width: 100%;
-          padding: 0;
+          overflow-wrap: normal;
+          text-align: center;
           margin: 0 auto;
+          max-width: 100%;
         }
 
         .hero p {
-          font-size: 1rem;
-          line-height: 1.6;
-          padding: 0;
+          font-size: 0.95rem;
+          line-height: 1.5;
+          text-align: center;
         }
       }
 
@@ -819,7 +810,9 @@
     <section class="hero">
       <div class="container">
         <h1 data-i18n="hero_title">
-          Reconecta. Descansa. Regresa transformado.
+          Reconecta.<br />
+          Descansa.<br />
+          Regresa transformado.
         </h1>
         <p data-i18n="hero_subtitle">
           Un refugio privado en Guanacaste diseñado para silenciar el estrés
