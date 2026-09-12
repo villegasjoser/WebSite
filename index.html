@@ -191,50 +191,62 @@
         box-shadow: 0 2px 6px rgba(16, 185, 129, 0.3);
       }
 
-      /* RESPONSIVE HEADER Y HERO PARA PANTALLAS PEQUEÑAS */
       @media (max-width: 850px) {
         header .container {
-          flex-wrap: wrap;
-          justify-content: center;
-          gap: 0.75rem;
+          flex-direction: column;
+          align-items: center;
+          gap: 0.5rem;
+          padding: 0.5rem 1rem;
         }
 
+        .brand {
+          justify-content: center;
+        }
+
+        /* Menú de navegación con desplazamiento lateral visible y completo */
         .nav-menu {
           order: 2;
-          font-size: 0.85rem;
-          gap: 1rem;
+          font-size: 0.8rem;
+          gap: 0.8rem;
           overflow-x: auto;
+          width: 100%;
           max-width: 100%;
-          padding: 0.25rem 0.5rem;
+          padding: 0.4rem 0.5rem;
           white-space: nowrap;
+          justify-content: flex-start;
           -webkit-overflow-scrolling: touch;
         }
 
+        /* Ocultar barra fea pero permitir scroll */
         .nav-menu::-webkit-scrollbar {
-          display: none;
+          height: 3px;
+        }
+        .nav-menu::-webkit-scrollbar-thumb {
+          background: #cbd5e1;
+          border-radius: 4px;
         }
 
-        .lang-selector {
+        .language-selector-wrapper {
           order: 3;
-          width: 100%;
-          justify-content: center;
           margin-top: 0.2rem;
         }
 
         .hero {
-          padding: 4rem 1rem;
+          padding: 3.5rem 1rem;
         }
 
+        /* Título adaptado para que no se corte ni se salga de los márgenes */
         .hero h1 {
-          font-size: 2rem; /* Reducido de 3.5rem a 2rem para que encaje perfectamente */
-          line-height: 1.25;
-          word-break: normal; /* Evita que las palabras se corten a mitad de sílaba */
-          overflow-wrap: normal;
+          font-size: 1.6rem; 
+          line-height: 1.3;
+          word-break: normal;
+          overflow-wrap: break-word;
+          max-width: 100%;
         }
 
         .hero p {
-          font-size: 1.05rem;
-          line-height: 1.6;
+          font-size: 1rem;
+          line-height: 1.5;
         }
       }
 
