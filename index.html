@@ -196,29 +196,34 @@
           flex-direction: column;
           align-items: center;
           gap: 0.5rem;
-          padding: 0.5rem 1rem;
+          padding: 0.5rem 0.75rem;
         }
 
         .brand {
           justify-content: center;
         }
 
-        /* Menú mejor estructurado para celulares: centrado y ordenado */
+        /* Menú con scroll horizontal visible para que NINGUNA opción quede oculta */
         .nav-menu {
           order: 2;
-          font-size: 0.78rem;
-          gap: 0.6rem;
+          font-size: 0.8rem;
+          gap: 1rem;
           overflow-x: auto;
           width: 100%;
           max-width: 100%;
-          padding: 0.4rem 0.2rem;
+          padding: 0.4rem 0.5rem;
           white-space: nowrap;
-          justify-content: center; /* Centra las opciones para que se vean más equilibradas */
+          justify-content: flex-start; /* Alineado a la izquierda para poder deslizar */
           -webkit-overflow-scrolling: touch;
         }
 
+        /* Barra de desplazamiento discreta para indicar que hay más opciones al lado */
         .nav-menu::-webkit-scrollbar {
-          display: none; /* Oculta la barra para que se vea limpio */
+          height: 3px;
+        }
+        .nav-menu::-webkit-scrollbar-thumb {
+          background: #10b981;
+          border-radius: 4px;
         }
 
         .language-selector-wrapper {
@@ -227,18 +232,17 @@
         }
 
         .hero {
-          padding: 3rem 0.75rem;
+          padding: 3.5rem 1rem;
         }
 
-        /* Título perfectamente ajustado para evitar cortes agresivos */
+        /* Título perfectamente dimensionado para que quepa sin salirse del celular */
         .hero h1 {
-          font-size: 1.35rem;
-          line-height: 1.3;
+          font-size: 1.25rem;
+          line-height: 1.4;
           word-break: normal;
           overflow-wrap: normal;
         }
 
-        /* Permitir que la palabra larga baje completa si no cabe */
         .hero h1 .palabra-larga {
           display: inline-block;
         }
@@ -246,7 +250,6 @@
         .hero p {
           font-size: 0.95rem;
           line-height: 1.5;
-          padding: 0 0.25rem;
         }
       }
 
@@ -808,7 +811,7 @@
     <section class="hero">
       <div class="container">
         <h1 data-i18n="hero_title">
-          Reconecta. Descansa. Regresa
+          Reconecta. Descansa.<br />Regresa
           <span class="palabra-larga">transformado</span>.
         </h1>
         <p data-i18n="hero_subtitle">
