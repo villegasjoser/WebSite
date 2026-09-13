@@ -89,6 +89,22 @@
     />
 
     <style>
+      /* El CDN de Bootstrap Icons entrega su @font-face con
+         font-display: block (bloquea el texto hasta que la fuente
+         cargue). Como no podemos editar ese archivo, lo sobreescribimos
+         aquí con font-display: swap, apuntando a los mismos archivos. */
+      @font-face {
+        font-family: "bootstrap-icons";
+        src:
+          url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/fonts/bootstrap-icons.woff2?dd67030699838ea613ee6dbda90effa6")
+            format("woff2"),
+          url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/fonts/bootstrap-icons.woff?dd67030699838ea613ee6dbda90effa6")
+            format("woff");
+        font-weight: normal;
+        font-style: normal;
+        font-display: swap;
+      }
+
       /* RESET Y ESTILOS BASE */
       html {
         scroll-behavior: smooth;
