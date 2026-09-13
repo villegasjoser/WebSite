@@ -53,10 +53,6 @@
 
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
-    <link
-      rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
     />
 
@@ -201,35 +197,6 @@
         transform: translateY(-8px) rotate(-45deg);
       }
 
-      /* SELECTOR DE IDIOMAS COMPACTO */
-      .lang-selector {
-        display: flex;
-        gap: 6px;
-        align-items: center;
-      }
-      .lang-btn {
-        background: #f8fafc;
-        border: 1px solid #cbd5e1;
-        padding: 4px 8px;
-        border-radius: 6px;
-        cursor: pointer;
-        font-family: "Montserrat", sans-serif;
-        font-weight: 600;
-        font-size: 0.8rem;
-        transition: all 0.2s ease;
-        white-space: nowrap;
-      }
-      .lang-btn:hover {
-        background: #e2e8f0;
-        border-color: #94a3b8;
-      }
-      .lang-btn.activo {
-        background: #10b981;
-        color: white;
-        border-color: #059669;
-        box-shadow: 0 2px 6px rgba(16, 185, 129, 0.3);
-      }
-
       /* RESPONSIVE HEADER Y HERO PARA PANTALLAS PEQUEÑAS */
       @media (max-width: 850px) {
         header .container {
@@ -278,7 +245,6 @@
           border-bottom: 1px solid #f1f5f9;
         }
 
-        .lang-selector,
         .language-selector-wrapper {
           width: 100%;
           justify-content: center;
@@ -753,14 +719,6 @@
         text-decoration: underline;
       }
 
-      .info-extra {
-        font-size: 0.85rem;
-        color: #6b7280;
-        display: flex;
-        align-items: center;
-        margin-top: auto;
-      }
-
       .contacto-instagram-text {
         margin-top: 2rem;
         font-size: 1rem;
@@ -888,7 +846,7 @@
           </nav>
 
           <div class="language-selector-wrapper">
-            <i class="fas fa-globe globe-icon" aria-hidden="true"></i>
+            <i class="bi bi-globe globe-icon" aria-hidden="true"></i>
             <select id="langSelect" aria-label="Seleccionar idioma">
               <option value="es" data-i18n="lang_es">Español</option>
               <option value="en" data-i18n="lang_en">English</option>
