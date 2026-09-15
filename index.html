@@ -570,21 +570,34 @@
         margin: 0 auto 3rem;
       }
 
+      .contacto-botones {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: stretch;
+        gap: 1rem;
+        margin-bottom: 1rem;
+      }
       .btn-contacto {
-        display: inline-block;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        box-sizing: border-box;
         padding: 1.2rem 2.5rem;
         border-radius: 12px;
         text-decoration: none;
+        text-align: center;
         font-weight: 700;
         font-size: 1.1rem;
         transition:
           transform 0.2s ease,
           box-shadow 0.2s ease,
-          background-color 0.2s ease;
-        margin: 0 0.5rem 1rem 0.5rem;
+          background-color 0.2s ease,
+          width 0.2s ease;
         border: none;
         cursor: pointer;
         font-family: "Montserrat", sans-serif;
+        max-width: 100%;
       }
       .btn-contacto:hover {
         transform: translateY(-3px);
@@ -1311,29 +1324,31 @@
           cualquier duda, escríbenos directamente y con gusto te atenderemos.
         </p>
 
-        <a
-          href="https://wa.me/50688247176?text=Hola!%20Me%20interesa%20información%20sobre%20la%20propiedad"
-          target="_blank"
-          class="btn-contacto btn-whatsapp"
-          data-i18n="btn_whatsapp"
-          >Consultar por WhatsApp</a
-        >
+        <div class="contacto-botones">
+          <a
+            href="https://wa.me/50688247176?text=Hola!%20Me%20interesa%20información%20sobre%20la%20propiedad"
+            target="_blank"
+            class="btn-contacto btn-whatsapp"
+            data-i18n="btn_whatsapp"
+            >Consultar por WhatsApp</a
+          >
 
-        <a
-          href="mailto:villaaliris@gmail.com?subject=Consulta%20sobre%20Villa%20Aliris"
-          class="btn-contacto btn-email"
-          data-i18n="btn_email"
-          >Enviar un Correo</a
-        >
+          <a
+            href="mailto:villaaliris@gmail.com?subject=Consulta%20sobre%20Villa%20Aliris"
+            class="btn-contacto btn-email"
+            data-i18n="btn_email"
+            >Enviar un Correo</a
+          >
 
-        <button
-          type="button"
-          class="btn-contacto btn-form"
-          onclick="abrirModalFormulario()"
-          data-i18n="btn_form"
-        >
-          Enviar Mensaje Directo
-        </button>
+          <button
+            type="button"
+            class="btn-contacto btn-form"
+            onclick="abrirModalFormulario()"
+            data-i18n="btn_form"
+          >
+            Enviar Mensaje Directo
+          </button>
+        </div>
       </div>
 
       <p class="contacto-instagram-text">
@@ -1656,7 +1671,47 @@
         }
 
         renderizarTarjetas(lang);
+
+        // Igualamos el ancho de los botones de contacto al del texto más largo,
+        // una vez que el nuevo idioma ya se pintó en el DOM.
+        requestAnimationFrame(igualarAnchoBotonesContacto);
       }
+
+      function igualarAnchoBotonesContacto() {
+        const botones = document.querySelectorAll(
+          ".contacto-botones .btn-contacto",
+        );
+        if (!botones.length) return;
+
+        // Reseteamos a su ancho natural antes de medir.
+        botones.forEach((btn) => {
+          btn.style.width = "auto";
+        });
+
+        let anchoMaximo = 0;
+        botones.forEach((btn) => {
+          anchoMaximo = Math.max(anchoMaximo, btn.getBoundingClientRect().width);
+        });
+
+        // No dejamos que el botón más ancho fuerce overflow en pantallas pequeñas.
+        const contenedor = document.querySelector(".contacto-botones");
+        const anchoDisponible = contenedor
+          ? contenedor.getBoundingClientRect().width
+          : anchoMaximo;
+        anchoMaximo = Math.min(anchoMaximo, anchoDisponible);
+
+        botones.forEach((btn) => {
+          btn.style.width = anchoMaximo + "px";
+        });
+      }
+
+      window.addEventListener("resize", () => {
+        clearTimeout(window._resizeBotonesTimeout);
+        window._resizeBotonesTimeout = setTimeout(
+          igualarAnchoBotonesContacto,
+          150,
+        );
+      });
 
       function renderizarTarjetas(lang) {
         const container = document.getElementById("actividades-container");
