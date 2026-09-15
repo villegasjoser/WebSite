@@ -90,7 +90,7 @@
     <link
       rel="preload"
       as="image"
-      href="Images/MainPage/main.jpeg"
+      href="Images/MainPage/main.webp"
       fetchpriority="high"
     />
 
@@ -313,7 +313,7 @@
         padding: 8rem 1rem;
         background:
           linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.4)),
-          url("Images/MainPage/main.jpeg") center/cover no-repeat;
+          url("Images/MainPage/main.webp") center/cover no-repeat;
         color: white;
       }
       .hero h1 {
@@ -479,6 +479,9 @@
         width: 100%;
         height: 220px;
         object-fit: cover;
+      }
+      .ave-card picture {
+        display: block;
       }
       .ave-card:hover img {
         transform: scale(1.08);
@@ -1220,7 +1223,14 @@
 
         <div class="grid-aves">
           <div class="ave-card">
-            <img src="Images/Birds/urraca.jpeg" alt="Urraca Copetona" />
+            <picture>
+              <source srcset="Images/Birds/urraca.webp" type="image/webp" />
+              <img
+                src="Images/Birds/urraca.jpeg"
+                alt="Urraca Copetona"
+                loading="lazy"
+              />
+            </picture>
             <div class="ave-info">
               <h3 data-i18n="bird_urraca_title">Urraca Copetona</h3>
               <p data-i18n="bird_urraca_desc">
@@ -1231,11 +1241,15 @@
           </div>
 
           <div class="ave-card">
-            <img
-              src="Images/Birds/perico.jpeg"
-              alt="Pericos"
-              style="object-position: center bottom"
-            />
+            <picture>
+              <source srcset="Images/Birds/perico.webp" type="image/webp" />
+              <img
+                src="Images/Birds/perico.jpeg"
+                alt="Pericos"
+                style="object-position: center bottom"
+                loading="lazy"
+              />
+            </picture>
             <div class="ave-info">
               <h3 data-i18n="bird_perico_title">Pericos</h3>
               <p data-i18n="bird_perico_desc">
@@ -1246,7 +1260,10 @@
           </div>
 
           <div class="ave-card">
-            <img src="Images/Birds/buho.jpeg" alt="Búhos" />
+            <picture>
+              <source srcset="Images/Birds/buho.webp" type="image/webp" />
+              <img src="Images/Birds/buho.jpeg" alt="Búhos" loading="lazy" />
+            </picture>
             <div class="ave-info">
               <h3 data-i18n="bird_buho_title">Búhos</h3>
               <p data-i18n="bird_buho_desc">
@@ -1258,7 +1275,10 @@
           </div>
 
           <div class="ave-card">
-            <img src="Images/Birds/piche.jpeg" alt="Piches" />
+            <picture>
+              <source srcset="Images/Birds/piche.webp" type="image/webp" />
+              <img src="Images/Birds/piche.jpeg" alt="Piches" loading="lazy" />
+            </picture>
             <div class="ave-info">
               <h3 data-i18n="bird_piche_title">Piches</h3>
               <p data-i18n="bird_piche_desc">
@@ -1269,7 +1289,14 @@
           </div>
 
           <div class="ave-card">
-            <img src="Images/Birds/trogon.jpeg" alt="Trogones" />
+            <picture>
+              <source srcset="Images/Birds/trogon.webp" type="image/webp" />
+              <img
+                src="Images/Birds/trogon.jpeg"
+                alt="Trogones"
+                loading="lazy"
+              />
+            </picture>
             <div class="ave-info">
               <h3 data-i18n="bird_trogon_title">Trogones</h3>
               <p data-i18n="bird_trogon_desc">
@@ -1281,7 +1308,10 @@
           </div>
 
           <div class="ave-card">
-            <img src="Images/Birds/bobo.jpeg" alt="Bobo" />
+            <picture>
+              <source srcset="Images/Birds/bobo.webp" type="image/webp" />
+              <img src="Images/Birds/bobo.jpeg" alt="Bobo" loading="lazy" />
+            </picture>
             <div class="ave-info">
               <h3 data-i18n="bird_bobo_title">Bobos</h3>
               <p data-i18n="bird_bobo_desc">
