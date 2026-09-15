@@ -389,26 +389,35 @@
         grid-auto-flow: dense;
         gap: 1.5rem;
       }
-      .grid-galeria img,
+      .grid-galeria picture,
       .ave-card img,
       .anfitriones-img {
         cursor: pointer;
       }
-      .grid-galeria img {
+      .grid-galeria picture {
+        display: block;
         width: 100%;
         height: 100%;
         min-height: 250px;
-        object-fit: cover;
         border-radius: 16px;
+        overflow: hidden;
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
       }
-      .grid-galeria img:hover {
+      .grid-galeria picture img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+      .grid-galeria picture:hover img {
         transform: scale(1.06);
+      }
+      .grid-galeria picture:hover {
         box-shadow: 0 12px 24px rgba(0, 0, 0, 0.18);
       }
 
       @media (min-width: 768px) {
-        .grid-galeria img.hero-img {
+        .grid-galeria picture.hero-img {
           grid-column: span 2;
           grid-row: span 2;
           min-height: 520px;
@@ -953,82 +962,185 @@
       <section id="galeria">
         <h2 data-i18n="gallery_title">Explora la Propiedad</h2>
         <div class="grid-galeria">
-          <img
-            src="Images/MainPage/Property/herogrid.jpeg"
-            alt="Piscina"
-            class="hero-img"
-            data-i18n-alt="gallery_piscina"
-          />
-          <img
-            src="Images/MainPage/Property/piscina.jpeg"
-            alt="Terraza"
-            data-i18n-alt="gallery_terrace"
-          />
-          <img
-            src="Images/MainPage/Property/dining.jpeg"
-            alt="Comedor Terraza"
-            data-i18n-alt="gallery_dining"
-          />
-          <img
-            src="Images/MainPage/Property/terrace.jpeg"
-            alt="Sala Terraza"
-            data-i18n-alt="gallery_exterior"
-          />
-          <img
-            src="Images/MainPage/Property/sala.jpeg"
-            alt="Sala de estar"
-            data-i18n-alt="gallery_sala"
-          />
-          <img
-            src="Images/MainPage/Property/cocina.jpeg"
-            alt="Área de cocina"
-            data-i18n-alt="gallery_cocina"
-          />
-          <img
-            src="Images/MainPage/Property/principal.jpeg"
-            alt="Habitación Principal"
-            data-i18n-alt="gallery_principal"
-          />
-           <img
-            src="Images/MainPage/Property/bath.jpeg"
-            alt="Baño Principal"
-            data-i18n-alt="gallery_bath"
-          />
-          <img
-            src="Images/MainPage/Property/secundario1.jpeg"
-            alt="Habitación Secundaria"
-            data-i18n-alt="gallery_habsecundaria1"
-          />
-          <img
-            src="Images/MainPage/Property/secundario.jpeg"
-            alt="Habitación Secundaria"
-            data-i18n-alt="gallery_habsecundaria2"
-          />
-          <img
-            src="Images/MainPage/Property/bath2.jpeg"
-            alt="Baño Secundario"
-            data-i18n-alt="gallery_bathsecundario"
-          />
-          <img
-            src="Images/MainPage/Property/rancho.jpeg"
-            alt="Rancho para parrillada"
-            data-i18n-alt="gallery_rancho"
-          />
-          <img
-            src="Images/MainPage/Property/oficina.jpeg"
-            alt="Oficina"
-            data-i18n-alt="gallery_oficina"
-          />
-          <img
-            src="Images/MainPage/Property/fachada.jpeg"
-            alt="Fachada de Villa Aliris"
-            data-i18n-alt="gallery_fachada"
-          />
-          <img
-            src="Images/MainPage/Property/pasillo.jpg"
-            alt="Pasillo"
-            data-i18n-alt="gallery_pasillo"
-          />
+          <picture class="hero-img">
+            <source
+              srcset="Images/MainPage/Property/herogrid.webp"
+              type="image/webp"
+            />
+            <img
+              src="Images/MainPage/Property/herogrid.jpeg"
+              alt="Piscina"
+              data-i18n-alt="gallery_piscina"
+            />
+          </picture>
+          <picture>
+            <source
+              srcset="Images/MainPage/Property/piscina.webp"
+              type="image/webp"
+            />
+            <img
+              src="Images/MainPage/Property/piscina.jpeg"
+              alt="Terraza"
+              data-i18n-alt="gallery_terrace"
+              loading="lazy"
+            />
+          </picture>
+          <picture>
+            <source
+              srcset="Images/MainPage/Property/dining.webp"
+              type="image/webp"
+            />
+            <img
+              src="Images/MainPage/Property/dining.jpeg"
+              alt="Comedor Terraza"
+              data-i18n-alt="gallery_dining"
+              loading="lazy"
+            />
+          </picture>
+          <picture>
+            <source
+              srcset="Images/MainPage/Property/terrace.webp"
+              type="image/webp"
+            />
+            <img
+              src="Images/MainPage/Property/terrace.jpeg"
+              alt="Sala Terraza"
+              data-i18n-alt="gallery_exterior"
+              loading="lazy"
+            />
+          </picture>
+          <picture>
+            <source
+              srcset="Images/MainPage/Property/sala.webp"
+              type="image/webp"
+            />
+            <img
+              src="Images/MainPage/Property/sala.jpeg"
+              alt="Sala de estar"
+              data-i18n-alt="gallery_sala"
+              loading="lazy"
+            />
+          </picture>
+          <picture>
+            <source
+              srcset="Images/MainPage/Property/cocina.webp"
+              type="image/webp"
+            />
+            <img
+              src="Images/MainPage/Property/cocina.jpeg"
+              alt="Área de cocina"
+              data-i18n-alt="gallery_cocina"
+              loading="lazy"
+            />
+          </picture>
+          <picture>
+            <source
+              srcset="Images/MainPage/Property/principal.webp"
+              type="image/webp"
+            />
+            <img
+              src="Images/MainPage/Property/principal.jpeg"
+              alt="Habitación Principal"
+              data-i18n-alt="gallery_principal"
+              loading="lazy"
+            />
+          </picture>
+          <picture>
+            <source
+              srcset="Images/MainPage/Property/bath.webp"
+              type="image/webp"
+            />
+            <img
+              src="Images/MainPage/Property/bath.jpeg"
+              alt="Baño Principal"
+              data-i18n-alt="gallery_bath"
+              loading="lazy"
+            />
+          </picture>
+          <picture>
+            <source
+              srcset="Images/MainPage/Property/secundario1.webp"
+              type="image/webp"
+            />
+            <img
+              src="Images/MainPage/Property/secundario1.jpeg"
+              alt="Habitación Secundaria"
+              data-i18n-alt="gallery_habsecundaria1"
+              loading="lazy"
+            />
+          </picture>
+          <picture>
+            <source
+              srcset="Images/MainPage/Property/secundario.webp"
+              type="image/webp"
+            />
+            <img
+              src="Images/MainPage/Property/secundario.jpeg"
+              alt="Habitación Secundaria"
+              data-i18n-alt="gallery_habsecundaria2"
+              loading="lazy"
+            />
+          </picture>
+          <picture>
+            <source
+              srcset="Images/MainPage/Property/bath2.webp"
+              type="image/webp"
+            />
+            <img
+              src="Images/MainPage/Property/bath2.jpeg"
+              alt="Baño Secundario"
+              data-i18n-alt="gallery_bathsecundario"
+              loading="lazy"
+            />
+          </picture>
+          <picture>
+            <source
+              srcset="Images/MainPage/Property/rancho.webp"
+              type="image/webp"
+            />
+            <img
+              src="Images/MainPage/Property/rancho.jpeg"
+              alt="Rancho para parrillada"
+              data-i18n-alt="gallery_rancho"
+              loading="lazy"
+            />
+          </picture>
+          <picture>
+            <source
+              srcset="Images/MainPage/Property/oficina.webp"
+              type="image/webp"
+            />
+            <img
+              src="Images/MainPage/Property/oficina.jpeg"
+              alt="Oficina"
+              data-i18n-alt="gallery_oficina"
+              loading="lazy"
+            />
+          </picture>
+          <picture>
+            <source
+              srcset="Images/MainPage/Property/fachada.webp"
+              type="image/webp"
+            />
+            <img
+              src="Images/MainPage/Property/fachada.jpeg"
+              alt="Fachada de Villa Aliris"
+              data-i18n-alt="gallery_fachada"
+              loading="lazy"
+            />
+          </picture>
+          <picture>
+            <source
+              srcset="Images/MainPage/Property/pasillo.webp"
+              type="image/webp"
+            />
+            <img
+              src="Images/MainPage/Property/pasillo.jpg"
+              alt="Pasillo"
+              data-i18n-alt="gallery_pasillo"
+              loading="lazy"
+            />
+          </picture>
         </div>
       </section>
 
@@ -1586,7 +1698,7 @@
         imagenes.forEach((img) => {
           img.addEventListener("click", () => {
             modal.classList.add("activo");
-            modalImg.src = img.src;
+            modalImg.src = img.currentSrc || img.src;
             modalImg.alt = img.alt;
           });
         });
