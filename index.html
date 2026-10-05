@@ -532,6 +532,94 @@
         box-shadow: 0 6px 12px rgba(0, 0, 0, 0.06);
       }
 
+      /* CAPACIDAD */
+      .capacidad-intro {
+        text-align: center;
+        max-width: 700px;
+        margin: 0 auto 2.5rem;
+        font-size: 1.1rem;
+      }
+      .capacidad-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 1rem;
+      }
+      .capacidad-card {
+        background: white;
+        padding: 1.5rem 1rem;
+        border-radius: 12px;
+        text-align: center;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+        transition:
+          transform 0.2s ease,
+          box-shadow 0.2s ease;
+      }
+      .capacidad-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.06);
+      }
+      .capacidad-icon {
+        font-size: 2rem;
+        display: block;
+        margin-bottom: 0.5rem;
+      }
+      .capacidad-card h3 {
+        font-size: 1rem;
+        margin-bottom: 0.4rem;
+      }
+      .capacidad-card p {
+        font-size: 0.9rem;
+        color: #64748b;
+        margin-bottom: 0.6rem;
+      }
+      .capacidad-badge {
+        display: inline-block;
+        background: #ecfdf5;
+        color: #047857;
+        font-weight: 600;
+        font-size: 0.85rem;
+        padding: 0.25rem 0.8rem;
+        border-radius: 999px;
+      }
+      .capacidad-banos {
+        max-width: 700px;
+        margin: 2.5rem auto 0;
+      }
+      .capacidad-banos h3 {
+        text-align: center;
+        margin-bottom: 1rem;
+      }
+      .capacidad-banos ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1rem;
+        text-align: center;
+      }
+      .capacidad-banos li {
+        background: white;
+        padding: 1rem;
+        border-radius: 8px;
+        font-size: 0.9rem;
+        font-weight: 600;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+      }
+      .capacidad-banos li span.emoji {
+        margin-right: 6px;
+      }
+      .capacidad-nota {
+        max-width: 700px;
+        margin: 2rem auto 0;
+        padding: 1rem 1.25rem;
+        border-left: 4px solid #10b981;
+        background: #f0fdf4;
+        border-radius: 0 8px 8px 0;
+        font-size: 0.95rem;
+        color: #475569;
+      }
+
       /* ANFITRIONES */
       .anfitriones {
         background: white;
@@ -1425,6 +1513,53 @@
         </div>
       </section>
 
+      <section id="capacidad">
+        <h2 data-i18n="capacity_title">Capacidad y Espacios</h2>
+        <p class="capacidad-intro" data-i18n-html="capacity_intro">
+          Villa Aliris está diseñada para alojar cómodamente hasta <strong>8 personas</strong>, distribuidas así:
+        </p>
+
+        <div class="capacidad-grid">
+          <div class="capacidad-card">
+            <span class="capacidad-icon">🛏️</span>
+            <h3 data-i18n="cap_main_name">Dormitorio principal</h3>
+            <p data-i18n="cap_main_beds">Cama matrimonial</p>
+            <span class="capacidad-badge" data-i18n="cap_main_people">2 personas</span>
+          </div>
+          <div class="capacidad-card">
+            <span class="capacidad-icon">🛏️</span>
+            <h3 data-i18n="cap_sec1_name">Dormitorio secundario 1</h3>
+            <p data-i18n="cap_sec1_beds">Cama nido</p>
+            <span class="capacidad-badge" data-i18n="cap_sec1_people">2 personas</span>
+          </div>
+          <div class="capacidad-card">
+            <span class="capacidad-icon">🛏️</span>
+            <h3 data-i18n="cap_sec2_name">Dormitorio secundario 2</h3>
+            <p data-i18n="cap_sec2_beds">Cama nido + cama plegable</p>
+            <span class="capacidad-badge" data-i18n="cap_sec2_people">3 personas</span>
+          </div>
+          <div class="capacidad-card">
+            <span class="capacidad-icon">🛋️</span>
+            <h3 data-i18n="cap_office_name">Oficina</h3>
+            <p data-i18n="cap_office_beds">Sofá cama</p>
+            <span class="capacidad-badge" data-i18n="cap_office_people">1 persona</span>
+          </div>
+        </div>
+
+        <div class="capacidad-banos">
+          <h3 data-i18n="cap_baths_title">Baños</h3>
+          <ul>
+            <li><span class="emoji">🚿</span><span data-i18n="cap_bath_1">2 baños completos dentro de la villa</span></li>
+            <li><span class="emoji">🚽</span><span data-i18n="cap_bath_2">1 medio baño exterior</span></li>
+            <li><span class="emoji">🌊</span><span data-i18n="cap_bath_3">Ducha exterior disponible</span></li>
+          </ul>
+        </div>
+
+        <p class="capacidad-nota" data-i18n-html="cap_note" data-prefix="💡 ">
+          💡 <strong>Nota:</strong> Esta capacidad está pensada para garantizar una estancia confortable. Si necesitas alojar un grupo diferente, <strong>consúltanos previamente</strong> y con gusto te ayudaremos.
+        </p>
+      </section>
+
       <section id="actividades" class="actividades-section">
         <h2 data-i18n="activities_title">Aventuras y Experiencias Cercanas</h2>
         <p class="section-subtitle" data-i18n="activities_subtitle">
@@ -1813,6 +1948,13 @@
             const clave = el.getAttribute("data-i18n");
             if (traducciones[lang][clave]) {
               el.textContent = traducciones[lang][clave];
+            }
+          });
+
+          document.querySelectorAll("[data-i18n-html]").forEach((el) => {
+            const clave = el.getAttribute("data-i18n-html");
+            if (traducciones[lang][clave]) {
+              el.innerHTML = (el.dataset.prefix || "") + traducciones[lang][clave];
             }
           });
 
