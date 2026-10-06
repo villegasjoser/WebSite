@@ -700,7 +700,7 @@
           box-shadow 0.2s ease,
           background-color 0.2s ease,
           width 0.2s ease;
-        border: none;
+        border: 2px solid transparent;
         cursor: pointer;
         font-family: "Montserrat", sans-serif;
         max-width: 100%;
@@ -720,23 +720,15 @@
         background-color: #0a6430;
         box-shadow: 0 8px 20px rgba(14, 122, 61, 0.45);
       }
-      .btn-email {
-        background-color: white;
-        color: #0f172a;
-        box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
-      }
-      .btn-email:hover {
-        background-color: #f1f5f9;
-        box-shadow: 0 8px 20px rgba(255, 255, 255, 0.2);
-      }
       .btn-form {
-        background-color: #047857;
+        background-color: transparent;
         color: white;
-        box-shadow: 0 4px 15px rgba(4, 120, 87, 0.3);
+        border-color: white;
       }
       .btn-form:hover {
-        background-color: #065f46;
-        box-shadow: 0 8px 20px rgba(4, 120, 87, 0.45);
+        background-color: white;
+        color: #0f172a;
+        box-shadow: 0 8px 20px rgba(255, 255, 255, 0.2);
       }
 
       /* ESTILOS PARA EL MODAL / LIGHTBOX DE IMÁGENES Y FORMULARIO CON TRANSICIÓN FADE-IN */
@@ -914,6 +906,26 @@
         color: #fd5949;
         text-decoration: underline;
         transform: translateY(-1px);
+      }
+
+      .contacto-email-line {
+        display: block;
+        margin-top: 0.8rem;
+        font-size: 0.95rem;
+      }
+
+      .contacto-email-link {
+        color: #94a3b8;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        transition: color 0.2s ease-in-out;
+      }
+
+      .contacto-email-link:hover {
+        color: white;
+        text-decoration: underline;
       }
 
       .language-selector-wrapper {
@@ -1633,13 +1645,6 @@
             >Consultar por WhatsApp</a
           >
 
-          <a
-            href="mailto:villaaliris@gmail.com?subject=Consulta%20sobre%20Villa%20Aliris"
-            class="btn-contacto btn-email"
-            data-i18n="btn_email"
-            >Enviar un Correo</a
-          >
-
           <button
             type="button"
             class="btn-contacto btn-form"
@@ -1662,6 +1667,14 @@
         >
           <i class="bi bi-instagram"></i> @villaaliris
         </a>
+        <span class="contacto-email-line">
+          <a
+            href="mailto:villaaliris@gmail.com?subject=Consulta%20sobre%20Villa%20Aliris"
+            class="contacto-email-link"
+          >
+            <i class="bi bi-envelope"></i> villaaliris@gmail.com
+          </a>
+        </span>
       </p>
     </section>
 
