@@ -167,14 +167,14 @@
     },
     "costo": {
       "nacionales": {
-        "es": "₡35,000 (Aprox. varían según paquetes o promociones vigentes; Day Pass básico desde $41.58 y Full Day aprox. $84.75)",
-        "en": "₡35,000 (Prices vary based on packages or current promotions; Day Pass from approx. $41.58)",
-        "pt": "₡35.000 (Os preços variam de acordo com pacotes ou promoções vigentes; Day Pass a partir de aprox. US$ 41,58)"
+        "es": "desde $39.55",
+        "en": "from $39.55",
+        "pt": "a partir de US$ 39,55"
       },
       "extranjeros": {
-        "es": "$73.44 (Day Pass) / $84.75 (Full Day Tour)",
-        "en": "$73.44 (Day Pass) / $84.75 (Full Day Tour)",
-        "pt": "US$ 73,44 (Day Pass) / US$ 84,75 (Full Day Tour)"
+        "es": "desde $39.55",
+        "en": "from $39.55",
+        "pt": "a partir de US$ 39,55"
       }
     },
     "botonWeb": {
