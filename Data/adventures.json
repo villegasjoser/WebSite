@@ -24,9 +24,9 @@
         "pt": "₡1,130"
       },
       "extranjeros": {
-        "es": "$17",
-        "en": "$17",
-        "pt": "$17"
+        "es": "USD $17",
+        "en": "USD $17",
+        "pt": "USD $17"
       }
     },
     "botonWeb": {
@@ -61,9 +61,9 @@
         "pt": "₡10,000"
       },
       "extranjeros": {
-        "es": "$30",
-        "en": "$30",
-        "pt": "$30"
+        "es": "USD $30",
+        "en": "USD $30",
+        "pt": "USD $30"
       }
     },
     "botonWeb": {
@@ -98,9 +98,9 @@
         "pt": "₡12,000"
       },
       "extranjeros": {
-        "es": "$25",
-        "en": "$25",
-        "pt": "$25"
+        "es": "USD $25",
+        "en": "USD $25",
+        "pt": "USD $25"
       }
     },
     "botonWeb": {
@@ -119,7 +119,7 @@
       "pt": "Cachoeira Oropéndola"
     },
     "descripcion": {
-      "es": "Espectacular caída de agua de 25 metros ubicada en un canyon con turquesas pozas naturales aptas para nadar.",
+      "es": "Espectacular caída de agua de 25 metros ubicada en un cañón con pozas turquesas naturales aptas para nadar.",
       "en": "A stunning 82-foot waterfall located in a lush canyon with turquoise natural pools ideal for swimming.",
       "pt": "Uma impressionante queda d'água de 25 metros em um cânion verdejante com piscinas naturais azul-turquesa perfeitas para nadar."
     },
@@ -135,9 +135,9 @@
         "pt": "₡5,000"
       },
       "extranjeros": {
-        "es": "$22",
-        "en": "$22",
-        "pt": "$22"
+        "es": "USD $22",
+        "en": "USD $22",
+        "pt": "USD $22"
       }
     },
     "botonWeb": {
@@ -172,9 +172,9 @@
         "pt": "a partir de US$ 39,55"
       },
       "extranjeros": {
-        "es": "desde $39.55",
-        "en": "from $39.55",
-        "pt": "a partir de US$ 39,55"
+        "es": "desde USD $39.55",
+        "en": "from USD $39.55",
+        "pt": "a partir de USD $39.55"
       }
     },
     "botonWeb": {
@@ -209,9 +209,9 @@
         "pt": "₡2.000"
       },
       "extranjeros": {
-        "es": "$7",
-        "en": "$7",
-        "pt": "US$ 7"
+        "es": "USD $7",
+        "en": "USD $7",
+        "pt": "USD $7"
       }
     },
     "botonWeb": {
