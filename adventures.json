@@ -24,9 +24,9 @@
         "pt": "₡1,130"
       },
       "extranjeros": {
-        "es": "$17",
-        "en": "$17",
-        "pt": "$17"
+        "es": "USD $17",
+        "en": "USD $17",
+        "pt": "USD $17"
       }
     },
     "botonWeb": {
@@ -61,9 +61,9 @@
         "pt": "₡10,000"
       },
       "extranjeros": {
-        "es": "$30",
-        "en": "$30",
-        "pt": "$30"
+        "es": "USD $30",
+        "en": "USD $30",
+        "pt": "USD $30"
       }
     },
     "botonWeb": {
@@ -137,7 +137,7 @@
       "extranjeros": {
         "es": "USD $22",
         "en": "USD $22",
-        "pt": "$22"
+        "pt": "USD $22"
       }
     },
     "botonWeb": {
