@@ -565,9 +565,16 @@
         box-shadow: 0 6px 12px rgba(0, 0, 0, 0.06);
       }
       .capacidad-icon {
-        font-size: 2rem;
+        font-size: 28px;
         display: block;
-        margin-bottom: 0.5rem;
+        margin-bottom: 16px;
+      }
+      /* Icono de cama: Font Awesome Free (CC BY 4.0, fontawesome.com/license/free),
+         incrustado como SVG para no cargar otra hoja de estilos */
+      .icon-bed {  /* también lo usa el icono de sofá */
+        height: 1em;
+        width: 1.125em;
+        vertical-align: -0.125em;
       }
       .capacidad-card h3 {
         font-size: 1rem;
@@ -612,10 +619,10 @@
         font-weight: 600;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
       }
-      .capacidad-banos li span.emoji {
-        margin-right: 6px;
+      .capacidad-banos li i {
+        margin-right: 8px;
       }
-      .capacidad-nota {
+      .nota {
         max-width: 700px;
         margin: 2rem auto 0;
         padding: 1rem 1.25rem;
@@ -1551,25 +1558,25 @@
 
         <div class="capacidad-grid">
           <div class="capacidad-card">
-            <span class="capacidad-icon">🛏️</span>
+            <span class="capacidad-icon"><svg class="icon-bed" style="color: #6366f1" viewBox="0 0 576 512" fill="currentColor" aria-hidden="true"><path d="M32 32c17.7 0 32 14.3 32 32v224h224V160c0-17.7 14.3-32 32-32h160c53 0 96 43 96 96v224c0 17.7-14.3 32-32 32s-32-14.3-32-32v-64H64v64c0 17.7-14.3 32-32 32S0 465.7 0 448V64c0-17.7 14.3-32 32-32m80 160a64 64 0 1 1 128 0 64 64 0 1 1-128 0"/></svg></span>
             <h3 data-i18n="cap_main_name">Dormitorio principal</h3>
             <p data-i18n="cap_main_beds">Cama matrimonial</p>
             <span class="capacidad-badge" data-i18n="cap_main_people">2 personas</span>
           </div>
           <div class="capacidad-card">
-            <span class="capacidad-icon">🛏️</span>
+            <span class="capacidad-icon"><svg class="icon-bed" style="color: #8b5cf6" viewBox="0 0 576 512" fill="currentColor" aria-hidden="true"><path d="M32 32c17.7 0 32 14.3 32 32v224h224V160c0-17.7 14.3-32 32-32h160c53 0 96 43 96 96v224c0 17.7-14.3 32-32 32s-32-14.3-32-32v-64H64v64c0 17.7-14.3 32-32 32S0 465.7 0 448V64c0-17.7 14.3-32 32-32m80 160a64 64 0 1 1 128 0 64 64 0 1 1-128 0"/></svg></span>
             <h3 data-i18n="cap_sec1_name">Dormitorio secundario 1</h3>
             <p data-i18n="cap_sec1_beds">Cama nido</p>
             <span class="capacidad-badge" data-i18n="cap_sec1_people">2 personas</span>
           </div>
           <div class="capacidad-card">
-            <span class="capacidad-icon">🛏️</span>
+            <span class="capacidad-icon"><svg class="icon-bed" style="color: #8b5cf6" viewBox="0 0 576 512" fill="currentColor" aria-hidden="true"><path d="M32 32c17.7 0 32 14.3 32 32v224h224V160c0-17.7 14.3-32 32-32h160c53 0 96 43 96 96v224c0 17.7-14.3 32-32 32s-32-14.3-32-32v-64H64v64c0 17.7-14.3 32-32 32S0 465.7 0 448V64c0-17.7 14.3-32 32-32m80 160a64 64 0 1 1 128 0 64 64 0 1 1-128 0"/></svg></span>
             <h3 data-i18n="cap_sec2_name">Dormitorio secundario 2</h3>
             <p data-i18n="cap_sec2_beds">Cama nido + cama plegable</p>
             <span class="capacidad-badge" data-i18n="cap_sec2_people">3 personas</span>
           </div>
           <div class="capacidad-card">
-            <span class="capacidad-icon">🛋️</span>
+            <span class="capacidad-icon"><svg class="icon-bed" style="color: #8b5cf6; width: 1.25em" viewBox="0 0 640 512" fill="currentColor" aria-hidden="true"><path d="M144 272c0-47.3-34.2-86.6-79.2-94.5C72 113.6 126.2 64 192 64h256c65.8 0 120 49.6 127.2 113.5-45 8-79.2 47.2-79.2 94.5v32H144zM0 384V272c0-26.5 21.5-48 48-48s48 21.5 48 48v80h448v-80c0-26.5 21.5-48 48-48s48 21.5 48 48v112c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64"/></svg></span>
             <h3 data-i18n="cap_office_name">Oficina</h3>
             <p data-i18n="cap_office_beds">Sofá cama</p>
             <span class="capacidad-badge" data-i18n="cap_office_people">1 persona</span>
@@ -1579,14 +1586,14 @@
         <div class="capacidad-banos">
           <h3 data-i18n="cap_baths_title">Baños</h3>
           <ul>
-            <li><span class="emoji">🚿</span><span data-i18n="cap_bath_1">2 baños completos dentro de la villa</span></li>
-            <li><span class="emoji">🚽</span><span data-i18n="cap_bath_2">1 medio baño exterior</span></li>
-            <li><span class="emoji">🌊</span><span data-i18n="cap_bath_3">Ducha exterior disponible</span></li>
+            <li><i class="bi bi-droplet-fill" style="color: #0ea5e9"></i><span data-i18n="cap_bath_1">2 baños completos dentro de la villa</span></li>
+            <li><i class="bi bi-door-closed-fill" style="color: #64748b"></i><span data-i18n="cap_bath_2">1 medio baño exterior</span></li>
+            <li><i class="bi bi-cloud-rain-fill" style="color: #3b82f6"></i><span data-i18n="cap_bath_3">Ducha exterior disponible</span></li>
           </ul>
         </div>
 
-        <p class="capacidad-nota" data-i18n-html="cap_note" data-prefix="💡 ">
-          💡 <strong>Nota:</strong> Esta capacidad está pensada para garantizar una estancia confortable. Si necesitas alojar un grupo diferente, <strong>consúltanos previamente</strong> y con gusto te ayudaremos.
+        <p class="nota" data-i18n-html="cap_note" data-prefix='<i class="bi bi-lightbulb-fill" style="color: #eab308; margin-right: 6px"></i>'>
+          <i class="bi bi-lightbulb-fill" style="color: #eab308; margin-right: 6px"></i><strong>Nota:</strong> Esta capacidad está pensada para garantizar una estancia confortable. Si necesitas alojar un grupo diferente, <strong>consúltanos previamente</strong> y con gusto te ayudaremos.
         </p>
       </section>
 
@@ -1599,19 +1606,13 @@
 
         <div class="actividades-grid" id="actividades-container"></div>
 
-        <p
-          class="disclaimer-text"
-          data-i18n="disclaimer"
-          style="
-            font-size: 0.85rem;
-            color: #6b7280;
-            margin-top: 2rem;
-            text-align: center;
-          "
-        >
-          La información sobre horarios, tarifas y servicios de terceros es de
-          carácter informativo y puede variar sin previo aviso. Recomendamos
-          consultar los sitios web oficiales antes de su visita.
+        <p class="nota">
+          <i class="bi bi-lightbulb-fill" style="color: #eab308; margin-right: 6px"></i
+          ><span data-i18n="disclaimer"
+            >La información sobre horarios, tarifas y servicios de terceros es
+            de carácter informativo y puede variar sin previo aviso. Recomendamos
+            consultar los sitios web oficiales antes de su visita.</span
+          >
         </p>
       </section>
 
@@ -2121,14 +2122,14 @@
         <ul class="actividad-detalles">
           <li>
             <i class="bi bi-clock" style="margin-right: 6px"></i>
-            <strong>${labels.horario}</strong> ${horario}
+            <span><strong>${labels.horario}</strong> ${horario}</span>
           </li>
           ${
             costoTexto
               ? `
           <li>
             <i class="bi bi-ticket-perforated" style="margin-right: 6px"></i>
-            <strong>${labels.costo}</strong> ${costoTexto}
+            <span><strong>${labels.costo}</strong> ${costoTexto}</span>
           </li>`
               : ""
           }
