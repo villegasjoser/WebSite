@@ -470,9 +470,10 @@
       }
       .ave-card {
         background: #f8fafc;
+        border: 1px solid #e2e8f0;
         border-radius: 16px;
         overflow: hidden;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
         transition:
           transform 0.3s ease,
           box-shadow 0.3s ease;
@@ -481,19 +482,29 @@
         transform: translateY(-6px);
         box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
       }
-      .ave-card img {
-        width: 100%;
-        height: 220px;
-        object-fit: cover;
+      .ave-card {
+        display: flex;
+        flex-direction: column;
+        padding: 0.75rem; /* la foto queda "dentro" de la tarjeta, sin pegarse al borde */
       }
       .ave-card picture {
         display: block;
+        width: 100%;
+        border-radius: 12px; /* las 4 esquinas de la foto redondeadas */
+        overflow: hidden;
+        isolation: isolate; /* evita que el zoom se salga del redondeo (Safari) */
+        background: #e2e8f0;
+      }
+      .ave-card img {
+        display: block;
+        width: 100%;
+        height: auto; /* respeta la proporción real: la foto se ve completa */
       }
       .ave-card:hover img {
-        transform: scale(1.08);
+        transform: scale(1.03);
       }
       .ave-info {
-        padding: 1.5rem;
+        padding: 1.25rem 0.75rem 0.75rem;
       }
       .ave-info h3 {
         font-size: 1.2rem;
@@ -1388,7 +1399,6 @@
               <img
                 src="Images/Birds/perico.jpeg"
                 alt="Pericos"
-                style="object-position: center bottom"
                 loading="lazy"
               />
             </picture>
@@ -1626,13 +1636,13 @@
           />
           <div class="anfitriones-text">
             <h3 data-i18n="hosts_greeting">
-              ¡Hola! Un gusto saludarle. Mi nombre es José Rafael Villegas
+              ¡Hola! Un gusto saludarte. Mi nombre es José Rafael Villegas
               García
             </h3>
             <p data-i18n="hosts_desc">
               Diseñamos Villa Aliris para compartir nuestra pasión por la
-              naturaleza y la tranquilidad. Estamos a su disposición para
-              ofrecerle recomendaciones locales y asegurarnos de que su visita
+              naturaleza y la tranquilidad. Estamos a tu disposición para
+              ofrecerte recomendaciones locales y asegurarnos de que tu visita
               sea inolvidable.
             </p>
           </div>

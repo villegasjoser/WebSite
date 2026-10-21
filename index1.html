@@ -1607,7 +1607,7 @@
         <div class="actividades-grid" id="actividades-container"></div>
 
         <p class="nota">
-          <i class="bi bi-info-circle-fill" style="color: #0ea5e9; margin-right: 6px"></i
+          <i class="bi bi-lightbulb-fill" style="color: #eab308; margin-right: 6px"></i
           ><span data-i18n="disclaimer"
             >La información sobre horarios, tarifas y servicios de terceros es
             de carácter informativo y puede variar sin previo aviso. Recomendamos
@@ -1631,8 +1631,8 @@
             </h3>
             <p data-i18n="hosts_desc">
               Diseñamos Villa Aliris para compartir nuestra pasión por la
-              naturaleza y la tranquilidad. Estamos a tu disposición para
-              ofrecerte recomendaciones locales y asegurarnos de que tu visita
+              naturaleza y la tranquilidad. Estamos a su disposición para
+              ofrecerle recomendaciones locales y asegurarnos de que su visita
               sea inolvidable.
             </p>
           </div>
@@ -2122,14 +2122,14 @@
         <ul class="actividad-detalles">
           <li>
             <i class="bi bi-clock" style="margin-right: 6px"></i>
-            <strong>${labels.horario}</strong> ${horario}
+            <span><strong>${labels.horario}</strong> ${horario}</span>
           </li>
           ${
             costoTexto
               ? `
           <li>
             <i class="bi bi-ticket-perforated" style="margin-right: 6px"></i>
-            <strong>${labels.costo}</strong> ${costoTexto}
+            <span><strong>${labels.costo}</strong> ${costoTexto}</span>
           </li>`
               : ""
           }
