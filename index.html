@@ -251,8 +251,9 @@
         transform: translateY(-8px) rotate(-45deg);
       }
 
-      /* RESPONSIVE HEADER Y HERO PARA PANTALLAS PEQUEÑAS */
-      @media (max-width: 850px) {
+      /* RESPONSIVE HEADER: el menú hamburguesa aparece antes (1100px) porque
+         con 7 enlaces + selector de idioma ya no cabe en una sola fila */
+      @media (max-width: 1100px) {
         header .container {
           flex-wrap: wrap;
           justify-content: space-between;
@@ -821,6 +822,127 @@
         transform: scale(1.1);
       }
 
+      /* MODAL DE PREGUNTAS FRECUENTES */
+      body.faq-abierto {
+        overflow: hidden;
+      }
+      .faq-modal {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        max-width: 680px;
+        max-height: 85vh;
+        background: white;
+        border-radius: 16px;
+        color: #1e293b;
+        overflow: hidden;
+      }
+      .faq-modal .modal-cerrar {
+        top: 0.5rem;
+        right: 1rem;
+        color: #0f172a;
+      }
+      .faq-header {
+        padding: 2rem 3.5rem 1.5rem;
+        text-align: center;
+        border-bottom: 1px solid #e2e8f0;
+      }
+      .faq-header h3 {
+        font-size: 1.5rem;
+        line-height: 1.25;
+        margin: 0 0 1rem;
+      }
+      .faq-header h3::after {
+        content: "";
+        display: block;
+        width: 60px;
+        height: 4px;
+        background: #10b981;
+        margin: 0.75rem auto 0;
+        border-radius: 2px;
+      }
+      .faq-header p {
+        margin: 0;
+        font-size: 0.95rem;
+        line-height: 1.5;
+        color: #64748b;
+      }
+      .faq-lista {
+        flex: 1;
+        overflow-y: auto;
+        padding: 0.5rem 2rem 1.5rem;
+        overscroll-behavior: contain;
+      }
+      .faq-item {
+        border-bottom: 1px solid #e2e8f0;
+      }
+      .faq-item:last-child {
+        border-bottom: none;
+      }
+      .faq-item summary {
+        position: relative;
+        padding: 1rem 2rem 1rem 0;
+        font-weight: 700;
+        font-size: 1rem;
+        line-height: 1.4;
+        color: #0f172a;
+        cursor: pointer;
+        list-style: none;
+        transition: color 0.2s ease;
+      }
+      .faq-item summary::-webkit-details-marker {
+        display: none;
+      }
+      .faq-item summary::after {
+        content: "+";
+        position: absolute;
+        right: 0.25rem;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 1.5rem;
+        font-weight: 400;
+        color: #10b981;
+      }
+      .faq-item[open] summary::after {
+        content: "\2013";
+      }
+      .faq-item summary:hover {
+        color: #059669;
+      }
+      .faq-item summary:focus-visible,
+      .faq-modal .modal-cerrar:focus-visible {
+        outline: 2px solid #10b981;
+        outline-offset: 2px;
+        border-radius: 4px;
+      }
+      .faq-respuesta {
+        padding: 0 2rem 1.1rem 0;
+        font-size: 0.95rem;
+        line-height: 1.7;
+        color: #475569;
+      }
+      .faq-respuesta a {
+        display: inline-block;
+        margin-top: 0.4rem;
+        color: #059669;
+        font-weight: 600;
+        text-decoration: underline;
+      }
+      @media (max-width: 600px) {
+        #faqModal {
+          padding: 1rem;
+        }
+        .faq-header {
+          padding: 1.5rem 3rem 1.25rem;
+        }
+        .faq-header h3 {
+          font-size: 1.25rem;
+        }
+        .faq-lista {
+          padding: 0.25rem 1.25rem 1.25rem;
+        }
+      }
+
       /* ACTIVIDADES */
       .actividades-section {
         padding: 60px 20px;
@@ -1063,6 +1185,7 @@
             <a href="#fauna" data-i18n="menu_fauna">Naturaleza</a>
             <a href="#actividades" data-i18n="menu_activities">Actividades</a>
             <a href="#ubicacion" data-i18n="menu_location">Ubicación</a>
+            <a href="#faq" data-faq-abrir data-i18n="menu_faq">Preguntas</a>
             <a href="#contacto" data-i18n="menu_contact">Contacto</a>
           </nav>
 
@@ -1689,6 +1812,15 @@
           >
             Enviar Mensaje Directo
           </button>
+
+          <button
+            type="button"
+            class="btn-contacto btn-form"
+            data-faq-abrir
+            data-i18n="btn_faq"
+          >
+            Preguntas Frecuentes
+          </button>
         </div>
       </div>
 
@@ -1859,6 +1991,88 @@
       </div>
     </div>
 
+    <div
+      id="faqModal"
+      class="modal-lightbox"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="faqTitulo"
+    >
+      <div class="modal-contenido faq-modal">
+        <button
+          type="button"
+          class="modal-cerrar"
+          data-faq-cerrar
+          data-i18n-aria-label="faq_close"
+          aria-label="Cerrar"
+        >
+          ×
+        </button>
+
+        <div class="faq-header">
+          <h3 id="faqTitulo" data-i18n="faq_title">Preguntas Frecuentes</h3>
+          <p data-i18n="faq_subtitle">Resolvemos las dudas más comunes antes de tu llegada.</p>
+        </div>
+
+        <div class="faq-lista">
+          <details class="faq-item">
+            <summary data-i18n="faq_q1">¿Cuál es el horario de check-in y check-out?</summary>
+            <div class="faq-respuesta" data-i18n-html="faq_a1">
+              El <strong>check-in</strong> es a partir de las <strong>3:00 p. m.</strong> y el <strong>check-out</strong> es hasta las <strong>11:00 a. m.</strong> Si necesitas llegar antes o salir más tarde, consúltanos y lo coordinamos según disponibilidad.
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary data-i18n="faq_q2">¿Qué tipo de vehículo necesito para llegar a la villa?</summary>
+            <div class="faq-respuesta" data-i18n-html="faq_a2">
+              Puedes llegar en un <strong>vehículo convencional</strong>; no necesitas 4x4. La propiedad cuenta con estacionamiento seguro. Al confirmar tu estadía te compartiremos la ubicación exacta e indicaciones para llegar.
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary data-i18n="faq_q3">¿Aceptan mascotas?</summary>
+            <div class="faq-respuesta" data-i18n-html="faq_a3">
+              Sí, Villa Aliris es <strong>pet friendly</strong>. Te pedimos avisarnos con anticipación cuántas mascotas viajan contigo y de qué tamaño son, mantenerlas bajo supervisión y recoger sus desechos para que todos disfruten de la propiedad.
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary data-i18n="faq_q4">¿Cuántas personas pueden hospedarse?</summary>
+            <div class="faq-respuesta" data-i18n-html="faq_a4">
+              La villa está diseñada para alojar cómodamente hasta <strong>8 personas</strong>, en 3 dormitorios y una oficina con sofá cama. Si tu grupo es diferente, consúltanos antes de reservar.
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary data-i18n="faq_q5">¿Hay Wi-Fi y espacio para teletrabajo?</summary>
+            <div class="faq-respuesta" data-i18n-html="faq_a5">
+              Sí. Contamos con <strong>Wi-Fi de alta velocidad</strong> y una <strong>oficina privada</strong> pensada para teletrabajo. Además, los dormitorios tienen A/C.
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary data-i18n="faq_q6">¿Es segura la propiedad? ¿Hay estacionamiento?</summary>
+            <div class="faq-respuesta" data-i18n-html="faq_a6">
+              Sí. La villa cuenta con <strong>estacionamiento seguro</strong> y <strong>cámaras de seguridad</strong> para tu tranquilidad.
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary data-i18n="faq_q7">¿La cocina está equipada? ¿Puedo hacer una parrillada?</summary>
+            <div class="faq-respuesta" data-i18n-html="faq_a7">
+              Sí, la villa tiene <strong>cocina equipada</strong> y un <strong>rancho para parrillada</strong> para disfrutar al aire libre.
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary data-i18n="faq_q8">¿Qué tan lejos está del aeropuerto y de los servicios?</summary>
+            <div class="faq-respuesta" data-i18n-html="faq_a8">
+              Estamos a unos <strong>30 min en auto del Aeropuerto LIR</strong>, a 12 min del centro de Liberia y a 12 min de Walmart. <a href="#ubicacion" data-faq-cerrar>Ver ubicación y distancias</a>
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary data-i18n="faq_q9">¿Cómo consulto disponibilidad y tarifas?</summary>
+            <div class="faq-respuesta" data-i18n-html="faq_a9">
+              Escríbenos por <strong>WhatsApp</strong>, correo o mediante el formulario de contacto y con gusto te atenderemos. <a href="#contacto" data-faq-cerrar>Ir a Contacto</a>
+            </div>
+          </details>
+        </div>
+      </div>
+    </div>
+
     <footer>
       <div class="container" style="text-align: center; padding: 2rem 0">
         <p data-i18n="footer_rights">
@@ -1908,7 +2122,7 @@
 
           // Cerrar el menú si la ventana vuelve a tamaño de escritorio
           window.addEventListener("resize", () => {
-            if (window.innerWidth > 850) cerrarMenu();
+            if (window.innerWidth > 1100) cerrarMenu();
           });
         }
 
@@ -1922,6 +2136,7 @@
 
         cargarTraducciones();
         cargarAventuras();
+        iniciarFaq();
 
         // Lightbox de imágenes
         const modal = document.getElementById("lightboxModal");
@@ -1959,6 +2174,10 @@
             const contactoM = document.getElementById("contactoModal");
             if (contactoM && contactoM.classList.contains("activo")) {
               cerrarModalFormulario();
+            }
+            const faqM = document.getElementById("faqModal");
+            if (faqM && faqM.classList.contains("activo")) {
+              cerrarModalFaq();
             }
           }
         });
@@ -2018,6 +2237,13 @@
             const clave = el.getAttribute("data-i18n-alt");
             if (traducciones[lang][clave]) {
               el.alt = traducciones[lang][clave];
+            }
+          });
+
+          document.querySelectorAll("[data-i18n-aria-label]").forEach((el) => {
+            const clave = el.getAttribute("data-i18n-aria-label");
+            if (traducciones[lang][clave]) {
+              el.setAttribute("aria-label", traducciones[lang][clave]);
             }
           });
 
@@ -2162,6 +2388,60 @@
     `;
           })
           .join("");
+      }
+
+      // ---------- PREGUNTAS FRECUENTES ----------
+      let faqUltimoFoco = null;
+
+      function abrirModalFaq(e) {
+        if (e) e.preventDefault();
+        const modal = document.getElementById("faqModal");
+        if (!modal) return;
+        faqUltimoFoco = document.activeElement;
+        modal.classList.add("activo");
+        document.body.classList.add("faq-abierto");
+        modal.querySelector(".faq-lista").scrollTop = 0;
+        modal.querySelector(".modal-cerrar").focus({ preventScroll: true });
+      }
+
+      function cerrarModalFaq() {
+        const modal = document.getElementById("faqModal");
+        if (!modal) return;
+        modal.classList.remove("activo");
+        document.body.classList.remove("faq-abierto");
+        modal
+          .querySelectorAll("details[open]")
+          .forEach((d) => d.removeAttribute("open"));
+        if (faqUltimoFoco && faqUltimoFoco.focus) {
+          faqUltimoFoco.focus({ preventScroll: true });
+        }
+      }
+
+      function iniciarFaq() {
+        const modal = document.getElementById("faqModal");
+        if (!modal) return;
+
+        document
+          .querySelectorAll("[data-faq-abrir]")
+          .forEach((el) => el.addEventListener("click", abrirModalFaq));
+
+        // Cierra con el fondo, con la X o con los enlaces internos (data-faq-cerrar)
+        modal.addEventListener("click", (e) => {
+          if (e.target === modal || e.target.closest("[data-faq-cerrar]")) {
+            cerrarModalFaq();
+          }
+        });
+
+        // Acordeón: solo una respuesta abierta a la vez
+        const items = modal.querySelectorAll("details");
+        items.forEach((d) => {
+          d.addEventListener("toggle", () => {
+            if (!d.open) return;
+            items.forEach((otro) => {
+              if (otro !== d) otro.open = false;
+            });
+          });
+        });
       }
 
       function abrirModalFormulario() {
