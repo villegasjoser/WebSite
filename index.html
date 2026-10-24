@@ -589,8 +589,7 @@
       }
       /* Icono de cama: Font Awesome Free (CC BY 4.0, fontawesome.com/license/free),
          incrustado como SVG para no cargar otra hoja de estilos */
-      .icon-bed {
-        /* también lo usa el icono de sofá */
+      .icon-bed {  /* también lo usa el icono de sofá */
         height: 1em;
         width: 1.125em;
         vertical-align: -0.125em;
@@ -981,7 +980,8 @@
       }
       .reglas-header {
         position: relative;
-        padding: 1.5rem 3.5rem 1.25rem 1.5rem;
+        padding: 1.5rem 3.5rem 1.25rem;
+        text-align: center;
         border-bottom: 1px solid #e2e8f0;
       }
       .reglas-header h3 {
@@ -996,7 +996,7 @@
         width: 60px;
         height: 4px;
         background: #10b981;
-        margin: 0.75rem 0 0;
+        margin: 0.75rem auto 0;
         border-radius: 2px;
       }
       .reglas-modal .modal-cerrar {
@@ -1058,7 +1058,7 @@
           padding: 1rem;
         }
         .reglas-header {
-          padding: 1.25rem 3.25rem 1rem 1.25rem;
+          padding: 1.25rem 3.25rem 1rem;
         }
         .reglas-header h3 {
           font-size: 1.25rem;
@@ -1311,9 +1311,7 @@
             <a href="#actividades" data-i18n="menu_activities">Actividades</a>
             <a href="#ubicacion" data-i18n="menu_location">Ubicación</a>
             <a href="#faq" data-faq-abrir data-i18n="menu_faq">Preguntas</a>
-            <a href="#reglas" data-reglas-abrir data-i18n="menu_rules"
-              >Reglas</a
-            >
+            <a href="#reglas" data-reglas-abrir data-i18n="menu_rules">Reglas</a>
             <a href="#contacto" data-i18n="menu_contact">Contacto</a>
           </nav>
 
@@ -1560,7 +1558,7 @@
               data-i18n-alt="gallery_fuente"
               loading="lazy"
             />
-          </picture>
+          </picture> 
         </div>
       </section>
 
@@ -1767,7 +1765,7 @@
               style="color: #10b981; margin-right: 8px"
             ></i
             ><span data-i18n="loc_1"
-              >Centro de Liberia: 12 min auto (aprox. 6 km)</span
+              >Centro de Liberia: 12 min de carro (aprox. 6 km)</span
             >
           </div>
           <div>
@@ -1776,31 +1774,31 @@
               style="color: #ea580c; margin-right: 8px"
             ></i
             ><span data-i18n="loc_2"
-              >Volcán Rincón de La Vieja: 54 min auto (aprox. 24 km)</span
+              >Vulcão Rincón de La Vieja: 54 min de carro (aprox. 24 km)</span
             >
           </div>
           <div>
             <i class="bi bi-water" style="color: #0ea5e9; margin-right: 8px"></i
             ><span data-i18n="loc_3"
-              >Catarata La Leona: 18 min auto (aprox. 12.5 km)</span
+              >Cachoeira La Leona: 18 min de carro (aprox. 12.5 km)</span
             >
           </div>
           <div>
             <i class="bi bi-water" style="color: #0ea5e9; margin-right: 8px"></i
             ><span data-i18n="loc_4"
-              >Poza Los Coyotes: 20 min auto (aprox. 13 km)</span
+              >Poza Los Coyotes: 20 min de carro (aprox. 13 km)</span
             >
           </div>
           <div>
             <i class="bi bi-water" style="color: #0ea5e9; margin-right: 8px"></i
             ><span data-i18n="loc_5"
-              >Poza La Pipa: 19 min auto (aprox. 12 km)</span
+              >Poza La Pipa: 19 min de carro (aprox. 12 km)</span
             >
           </div>
           <div>
             <i class="bi bi-cart3" style="color: #eab308; margin-right: 8px"></i
             ><span data-i18n="loc_6"
-              >Walmart: 12 min auto (aprox. 6.4 km)</span
+              >Walmart: 12 min de carro (aprox. 6.4 km)</span
             >
           </div>
           <div>
@@ -1809,7 +1807,7 @@
               style="color: #10b981; margin-right: 8px"
             ></i
             ><span data-i18n="loc_7"
-              >Ponderosa: 20 min auto (aprox. 17.8 km)</span
+              >Ponderosa: 20 min de carro (aprox. 17.8 km)</span
             >
           </div>
           <div>
@@ -1818,7 +1816,7 @@
               style="color: #6366f1; margin-right: 8px"
             ></i
             ><span data-i18n="loc_8"
-              >Aeropuerto LIR: 30 min auto (aprox. 15 km)</span
+              >Aeropuerto LIR: 30 min de carro (aprox. 15 km)</span
             >
           </div>
         </div>
@@ -1827,148 +1825,47 @@
       <section id="capacidad">
         <h2 data-i18n="capacity_title">Capacidad y Espacios</h2>
         <p class="capacidad-intro" data-i18n-html="capacity_intro">
-          Villa Aliris está diseñada para alojar cómodamente hasta
-          <strong>8 personas</strong>, distribuidas así:
+          Villa Aliris está diseñada para alojar cómodamente hasta <strong>8 personas</strong>, distribuidas así:
         </p>
 
         <div class="capacidad-grid">
           <div class="capacidad-card">
-            <span class="capacidad-icon"
-              ><svg
-                class="icon-bed"
-                style="color: #6366f1"
-                viewBox="0 0 576 512"
-                fill="currentColor"
-                aria-hidden="true"
-              >
-                <path
-                  d="M32 32c17.7 0 32 14.3 32 32v224h224V160c0-17.7 14.3-32 32-32h160c53 0 96 43 96 96v224c0 17.7-14.3 32-32 32s-32-14.3-32-32v-64H64v64c0 17.7-14.3 32-32 32S0 465.7 0 448V64c0-17.7 14.3-32 32-32m80 160a64 64 0 1 1 128 0 64 64 0 1 1-128 0"
-                /></svg
-            ></span>
+            <span class="capacidad-icon"><svg class="icon-bed" style="color: #6366f1" viewBox="0 0 576 512" fill="currentColor" aria-hidden="true"><path d="M32 32c17.7 0 32 14.3 32 32v224h224V160c0-17.7 14.3-32 32-32h160c53 0 96 43 96 96v224c0 17.7-14.3 32-32 32s-32-14.3-32-32v-64H64v64c0 17.7-14.3 32-32 32S0 465.7 0 448V64c0-17.7 14.3-32 32-32m80 160a64 64 0 1 1 128 0 64 64 0 1 1-128 0"/></svg></span>
             <h3 data-i18n="cap_main_name">Dormitorio principal</h3>
             <p data-i18n="cap_main_beds">Cama matrimonial</p>
-            <span class="capacidad-badge" data-i18n="cap_main_people"
-              >2 personas</span
-            >
+            <span class="capacidad-badge" data-i18n="cap_main_people">2 personas</span>
           </div>
           <div class="capacidad-card">
-            <span class="capacidad-icon"
-              ><svg
-                class="icon-bed"
-                style="color: #8b5cf6"
-                viewBox="0 0 576 512"
-                fill="currentColor"
-                aria-hidden="true"
-              >
-                <path
-                  d="M32 32c17.7 0 32 14.3 32 32v224h224V160c0-17.7 14.3-32 32-32h160c53 0 96 43 96 96v224c0 17.7-14.3 32-32 32s-32-14.3-32-32v-64H64v64c0 17.7-14.3 32-32 32S0 465.7 0 448V64c0-17.7 14.3-32 32-32m80 160a64 64 0 1 1 128 0 64 64 0 1 1-128 0"
-                /></svg
-            ></span>
+            <span class="capacidad-icon"><svg class="icon-bed" style="color: #8b5cf6" viewBox="0 0 576 512" fill="currentColor" aria-hidden="true"><path d="M32 32c17.7 0 32 14.3 32 32v224h224V160c0-17.7 14.3-32 32-32h160c53 0 96 43 96 96v224c0 17.7-14.3 32-32 32s-32-14.3-32-32v-64H64v64c0 17.7-14.3 32-32 32S0 465.7 0 448V64c0-17.7 14.3-32 32-32m80 160a64 64 0 1 1 128 0 64 64 0 1 1-128 0"/></svg></span>
             <h3 data-i18n="cap_sec1_name">Dormitorio secundario 1</h3>
             <p data-i18n="cap_sec1_beds">Cama nido</p>
-            <span class="capacidad-badge" data-i18n="cap_sec1_people"
-              >2 personas</span
-            >
+            <span class="capacidad-badge" data-i18n="cap_sec1_people">2 personas</span>
           </div>
           <div class="capacidad-card">
-            <span class="capacidad-icon"
-              ><svg
-                class="icon-bed"
-                style="color: #8b5cf6"
-                viewBox="0 0 576 512"
-                fill="currentColor"
-                aria-hidden="true"
-              >
-                <path
-                  d="M32 32c17.7 0 32 14.3 32 32v224h224V160c0-17.7 14.3-32 32-32h160c53 0 96 43 96 96v224c0 17.7-14.3 32-32 32s-32-14.3-32-32v-64H64v64c0 17.7-14.3 32-32 32S0 465.7 0 448V64c0-17.7 14.3-32 32-32m80 160a64 64 0 1 1 128 0 64 64 0 1 1-128 0"
-                /></svg
-            ></span>
+            <span class="capacidad-icon"><svg class="icon-bed" style="color: #8b5cf6" viewBox="0 0 576 512" fill="currentColor" aria-hidden="true"><path d="M32 32c17.7 0 32 14.3 32 32v224h224V160c0-17.7 14.3-32 32-32h160c53 0 96 43 96 96v224c0 17.7-14.3 32-32 32s-32-14.3-32-32v-64H64v64c0 17.7-14.3 32-32 32S0 465.7 0 448V64c0-17.7 14.3-32 32-32m80 160a64 64 0 1 1 128 0 64 64 0 1 1-128 0"/></svg></span>
             <h3 data-i18n="cap_sec2_name">Dormitorio secundario 2</h3>
             <p data-i18n="cap_sec2_beds">Cama nido + cama plegable</p>
-            <span class="capacidad-badge" data-i18n="cap_sec2_people"
-              >3 personas</span
-            >
+            <span class="capacidad-badge" data-i18n="cap_sec2_people">3 personas</span>
           </div>
           <div class="capacidad-card">
-            <span class="capacidad-icon"
-              ><svg
-                class="icon-bed"
-                style="color: #8b5cf6; width: 1.25em"
-                viewBox="0 0 640 512"
-                fill="currentColor"
-                aria-hidden="true"
-              >
-                <path
-                  d="M144 272c0-47.3-34.2-86.6-79.2-94.5C72 113.6 126.2 64 192 64h256c65.8 0 120 49.6 127.2 113.5-45 8-79.2 47.2-79.2 94.5v32H144zM0 384V272c0-26.5 21.5-48 48-48s48 21.5 48 48v80h448v-80c0-26.5 21.5-48 48-48s48 21.5 48 48v112c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64"
-                /></svg
-            ></span>
+            <span class="capacidad-icon"><svg class="icon-bed" style="color: #8b5cf6; width: 1.25em" viewBox="0 0 640 512" fill="currentColor" aria-hidden="true"><path d="M144 272c0-47.3-34.2-86.6-79.2-94.5C72 113.6 126.2 64 192 64h256c65.8 0 120 49.6 127.2 113.5-45 8-79.2 47.2-79.2 94.5v32H144zM0 384V272c0-26.5 21.5-48 48-48s48 21.5 48 48v80h448v-80c0-26.5 21.5-48 48-48s48 21.5 48 48v112c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64"/></svg></span>
             <h3 data-i18n="cap_office_name">Oficina</h3>
             <p data-i18n="cap_office_beds">Sofá cama</p>
-            <span class="capacidad-badge" data-i18n="cap_office_people"
-              >1 persona</span
-            >
+            <span class="capacidad-badge" data-i18n="cap_office_people">1 persona</span>
           </div>
         </div>
 
         <div class="capacidad-banos">
           <h3 data-i18n="cap_baths_title">Baños</h3>
           <ul>
-            <li>
-              <svg
-                class="icon-bano"
-                style="color: #0ea5e9; width: 1.15em"
-                viewBox="0 0 512 512"
-                fill="currentColor"
-                aria-hidden="true"
-              >
-                <path
-                  d="M96 77.3C96 70 101.9 64 109.3 64c3.5 0 6.9 1.4 9.4 3.9l14.9 14.9c-3.6 9.1-5.5 18.9-5.5 29.2 0 19.9 7.2 38 19.2 52-5.3 9.2-4 21.1 3.8 29 9.4 9.4 24.6 9.4 33.9 0L289 89c9.4-9.4 9.4-24.6 0-33.9-7.8-7.9-19.8-9.1-29-3.8-14-12-32.1-19.2-52-19.2-10.3 0-20.2 2-29.2 5.5l-14.9-15C149.4 8.1 129.7 0 109.3 0 66.6 0 32 34.6 32 77.3V256c-17.7 0-32 14.3-32 32s14.3 32 32 32v48c0 28.4 12.4 54 32 71.6V480c0 17.7 14.3 32 32 32s32-14.3 32-32v-16h256v16c0 17.7 14.3 32 32 32s32-14.3 32-32v-40.4c19.6-17.6 32-43.1 32-71.6v-48c17.7 0 32-14.3 32-32s-14.3-32-32-32H96z"
-                /></svg
-              ><span data-i18n="cap_bath_1"
-                >2 baños completos dentro de la villa</span
-              >
-            </li>
-            <li>
-              <svg
-                class="icon-bano"
-                style="color: #64748b; width: 1em"
-                viewBox="0 0 448 512"
-                fill="currentColor"
-                aria-hidden="true"
-              >
-                <path
-                  d="M24 0C10.7 0 0 10.7 0 24s10.7 24 24 24h8v148.9c-1.9 1.4-3.8 2.9-5.6 4.4C10.9 214.5 0 232.9 0 255.9c0 46.9 14.3 84.1 37 112.5 14.2 17.7 31.1 31.3 48.5 41.8l-19.9 59.7c-3.3 9.8-1.6 20.5 4.4 28.8S85.7 512 96 512h256c10.3 0 19.9-4.9 26-13.3s7.7-19.1 4.4-28.8l-19.8-59.5c17.4-10.5 34.3-24.1 48.5-41.8 22.7-28.4 37-65.5 37-112.5 0-23.1-10.9-41.5-26.4-54.6-1.8-1.5-3.7-3-5.6-4.4V48.2h8c13.3 0 24-10.7 24-24S437.3 0 424 0zm72 80c0-8.8 7.2-16 16-16h32c8.8 0 16 7.2 16 16s-7.2 16-16 16h-32c-8.8 0-16-7.2-16-16m128 208c-88.4 0-160-14.3-160-32s71.6-32 160-32 160 14.3 160 32-71.6 32-160 32"
-                /></svg
-              ><span data-i18n="cap_bath_2">1 medio baño exterior</span>
-            </li>
-            <li>
-              <svg
-                class="icon-bano"
-                style="color: #3b82f6; width: 1.15em"
-                viewBox="0 0 512 512"
-                fill="currentColor"
-                aria-hidden="true"
-              >
-                <path
-                  d="M64 131.9C64 112.1 80.1 96 99.9 96c9.5 0 18.6 3.8 25.4 10.5l16.2 16.2c-21 38.9-17.4 87.5 10.9 123L151 247c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0L345 121c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0l-1.3 1.3c-35.5-28.3-84.1-31.9-123-10.9l-16.3-16.2C151.8 42.5 126.4 32 99.9 32 44.7 32 0 76.7 0 131.9V448c0 17.7 14.3 32 32 32s32-14.3 32-32zM256 352a32 32 0 1 0 0-64 32 32 0 1 0 0 64m64 64a32 32 0 1 0-64 0 32 32 0 1 0 64 0m0-128a32 32 0 1 0 0-64 32 32 0 1 0 0 64m64 64a32 32 0 1 0-64 0 32 32 0 1 0 64 0m0-128a32 32 0 1 0 0-64 32 32 0 1 0 0 64m64 64a32 32 0 1 0-64 0 32 32 0 1 0 64 0m32-32a32 32 0 1 0 0-64 32 32 0 1 0 0 64"
-                /></svg
-              ><span data-i18n="cap_bath_3">Ducha exterior disponible</span>
-            </li>
+            <li><svg class="icon-bano" style="color: #0ea5e9; width: 1.15em" viewBox="0 0 512 512" fill="currentColor" aria-hidden="true"><path d="M96 77.3C96 70 101.9 64 109.3 64c3.5 0 6.9 1.4 9.4 3.9l14.9 14.9c-3.6 9.1-5.5 18.9-5.5 29.2 0 19.9 7.2 38 19.2 52-5.3 9.2-4 21.1 3.8 29 9.4 9.4 24.6 9.4 33.9 0L289 89c9.4-9.4 9.4-24.6 0-33.9-7.8-7.9-19.8-9.1-29-3.8-14-12-32.1-19.2-52-19.2-10.3 0-20.2 2-29.2 5.5l-14.9-15C149.4 8.1 129.7 0 109.3 0 66.6 0 32 34.6 32 77.3V256c-17.7 0-32 14.3-32 32s14.3 32 32 32v48c0 28.4 12.4 54 32 71.6V480c0 17.7 14.3 32 32 32s32-14.3 32-32v-16h256v16c0 17.7 14.3 32 32 32s32-14.3 32-32v-40.4c19.6-17.6 32-43.1 32-71.6v-48c17.7 0 32-14.3 32-32s-14.3-32-32-32H96z"/></svg><span data-i18n="cap_bath_1">2 baños completos dentro de la villa</span></li>
+            <li><svg class="icon-bano" style="color: #64748b; width: 1.0em" viewBox="0 0 448 512" fill="currentColor" aria-hidden="true"><path d="M24 0C10.7 0 0 10.7 0 24s10.7 24 24 24h8v148.9c-1.9 1.4-3.8 2.9-5.6 4.4C10.9 214.5 0 232.9 0 255.9c0 46.9 14.3 84.1 37 112.5 14.2 17.7 31.1 31.3 48.5 41.8l-19.9 59.7c-3.3 9.8-1.6 20.5 4.4 28.8S85.7 512 96 512h256c10.3 0 19.9-4.9 26-13.3s7.7-19.1 4.4-28.8l-19.8-59.5c17.4-10.5 34.3-24.1 48.5-41.8 22.7-28.4 37-65.5 37-112.5 0-23.1-10.9-41.5-26.4-54.6-1.8-1.5-3.7-3-5.6-4.4V48.2h8c13.3 0 24-10.7 24-24S437.3 0 424 0zm72 80c0-8.8 7.2-16 16-16h32c8.8 0 16 7.2 16 16s-7.2 16-16 16h-32c-8.8 0-16-7.2-16-16m128 208c-88.4 0-160-14.3-160-32s71.6-32 160-32 160 14.3 160 32-71.6 32-160 32"/></svg><span data-i18n="cap_bath_2">1 medio baño exterior</span></li>
+            <li><svg class="icon-bano" style="color: #3b82f6; width: 1.15em" viewBox="0 0 512 512" fill="currentColor" aria-hidden="true"><path d="M64 131.9C64 112.1 80.1 96 99.9 96c9.5 0 18.6 3.8 25.4 10.5l16.2 16.2c-21 38.9-17.4 87.5 10.9 123L151 247c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0L345 121c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0l-1.3 1.3c-35.5-28.3-84.1-31.9-123-10.9l-16.3-16.2C151.8 42.5 126.4 32 99.9 32 44.7 32 0 76.7 0 131.9V448c0 17.7 14.3 32 32 32s32-14.3 32-32zM256 352a32 32 0 1 0 0-64 32 32 0 1 0 0 64m64 64a32 32 0 1 0-64 0 32 32 0 1 0 64 0m0-128a32 32 0 1 0 0-64 32 32 0 1 0 0 64m64 64a32 32 0 1 0-64 0 32 32 0 1 0 64 0m0-128a32 32 0 1 0 0-64 32 32 0 1 0 0 64m64 64a32 32 0 1 0-64 0 32 32 0 1 0 64 0m32-32a32 32 0 1 0 0-64 32 32 0 1 0 0 64"/></svg><span data-i18n="cap_bath_3">Ducha exterior disponible</span></li>
           </ul>
         </div>
 
-        <p
-          class="nota"
-          data-i18n-html="cap_note"
-          data-prefix='<i class="bi bi-lightbulb-fill" style="color: #eab308; margin-right: 6px"></i>'
-        >
-          <i
-            class="bi bi-lightbulb-fill"
-            style="color: #eab308; margin-right: 6px"
-          ></i
-          ><strong>Nota:</strong> Esta capacidad está pensada para garantizar
-          una estancia confortable. Si necesitas alojar un grupo diferente,
-          <strong>consúltanos previamente</strong> y con gusto te ayudaremos.
+        <p class="nota" data-i18n-html="cap_note" data-prefix='<i class="bi bi-lightbulb-fill" style="color: #eab308; margin-right: 6px"></i>'>
+          <i class="bi bi-lightbulb-fill" style="color: #eab308; margin-right: 6px"></i><strong>Nota:</strong> Esta capacidad está pensada para garantizar una estancia confortable. Si necesitas alojar un grupo diferente, <strong>consúltanos previamente</strong> y con gusto te ayudaremos.
         </p>
       </section>
 
@@ -1982,15 +1879,11 @@
         <div class="actividades-grid" id="actividades-container"></div>
 
         <p class="nota">
-          <i
-            class="bi bi-lightbulb-fill"
-            style="color: #eab308; margin-right: 6px"
-          ></i
+          <i class="bi bi-lightbulb-fill" style="color: #eab308; margin-right: 6px"></i
           ><span data-i18n-html="disclaimer"
-            ><strong>Nota:</strong> La información sobre horarios, tarifas y
-            servicios de terceros es de carácter informativo y puede variar sin
-            previo aviso. Recomendamos consultar los sitios web oficiales antes
-            de su visita.</span
+            ><strong>Nota:</strong> La información sobre horarios, tarifas y servicios de terceros es
+            de carácter informativo y puede variar sin previo aviso. Recomendamos
+            consultar los sitios web oficiales antes de su visita.</span
           >
         </p>
       </section>
@@ -2000,8 +1893,7 @@
         <div class="anfitriones-content">
           <img
             src="Images/Hosts/jose1.jpeg"
-            alt="José Rafael Villegas García, anfitrión de Villa Aliris"
-            data-i18n-alt="hosts_photo_alt"
+            alt="Tu Foto"
             class="anfitriones-img"
           />
           <div class="anfitriones-text">
@@ -2254,105 +2146,62 @@
 
         <div class="faq-header">
           <h3 id="faqTitulo" data-i18n="faq_title">Preguntas Frecuentes</h3>
-          <p data-i18n="faq_subtitle">
-            Resolvemos las dudas más comunes antes de tu llegada.
-          </p>
+          <p data-i18n="faq_subtitle">Resolvemos las dudas más comunes antes de tu llegada.</p>
         </div>
 
         <div class="faq-lista">
           <details class="faq-item">
-            <summary data-i18n="faq_q1">
-              ¿Cuál es el horario de check-in y check-out?
-            </summary>
+            <summary data-i18n="faq_q1">¿Cuál es el horario de check-in y check-out?</summary>
             <div class="faq-respuesta" data-i18n-html="faq_a1">
-              El <strong>check-in</strong> es a partir de las
-              <strong>3:00 p. m.</strong> y el <strong>check-out</strong> es
-              hasta las <strong>11:00 a. m.</strong> Si necesitas llegar antes o
-              salir más tarde, consúltanos y lo coordinamos según
-              disponibilidad.
+              El <strong>check-in</strong> es a partir de las <strong>3:00 p. m.</strong> y el <strong>check-out</strong> es hasta las <strong>11:00 a. m.</strong> Si necesitas llegar antes o salir más tarde, consúltanos y lo coordinamos según disponibilidad.
             </div>
           </details>
           <details class="faq-item">
-            <summary data-i18n="faq_q2">
-              ¿Qué tipo de vehículo necesito para llegar a la villa?
-            </summary>
+            <summary data-i18n="faq_q2">¿Qué tipo de vehículo necesito para llegar a la villa?</summary>
             <div class="faq-respuesta" data-i18n-html="faq_a2">
-              Puedes llegar en un <strong>vehículo convencional</strong>; no
-              necesitas 4x4. La propiedad cuenta con estacionamiento seguro. Al
-              confirmar tu estadía te compartiremos la ubicación exacta e
-              indicaciones para llegar.
+              Puedes llegar en un <strong>vehículo convencional</strong>; no necesitas 4x4. La propiedad cuenta con estacionamiento seguro. Al confirmar tu estadía te compartiremos la ubicación exacta e indicaciones para llegar.
             </div>
           </details>
           <details class="faq-item">
             <summary data-i18n="faq_q3">¿Aceptan mascotas?</summary>
             <div class="faq-respuesta" data-i18n-html="faq_a3">
-              Sí, Villa Aliris es <strong>pet friendly</strong>. Te pedimos
-              avisarnos con anticipación cuántas mascotas viajan contigo y de
-              qué tamaño son, mantenerlas bajo supervisión y recoger sus
-              desechos para que todos disfruten de la propiedad.
+              Sí, Villa Aliris es <strong>pet friendly</strong>. Te pedimos avisarnos con anticipación cuántas mascotas viajan contigo y de qué tamaño son, mantenerlas bajo supervisión y recoger sus desechos para que todos disfruten de la propiedad.
             </div>
           </details>
           <details class="faq-item">
-            <summary data-i18n="faq_q4">
-              ¿Cuántas personas pueden hospedarse?
-            </summary>
+            <summary data-i18n="faq_q4">¿Cuántas personas pueden hospedarse?</summary>
             <div class="faq-respuesta" data-i18n-html="faq_a4">
-              La villa está diseñada para alojar cómodamente hasta
-              <strong>8 personas</strong>, en 3 dormitorios y una oficina con
-              sofá cama. Si tu grupo es diferente, consúltanos antes de
-              reservar.
+              La villa está diseñada para alojar cómodamente hasta <strong>8 personas</strong>, en 3 dormitorios y una oficina con sofá cama. Si tu grupo es diferente, consúltanos antes de reservar.
             </div>
           </details>
           <details class="faq-item">
-            <summary data-i18n="faq_q5">
-              ¿Hay Wi-Fi y espacio para teletrabajo?
-            </summary>
+            <summary data-i18n="faq_q5">¿Hay Wi-Fi y espacio para teletrabajo?</summary>
             <div class="faq-respuesta" data-i18n-html="faq_a5">
-              Sí. Contamos con <strong>Wi-Fi de alta velocidad</strong> y una
-              <strong>oficina privada</strong> pensada para teletrabajo. Además,
-              los dormitorios tienen A/C.
+              Sí. Contamos con <strong>Wi-Fi de alta velocidad</strong> y una <strong>oficina privada</strong> pensada para teletrabajo. Además, los dormitorios tienen A/C.
             </div>
           </details>
           <details class="faq-item">
-            <summary data-i18n="faq_q6">
-              ¿Es segura la propiedad? ¿Hay estacionamiento?
-            </summary>
+            <summary data-i18n="faq_q6">¿Es segura la propiedad? ¿Hay estacionamiento?</summary>
             <div class="faq-respuesta" data-i18n-html="faq_a6">
-              Sí. La villa cuenta con <strong>estacionamiento seguro</strong> y
-              <strong>cámaras de seguridad exteriores</strong> para tu
-              tranquilidad.
+              Sí. La villa cuenta con <strong>estacionamiento seguro</strong> y <strong>cámaras de seguridad exteriores</strong> para tu tranquilidad.
             </div>
           </details>
           <details class="faq-item">
-            <summary data-i18n="faq_q7">
-              ¿La cocina está equipada? ¿Puedo hacer una parrillada?
-            </summary>
+            <summary data-i18n="faq_q7">¿La cocina está equipada? ¿Puedo hacer una parrillada?</summary>
             <div class="faq-respuesta" data-i18n-html="faq_a7">
-              Sí, la villa tiene <strong>cocina equipada</strong> y un
-              <strong>rancho para parrillada</strong> para disfrutar al aire
-              libre.
+              Sí, la villa tiene <strong>cocina equipada</strong> y un <strong>rancho para parrillada</strong> para disfrutar al aire libre.
             </div>
           </details>
           <details class="faq-item">
-            <summary data-i18n="faq_q8">
-              ¿Qué tan lejos está del aeropuerto y de los servicios?
-            </summary>
+            <summary data-i18n="faq_q8">¿Qué tan lejos está del aeropuerto y de los servicios?</summary>
             <div class="faq-respuesta" data-i18n-html="faq_a8">
-              Estamos a unos <strong>30 min en auto del Aeropuerto LIR</strong>,
-              a 12 min del centro de Liberia y a 12 min de Walmart.
-              <a href="#ubicacion" data-faq-cerrar
-                >Ver ubicación y distancias</a
-              >
+              Estamos a unos <strong>30 min en auto del Aeropuerto LIR</strong>, a 12 min del centro de Liberia y a 12 min de Walmart. <a href="#ubicacion" data-faq-cerrar>Ver ubicación y distancias</a>
             </div>
           </details>
           <details class="faq-item">
-            <summary data-i18n="faq_q9">
-              ¿Cómo consulto disponibilidad y tarifas?
-            </summary>
+            <summary data-i18n="faq_q9">¿Cómo consulto disponibilidad y tarifas?</summary>
             <div class="faq-respuesta" data-i18n-html="faq_a9">
-              Escríbenos por <strong>WhatsApp</strong>, correo o mediante el
-              formulario de contacto y con gusto te atenderemos.
-              <a href="#contacto" data-faq-cerrar>Ir a Contacto</a>
+              Escríbenos por <strong>WhatsApp</strong>, correo o mediante el formulario de contacto y con gusto te atenderemos. <a href="#contacto" data-faq-cerrar>Ir a Contacto</a>
             </div>
           </details>
         </div>
@@ -2382,66 +2231,44 @@
 
         <div class="reglas-cuerpo">
           <p class="reglas-intro" data-i18n="rules_intro">
-            Para que todos disfruten de la villa y de la naturaleza que la
-            rodea, te pedimos tener en cuenta lo siguiente:
+            Para que todos disfruten de la villa y de la naturaleza que la rodea, te pedimos tener en cuenta lo siguiente:
           </p>
 
           <div class="regla-item">
             <h4 data-i18n="rules_capacity_title">Capacidad</h4>
-            <p data-i18n="rules_capacity_text">
-              Máximo 8 personas. Si esperas visitas, avísanos antes.
-            </p>
+            <p data-i18n="rules_capacity_text">Máximo 8 personas. Si esperas visitas, avísanos antes.</p>
           </div>
           <div class="regla-item">
             <h4 data-i18n="rules_quiet_title">Silencio</h4>
-            <p data-i18n="rules_quiet_text">
-              De 10:00 p. m. a 7:00 a. m., te pedimos evitar música alta y
-              ruidos fuertes.
-            </p>
+            <p data-i18n="rules_quiet_text">De 10:00 p. m. a 7:00 a. m., te pedimos evitar música alta y ruidos fuertes.</p>
           </div>
           <div class="regla-item">
             <h4 data-i18n="rules_events_title">Fiestas y eventos</h4>
-            <p data-i18n="rules_events_text">
-              No se permiten, salvo autorización previa.
-            </p>
+            <p data-i18n="rules_events_text">No se permiten, salvo autorización previa.</p>
           </div>
           <div class="regla-item">
             <h4 data-i18n="rules_smoking_title">Fumado</h4>
-            <p data-i18n="rules_smoking_text">
-              Solo en áreas exteriores. Por favor no dejes colillas.
-            </p>
+            <p data-i18n="rules_smoking_text">Solo en áreas exteriores. Por favor no dejes colillas.</p>
           </div>
           <div class="regla-item">
             <h4 data-i18n="rules_pets_title">Mascotas</h4>
-            <p data-i18n="rules_pets_text">
-              Avísanos cuántas y de qué tamaño, mantenlas supervisadas y recoge
-              sus desechos.
-            </p>
+            <p data-i18n="rules_pets_text">Avísanos cuántas y de qué tamaño, mantenlas supervisadas y recoge sus desechos.</p>
           </div>
           <div class="regla-item">
             <h4 data-i18n="rules_pool_title">Piscina</h4>
-            <p data-i18n="rules_pool_text">
-              Úsala bajo tu responsabilidad, supervisa siempre a los menores y
-              evita el vidrio en el área.
-            </p>
+            <p data-i18n="rules_pool_text">Úsala bajo tu responsabilidad, supervisa siempre a los menores y evita el vidrio en el área.</p>
           </div>
           <div class="regla-item">
             <h4 data-i18n="rules_bbq_title">Rancho de parrillada</h4>
-            <p data-i18n="rules_bbq_text">
-              Apaga bien el fuego y deja la parrilla limpia al terminar.
-            </p>
+            <p data-i18n="rules_bbq_text">Apaga bien el fuego y deja la parrilla limpia al terminar.</p>
           </div>
           <div class="regla-item">
             <h4 data-i18n="rules_nature_title">Naturaleza y propiedad</h4>
-            <p data-i18n="rules_nature_text">
-              Respeta la fauna y los senderos, y avísanos de cualquier daño o
-              pérdida.
-            </p>
+            <p data-i18n="rules_nature_text">Respeta la fauna y los senderos, y avísanos de cualquier daño o pérdida.</p>
           </div>
 
           <p class="reglas-nota" data-i18n="rules_note">
-            Check-in a partir de las 3:00 p. m. y check-out hasta las 11:00 a.
-            m. Si tienes dudas, escríbenos y con gusto te ayudamos.
+            Check-in a partir de las 3:00 p. m. y check-out hasta las 11:00 a. m. Si tienes dudas, escríbenos y con gusto te ayudamos.
           </p>
         </div>
       </div>
@@ -2607,8 +2434,7 @@
           document.querySelectorAll("[data-i18n-html]").forEach((el) => {
             const clave = el.getAttribute("data-i18n-html");
             if (traducciones[lang][clave]) {
-              el.innerHTML =
-                (el.dataset.prefix || "") + traducciones[lang][clave];
+              el.innerHTML = (el.dataset.prefix || "") + traducciones[lang][clave];
             }
           });
 
@@ -2652,10 +2478,7 @@
 
         let anchoMaximo = 0;
         botones.forEach((btn) => {
-          anchoMaximo = Math.max(
-            anchoMaximo,
-            btn.getBoundingClientRect().width,
-          );
+          anchoMaximo = Math.max(anchoMaximo, btn.getBoundingClientRect().width);
         });
 
         // No dejamos que el botón más ancho fuerce overflow en pantallas pequeñas.
