@@ -762,6 +762,26 @@
         color: #0f172a;
         box-shadow: 0 8px 20px rgba(255, 255, 255, 0.2);
       }
+      .btn-faq {
+        background-color: rgba(125, 211, 252, 0.12);
+        color: #7dd3fc;
+        border-color: #7dd3fc;
+      }
+      .btn-faq:hover {
+        background-color: #7dd3fc;
+        color: #0f172a;
+        box-shadow: 0 8px 20px rgba(125, 211, 252, 0.3);
+      }
+      .btn-reglas {
+        background-color: rgba(252, 211, 77, 0.12);
+        color: #fcd34d;
+        border-color: #fcd34d;
+      }
+      .btn-reglas:hover {
+        background-color: #fcd34d;
+        color: #0f172a;
+        box-shadow: 0 8px 20px rgba(252, 211, 77, 0.3);
+      }
 
       /* ESTILOS PARA EL MODAL / LIGHTBOX DE IMÁGENES Y FORMULARIO CON TRANSICIÓN FADE-IN */
       .modal-lightbox {
@@ -940,6 +960,110 @@
         }
         .faq-lista {
           padding: 0.25rem 1.25rem 1.25rem;
+        }
+      }
+
+      /* MODAL DE REGLAS DE LA CASA */
+      body.reglas-abierto {
+        overflow: hidden;
+      }
+      .reglas-modal {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        max-width: 560px;
+        max-height: 85vh;
+        background: white;
+        border-radius: 16px;
+        color: #1e293b;
+        overflow: hidden;
+      }
+      .reglas-header {
+        position: relative;
+        padding: 1.5rem 3.5rem 1.25rem 1.5rem;
+        border-bottom: 1px solid #e2e8f0;
+      }
+      .reglas-header h3 {
+        margin: 0;
+        font-size: 1.35rem;
+        line-height: 1.25;
+        color: #0f172a;
+      }
+      .reglas-header h3::after {
+        content: "";
+        display: block;
+        width: 60px;
+        height: 4px;
+        background: #10b981;
+        margin: 0.75rem 0 0;
+        border-radius: 2px;
+      }
+      .reglas-modal .modal-cerrar {
+        top: 50%;
+        right: 1.25rem;
+        transform: translateY(-50%);
+        font-size: 2rem;
+        font-weight: 400;
+        color: #0f172a;
+      }
+      .reglas-modal .modal-cerrar:hover {
+        transform: translateY(-50%) scale(1.1);
+      }
+      .reglas-modal .modal-cerrar:focus-visible {
+        outline: 2px solid #10b981;
+        outline-offset: 2px;
+        border-radius: 4px;
+      }
+      .reglas-cuerpo {
+        flex: 1;
+        overflow-y: auto;
+        padding: 1.25rem 1.5rem 1.5rem;
+        overscroll-behavior: contain;
+      }
+      .reglas-intro {
+        margin: 0 0 1rem;
+        font-size: 1rem;
+        line-height: 1.55;
+        color: #64748b;
+      }
+      .regla-item {
+        padding: 0.8rem 0;
+        border-bottom: 1px solid #e2e8f0;
+      }
+      .regla-item h4 {
+        margin: 0 0 0.15rem;
+        font-size: 1rem;
+        font-weight: 700;
+        line-height: 1.4;
+        color: #0f172a;
+      }
+      .regla-item p {
+        margin: 0;
+        font-size: 1rem;
+        line-height: 1.45;
+        color: #1e293b;
+      }
+      .reglas-nota {
+        margin: 1.25rem 0 0;
+        padding: 1rem 1.15rem;
+        background: #f1f5f9;
+        border-radius: 12px;
+        font-size: 0.95rem;
+        line-height: 1.55;
+        color: #64748b;
+      }
+      @media (max-width: 600px) {
+        #reglasModal {
+          padding: 1rem;
+        }
+        .reglas-header {
+          padding: 1.25rem 3.25rem 1rem 1.25rem;
+        }
+        .reglas-header h3 {
+          font-size: 1.25rem;
+        }
+        .reglas-cuerpo {
+          padding: 1rem 1.25rem 1.25rem;
         }
       }
 
@@ -1186,6 +1310,7 @@
             <a href="#actividades" data-i18n="menu_activities">Actividades</a>
             <a href="#ubicacion" data-i18n="menu_location">Ubicación</a>
             <a href="#faq" data-faq-abrir data-i18n="menu_faq">Preguntas</a>
+            <a href="#reglas" data-reglas-abrir data-i18n="menu_rules">Reglas</a>
             <a href="#contacto" data-i18n="menu_contact">Contacto</a>
           </nav>
 
@@ -1815,11 +1940,20 @@
 
           <button
             type="button"
-            class="btn-contacto btn-form"
+            class="btn-contacto btn-faq"
             data-faq-abrir
             data-i18n="btn_faq"
           >
             Preguntas Frecuentes
+          </button>
+
+          <button
+            type="button"
+            class="btn-contacto btn-reglas"
+            data-reglas-abrir
+            data-i18n="btn_rules"
+          >
+            Reglas de la casa
           </button>
         </div>
       </div>
@@ -2073,6 +2207,72 @@
       </div>
     </div>
 
+    <div
+      id="reglasModal"
+      class="modal-lightbox"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="reglasTitulo"
+    >
+      <div class="modal-contenido reglas-modal">
+        <div class="reglas-header">
+          <h3 id="reglasTitulo" data-i18n="rules_title">Reglas de la casa</h3>
+          <button
+            type="button"
+            class="modal-cerrar"
+            data-reglas-cerrar
+            data-i18n-aria-label="rules_close"
+            aria-label="Cerrar"
+          >
+            ×
+          </button>
+        </div>
+
+        <div class="reglas-cuerpo">
+          <p class="reglas-intro" data-i18n="rules_intro">
+            Para que todos disfruten de la villa y de la naturaleza que la rodea, te pedimos tener en cuenta lo siguiente:
+          </p>
+
+          <div class="regla-item">
+            <h4 data-i18n="rules_capacity_title">Capacidad</h4>
+            <p data-i18n="rules_capacity_text">Máximo 8 personas. Si esperas visitas, avísanos antes.</p>
+          </div>
+          <div class="regla-item">
+            <h4 data-i18n="rules_quiet_title">Silencio</h4>
+            <p data-i18n="rules_quiet_text">De 10:00 p. m. a 7:00 a. m., te pedimos evitar música alta y ruidos fuertes.</p>
+          </div>
+          <div class="regla-item">
+            <h4 data-i18n="rules_events_title">Fiestas y eventos</h4>
+            <p data-i18n="rules_events_text">No se permiten, salvo autorización previa.</p>
+          </div>
+          <div class="regla-item">
+            <h4 data-i18n="rules_smoking_title">Fumado</h4>
+            <p data-i18n="rules_smoking_text">Solo en áreas exteriores. Por favor no dejes colillas.</p>
+          </div>
+          <div class="regla-item">
+            <h4 data-i18n="rules_pets_title">Mascotas</h4>
+            <p data-i18n="rules_pets_text">Avísanos cuántas y de qué tamaño, mantenlas supervisadas y recoge sus desechos.</p>
+          </div>
+          <div class="regla-item">
+            <h4 data-i18n="rules_pool_title">Piscina</h4>
+            <p data-i18n="rules_pool_text">Úsala bajo tu responsabilidad, supervisa siempre a los menores y evita el vidrio en el área.</p>
+          </div>
+          <div class="regla-item">
+            <h4 data-i18n="rules_bbq_title">Rancho de parrillada</h4>
+            <p data-i18n="rules_bbq_text">Apaga bien el fuego y deja la parrilla limpia al terminar.</p>
+          </div>
+          <div class="regla-item">
+            <h4 data-i18n="rules_nature_title">Naturaleza y propiedad</h4>
+            <p data-i18n="rules_nature_text">Respeta la fauna y los senderos, y avísanos de cualquier daño o pérdida.</p>
+          </div>
+
+          <p class="reglas-nota" data-i18n="rules_note">
+            Check-in a partir de las 3:00 p. m. y check-out hasta las 11:00 a. m. Si tienes dudas, escríbenos y con gusto te ayudamos.
+          </p>
+        </div>
+      </div>
+    </div>
+
     <footer>
       <div class="container" style="text-align: center; padding: 2rem 0">
         <p data-i18n="footer_rights">
@@ -2137,6 +2337,7 @@
         cargarTraducciones();
         cargarAventuras();
         iniciarFaq();
+        iniciarReglas();
 
         // Lightbox de imágenes
         const modal = document.getElementById("lightboxModal");
@@ -2178,6 +2379,10 @@
             const faqM = document.getElementById("faqModal");
             if (faqM && faqM.classList.contains("activo")) {
               cerrarModalFaq();
+            }
+            const reglasM = document.getElementById("reglasModal");
+            if (reglasM && reglasM.classList.contains("activo")) {
+              cerrarModalReglas();
             }
           }
         });
@@ -2441,6 +2646,46 @@
               if (otro !== d) otro.open = false;
             });
           });
+        });
+      }
+
+      // ---------- REGLAS DE LA CASA ----------
+      let reglasUltimoFoco = null;
+
+      function abrirModalReglas(e) {
+        if (e) e.preventDefault();
+        const modal = document.getElementById("reglasModal");
+        if (!modal) return;
+        reglasUltimoFoco = document.activeElement;
+        modal.classList.add("activo");
+        document.body.classList.add("reglas-abierto");
+        modal.querySelector(".reglas-cuerpo").scrollTop = 0;
+        modal.querySelector(".modal-cerrar").focus({ preventScroll: true });
+      }
+
+      function cerrarModalReglas() {
+        const modal = document.getElementById("reglasModal");
+        if (!modal) return;
+        modal.classList.remove("activo");
+        document.body.classList.remove("reglas-abierto");
+        if (reglasUltimoFoco && reglasUltimoFoco.focus) {
+          reglasUltimoFoco.focus({ preventScroll: true });
+        }
+      }
+
+      function iniciarReglas() {
+        const modal = document.getElementById("reglasModal");
+        if (!modal) return;
+
+        document
+          .querySelectorAll("[data-reglas-abrir]")
+          .forEach((el) => el.addEventListener("click", abrirModalReglas));
+
+        // Cierra con el fondo o con la X
+        modal.addEventListener("click", (e) => {
+          if (e.target === modal || e.target.closest("[data-reglas-cerrar]")) {
+            cerrarModalReglas();
+          }
         });
       }
 
