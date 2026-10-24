@@ -317,9 +317,14 @@
         color: white;
       }
       .hero h1 {
-        font-size: 3.5rem;
+        font-size: clamp(2rem, 5vw, 3.5rem);
+        line-height: 1.2;
         color: white;
         margin-bottom: 1rem;
+        max-width: 900px;
+        margin-left: auto;
+        margin-right: auto;
+        text-wrap: balance; /* reparte las palabras de forma equilibrada entre líneas */
       }
       .hero p {
         font-size: 1.4rem;
@@ -354,14 +359,15 @@
 
       /* SECCIONES GENERALES */
       section {
-        padding: 6rem 0;
+        padding: clamp(3.5rem, 8vw, 5rem) 0;
       }
       section h2 {
         text-align: center;
         font-size: 2.2rem;
-        margin-bottom: 3.5rem;
+        line-height: 1.25;
+        margin-bottom: 2.5rem;
         position: relative;
-        padding-bottom: 1rem;
+        padding-bottom: 0.5rem;
       }
       section h2::after {
         content: "";
@@ -369,7 +375,7 @@
         width: 60px;
         height: 4px;
         background: #10b981;
-        margin: 1rem auto 0;
+        margin: 0.75rem auto 0;
         border-radius: 2px;
       }
 
@@ -687,7 +693,7 @@
         text-align: center;
         background: #0f172a;
         color: white;
-        padding: 8rem 1rem;
+        padding: clamp(4rem, 9vw, 6rem) 1rem;
       }
       .contacto h2 {
         color: white;
