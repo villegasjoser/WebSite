@@ -112,8 +112,15 @@
       }
 
       /* RESET Y ESTILOS BASE */
-      html {
-        scroll-behavior: smooth;
+      /* El desplazamiento suave de los enlaces internos lo maneja el JS
+         (ver irAAncla), porque scroll-behavior: smooth nativo se queda corto
+         cuando el diseño cambia durante el viaje (imágenes lazy, tarjetas). */
+      html.scroll-bloqueado body {
+        position: fixed;
+        left: 0;
+        right: 0;
+        width: 100%;
+        overflow: hidden;
       }
       * {
         box-sizing: border-box;
@@ -799,6 +806,7 @@
         align-items: center;
         padding: 2rem;
         transition: opacity 0.3s ease;
+        overscroll-behavior: contain;
       }
       .modal-lightbox.activo {
         opacity: 1;
@@ -1645,7 +1653,7 @@
             <span
               ><i class="bi bi-camera-video-fill" style="color: #64748b"></i
             ></span>
-            <span data-i18n="amenity_security">Cámaras de Seguridad</span>
+            <span data-i18n="amenity_security">Cámaras de Seguridad exteriores</span>
           </li>
           <li>
             <span><i class="bi bi-heart-fill" style="color: #8b5cf6"></i></span>
@@ -2213,7 +2221,7 @@
           <details class="faq-item">
             <summary data-i18n="faq_q6">¿Es segura la propiedad? ¿Hay estacionamiento?</summary>
             <div class="faq-respuesta" data-i18n-html="faq_a6">
-              Sí. La villa cuenta con <strong>estacionamiento seguro</strong> y <strong>cámaras de seguridad exteriores</strong> para tu tranquilidad.
+              Sí. La villa cuenta con <strong>estacionamiento seguro</strong> y <strong>cámaras de seguridad externas</strong> para tu tranquilidad.
             </div>
           </details>
           <details class="faq-item">
@@ -2328,6 +2336,98 @@
         city: { class: "bi-buildings-fill", color: "#6366f1" },
       };
 
+      // ---------- BLOQUEO DE SCROLL DEL FONDO (modales) ----------
+      // overflow:hidden en body no basta en iOS/Android/tablets; se fija el body
+      // y se restaura la posición exacta al cerrar. Idempotente por modal.
+      const _bloqueos = new Set();
+      let _scrollGuardado = 0;
+
+      function bloquearScroll(clave) {
+        if (_bloqueos.has(clave)) return;
+        if (_bloqueos.size === 0) {
+          const root = document.documentElement;
+          _scrollGuardado = window.pageYOffset || root.scrollTop || 0;
+          const anchoBarra = window.innerWidth - root.clientWidth;
+          document.body.style.top = -_scrollGuardado + "px";
+          if (anchoBarra > 0) document.body.style.paddingRight = anchoBarra + "px";
+          root.classList.add("scroll-bloqueado");
+        }
+        _bloqueos.add(clave);
+      }
+
+      function desbloquearScroll(clave) {
+        if (!_bloqueos.delete(clave) || _bloqueos.size > 0) return;
+        const root = document.documentElement;
+        root.classList.remove("scroll-bloqueado");
+        document.body.style.top = "";
+        document.body.style.paddingRight = "";
+        window.scrollTo(0, _scrollGuardado);
+      }
+
+      // ---------- ENLACES INTERNOS: SCROLL EXACTO ----------
+      // Recalcula el destino en cada fotograma, así los cambios de diseño
+      // (imágenes lazy, tarjetas de actividades, menú móvil que se pliega,
+      // modal que libera el scroll) no desvían el aterrizaje.
+      let _animScroll = null;
+
+      function irAAncla(hash) {
+        const destino = hash && hash !== "#" ? document.querySelector(hash) : null;
+        if (hash !== "#" && !destino) return false;
+
+        const header = document.querySelector("header");
+        const posicionDestino = () => {
+          if (!destino) return 0;
+          const alto = header ? header.getBoundingClientRect().height : 0;
+          const y = destino.getBoundingClientRect().top + window.pageYOffset - alto;
+          return Math.max(0, Math.min(y, document.documentElement.scrollHeight - window.innerHeight));
+        };
+
+        if (_animScroll) _animScroll.cancelar();
+        const reducido = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        const inicio = window.pageYOffset;
+        const t0 = performance.now();
+        const DURACION = reducido ? 0 : 600;
+        const VERIFICAR_HASTA = 900; // ms extra para corregir cambios tardíos
+        let activo = true;
+        const ease = (t) => 1 - Math.pow(1 - t, 3);
+
+        const cancelar = () => {
+          activo = false;
+          ["wheel", "touchstart", "keydown", "mousedown"].forEach((ev) =>
+            window.removeEventListener(ev, cancelar),
+          );
+          _animScroll = null;
+        };
+        ["wheel", "touchstart", "keydown", "mousedown"].forEach((ev) =>
+          window.addEventListener(ev, cancelar, { passive: true }),
+        );
+        _animScroll = { cancelar };
+
+        const paso = (ahora) => {
+          if (!activo) return;
+          const t = DURACION ? Math.min(1, (ahora - t0) / DURACION) : 1;
+          const objetivo = posicionDestino();
+          const y = t < 1 ? inicio + (objetivo - inicio) * ease(t) : objetivo;
+          if (Math.abs(window.pageYOffset - y) > 0.5) window.scrollTo(0, y);
+          if (ahora - t0 < DURACION + VERIFICAR_HASTA) requestAnimationFrame(paso);
+          else cancelar();
+        };
+        requestAnimationFrame(paso);
+
+        if (history.pushState && location.hash !== hash) {
+          history.pushState(null, "", hash === "#" ? location.pathname + location.search : hash);
+        }
+        return true;
+      }
+
+      document.addEventListener("click", (e) => {
+        if (e.defaultPrevented || e.button !== 0) return;
+        if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+        const a = e.target.closest && e.target.closest('a[href^="#"]');
+        if (!a || a.hasAttribute("data-faq-abrir") || a.hasAttribute("data-reglas-abrir")) return;
+        if (irAAncla(a.getAttribute("href"))) e.preventDefault();
+      });
+
       document.addEventListener("DOMContentLoaded", () => {
         // Menú hamburguesa (móviles)
         const menuToggle = document.getElementById("menuToggle");
@@ -2382,6 +2482,7 @@
         imagenes.forEach((img) => {
           img.addEventListener("click", () => {
             modal.classList.add("activo");
+            bloquearScroll("lightbox");
             modalImg.src = img.currentSrc || img.src;
             modalImg.alt = img.alt;
           });
@@ -2389,6 +2490,7 @@
 
         const cerrarModal = () => {
           modal.classList.remove("activo");
+          desbloquearScroll("lightbox");
           modalImg.src = "";
         };
 
@@ -2636,6 +2738,7 @@
         faqUltimoFoco = document.activeElement;
         modal.classList.add("activo");
         document.body.classList.add("faq-abierto");
+        bloquearScroll("faq");
         modal.querySelector(".faq-lista").scrollTop = 0;
         modal.querySelector(".modal-cerrar").focus({ preventScroll: true });
       }
@@ -2645,6 +2748,7 @@
         if (!modal) return;
         modal.classList.remove("activo");
         document.body.classList.remove("faq-abierto");
+        desbloquearScroll("faq");
         modal
           .querySelectorAll("details[open]")
           .forEach((d) => d.removeAttribute("open"));
@@ -2690,6 +2794,7 @@
         reglasUltimoFoco = document.activeElement;
         modal.classList.add("activo");
         document.body.classList.add("reglas-abierto");
+        bloquearScroll("reglas");
         modal.querySelector(".reglas-cuerpo").scrollTop = 0;
         modal.querySelector(".modal-cerrar").focus({ preventScroll: true });
       }
@@ -2699,6 +2804,7 @@
         if (!modal) return;
         modal.classList.remove("activo");
         document.body.classList.remove("reglas-abierto");
+        desbloquearScroll("reglas");
         if (reglasUltimoFoco && reglasUltimoFoco.focus) {
           reglasUltimoFoco.focus({ preventScroll: true });
         }
@@ -2722,10 +2828,12 @@
 
       function abrirModalFormulario() {
         document.getElementById("contactoModal").classList.add("activo");
+        bloquearScroll("contacto");
       }
 
       function cerrarModalFormulario() {
         document.getElementById("contactoModal").classList.remove("activo");
+        desbloquearScroll("contacto");
       }
 
       async function enviarFormulario(event) {
