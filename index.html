@@ -721,7 +721,6 @@
         justify-content: center;
         align-items: stretch;
         gap: 1rem;
-        margin-bottom: 1rem;
       }
       .btn-contacto {
         display: inline-flex;
@@ -759,35 +758,122 @@
         background-color: #0a6430;
         box-shadow: 0 8px 20px rgba(14, 122, 61, 0.45);
       }
-      .btn-form {
-        background-color: transparent;
-        color: white;
-        border-color: white;
+      /* BOTONES SECUNDARIOS: un solo estilo discreto y más pequeño */
+      .contacto-botones-secundarios {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 0.75rem;
+        margin-top: 1.25rem;
       }
-      .btn-form:hover {
-        background-color: white;
-        color: #0f172a;
-        box-shadow: 0 8px 20px rgba(255, 255, 255, 0.2);
-      }
-      .btn-faq {
-        background-color: rgba(125, 211, 252, 0.12);
-        color: #7dd3fc;
-        border-color: #7dd3fc;
-      }
-      .btn-faq:hover {
-        background-color: #7dd3fc;
-        color: #0f172a;
-        box-shadow: 0 8px 20px rgba(125, 211, 252, 0.3);
-      }
+      .btn-form,
+      .btn-faq,
       .btn-reglas {
-        background-color: rgba(252, 211, 77, 0.12);
-        color: #fcd34d;
-        border-color: #fcd34d;
+        padding: 0.7rem 1.4rem;
+        border-radius: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.28);
+        background-color: transparent;
+        color: #e2e8f0;
+        font-size: 0.95rem;
+        font-weight: 600;
       }
+      .btn-form:hover,
+      .btn-faq:hover,
       .btn-reglas:hover {
-        background-color: #fcd34d;
+        background-color: rgba(255, 255, 255, 0.1);
+        border-color: rgba(255, 255, 255, 0.6);
+        color: white;
+        transform: translateY(-1px);
+      }
+
+      /* BOTÓN RESERVAR EN AIRBNB (colores de marca: Rausch #ff385c) */
+      .btn-airbnb {
+        background-color: #ff385c;
+        color: white;
+        box-shadow: 0 4px 15px rgba(255, 56, 92, 0.35);
+      }
+      .btn-airbnb:hover {
+        background-color: #e31c5f;
+        box-shadow: 0 8px 20px rgba(255, 56, 92, 0.5);
+      }
+
+      /* MODAL DE AVISO "MUY PRONTO EN AIRBNB" */
+      .modal-contenido.airbnb-modal {
+        width: 100%;
+        max-width: 460px;
+        max-height: 90vh;
+        overflow-y: auto;
+        background: white;
+        color: #1e293b;
+        border-radius: 16px;
+        padding: 2.5rem 2rem 2rem;
+        text-align: center;
+      }
+      .airbnb-modal .modal-cerrar {
+        top: 0.5rem;
+        right: 1rem;
         color: #0f172a;
-        box-shadow: 0 8px 20px rgba(252, 211, 77, 0.3);
+      }
+      .airbnb-modal .modal-cerrar:hover {
+        color: #ff385c;
+      }
+      .airbnb-icono {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 64px;
+        height: 64px;
+        margin: 0 auto 1.2rem;
+        border-radius: 50%;
+        background: rgba(255, 56, 92, 0.1);
+        color: #ff385c;
+        font-size: 1.9rem;
+      }
+      .airbnb-modal h3 {
+        margin: 0 0 0.8rem;
+        color: #0f172a;
+      }
+      .airbnb-modal p {
+        margin: 0 0 1.8rem;
+        color: #475569;
+        line-height: 1.6;
+      }
+      .btn-airbnb-aviso {
+        width: 100%;
+        padding: 1rem;
+        border: none;
+        border-radius: 8px;
+        background: #ff385c;
+        color: white;
+        font-family: "Montserrat", sans-serif;
+        font-weight: 700;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background-color 0.2s ease;
+      }
+      .btn-airbnb-aviso:hover {
+        background: #e31c5f;
+      }
+      .btn-airbnb-cerrar {
+        margin-top: 0.8rem;
+        padding: 0.6rem 1rem;
+        border: none;
+        background: none;
+        color: #475569;
+        font-family: "Montserrat", sans-serif;
+        font-weight: 600;
+        font-size: 0.95rem;
+        cursor: pointer;
+      }
+      .btn-airbnb-cerrar:hover {
+        color: #0f172a;
+      }
+      .btn-airbnb-aviso:focus-visible,
+      .btn-airbnb-cerrar:focus-visible,
+      .airbnb-modal .modal-cerrar:focus-visible {
+        outline: 3px solid #ff385c;
+        outline-offset: 3px;
       }
 
       /* ESTILOS PARA EL MODAL / LIGHTBOX DE IMÁGENES Y FORMULARIO CON TRANSICIÓN FADE-IN */
@@ -1201,14 +1287,14 @@
       }
 
       .contacto-instagram-text {
-        margin-top: 2rem;
+        margin-top: 3rem;
         font-size: 1rem;
         color: #cbd5e1;
         text-align: center;
       }
 
       .contacto-instagram-link {
-        color: #f0508a;
+        color: #e2e8f0;
         font-weight: 600;
         text-decoration: none;
         margin-left: 0.4rem;
@@ -1219,7 +1305,7 @@
       }
 
       .contacto-instagram-link:hover {
-        color: #fd5949;
+        color: white;
         text-decoration: underline;
         transform: translateY(-1px);
       }
@@ -1971,6 +2057,17 @@
 
           <button
             type="button"
+            class="btn-contacto btn-airbnb"
+            onclick="abrirModalAirbnb()"
+            data-i18n="btn_airbnb"
+          >
+            Reservar en Airbnb
+          </button>
+        </div>
+
+        <div class="contacto-botones-secundarios">
+          <button
+            type="button"
             class="btn-contacto btn-form"
             onclick="abrirModalFormulario()"
             data-i18n="btn_form"
@@ -2042,7 +2139,8 @@
         <button
           onclick="cerrarModalFormulario()"
           class="modal-cerrar"
-          style="color: #0f172a"
+          aria-label="Cerrar"
+          data-i18n-aria-label="faq_close"
         >
           ×
         </button>
@@ -2162,6 +2260,56 @@
             Enviar Mensaje
           </button>
         </form>
+      </div>
+    </div>
+
+    <div
+      id="airbnbModal"
+      class="modal-lightbox"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="airbnbTitulo"
+      onclick="if (event.target === this) cerrarModalAirbnb()"
+    >
+      <div class="modal-contenido airbnb-modal">
+        <button
+          type="button"
+          class="modal-cerrar"
+          onclick="cerrarModalAirbnb()"
+          data-i18n-aria-label="faq_close"
+          aria-label="Cerrar"
+        >
+          ×
+        </button>
+
+        <div class="airbnb-icono" aria-hidden="true">
+          <i class="bi bi-house-heart-fill"></i>
+        </div>
+        <h3 id="airbnbTitulo" data-i18n="airbnb_title">
+          ¡Muy pronto en Airbnb!
+        </h3>
+        <p data-i18n="airbnb_text">
+          Estamos ultimando los detalles para registrar Villa Aliris en la
+          plataforma. Muy pronto podrás reservar tu estadía directamente en
+          Airbnb.
+        </p>
+        <button
+          type="button"
+          id="airbnbAvisar"
+          class="btn-airbnb-aviso"
+          onclick="abrirFormularioAirbnb()"
+          data-i18n="airbnb_notify"
+        >
+          Avísame cuando esté disponible
+        </button>
+        <button
+          type="button"
+          class="btn-airbnb-cerrar"
+          onclick="cerrarModalAirbnb()"
+          data-i18n="faq_close"
+        >
+          Cerrar
+        </button>
       </div>
     </div>
 
@@ -2510,6 +2658,10 @@
             if (contactoM && contactoM.classList.contains("activo")) {
               cerrarModalFormulario();
             }
+            const airbnbM = document.getElementById("airbnbModal");
+            if (airbnbM && airbnbM.classList.contains("activo")) {
+              cerrarModalAirbnb();
+            }
             const faqM = document.getElementById("faqModal");
             if (faqM && faqM.classList.contains("activo")) {
               cerrarModalFaq();
@@ -2827,19 +2979,119 @@
         });
       }
 
-      function abrirModalFormulario() {
+      // ---------- AVISO "MUY PRONTO EN AIRBNB" ----------
+      // Reutiliza el modal de formulario existente (#contactoModal): solo cambia
+      // el título, el texto del botón, el mensaje sugerido y añade campos ocultos
+      // para identificar el origen en el correo que llega por Formspree.
+      let modoAirbnb = false;
+      let mensajeAirbnbSugerido = "";
+      let airbnbUltimoFoco = null;
+
+      function tr(clave, respaldo) {
+        return (traducciones[currentLang] || {})[clave] || respaldo;
+      }
+
+      function abrirModalAirbnb() {
+        const modal = document.getElementById("airbnbModal");
+        if (!modal) return;
+        airbnbUltimoFoco = document.activeElement;
+        modal.classList.add("activo");
+        bloquearScroll("airbnb");
+        const aviso = document.getElementById("airbnbAvisar");
+        if (aviso) aviso.focus({ preventScroll: true });
+      }
+
+      function cerrarModalAirbnb() {
+        const modal = document.getElementById("airbnbModal");
+        if (!modal) return;
+        modal.classList.remove("activo");
+        desbloquearScroll("airbnb");
+        if (airbnbUltimoFoco && airbnbUltimoFoco.focus) {
+          airbnbUltimoFoco.focus({ preventScroll: true });
+        }
+      }
+
+      function aplicarModoFormulario(activo) {
+        const modal = document.getElementById("contactoModal");
+        const form = document.getElementById("formContacto");
+        if (!modal || !form) return;
+        const titulo = modal.querySelector("h3");
+        const enviar = form.querySelector('button[type="submit"]');
+        const mensaje = document.getElementById("mensaje");
+
+        form
+          .querySelectorAll("input[data-origen-airbnb]")
+          .forEach((el) => el.remove());
+
+        const claveTitulo = activo ? "airbnb_form_title" : "form_title";
+        const claveEnviar = activo ? "airbnb_form_send" : "form_send";
+        const textoTitulo = activo
+          ? "Te avisamos cuando estemos en Airbnb"
+          : "Escríbenos un mensaje";
+        const textoEnviar = activo ? "Avísame" : "Enviar Mensaje";
+
+        titulo.setAttribute("data-i18n", claveTitulo);
+        titulo.textContent = tr(claveTitulo, textoTitulo);
+        enviar.setAttribute("data-i18n", claveEnviar);
+        enviar.textContent = tr(claveEnviar, textoEnviar);
+
+        if (activo) {
+          mensajeAirbnbSugerido = tr(
+            "airbnb_prefill",
+            "Quiero que me contacten cuando Villa Aliris esté disponible en Airbnb.",
+          );
+          mensaje.value = mensajeAirbnbSugerido;
+          const ocultos = {
+            _subject: "Aviso de disponibilidad en Airbnb - Villa Aliris",
+            origen: "Aviso de disponibilidad en Airbnb",
+            idioma: currentLang,
+          };
+          Object.keys(ocultos).forEach((nombre) => {
+            const input = document.createElement("input");
+            input.type = "hidden";
+            input.name = nombre;
+            input.value = ocultos[nombre];
+            input.setAttribute("data-origen-airbnb", "");
+            form.appendChild(input);
+          });
+        } else if (mensajeAirbnbSugerido && mensaje.value === mensajeAirbnbSugerido) {
+          mensaje.value = "";
+          mensajeAirbnbSugerido = "";
+        }
+        modoAirbnb = activo;
+      }
+
+      function abrirFormularioAirbnb() {
+        aplicarModoFormulario(true);
+        // Se abre primero el formulario y luego se cierra el aviso para no
+        // liberar el bloqueo de scroll entre ambos.
+        abrirModalFormulario(true);
+        cerrarModalAirbnb();
+        airbnbUltimoFoco = null;
+      }
+
+      function abrirModalFormulario(desdeAirbnb) {
+        if (modoAirbnb && desdeAirbnb !== true) aplicarModoFormulario(false);
         document.getElementById("contactoModal").classList.add("activo");
         bloquearScroll("contacto");
       }
 
       function cerrarModalFormulario() {
-        document.getElementById("contactoModal").classList.remove("activo");
+        const modal = document.getElementById("contactoModal");
+        modal.classList.remove("activo");
         desbloquearScroll("contacto");
+        if (modoAirbnb) {
+          // Se restaura el formulario normal cuando termina el fundido de salida.
+          setTimeout(() => {
+            if (!modal.classList.contains("activo")) aplicarModoFormulario(false);
+          }, 350);
+        }
       }
 
       async function enviarFormulario(event) {
         event.preventDefault();
         const form = event.target;
+        const eraAirbnb = modoAirbnb;
         const data = new FormData(form);
 
         try {
@@ -2851,15 +3103,33 @@
 
           if (response.ok) {
             alert(
-              "¡Mensaje enviado con éxito! Nos pondremos en contacto pronto.",
+              eraAirbnb
+                ? tr(
+                    "airbnb_ok",
+                    "¡Listo! Te contactaremos apenas Villa Aliris esté disponible en Airbnb.",
+                  )
+                : tr(
+                    "form_ok",
+                    "¡Mensaje enviado con éxito! Nos pondremos en contacto pronto.",
+                  ),
             );
             form.reset();
             cerrarModalFormulario();
           } else {
-            alert("Hubo un problema al enviar el mensaje. Inténtalo de nuevo.");
+            alert(
+              tr(
+                "form_fail",
+                "Hubo un problema al enviar el mensaje. Inténtalo de nuevo.",
+              ),
+            );
           }
         } catch (error) {
-          alert("Error de conexión. Revisa tu internet e inténtalo de nuevo.");
+          alert(
+            tr(
+              "form_conn_error",
+              "Error de conexión. Revisa tu internet e inténtalo de nuevo.",
+            ),
+          );
         }
       }
     </script>
