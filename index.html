@@ -1272,7 +1272,8 @@
         html,
         body {
           max-width: 100%;
-          overflow-x: hidden;
+          overflow-x: hidden; /* respaldo para navegadores sin soporte de clip */
+          overflow-x: clip; /* recorta sin crear contenedor de scroll: no rompe position: sticky */
         }
 
         .brand {
