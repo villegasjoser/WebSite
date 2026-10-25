@@ -1053,14 +1053,14 @@
         line-height: 1.4;
         color: #1e293b;
       }
+      /* Se combina con la clase .nota (borde verde, fondo verde claro, icono de
+         bombillo); aquí solo se ajusta el tamaño y el margen para el modal */
       .reglas-nota {
+        max-width: none;
         margin: 0.9rem 0 0;
         padding: 0.8rem 1rem;
-        background: #f1f5f9;
-        border-radius: 12px;
         font-size: 0.88rem;
         line-height: 1.45;
-        color: #64748b;
       }
       @media (max-width: 600px) {
         #reglasModal {
@@ -2306,8 +2306,8 @@
             <p data-i18n="rules_nature_text">Respeta la fauna y los senderos, y avísanos de cualquier daño o pérdida.</p>
           </div>
 
-          <p class="reglas-nota" data-i18n="rules_note">
-            Check-in a partir de las 3:00 p. m. y check-out hasta las 11:00 a. m. Si tienes dudas, escríbenos y con gusto te ayudamos.
+          <p class="nota reglas-nota" data-i18n-html="rules_note" data-prefix='<i class="bi bi-lightbulb-fill" style="color: #eab308; margin-right: 6px"></i>'>
+            <i class="bi bi-lightbulb-fill" style="color: #eab308; margin-right: 6px"></i>Check-in a partir de las 3:00 p. m. y check-out hasta las 11:00 a. m. Si tienes dudas, escríbenos y con gusto te ayudamos.
           </p>
         </div>
       </div>
