@@ -562,6 +562,35 @@
         transform: translateY(-2px);
         box-shadow: 0 6px 12px rgba(0, 0, 0, 0.06);
       }
+      .puntos-interes > div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0.75rem;
+      }
+      .punto-links {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+      .punto-links a {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+        padding: 0.3rem 0.7rem;
+        border-radius: 999px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        text-decoration: none;
+        border: 1px solid currentColor;
+        transition: background-color 0.2s ease, color 0.2s ease;
+      }
+      .punto-links .link-gmaps { color: #1a73e8; }
+      .punto-links .link-gmaps:hover { background: #1a73e8; color: #fff; }
+      .punto-links .link-waze { color: #0891b2; }
+      .punto-links .link-waze:hover { background: #0891b2; color: #fff; }
 
       /* CAPACIDAD */
       .capacidad-intro {
@@ -1947,64 +1976,84 @@
 
         <div class="puntos-interes">
           <div>
-            <i
-              class="bi bi-buildings-fill"
-              style="color: #10b981; margin-right: 8px"
-            ></i
-            ><span data-i18n="loc_1"
-              >Centro de Liberia: 12 min auto (aprox. 6 km)</span
+            <span class="punto-texto"
+              ><i class="bi bi-buildings-fill" style="color: #10b981; margin-right: 8px"></i
+              ><span data-i18n="loc_1">Centro de Liberia: 12 min auto (aprox. 6 km)</span></span
             >
+            <span class="punto-links">
+              <a class="link-gmaps" href="https://www.google.com/maps/dir/?api=1&amp;destination=Centro%20de%20Liberia%2C%20Guanacaste%2C%20Costa%20Rica&amp;travelmode=driving" target="_blank" rel="noopener noreferrer"><i class="bi bi-geo-alt-fill" aria-hidden="true"></i>Google Maps</a>
+              <a class="link-waze" href="https://waze.com/ul?q=Centro%20de%20Liberia%2C%20Guanacaste%2C%20Costa%20Rica&amp;navigate=yes" target="_blank" rel="noopener noreferrer"><i class="bi bi-cursor-fill" aria-hidden="true"></i>Waze</a>
+            </span>
           </div>
           <div>
-            <i
-              class="bi bi-triangle-fill"
-              style="color: #ea580c; margin-right: 8px"
-            ></i
-            ><span data-i18n="loc_2"
-              >Volcán Rincón de La Vieja: 54 min auto (aprox. 24 km)</span
+            <span class="punto-texto"
+              ><i class="bi bi-triangle-fill" style="color: #ea580c; margin-right: 8px"></i
+              ><span data-i18n="loc_2">Volcán Rincón de La Vieja: 54 min auto (aprox. 24 km)</span></span
             >
+            <span class="punto-links">
+              <a class="link-gmaps" href="https://www.google.com/maps/dir/?api=1&amp;destination=Parque%20Nacional%20Rinc%C3%B3n%20de%20la%20Vieja%2C%20Costa%20Rica&amp;travelmode=driving" target="_blank" rel="noopener noreferrer"><i class="bi bi-geo-alt-fill" aria-hidden="true"></i>Google Maps</a>
+              <a class="link-waze" href="https://waze.com/ul?q=Parque%20Nacional%20Rinc%C3%B3n%20de%20la%20Vieja%2C%20Costa%20Rica&amp;navigate=yes" target="_blank" rel="noopener noreferrer"><i class="bi bi-cursor-fill" aria-hidden="true"></i>Waze</a>
+            </span>
           </div>
           <div>
-            <i class="bi bi-water" style="color: #0ea5e9; margin-right: 8px"></i
-            ><span data-i18n="loc_3"
-              >Catarata La Leona: 18 min auto (aprox. 12.5 km)</span
+            <span class="punto-texto"
+              ><i class="bi bi-water" style="color: #0ea5e9; margin-right: 8px"></i
+              ><span data-i18n="loc_3">Catarata La Leona: 18 min auto (aprox. 12.5 km)</span></span
             >
+            <span class="punto-links">
+              <a class="link-gmaps" href="https://www.google.com/maps/dir/?api=1&amp;destination=Catarata%20La%20Leona%2C%20Liberia%2C%20Guanacaste%2C%20Costa%20Rica&amp;travelmode=driving" target="_blank" rel="noopener noreferrer"><i class="bi bi-geo-alt-fill" aria-hidden="true"></i>Google Maps</a>
+              <a class="link-waze" href="https://waze.com/ul?q=Catarata%20La%20Leona%2C%20Liberia%2C%20Guanacaste%2C%20Costa%20Rica&amp;navigate=yes" target="_blank" rel="noopener noreferrer"><i class="bi bi-cursor-fill" aria-hidden="true"></i>Waze</a>
+            </span>
           </div>
           <div>
-            <i class="bi bi-water" style="color: #0ea5e9; margin-right: 8px"></i
-            ><span data-i18n="loc_4"
-              >Poza Los Coyotes: 20 min auto (aprox. 13 km)</span
+            <span class="punto-texto"
+              ><i class="bi bi-water" style="color: #0ea5e9; margin-right: 8px"></i
+              ><span data-i18n="loc_4">Poza Los Coyotes: 20 min auto (aprox. 13 km)</span></span
             >
+            <span class="punto-links">
+              <a class="link-gmaps" href="https://www.google.com/maps/dir/?api=1&amp;destination=Poza%20Los%20Coyotes%2C%20Liberia%2C%20Guanacaste%2C%20Costa%20Rica&amp;travelmode=driving" target="_blank" rel="noopener noreferrer"><i class="bi bi-geo-alt-fill" aria-hidden="true"></i>Google Maps</a>
+              <a class="link-waze" href="https://waze.com/ul?q=Poza%20Los%20Coyotes%2C%20Liberia%2C%20Guanacaste%2C%20Costa%20Rica&amp;navigate=yes" target="_blank" rel="noopener noreferrer"><i class="bi bi-cursor-fill" aria-hidden="true"></i>Waze</a>
+            </span>
           </div>
           <div>
-            <i class="bi bi-water" style="color: #0ea5e9; margin-right: 8px"></i
-            ><span data-i18n="loc_5"
-              >Poza La Pipa: 19 min auto (aprox. 12 km)</span
+            <span class="punto-texto"
+              ><i class="bi bi-water" style="color: #0ea5e9; margin-right: 8px"></i
+              ><span data-i18n="loc_5">Poza La Pipa: 19 min auto (aprox. 12 km)</span></span
             >
+            <span class="punto-links">
+              <a class="link-gmaps" href="https://www.google.com/maps/dir/?api=1&amp;destination=Poza%20La%20Pipa%2C%20Liberia%2C%20Guanacaste%2C%20Costa%20Rica&amp;travelmode=driving" target="_blank" rel="noopener noreferrer"><i class="bi bi-geo-alt-fill" aria-hidden="true"></i>Google Maps</a>
+              <a class="link-waze" href="https://waze.com/ul?q=Poza%20La%20Pipa%2C%20Liberia%2C%20Guanacaste%2C%20Costa%20Rica&amp;navigate=yes" target="_blank" rel="noopener noreferrer"><i class="bi bi-cursor-fill" aria-hidden="true"></i>Waze</a>
+            </span>
           </div>
           <div>
-            <i class="bi bi-cart3" style="color: #eab308; margin-right: 8px"></i
-            ><span data-i18n="loc_6"
-              >Walmart: 12 min auto (aprox. 6.4 km)</span
+            <span class="punto-texto"
+              ><i class="bi bi-cart3" style="color: #eab308; margin-right: 8px"></i
+              ><span data-i18n="loc_6">Walmart: 12 min auto (aprox. 6.4 km)</span></span
             >
+            <span class="punto-links">
+              <a class="link-gmaps" href="https://www.google.com/maps/dir/?api=1&amp;destination=Walmart%20Liberia%2C%20Guanacaste%2C%20Costa%20Rica&amp;travelmode=driving" target="_blank" rel="noopener noreferrer"><i class="bi bi-geo-alt-fill" aria-hidden="true"></i>Google Maps</a>
+              <a class="link-waze" href="https://waze.com/ul?q=Walmart%20Liberia%2C%20Guanacaste%2C%20Costa%20Rica&amp;navigate=yes" target="_blank" rel="noopener noreferrer"><i class="bi bi-cursor-fill" aria-hidden="true"></i>Waze</a>
+            </span>
           </div>
           <div>
-            <i
-              class="bi bi-shield-fill-check"
-              style="color: #10b981; margin-right: 8px"
-            ></i
-            ><span data-i18n="loc_7"
-              >Ponderosa: 20 min auto (aprox. 17.8 km)</span
+            <span class="punto-texto"
+              ><i class="bi bi-shield-fill-check" style="color: #10b981; margin-right: 8px"></i
+              ><span data-i18n="loc_7">Ponderosa: 20 min auto (aprox. 17.8 km)</span></span
             >
+            <span class="punto-links">
+              <a class="link-gmaps" href="https://www.google.com/maps/dir/?api=1&amp;destination=Ponderosa%20Adventure%20Park%2C%20Liberia%2C%20Guanacaste%2C%20Costa%20Rica&amp;travelmode=driving" target="_blank" rel="noopener noreferrer"><i class="bi bi-geo-alt-fill" aria-hidden="true"></i>Google Maps</a>
+              <a class="link-waze" href="https://waze.com/ul?q=Ponderosa%20Adventure%20Park%2C%20Liberia%2C%20Guanacaste%2C%20Costa%20Rica&amp;navigate=yes" target="_blank" rel="noopener noreferrer"><i class="bi bi-cursor-fill" aria-hidden="true"></i>Waze</a>
+            </span>
           </div>
           <div>
-            <i
-              class="bi bi-airplane-fill"
-              style="color: #6366f1; margin-right: 8px"
-            ></i
-            ><span data-i18n="loc_8"
-              >Aeropuerto LIR: 30 min auto (aprox. 15 km)</span
+            <span class="punto-texto"
+              ><i class="bi bi-airplane-fill" style="color: #6366f1; margin-right: 8px"></i
+              ><span data-i18n="loc_8">Aeropuerto LIR: 30 min auto (aprox. 15 km)</span></span
             >
+            <span class="punto-links">
+              <a class="link-gmaps" href="https://www.google.com/maps/dir/?api=1&amp;destination=Aeropuerto%20Internacional%20Daniel%20Oduber%20Quir%C3%B3s%2C%20Liberia%2C%20Costa%20Rica&amp;travelmode=driving" target="_blank" rel="noopener noreferrer"><i class="bi bi-geo-alt-fill" aria-hidden="true"></i>Google Maps</a>
+              <a class="link-waze" href="https://waze.com/ul?q=Aeropuerto%20Internacional%20Daniel%20Oduber%20Quir%C3%B3s%2C%20Liberia%2C%20Costa%20Rica&amp;navigate=yes" target="_blank" rel="noopener noreferrer"><i class="bi bi-cursor-fill" aria-hidden="true"></i>Waze</a>
+            </span>
           </div>
         </div>
       </section>
