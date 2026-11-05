@@ -55,7 +55,7 @@
          el nombre aparezca con su tipografía desde el primer momento -->
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Dancing+Script:wght@700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Cormorant+Garamond:wght@600;700&family=Dancing+Script:wght@700&display=swap"
     />
 
     <!-- Google Fonts y Bootstrap Icons cargados de forma no bloqueante:
@@ -370,8 +370,12 @@
         color: white;
       }
       .hero h1 {
-        font-size: clamp(2rem, 5vw, 3.5rem);
-        line-height: 1.2;
+        font-family: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+        font-weight: 600;
+        letter-spacing: 0;
+        text-shadow: 0 2px 12px rgba(0, 0, 0, 0.45);
+        font-size: clamp(2.4rem, 6vw, 4.4rem);
+        line-height: 1.1;
         color: white;
         margin-bottom: 1rem;
         max-width: 900px;
@@ -398,8 +402,8 @@
         }
 
         .hero h1 {
-          font-size: clamp(1.8rem, 8vw, 2.4rem);
-          line-height: 1.25;
+          font-size: clamp(2.1rem, 9vw, 2.8rem);
+          line-height: 1.15;
           overflow-wrap: break-word;
           word-break: normal;
           hyphens: none;
