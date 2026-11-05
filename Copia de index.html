@@ -1,0 +1,3166 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title data-i18n="title">
+      Villa Aliris Liberia, Guanacaste | Naturaleza, Descanso y Transformación
+    </title>
+    <meta
+      name="description"
+      content="Villa Aliris Liberia: un refugio privado en Guanacaste, Costa Rica, con piscina y naturaleza para reconectar, descansar y regresar transformado."
+    />
+
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="Images/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="Images/favicon-16x16.png"
+    />
+
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="Images/apple-touch-icon.png"
+    />
+
+    <meta name="theme-color" content="#0f172a" />
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="android-chrome-192x192.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="512x512"
+      href="android-chrome-512x512.png"
+    />
+
+    <link rel="manifest" href="site.webmanifest" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Google Fonts y Bootstrap Icons cargados de forma no bloqueante:
+         se descargan en paralelo sin detener el renderizado y se aplican
+         en cuanto llegan (con respaldo <noscript> si JS está desactivado) -->
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap"
+      onload="
+        this.onload = null;
+        this.rel = 'stylesheet';
+      "
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap"
+      />
+    </noscript>
+
+    <link
+      rel="preload"
+      as="style"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+      onload="
+        this.onload = null;
+        this.rel = 'stylesheet';
+      "
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+      />
+    </noscript>
+
+    <!-- Precarga de la imagen del hero (elemento LCP) con prioridad alta -->
+    <link
+      rel="preload"
+      as="image"
+      href="Images/MainPage/main.webp"
+      fetchpriority="high"
+    />
+
+    <style>
+      /* El CDN de Bootstrap Icons entrega su @font-face con
+         font-display: block (bloquea el texto hasta que la fuente
+         cargue). Como no podemos editar ese archivo, lo sobreescribimos
+         aquí con font-display: swap, apuntando a los mismos archivos. */
+      @font-face {
+        font-family: "bootstrap-icons";
+        src:
+          url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/fonts/bootstrap-icons.woff2?dd67030699838ea613ee6dbda90effa6")
+            format("woff2"),
+          url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/fonts/bootstrap-icons.woff?dd67030699838ea613ee6dbda90effa6")
+            format("woff");
+        font-weight: normal;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      /* RESET Y ESTILOS BASE */
+      /* El desplazamiento suave de los enlaces internos lo maneja el JS
+         (ver irAAncla), porque scroll-behavior: smooth nativo se queda corto
+         cuando el diseño cambia durante el viaje (imágenes lazy, tarjetas). */
+      html.scroll-bloqueado body {
+        position: fixed;
+        left: 0;
+        right: 0;
+        width: 100%;
+        overflow: hidden;
+      }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        background-color: #f8fafc;
+        color: #1e293b;
+        font-family: "Montserrat", sans-serif;
+        line-height: 1.8;
+      }
+      .container {
+        max-width: 1150px;
+        margin: 0 auto;
+        padding: 0 1.5rem;
+      }
+      h1,
+      h2,
+      h3 {
+        color: #111827;
+        font-weight: 700;
+        letter-spacing: -0.5px;
+      }
+      p {
+        margin-bottom: 1.5rem;
+        color: #475569;
+      }
+
+      /* EFECTO ZOOM GENERAL PARA IMÁGENES INTERACTIVAS */
+      .grid-galeria img,
+      .ave-card img,
+      .anfitriones-img,
+      .logo-img {
+        transition:
+          transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1),
+          box-shadow 0.4s ease;
+      }
+
+      /* ENCABEZADO OPTIMIZADO */
+      header {
+        background: white;
+        padding: 0.75rem 0;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+      header .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        text-decoration: none;
+      }
+      .logo-img {
+        height: 48px;
+        width: auto;
+        object-fit: contain;
+      }
+      .brand:hover .logo-img {
+        transform: scale(1.08);
+      }
+      header h2 {
+        font-size: 1.1rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        margin: 0;
+        line-height: 1.2;
+        color: #0f172a;
+        white-space: nowrap;
+      }
+
+      /* MENÚ DE NAVEGACIÓN */
+      .nav-collapse {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+      }
+      .nav-menu {
+        display: flex;
+        gap: 1.2rem;
+        align-items: center;
+      }
+      .nav-menu a {
+        text-decoration: none;
+        color: #475569;
+        font-weight: 600;
+        font-size: 0.9rem;
+        transition:
+          color 0.2s ease,
+          transform 0.2s ease;
+        white-space: nowrap;
+      }
+      .nav-menu a:hover {
+        color: #10b981;
+      }
+
+      /* BOTÓN HAMBURGUESA (oculto en escritorio) */
+      .menu-toggle {
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+        gap: 5px;
+        width: 40px;
+        height: 40px;
+        border: none;
+        background: transparent;
+        cursor: pointer;
+        padding: 0;
+        z-index: 110;
+      }
+      .menu-toggle span {
+        display: block;
+        width: 100%;
+        height: 3px;
+        border-radius: 2px;
+        background: #0f172a;
+        transition:
+          transform 0.3s ease,
+          opacity 0.3s ease;
+      }
+      .menu-toggle.active span:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+      }
+      .menu-toggle.active span:nth-child(2) {
+        opacity: 0;
+      }
+      .menu-toggle.active span:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+      }
+
+      /* RESPONSIVE HEADER: el menú hamburguesa aparece antes (1100px) porque
+         con 7 enlaces + selector de idioma ya no cabe en una sola fila */
+      @media (max-width: 1100px) {
+        header .container {
+          flex-wrap: wrap;
+          justify-content: space-between;
+          gap: 0.75rem;
+          position: relative;
+        }
+
+        .menu-toggle {
+          display: flex;
+        }
+
+        .nav-collapse {
+          order: 3;
+          flex-direction: column;
+          align-items: stretch;
+          gap: 0.25rem;
+          width: 100%;
+          max-height: 0;
+          overflow: hidden;
+          opacity: 0;
+          transition:
+            max-height 0.35s ease,
+            opacity 0.25s ease;
+        }
+
+        .nav-collapse.active {
+          max-height: 70vh;
+          opacity: 1;
+          overflow-y: auto;
+          padding-top: 0.5rem;
+          border-top: 1px solid #e2e8f0;
+        }
+
+        .nav-menu {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 0;
+          width: 100%;
+        }
+
+        .nav-menu a {
+          width: 100%;
+          padding: 0.7rem 0.25rem;
+          border-bottom: 1px solid #f1f5f9;
+        }
+
+        .language-selector-wrapper {
+          width: 100%;
+          justify-content: center;
+          margin-top: 0.5rem;
+          padding-bottom: 0.5rem;
+        }
+      }
+
+      /* HERO SECTION */
+      .hero {
+        text-align: center;
+        padding: 8rem 1rem;
+        background:
+          linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.55)),
+          url("Images/MainPage/main.webp") center/cover no-repeat;
+        color: white;
+      }
+      .hero h1 {
+        font-size: clamp(2rem, 5vw, 3.5rem);
+        line-height: 1.2;
+        color: white;
+        margin-bottom: 1rem;
+        max-width: 900px;
+        margin-left: auto;
+        margin-right: auto;
+        text-wrap: balance; /* reparte las palabras de forma equilibrada entre líneas */
+      }
+      .hero p {
+        font-size: 1.4rem;
+        color: #fff;
+        max-width: 600px;
+        margin: 0 auto;
+        font-weight: 600;
+        text-shadow:
+          0 1px 3px rgba(0, 0, 0, 0.7),
+          0 2px 14px rgba(0, 0, 0, 0.55);
+      }
+
+      /* HERO RESPONSIVE (declarado después de la regla base a propósito,
+         para que gane en la cascada en pantallas pequeñas) */
+      @media (max-width: 850px) {
+        .hero {
+          padding: 4rem 1rem;
+        }
+
+        .hero h1 {
+          font-size: clamp(1.8rem, 8vw, 2.4rem);
+          line-height: 1.25;
+          overflow-wrap: break-word;
+          word-break: normal;
+          hyphens: none;
+        }
+
+        .hero p {
+          font-size: 1.05rem;
+        }
+      }
+
+      /* SECCIONES GENERALES */
+      section {
+        padding: clamp(3.5rem, 8vw, 5rem) 0;
+      }
+      section h2 {
+        text-align: center;
+        font-size: 2.2rem;
+        line-height: 1.25;
+        margin-bottom: 2.5rem;
+        position: relative;
+        padding-bottom: 0.5rem;
+      }
+      section h2::after {
+        content: "";
+        display: block;
+        width: 60px;
+        height: 4px;
+        background: #10b981;
+        margin: 0.75rem auto 0;
+        border-radius: 2px;
+      }
+
+      /* ACERCA DE */
+      .acerca-de {
+        background: white;
+        text-align: center;
+      }
+      .acerca-de p {
+        max-width: 750px;
+        margin-left: auto;
+        margin-right: auto;
+        font-size: 1.1rem;
+      }
+
+      /* GALERÍA MODERNA - HERO GRID IMPLEMENTADO */
+      .grid-galeria {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        grid-auto-flow: dense;
+        gap: 1.5rem;
+      }
+      .grid-galeria picture,
+      .ave-card img,
+      .anfitriones-img {
+        cursor: pointer;
+      }
+      .grid-galeria picture {
+        display: block;
+        width: 100%;
+        height: 100%;
+        min-height: 250px;
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      }
+      .grid-galeria picture img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+      .grid-galeria picture:hover img {
+        transform: scale(1.06);
+      }
+      .grid-galeria picture:hover {
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.18);
+      }
+
+      @media (min-width: 768px) {
+        .grid-galeria picture.hero-img {
+          grid-column: span 2;
+          grid-row: span 2;
+          min-height: 520px;
+        }
+      }
+
+      /* AMENIDADES */
+      .amenidades-list {
+        list-style: none;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.5rem;
+      }
+      .amenidades-list li {
+        background: white;
+        padding: 1.25rem 1.5rem;
+        border-radius: 16px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+        display: flex;
+        align-items: center;
+        font-weight: 600;
+        font-size: 1.1rem;
+        line-height: 1.3;
+        transition:
+          transform 0.3s ease,
+          box-shadow 0.3s ease;
+      }
+      .amenidades-list li:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+      }
+      .amenidades-list li > span:first-child {
+        font-size: 1.8rem;
+        line-height: 1;
+        margin-right: 1.2rem;
+        flex-shrink: 0;
+      }
+
+      /* FAUNA */
+      .fauna {
+        background-color: white;
+      }
+      .grid-aves {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2rem;
+      }
+      .ave-card {
+        background: #f8fafc;
+        border: 1px solid #e2e8f0;
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        transition:
+          transform 0.3s ease,
+          box-shadow 0.3s ease;
+      }
+      .ave-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+      }
+      .ave-card {
+        display: flex;
+        flex-direction: column;
+        padding: 0.75rem; /* la foto queda "dentro" de la tarjeta, sin pegarse al borde */
+      }
+      .ave-card picture {
+        display: block;
+        width: 100%;
+        border-radius: 12px; /* las 4 esquinas de la foto redondeadas */
+        overflow: hidden;
+        isolation: isolate; /* evita que el zoom se salga del redondeo (Safari) */
+        background: #e2e8f0;
+      }
+      .ave-card img {
+        display: block;
+        width: 100%;
+        height: auto; /* respeta la proporción real: la foto se ve completa */
+      }
+      .ave-card:hover img {
+        transform: scale(1.03);
+      }
+      .ave-info {
+        padding: 1.25rem 0.75rem 0.75rem;
+      }
+      .ave-info h3 {
+        font-size: 1.2rem;
+        margin-bottom: 0.5rem;
+        color: #0f172a;
+      }
+      .ave-info p {
+        font-size: 0.95rem;
+        color: #64748b;
+        margin-bottom: 0;
+      }
+
+      /* UBICACIÓN */
+      .mapa-container {
+        width: 100%;
+        height: 400px;
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        margin-top: 2rem;
+      }
+      .puntos-interes {
+        margin-top: 2rem;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1rem;
+        text-align: center;
+      }
+      .puntos-interes div {
+        background: white;
+        padding: 1rem;
+        border-radius: 8px;
+        font-size: 0.9rem;
+        font-weight: 600;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+        transition:
+          transform 0.2s ease,
+          box-shadow 0.2s ease;
+      }
+      .puntos-interes div:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.06);
+      }
+      .puntos-interes > div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0.75rem;
+      }
+      .punto-links {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+      .punto-links a {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+        padding: 0.3rem 0.7rem;
+        border-radius: 999px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        text-decoration: none;
+        border: 1px solid currentColor;
+        transition: background-color 0.2s ease, color 0.2s ease;
+      }
+      .punto-links .link-gmaps { color: #1a73e8; }
+      .punto-links .link-gmaps:hover { background: #1a73e8; color: #fff; }
+      .punto-links .link-waze { color: #0891b2; }
+      .punto-links .link-waze:hover { background: #0891b2; color: #fff; }
+
+      /* CAPACIDAD */
+      .capacidad-intro {
+        text-align: center;
+        max-width: 700px;
+        margin: 0 auto 2.5rem;
+        font-size: 1.1rem;
+      }
+      .capacidad-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 1rem;
+      }
+      .capacidad-card {
+        background: white;
+        padding: 1.5rem 1rem;
+        border-radius: 12px;
+        text-align: center;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+        transition:
+          transform 0.2s ease,
+          box-shadow 0.2s ease;
+      }
+      .capacidad-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.06);
+      }
+      .capacidad-icon {
+        font-size: 28px;
+        display: block;
+        margin-bottom: 16px;
+      }
+      /* Icono de cama: Font Awesome Free (CC BY 4.0, fontawesome.com/license/free),
+         incrustado como SVG para no cargar otra hoja de estilos */
+      .icon-bed {  /* también lo usa el icono de sofá */
+        height: 1em;
+        width: 1.125em;
+        vertical-align: -0.125em;
+      }
+      .capacidad-card h3 {
+        font-size: 1rem;
+        margin-bottom: 0.4rem;
+      }
+      .capacidad-card p {
+        font-size: 0.9rem;
+        color: #64748b;
+        margin-bottom: 0.6rem;
+      }
+      .capacidad-badge {
+        display: inline-block;
+        background: #ecfdf5;
+        color: #047857;
+        font-weight: 600;
+        font-size: 0.85rem;
+        padding: 0.25rem 0.8rem;
+        border-radius: 999px;
+      }
+      .capacidad-banos {
+        max-width: 700px;
+        margin: 2.5rem auto 0;
+      }
+      .capacidad-banos h3 {
+        text-align: center;
+        margin-bottom: 1rem;
+      }
+      .capacidad-banos ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1rem;
+        text-align: center;
+      }
+      .capacidad-banos li {
+        background: white;
+        padding: 1rem;
+        border-radius: 8px;
+        font-size: 0.9rem;
+        font-weight: 600;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+      }
+      .capacidad-banos li i {
+        margin-right: 8px;
+      }
+      /* Iconos de baño: Font Awesome Free (CC BY 4.0, fontawesome.com/license/free),
+         incrustados como SVG: bañera, inodoro y ducha */
+      .icon-bano {
+        height: 1.15em;
+        margin-right: 8px;
+        vertical-align: -0.2em;
+      }
+      .nota {
+        max-width: 700px;
+        margin: 2rem auto 0;
+        padding: 1rem 1.25rem;
+        border-left: 4px solid #10b981;
+        background: #f0fdf4;
+        border-radius: 0 8px 8px 0;
+        font-size: 0.95rem;
+        color: #475569;
+      }
+
+      /* ANFITRIONES */
+      .anfitriones {
+        background: white;
+      }
+      .anfitriones-content {
+        display: flex;
+        align-items: center;
+        gap: 3rem;
+        max-width: 800px;
+        margin: 0 auto;
+        background: #f8fafc;
+        padding: 3rem;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+      }
+      .anfitriones-img {
+        width: 220px;
+        height: 220px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 5px solid white;
+        flex-shrink: 0;
+      }
+      .anfitriones-img:hover {
+        transform: scale(1.08);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+      }
+      .anfitriones-text h3 {
+        margin-bottom: 0.5rem;
+      }
+
+      /* CONTACTO */
+      .contacto {
+        text-align: center;
+        background: #0f172a;
+        color: white;
+        padding: clamp(4rem, 9vw, 6rem) 1rem;
+      }
+      .contacto h2 {
+        color: white;
+      }
+      .contacto h2::after {
+        background: white;
+      }
+      .contacto p {
+        color: #cbd5e1;
+        max-width: 500px;
+        margin: 0 auto 3rem;
+      }
+
+      .contacto-botones {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: stretch;
+        gap: 1rem;
+      }
+      .btn-contacto {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        box-sizing: border-box;
+        padding: 1.2rem 2.5rem;
+        border-radius: 12px;
+        text-decoration: none;
+        text-align: center;
+        font-weight: 700;
+        font-size: 1.1rem;
+        transition:
+          transform 0.2s ease,
+          box-shadow 0.2s ease,
+          background-color 0.2s ease,
+          width 0.2s ease;
+        border: 2px solid transparent;
+        cursor: pointer;
+        font-family: "Montserrat", sans-serif;
+        max-width: 100%;
+      }
+      .btn-contacto:hover {
+        transform: translateY(-3px);
+      }
+      .btn-contacto:active {
+        transform: translateY(-1px);
+      }
+      .btn-whatsapp {
+        background-color: #0e7a3d;
+        color: white;
+        box-shadow: 0 4px 15px rgba(14, 122, 61, 0.3);
+      }
+      .btn-whatsapp:hover {
+        background-color: #0a6430;
+        box-shadow: 0 8px 20px rgba(14, 122, 61, 0.45);
+      }
+      /* BOTONES SECUNDARIOS: un solo estilo discreto y más pequeño */
+      .contacto-botones-secundarios {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 0.75rem;
+        margin-top: 1.25rem;
+      }
+      .btn-form,
+      .btn-faq,
+      .btn-reglas {
+        padding: 0.7rem 1.4rem;
+        border-radius: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.28);
+        background-color: transparent;
+        color: #e2e8f0;
+        font-size: 0.95rem;
+        font-weight: 600;
+      }
+      .btn-form:hover,
+      .btn-faq:hover,
+      .btn-reglas:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+        border-color: rgba(255, 255, 255, 0.6);
+        color: white;
+        transform: translateY(-1px);
+      }
+
+      /* BOTÓN RESERVAR EN AIRBNB (colores de marca: Rausch #ff385c) */
+      .btn-airbnb {
+        background-color: #ff385c;
+        color: white;
+        box-shadow: 0 4px 15px rgba(255, 56, 92, 0.35);
+      }
+      .btn-airbnb:hover {
+        background-color: #e31c5f;
+        box-shadow: 0 8px 20px rgba(255, 56, 92, 0.5);
+      }
+      .btn-airbnb {
+        flex-direction: column;
+        gap: 0.35rem;
+      }
+      .btn-airbnb-pronto {
+        padding: 0.15rem 0.7rem;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.24);
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        line-height: 1.3;
+      }
+
+      /* MODAL DE AVISO "MUY PRONTO EN AIRBNB" */
+      .modal-contenido.airbnb-modal {
+        width: 100%;
+        max-width: 460px;
+        max-height: 90vh;
+        overflow-y: auto;
+        background: white;
+        color: #1e293b;
+        border-radius: 16px;
+        padding: 2.5rem 2rem 2rem;
+        text-align: center;
+      }
+      .airbnb-modal .modal-cerrar {
+        top: 0.5rem;
+        right: 1rem;
+        color: #0f172a;
+      }
+      .airbnb-modal .modal-cerrar:hover {
+        color: #ff385c;
+      }
+      .airbnb-icono {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 64px;
+        height: 64px;
+        margin: 0 auto 1.2rem;
+        border-radius: 50%;
+        background: rgba(255, 56, 92, 0.1);
+        color: #ff385c;
+        font-size: 1.9rem;
+      }
+      .airbnb-modal h3 {
+        margin: 0 0 0.8rem;
+        color: #0f172a;
+      }
+      .airbnb-modal p {
+        margin: 0 0 1.8rem;
+        color: #475569;
+        line-height: 1.6;
+      }
+      .btn-airbnb-aviso {
+        width: 100%;
+        padding: 1rem;
+        border: none;
+        border-radius: 8px;
+        background: #ff385c;
+        color: white;
+        font-family: "Montserrat", sans-serif;
+        font-weight: 700;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background-color 0.2s ease;
+      }
+      .btn-airbnb-aviso:hover {
+        background: #e31c5f;
+      }
+      .btn-airbnb-cerrar {
+        margin-top: 0.8rem;
+        padding: 0.6rem 1rem;
+        border: none;
+        background: none;
+        color: #475569;
+        font-family: "Montserrat", sans-serif;
+        font-weight: 600;
+        font-size: 0.95rem;
+        cursor: pointer;
+      }
+      .btn-airbnb-cerrar:hover {
+        color: #0f172a;
+      }
+      .btn-airbnb-aviso:focus-visible,
+      .btn-airbnb-cerrar:focus-visible,
+      .airbnb-modal .modal-cerrar:focus-visible {
+        outline: 3px solid #ff385c;
+        outline-offset: 3px;
+      }
+
+      /* ESTILOS PARA EL MODAL / LIGHTBOX DE IMÁGENES Y FORMULARIO CON TRANSICIÓN FADE-IN */
+      .modal-lightbox {
+        display: flex;
+        opacity: 0;
+        pointer-events: none;
+        position: fixed;
+        z-index: 9999;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.85);
+        justify-content: center;
+        align-items: center;
+        padding: 2rem;
+        transition: opacity 0.3s ease;
+        overscroll-behavior: contain;
+      }
+      .modal-lightbox.activo {
+        opacity: 1;
+        pointer-events: auto;
+      }
+      .modal-contenido {
+        position: relative;
+        max-width: 90%;
+        max-height: 90vh;
+        transform: scale(0.95);
+        transition: transform 0.3s ease;
+      }
+      .modal-lightbox.activo .modal-contenido {
+        transform: scale(1);
+      }
+      .modal-contenido img {
+        display: block;
+        max-width: 100%;
+        max-height: 85vh;
+        object-fit: contain;
+        border-radius: 8px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+      }
+      .modal-cerrar {
+        position: absolute;
+        top: -40px;
+        right: 0;
+        color: white;
+        font-size: 2.5rem;
+        font-weight: bold;
+        cursor: pointer;
+        background: none;
+        border: none;
+        line-height: 1;
+        transition:
+          color 0.2s ease,
+          transform 0.2s ease;
+      }
+      .modal-cerrar:hover {
+        color: #10b981;
+        transform: scale(1.1);
+      }
+
+      /* TARJETA COMÚN DE MODALES (preguntas, reglas y mensaje directo) */
+      .modal-tarjeta {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        max-width: 560px;
+        max-height: calc(100vh - 2rem);
+        max-height: calc(100dvh - 2rem);
+        background: white;
+        border-radius: 16px;
+        color: #1e293b;
+        overflow: hidden;
+      }
+      .modal-tarjeta--ancho {
+        max-width: 680px;
+      }
+      .modal-header {
+        position: relative;
+        padding: 1.1rem 3.5rem 1rem;
+        text-align: center;
+        border-bottom: 1px solid #e2e8f0;
+      }
+      .modal-header h3 {
+        margin: 0;
+        font-size: 1.3rem;
+        line-height: 1.25;
+        color: #0f172a;
+      }
+      .modal-header h3::after {
+        content: "";
+        display: block;
+        width: 60px;
+        height: 4px;
+        background: #10b981;
+        margin: 0.6rem auto 0;
+        border-radius: 2px;
+      }
+      .modal-header .modal-cerrar {
+        top: 50%;
+        right: 1.25rem;
+        transform: translateY(-50%);
+        font-size: 2rem;
+        font-weight: 400;
+        color: #0f172a;
+      }
+      .modal-header .modal-cerrar:hover {
+        transform: translateY(-50%) scale(1.1);
+      }
+      .modal-header .modal-cerrar:focus-visible {
+        outline: 2px solid #10b981;
+        outline-offset: 2px;
+        border-radius: 4px;
+      }
+      .modal-cuerpo {
+        flex: 1;
+        overflow-y: auto;
+        padding: 0.9rem 1.5rem 1.1rem;
+        overscroll-behavior: contain;
+      }
+      @media (max-width: 600px) {
+        .modal-tarjeta {
+          max-height: calc(100vh - 1.5rem);
+          max-height: calc(100dvh - 1.5rem);
+        }
+        .modal-header {
+          padding: 0.9rem 3rem 0.8rem;
+        }
+        .modal-header h3 {
+          font-size: 1.15rem;
+        }
+        .modal-header h3::after {
+          margin-top: 0.5rem;
+        }
+        .modal-header .modal-cerrar {
+          right: 1rem;
+        }
+        .modal-cuerpo {
+          padding: 0.7rem 1.1rem 0.9rem;
+        }
+      }
+
+      /* FORMULARIO DE MENSAJE DIRECTO */
+      body.contacto-abierto {
+        overflow: hidden;
+      }
+      .form-campo {
+        margin-bottom: 1rem;
+        text-align: left;
+      }
+      .form-campo label {
+        display: block;
+        font-size: 0.9rem;
+        font-weight: 600;
+        margin-bottom: 0.4rem;
+        color: #0f172a;
+      }
+      .form-campo input,
+      .form-campo textarea {
+        width: 100%;
+        padding: 0.8rem;
+        border: 1px solid #cbd5e1;
+        border-radius: 8px;
+        font-family: "Montserrat", sans-serif;
+        font-size: 0.95rem;
+        color: #1e293b;
+      }
+      .form-campo input:focus-visible,
+      .form-campo textarea:focus-visible {
+        outline: 2px solid #10b981;
+        outline-offset: 1px;
+        border-color: #10b981;
+      }
+      .form-campo textarea {
+        resize: vertical;
+      }
+      .form-enviar {
+        width: 100%;
+        margin-top: 0.5rem;
+        background: #10b981;
+        color: white;
+        border: none;
+        padding: 1rem;
+        border-radius: 8px;
+        font-weight: 700;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background 0.2s;
+      }
+      .form-enviar:hover {
+        background: #059669;
+      }
+
+      /* MODAL DE PREGUNTAS FRECUENTES */
+      body.faq-abierto {
+        overflow: hidden;
+      }
+      .faq-modal .modal-cerrar {
+        top: 0.5rem;
+        right: 1rem;
+        color: #0f172a;
+      }
+      .faq-header {
+        padding: 2rem 3.5rem 1.5rem;
+        text-align: center;
+        border-bottom: 1px solid #e2e8f0;
+      }
+      .faq-header h3 {
+        font-size: 1.5rem;
+        line-height: 1.25;
+        margin: 0 0 1rem;
+      }
+      .faq-header h3::after {
+        content: "";
+        display: block;
+        width: 60px;
+        height: 4px;
+        background: #10b981;
+        margin: 0.75rem auto 0;
+        border-radius: 2px;
+      }
+      .faq-header p {
+        margin: 0;
+        font-size: 0.95rem;
+        line-height: 1.5;
+        color: #64748b;
+      }
+      .faq-lista {
+        flex: 1;
+        overflow-y: auto;
+        padding: 0.5rem 2rem 1.5rem;
+        overscroll-behavior: contain;
+      }
+      .faq-item {
+        border-bottom: 1px solid #e2e8f0;
+      }
+      .faq-item:last-child {
+        border-bottom: none;
+      }
+      .faq-item summary {
+        position: relative;
+        padding: 1rem 2rem 1rem 0;
+        font-weight: 700;
+        font-size: 1rem;
+        line-height: 1.4;
+        color: #0f172a;
+        cursor: pointer;
+        list-style: none;
+        transition: color 0.2s ease;
+      }
+      .faq-item summary::-webkit-details-marker {
+        display: none;
+      }
+      .faq-item summary::after {
+        content: "+";
+        position: absolute;
+        right: 0.25rem;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 1.5rem;
+        font-weight: 400;
+        color: #10b981;
+      }
+      .faq-item[open] summary::after {
+        content: "\2013";
+      }
+      .faq-item summary:hover {
+        color: #059669;
+      }
+      .faq-item summary:focus-visible,
+      .faq-modal .modal-cerrar:focus-visible {
+        outline: 2px solid #10b981;
+        outline-offset: 2px;
+        border-radius: 4px;
+      }
+      .faq-respuesta {
+        padding: 0 2rem 1.1rem 0;
+        font-size: 0.95rem;
+        line-height: 1.7;
+        color: #475569;
+      }
+      .faq-respuesta a {
+        display: inline-block;
+        margin-top: 0.4rem;
+        color: #059669;
+        font-weight: 600;
+        text-decoration: underline;
+      }
+      @media (max-width: 600px) {
+        #faqModal {
+          padding: 1rem;
+        }
+        .faq-header {
+          padding: 1.5rem 3rem 1.25rem;
+        }
+        .faq-header h3 {
+          font-size: 1.25rem;
+        }
+        .faq-lista {
+          padding: 0.25rem 1.25rem 1.25rem;
+        }
+      }
+
+      /* MODAL DE REGLAS DE LA CASA */
+      body.reglas-abierto {
+        overflow: hidden;
+      }
+      .reglas-intro {
+        margin: 0 0 0.5rem;
+        font-size: 0.95rem;
+        line-height: 1.45;
+        color: #64748b;
+      }
+      .regla-item {
+        padding: 0.55rem 0;
+        border-bottom: 1px solid #e2e8f0;
+      }
+      .regla-item h4 {
+        margin: 0 0 0.1rem;
+        font-size: 0.95rem;
+        font-weight: 700;
+        line-height: 1.35;
+        color: #0f172a;
+      }
+      .regla-item p {
+        margin: 0;
+        font-size: 0.92rem;
+        line-height: 1.4;
+        color: #1e293b;
+      }
+      /* Se combina con la clase .nota (borde verde, fondo verde claro, icono de
+         bombillo); aquí solo se ajusta el tamaño y el margen para el modal */
+      .reglas-nota {
+        max-width: none;
+        margin: 0.9rem 0 0;
+        padding: 0.8rem 1rem;
+        font-size: 0.88rem;
+        line-height: 1.45;
+      }
+      @media (max-width: 600px) {
+        #reglasModal,
+        #contactoModal {
+          padding: 0.75rem;
+        }
+        .reglas-intro {
+          font-size: 0.88rem;
+          line-height: 1.4;
+          margin-bottom: 0.3rem;
+        }
+        .regla-item {
+          padding: 0.45rem 0;
+        }
+        .regla-item h4,
+        .regla-item p {
+          font-size: 0.86rem;
+          line-height: 1.32;
+        }
+        .reglas-nota {
+          margin-top: 0.7rem;
+          padding: 0.65rem 0.85rem;
+          font-size: 0.82rem;
+          line-height: 1.4;
+        }
+      }
+
+      /* ACTIVIDADES */
+      .actividades-section {
+        padding: 60px 20px;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .actividades-section h2 {
+        text-align: center;
+        font-weight: 700;
+        margin-bottom: 10px;
+      }
+
+      .section-subtitle {
+        text-align: center;
+        color: #6b7280;
+        margin-bottom: 40px;
+      }
+
+      .actividades-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 24px;
+      }
+
+      .actividad-card {
+        background: #ffffff;
+        border: 1px solid #e5e7eb;
+        border-radius: 12px;
+        padding: 24px;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        transition:
+          transform 0.3s ease,
+          box-shadow 0.3s ease,
+          border-color 0.3s ease;
+      }
+
+      .actividad-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 12px 20px -3px rgba(0, 0, 0, 0.1);
+        border-color: #cbd5e1;
+      }
+
+      .actividad-icon {
+        font-size: 28px;
+        margin-bottom: 16px;
+      }
+
+      .actividad-card h3 {
+        font-size: 1.25rem;
+        font-weight: 600;
+        margin-bottom: 8px;
+        color: #1f2937;
+      }
+
+      .actividad-card p {
+        font-size: 0.95rem;
+        color: #4b5563;
+        margin-bottom: 16px;
+      }
+
+      .actividad-detalles {
+        list-style: none;
+        padding: 0;
+        margin: 0 0 16px 0;
+        font-size: 0.9rem;
+        color: #374151;
+      }
+
+      .actividad-detalles li {
+        margin-bottom: 8px;
+        display: flex;
+        align-items: flex-start;
+      }
+
+      .btn-link {
+        display: inline-flex;
+        align-items: center;
+        color: #2563eb;
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 0.9rem;
+        margin-top: auto;
+        transition: color 0.2s ease;
+      }
+
+      .btn-link:hover {
+        color: #1d4ed8;
+        text-decoration: underline;
+      }
+
+      .contacto .contacto-instagram-text {
+        margin-top: 2.5rem;
+        font-size: 1rem;
+        color: #cbd5e1;
+        text-align: center;
+      }
+
+      .contacto-instagram-link {
+        color: #e2e8f0;
+        font-weight: 600;
+        text-decoration: none;
+        margin-left: 0.4rem;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.3rem;
+        transition: all 0.2s ease-in-out;
+      }
+
+      .contacto-instagram-link:hover {
+        color: white;
+        text-decoration: underline;
+        transform: translateY(-1px);
+      }
+
+      .contacto-email-line {
+        display: block;
+        margin-top: 0.8rem;
+        font-size: 0.95rem;
+      }
+
+      .contacto-email-link {
+        color: #94a3b8;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        transition: color 0.2s ease-in-out;
+      }
+
+      .contacto-email-link:hover {
+        color: white;
+        text-decoration: underline;
+      }
+
+      .language-selector-wrapper {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+
+      .globe-icon {
+        font-size: 1.1rem;
+        color: #333;
+      }
+
+      #langSelect {
+        border: none;
+        background: transparent;
+        font-family: inherit;
+        font-size: 0.95rem;
+        color: #333;
+        cursor: pointer;
+        outline: none;
+        padding: 2px 4px;
+        transition: border-color 0.2s ease;
+      }
+
+      /* Correcciones para móviles */
+      @media (max-width: 850px) {
+        html,
+        body {
+          max-width: 100%;
+          overflow-x: hidden; /* respaldo para navegadores sin soporte de clip */
+          overflow-x: clip; /* recorta sin crear contenedor de scroll: no rompe position: sticky */
+        }
+
+        .brand {
+          justify-content: flex-start;
+        }
+
+        header h2 {
+          font-size: 1rem;
+        }
+
+        .anfitriones-content {
+          width: 100%;
+          max-width: 100%;
+          flex-direction: column;
+          align-items: center;
+          gap: 1.5rem;
+          padding: 2rem 1.25rem;
+          text-align: center;
+        }
+
+        .anfitriones-img {
+          width: min(70vw, 220px);
+          height: min(70vw, 220px);
+        }
+
+        .anfitriones-text {
+          width: 100%;
+          min-width: 0;
+        }
+
+        .anfitriones-text h3,
+        .anfitriones-text p {
+          text-align: center;
+          overflow-wrap: anywhere;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <a href="#" class="brand">
+          <picture>
+            <source srcset="Images/MainPage/logo.webp" type="image/webp" />
+            <img
+              src="Images/MainPage/logo.jpeg"
+              alt="Logo Villa Aliris Guanacaste"
+              class="logo-img"
+              width="1024"
+              height="1024"
+            />
+          </picture>
+          <h2 data-i18n="nav_brand">Villa Aliris Liberia</h2>
+        </a>
+
+        <button
+          class="menu-toggle"
+          id="menuToggle"
+          type="button"
+          aria-label="Abrir menú"
+          aria-expanded="false"
+          aria-controls="navCollapse"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <div class="nav-collapse" id="navCollapse">
+          <nav class="nav-menu">
+            <a href="#galeria" data-i18n="menu_gallery">Propiedad</a>
+            <a href="#amenidades" data-i18n="menu_amenities">Amenidades</a>
+            <a href="#fauna" data-i18n="menu_fauna">Naturaleza</a>
+            <a href="#actividades" data-i18n="menu_activities">Actividades</a>
+            <a href="#ubicacion" data-i18n="menu_location">Ubicación</a>
+            <a href="#faq" data-faq-abrir data-i18n="menu_faq">Preguntas</a>
+            <a href="#reglas" data-reglas-abrir data-i18n="menu_rules">Reglas</a>
+            <a href="#contacto" data-i18n="menu_contact">Contacto</a>
+          </nav>
+
+          <div class="language-selector-wrapper">
+            <i class="bi bi-globe globe-icon" aria-hidden="true"></i>
+            <select id="langSelect" aria-label="Seleccionar idioma">
+              <option value="es" data-i18n="lang_es">Español</option>
+              <option value="en" data-i18n="lang_en">English</option>
+              <option value="pt" data-i18n="lang_pt">Português</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div class="container">
+        <h1 data-i18n="hero_title">
+          Reconecta. Descansa. Regresa transformado.
+        </h1>
+        <p data-i18n="hero_subtitle">
+          Un refugio privado en Guanacaste diseñado para silenciar el estrés
+          diario, descansar profundamente y renovar tu energía en perfecta
+          armonía con la naturaleza.
+        </p>
+      </div>
+    </section>
+
+    <section class="acerca-de">
+      <div class="container">
+        <h2 data-i18n="philosophy_title">Nuestra Filosofía</h2>
+        <p data-i18n="philosophy_text">
+          Reconecta con la naturaleza. Descansa profundamente. Regresa
+          transformado. Villa Aliris es un refugio diseñado para silenciar la
+          prisa diaria. Te invitamos a habitar el presente, disfrutar de la
+          simplicidad de la naturaleza y regalarte el descanso que transforma.
+        </p>
+      </div>
+    </section>
+
+    <main class="container">
+      <section id="galeria">
+        <h2 data-i18n="gallery_title">Explora la Propiedad</h2>
+        <div class="grid-galeria">
+          <picture class="hero-img">
+            <source
+              srcset="Images/MainPage/Property/herogrid.webp"
+              type="image/webp"
+            />
+            <img
+              src="Images/MainPage/Property/herogrid.jpeg"
+              alt="Piscina"
+              data-i18n-alt="gallery_piscina"
+            />
+          </picture>
+          <picture>
+            <source
+              srcset="Images/MainPage/Property/piscina.webp"
+              type="image/webp"
+            />
+            <img
+              src="Images/MainPage/Property/piscina.jpeg"
+              alt="Terraza"
+              data-i18n-alt="gallery_terrace"
+              loading="lazy"
+            />
+          </picture>
+          <picture>
+            <source
+              srcset="Images/MainPage/Property/dining.webp"
+              type="image/webp"
+            />
+            <img
+              src="Images/MainPage/Property/dining.jpeg"
+              alt="Comedor Terraza"
+              data-i18n-alt="gallery_dining"
+              loading="lazy"
+            />
+          </picture>
+          <picture>
+            <source
+              srcset="Images/MainPage/Property/terrace.webp"
+              type="image/webp"
+            />
+            <img
+              src="Images/MainPage/Property/terrace.jpeg"
+              alt="Sala Terraza"
+              data-i18n-alt="gallery_terraza"
+              loading="lazy"
+            />
+          </picture>
+          <picture>
+            <source
+              srcset="Images/MainPage/Property/sala.webp"
+              type="image/webp"
+            />
+            <img
+              src="Images/MainPage/Property/sala.jpeg"
+              alt="Sala de estar"
+              data-i18n-alt="gallery_sala"
+              loading="lazy"
+            />
+          </picture>
+          <picture>
+            <source
+              srcset="Images/MainPage/Property/cocina.webp"
+              type="image/webp"
+            />
+            <img
+              src="Images/MainPage/Property/cocina.jpeg"
+              alt="Área de cocina"
+              data-i18n-alt="gallery_cocina"
+              loading="lazy"
+            />
+          </picture>
+          <picture>
+            <source
+              srcset="Images/MainPage/Property/principal.webp"
+              type="image/webp"
+            />
+            <img
+              src="Images/MainPage/Property/principal.jpeg"
+              alt="Habitación Principal"
+              data-i18n-alt="gallery_principal"
+              loading="lazy"
+            />
+          </picture>
+          <picture>
+            <source
+              srcset="Images/MainPage/Property/bath.webp"
+              type="image/webp"
+            />
+            <img
+              src="Images/MainPage/Property/bath.jpeg"
+              alt="Baño Principal"
+              data-i18n-alt="gallery_bath"
+              loading="lazy"
+            />
+          </picture>
+          <picture>
+            <source
+              srcset="Images/MainPage/Property/secundario1.webp"
+              type="image/webp"
+            />
+            <img
+              src="Images/MainPage/Property/secundario1.jpeg"
+              alt="Habitación Secundaria"
+              data-i18n-alt="gallery_habsecundaria1"
+              loading="lazy"
+            />
+          </picture>
+          <picture>
+            <source
+              srcset="Images/MainPage/Property/secundario.webp"
+              type="image/webp"
+            />
+            <img
+              src="Images/MainPage/Property/secundario.jpeg"
+              alt="Habitación Secundaria"
+              data-i18n-alt="gallery_habsecundaria2"
+              loading="lazy"
+            />
+          </picture>
+          <picture>
+            <source
+              srcset="Images/MainPage/Property/bath2.webp"
+              type="image/webp"
+            />
+            <img
+              src="Images/MainPage/Property/bath2.jpeg"
+              alt="Baño Secundario"
+              data-i18n-alt="gallery_bathsecundario"
+              loading="lazy"
+            />
+          </picture>
+          <picture>
+            <source
+              srcset="Images/MainPage/Property/rancho.webp"
+              type="image/webp"
+            />
+            <img
+              src="Images/MainPage/Property/rancho.jpeg"
+              alt="Rancho para parrillada"
+              data-i18n-alt="gallery_rancho"
+              loading="lazy"
+            />
+          </picture>
+          <picture>
+            <source
+              srcset="Images/MainPage/Property/exterior.webp"
+              type="image/webp"
+            />
+            <img
+              src="Images/MainPage/Property/exterior.jpeg"
+              alt="Área Exterior"
+              data-i18n-alt="gallery_exterior"
+              loading="lazy"
+            />
+          </picture>
+          <picture>
+            <source
+              srcset="Images/MainPage/Property/oficina.webp"
+              type="image/webp"
+            />
+            <img
+              src="Images/MainPage/Property/oficina.jpeg"
+              alt="Oficina"
+              data-i18n-alt="gallery_oficina"
+              loading="lazy"
+            />
+          </picture>
+          <picture>
+            <source
+              srcset="Images/MainPage/Property/fachada.webp"
+              type="image/webp"
+            />
+            <img
+              src="Images/MainPage/Property/fachada.jpeg"
+              alt="Fachada de Villa Aliris"
+              data-i18n-alt="gallery_fachada"
+              loading="lazy"
+            />
+          </picture>
+          <picture>
+            <source
+              srcset="Images/MainPage/Property/frente.webp"
+              type="image/webp"
+            />
+            <img
+              src="Images/MainPage/Property/frente.jpeg"
+              alt="Frente de Villa Aliris"
+              data-i18n-alt="gallery_frente"
+              loading="lazy"
+            />
+          </picture>
+          <picture>
+            <source
+              srcset="Images/MainPage/Property/fuente.webp"
+              type="image/webp"
+            />
+            <img
+              src="Images/MainPage/Property/fuente.jpeg"
+              alt="Fuente"
+              data-i18n-alt="gallery_fuente"
+              loading="lazy"
+            />
+          </picture> 
+        </div>
+      </section>
+
+      <section id="amenidades">
+        <h2 data-i18n="amenities_title">Lo más destacado</h2>
+        <ul class="amenidades-list">
+          <li>
+            <span
+              ><i class="bi bi-rocket-takeoff-fill" style="color: #6366f1"></i
+            ></span>
+            <span data-i18n="amenity_wifi">Wi-Fi de Alta Velocidad</span>
+          </li>
+          <li>
+            <span><i class="bi bi-snow" style="color: #0ea5e9"></i></span>
+            <span data-i18n="amenity_ac">A/C en Dormitorios</span>
+          </li>
+          <li>
+            <span><i class="bi bi-water" style="color: #3b82f6"></i></span>
+            <span data-i18n="amenity_pool">Piscina Privada</span>
+          </li>
+          <li>
+            <span><i class="bi bi-tv-fill" style="color: #3b82f6"></i></span>
+            <span data-i18n="amenity_tv_streaming_title">TV y Streaming</span>
+          </li>
+          <li>
+            <span
+              ><i class="bi bi-dice-5-fill" style="color: #ec4899"></i
+            ></span>
+            <span data-i18n="amenity_board_games">Juegos de Mesa</span>
+          </li>
+          <li>
+            <span><i class="bi bi-fire" style="color: #f97316"></i></span>
+            <span data-i18n="amenity_bbq">Rancho de parrillada</span>
+          </li>
+          <li>
+            <span><i class="bi bi-egg-fried" style="color: #f59e0b"></i></span>
+            <span data-i18n="amenity_kitchen">Cocina Equipada</span>
+          </li>
+          <li>
+            <span><i class="bi bi-tree-fill" style="color: #10b981"></i></span>
+            <span data-i18n="amenity_trails">Senderos</span>
+          </li>
+          <li>
+            <span><i class="bi bi-laptop" style="color: #475569"></i></span>
+            <span data-i18n="amenity_office">Oficina para Teletrabajo</span>
+          </li>
+          <li>
+            <span
+              ><i class="bi bi-shield-lock-fill" style="color: #eab308"></i
+            ></span>
+            <span data-i18n="amenity_parking">Estacionamiento Seguro</span>
+          </li>
+          <li>
+            <span
+              ><i class="bi bi-camera-video-fill" style="color: #64748b"></i
+            ></span>
+            <span data-i18n="amenity_security">Cámaras de Seguridad exteriores</span>
+          </li>
+          <li>
+            <span><i class="bi bi-heart-fill" style="color: #8b5cf6"></i></span>
+            <span data-i18n="amenity_pets">Apto para Mascotas</span>
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <section id="fauna" class="fauna">
+      <div class="container">
+        <h2 data-i18n="fauna_title">Naturaleza a tu Alcance</h2>
+        <p
+          style="text-align: center; max-width: 700px; margin: 0 auto 3rem"
+          data-i18n="fauna_subtitle"
+        >
+          Nuestra propiedad está rodeada de frondosa vegetación donde
+          frecuentemente nos visitan hermosas especies de aves locales.
+        </p>
+
+        <div class="grid-aves">
+          <div class="ave-card">
+            <picture>
+              <source srcset="Images/Birds/urraca.webp" type="image/webp" />
+              <img
+                src="Images/Birds/urraca.jpeg"
+                alt="Urraca Copetona"
+                loading="lazy"
+              />
+            </picture>
+            <div class="ave-info">
+              <h3 data-i18n="bird_urraca_title">Urraca Copetona</h3>
+              <p data-i18n="bird_urraca_desc">
+                Sociables y muy vistosas, es común verlas en grupo explorando
+                las ramas más altas durante las primeras horas del día.
+              </p>
+            </div>
+          </div>
+
+          <div class="ave-card">
+            <picture>
+              <source srcset="Images/Birds/perico.webp" type="image/webp" />
+              <img
+                src="Images/Birds/perico.jpeg"
+                alt="Pericos"
+                loading="lazy"
+              />
+            </picture>
+            <div class="ave-info">
+              <h3 data-i18n="bird_perico_title">Pericos</h3>
+              <p data-i18n="bird_perico_desc">
+                Con su característico vuelo enérgico y juguetón, llenan el cielo
+                de color y sonido al regresar en parvadas cuando cae la tarde.
+              </p>
+            </div>
+          </div>
+
+          <div class="ave-card">
+            <picture>
+              <source srcset="Images/Birds/buho.webp" type="image/webp" />
+              <img src="Images/Birds/buho.jpeg" alt="Búhos" loading="lazy" />
+            </picture>
+            <div class="ave-info">
+              <h3 data-i18n="bird_buho_title">Búhos</h3>
+              <p data-i18n="bird_buho_desc">
+                Guardianes silenciosos de la bruma matutina; encontrarse con su
+                mirada fija y enigmática entre las ramas es siempre un momento
+                mágico.
+              </p>
+            </div>
+          </div>
+
+          <div class="ave-card">
+            <picture>
+              <source srcset="Images/Birds/piche.webp" type="image/webp" />
+              <img src="Images/Birds/piche.jpeg" alt="Piches" loading="lazy" />
+            </picture>
+            <div class="ave-info">
+              <h3 data-i18n="bird_piche_title">Piches</h3>
+              <p data-i18n="bird_piche_desc">
+                Un espectáculo de gracia natural; su silueta y comportamiento
+                aportan un toque único de tranquilidad al paisaje.
+              </p>
+            </div>
+          </div>
+
+          <div class="ave-card">
+            <picture>
+              <source srcset="Images/Birds/trogon.webp" type="image/webp" />
+              <img
+                src="Images/Birds/trogon.jpeg"
+                alt="Trogones"
+                loading="lazy"
+              />
+            </picture>
+            <div class="ave-info">
+              <h3 data-i18n="bird_trogon_title">Trogones</h3>
+              <p data-i18n="bird_trogon_desc">
+                Verdaderas joyas de la naturaleza; su plumaje vibrante y su
+                postura tranquila personifican la armonía y la belleza del
+                trópico.
+              </p>
+            </div>
+          </div>
+
+          <div class="ave-card">
+            <picture>
+              <source srcset="Images/Birds/bobo.webp" type="image/webp" />
+              <img src="Images/Birds/bobo.jpeg" alt="Bobo" loading="lazy" />
+            </picture>
+            <div class="ave-info">
+              <h3 data-i18n="bird_bobo_title">Bobos</h3>
+              <p data-i18n="bird_bobo_desc">
+                Con una estampa inconfundible y una tranquilidad innata,
+                capturan la atención de cualquier amante de la naturaleza.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <main class="container">
+      <section id="ubicacion">
+        <h2 data-i18n="location_title">Nuestra Ubicación</h2>
+        <p style="text-align: center" data-i18n="location_subtitle">
+          Situados en una ubicación privilegiada en Liberia, Guanacaste, cerca
+          de todo lo que necesitas.
+        </p>
+
+        <div class="mapa-container">
+          <iframe
+            src="https://www.google.com/maps/d/embed?mid=1xI4qHOseEnxMYuc1S8-CPiO2wS4DLP4&ehbc=2E312F"
+            width="100%"
+            height="100%"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+            title="Mapa de ubicación de Villa Aliris en Liberia, Guanacaste"
+          ></iframe>
+        </div>
+
+        <div class="puntos-interes">
+          <div>
+            <span class="punto-texto"
+              ><i class="bi bi-buildings-fill" style="color: #10b981; margin-right: 8px"></i
+              ><span data-i18n="loc_1">Centro de Liberia: 12 min auto (aprox. 6 km)</span></span
+            >
+            <span class="punto-links">
+              <a class="link-gmaps" href="https://www.google.com/maps/dir/?api=1&amp;destination=Centro%20de%20Liberia%2C%20Guanacaste%2C%20Costa%20Rica&amp;travelmode=driving" target="_blank" rel="noopener noreferrer"><i class="bi bi-geo-alt-fill" aria-hidden="true"></i>Google Maps</a>
+              <a class="link-waze" href="https://waze.com/ul?q=Centro%20de%20Liberia%2C%20Guanacaste%2C%20Costa%20Rica&amp;navigate=yes" target="_blank" rel="noopener noreferrer"><i class="bi bi-cursor-fill" aria-hidden="true"></i>Waze</a>
+            </span>
+          </div>
+          <div>
+            <span class="punto-texto"
+              ><i class="bi bi-triangle-fill" style="color: #ea580c; margin-right: 8px"></i
+              ><span data-i18n="loc_2">Volcán Rincón de La Vieja: 54 min auto (aprox. 24 km)</span></span
+            >
+            <span class="punto-links">
+              <a class="link-gmaps" href="https://www.google.com/maps/dir/?api=1&amp;destination=Parque%20Nacional%20Rinc%C3%B3n%20de%20la%20Vieja%2C%20Costa%20Rica&amp;travelmode=driving" target="_blank" rel="noopener noreferrer"><i class="bi bi-geo-alt-fill" aria-hidden="true"></i>Google Maps</a>
+              <a class="link-waze" href="https://waze.com/ul?q=Parque%20Nacional%20Rinc%C3%B3n%20de%20la%20Vieja%2C%20Costa%20Rica&amp;navigate=yes" target="_blank" rel="noopener noreferrer"><i class="bi bi-cursor-fill" aria-hidden="true"></i>Waze</a>
+            </span>
+          </div>
+          <div>
+            <span class="punto-texto"
+              ><i class="bi bi-water" style="color: #0ea5e9; margin-right: 8px"></i
+              ><span data-i18n="loc_3">Catarata La Leona: 18 min auto (aprox. 12.5 km)</span></span
+            >
+            <span class="punto-links">
+              <a class="link-gmaps" href="https://www.google.com/maps/dir/?api=1&amp;destination=Catarata%20La%20Leona%2C%20Liberia%2C%20Guanacaste%2C%20Costa%20Rica&amp;travelmode=driving" target="_blank" rel="noopener noreferrer"><i class="bi bi-geo-alt-fill" aria-hidden="true"></i>Google Maps</a>
+              <a class="link-waze" href="https://waze.com/ul?q=Catarata%20La%20Leona%2C%20Liberia%2C%20Guanacaste%2C%20Costa%20Rica&amp;navigate=yes" target="_blank" rel="noopener noreferrer"><i class="bi bi-cursor-fill" aria-hidden="true"></i>Waze</a>
+            </span>
+          </div>
+          <div>
+            <span class="punto-texto"
+              ><i class="bi bi-water" style="color: #0ea5e9; margin-right: 8px"></i
+              ><span data-i18n="loc_4">Poza Los Coyotes: 20 min auto (aprox. 13 km)</span></span
+            >
+            <span class="punto-links">
+              <a class="link-gmaps" href="https://www.google.com/maps/dir/?api=1&amp;destination=Poza%20Los%20Coyotes%2C%20Liberia%2C%20Guanacaste%2C%20Costa%20Rica&amp;travelmode=driving" target="_blank" rel="noopener noreferrer"><i class="bi bi-geo-alt-fill" aria-hidden="true"></i>Google Maps</a>
+              <a class="link-waze" href="https://waze.com/ul?q=Poza%20Los%20Coyotes%2C%20Liberia%2C%20Guanacaste%2C%20Costa%20Rica&amp;navigate=yes" target="_blank" rel="noopener noreferrer"><i class="bi bi-cursor-fill" aria-hidden="true"></i>Waze</a>
+            </span>
+          </div>
+          <div>
+            <span class="punto-texto"
+              ><i class="bi bi-water" style="color: #0ea5e9; margin-right: 8px"></i
+              ><span data-i18n="loc_5">Poza La Pipa: 19 min auto (aprox. 12 km)</span></span
+            >
+            <span class="punto-links">
+              <a class="link-gmaps" href="https://www.google.com/maps/dir/?api=1&amp;destination=Poza%20La%20Pipa%2C%20Liberia%2C%20Guanacaste%2C%20Costa%20Rica&amp;travelmode=driving" target="_blank" rel="noopener noreferrer"><i class="bi bi-geo-alt-fill" aria-hidden="true"></i>Google Maps</a>
+              <a class="link-waze" href="https://waze.com/ul?q=Poza%20La%20Pipa%2C%20Liberia%2C%20Guanacaste%2C%20Costa%20Rica&amp;navigate=yes" target="_blank" rel="noopener noreferrer"><i class="bi bi-cursor-fill" aria-hidden="true"></i>Waze</a>
+            </span>
+          </div>
+          <div>
+            <span class="punto-texto"
+              ><i class="bi bi-cart3" style="color: #eab308; margin-right: 8px"></i
+              ><span data-i18n="loc_6">Walmart: 12 min auto (aprox. 6.4 km)</span></span
+            >
+            <span class="punto-links">
+              <a class="link-gmaps" href="https://www.google.com/maps/dir/?api=1&amp;destination=Walmart%20Liberia%2C%20Guanacaste%2C%20Costa%20Rica&amp;travelmode=driving" target="_blank" rel="noopener noreferrer"><i class="bi bi-geo-alt-fill" aria-hidden="true"></i>Google Maps</a>
+              <a class="link-waze" href="https://waze.com/ul?q=Walmart%20Liberia%2C%20Guanacaste%2C%20Costa%20Rica&amp;navigate=yes" target="_blank" rel="noopener noreferrer"><i class="bi bi-cursor-fill" aria-hidden="true"></i>Waze</a>
+            </span>
+          </div>
+          <div>
+            <span class="punto-texto"
+              ><i class="bi bi-shield-fill-check" style="color: #10b981; margin-right: 8px"></i
+              ><span data-i18n="loc_7">Ponderosa: 20 min auto (aprox. 17.8 km)</span></span
+            >
+            <span class="punto-links">
+              <a class="link-gmaps" href="https://www.google.com/maps/dir/?api=1&amp;destination=Ponderosa%20Adventure%20Park%2C%20Liberia%2C%20Guanacaste%2C%20Costa%20Rica&amp;travelmode=driving" target="_blank" rel="noopener noreferrer"><i class="bi bi-geo-alt-fill" aria-hidden="true"></i>Google Maps</a>
+              <a class="link-waze" href="https://waze.com/ul?q=Ponderosa%20Adventure%20Park%2C%20Liberia%2C%20Guanacaste%2C%20Costa%20Rica&amp;navigate=yes" target="_blank" rel="noopener noreferrer"><i class="bi bi-cursor-fill" aria-hidden="true"></i>Waze</a>
+            </span>
+          </div>
+          <div>
+            <span class="punto-texto"
+              ><i class="bi bi-airplane-fill" style="color: #6366f1; margin-right: 8px"></i
+              ><span data-i18n="loc_8">Aeropuerto LIR: 30 min auto (aprox. 15 km)</span></span
+            >
+            <span class="punto-links">
+              <a class="link-gmaps" href="https://www.google.com/maps/dir/?api=1&amp;destination=Aeropuerto%20Internacional%20Daniel%20Oduber%20Quir%C3%B3s%2C%20Liberia%2C%20Costa%20Rica&amp;travelmode=driving" target="_blank" rel="noopener noreferrer"><i class="bi bi-geo-alt-fill" aria-hidden="true"></i>Google Maps</a>
+              <a class="link-waze" href="https://waze.com/ul?q=Aeropuerto%20Internacional%20Daniel%20Oduber%20Quir%C3%B3s%2C%20Liberia%2C%20Costa%20Rica&amp;navigate=yes" target="_blank" rel="noopener noreferrer"><i class="bi bi-cursor-fill" aria-hidden="true"></i>Waze</a>
+            </span>
+          </div>
+        </div>
+      </section>
+
+      <section id="capacidad">
+        <h2 data-i18n="capacity_title">Capacidad y Espacios</h2>
+        <p class="capacidad-intro" data-i18n-html="capacity_intro">
+          Villa Aliris está diseñada para alojar cómodamente hasta <strong>8 personas</strong>, distribuidas así:
+        </p>
+
+        <div class="capacidad-grid">
+          <div class="capacidad-card">
+            <span class="capacidad-icon"><svg class="icon-bed" style="color: #6366f1" viewBox="0 0 576 512" fill="currentColor" aria-hidden="true"><path d="M32 32c17.7 0 32 14.3 32 32v224h224V160c0-17.7 14.3-32 32-32h160c53 0 96 43 96 96v224c0 17.7-14.3 32-32 32s-32-14.3-32-32v-64H64v64c0 17.7-14.3 32-32 32S0 465.7 0 448V64c0-17.7 14.3-32 32-32m80 160a64 64 0 1 1 128 0 64 64 0 1 1-128 0"/></svg></span>
+            <h3 data-i18n="cap_main_name">Dormitorio principal</h3>
+            <p data-i18n="cap_main_beds">Cama matrimonial</p>
+            <span class="capacidad-badge" data-i18n="cap_main_people">2 personas</span>
+          </div>
+          <div class="capacidad-card">
+            <span class="capacidad-icon"><svg class="icon-bed" style="color: #8b5cf6" viewBox="0 0 576 512" fill="currentColor" aria-hidden="true"><path d="M32 32c17.7 0 32 14.3 32 32v224h224V160c0-17.7 14.3-32 32-32h160c53 0 96 43 96 96v224c0 17.7-14.3 32-32 32s-32-14.3-32-32v-64H64v64c0 17.7-14.3 32-32 32S0 465.7 0 448V64c0-17.7 14.3-32 32-32m80 160a64 64 0 1 1 128 0 64 64 0 1 1-128 0"/></svg></span>
+            <h3 data-i18n="cap_sec1_name">Dormitorio secundario 1</h3>
+            <p data-i18n="cap_sec1_beds">Cama nido</p>
+            <span class="capacidad-badge" data-i18n="cap_sec1_people">2 personas</span>
+          </div>
+          <div class="capacidad-card">
+            <span class="capacidad-icon"><svg class="icon-bed" style="color: #8b5cf6" viewBox="0 0 576 512" fill="currentColor" aria-hidden="true"><path d="M32 32c17.7 0 32 14.3 32 32v224h224V160c0-17.7 14.3-32 32-32h160c53 0 96 43 96 96v224c0 17.7-14.3 32-32 32s-32-14.3-32-32v-64H64v64c0 17.7-14.3 32-32 32S0 465.7 0 448V64c0-17.7 14.3-32 32-32m80 160a64 64 0 1 1 128 0 64 64 0 1 1-128 0"/></svg></span>
+            <h3 data-i18n="cap_sec2_name">Dormitorio secundario 2</h3>
+            <p data-i18n="cap_sec2_beds">Cama nido + cama plegable</p>
+            <span class="capacidad-badge" data-i18n="cap_sec2_people">3 personas</span>
+          </div>
+          <div class="capacidad-card">
+            <span class="capacidad-icon"><svg class="icon-bed" style="color: #8b5cf6; width: 1.25em" viewBox="0 0 640 512" fill="currentColor" aria-hidden="true"><path d="M144 272c0-47.3-34.2-86.6-79.2-94.5C72 113.6 126.2 64 192 64h256c65.8 0 120 49.6 127.2 113.5-45 8-79.2 47.2-79.2 94.5v32H144zM0 384V272c0-26.5 21.5-48 48-48s48 21.5 48 48v80h448v-80c0-26.5 21.5-48 48-48s48 21.5 48 48v112c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64"/></svg></span>
+            <h3 data-i18n="cap_office_name">Oficina</h3>
+            <p data-i18n="cap_office_beds">Sofá cama</p>
+            <span class="capacidad-badge" data-i18n="cap_office_people">1 persona</span>
+          </div>
+        </div>
+
+        <div class="capacidad-banos">
+          <h3 data-i18n="cap_baths_title">Baños</h3>
+          <ul>
+            <li><svg class="icon-bano" style="color: #0ea5e9; width: 1.15em" viewBox="0 0 512 512" fill="currentColor" aria-hidden="true"><path d="M96 77.3C96 70 101.9 64 109.3 64c3.5 0 6.9 1.4 9.4 3.9l14.9 14.9c-3.6 9.1-5.5 18.9-5.5 29.2 0 19.9 7.2 38 19.2 52-5.3 9.2-4 21.1 3.8 29 9.4 9.4 24.6 9.4 33.9 0L289 89c9.4-9.4 9.4-24.6 0-33.9-7.8-7.9-19.8-9.1-29-3.8-14-12-32.1-19.2-52-19.2-10.3 0-20.2 2-29.2 5.5l-14.9-15C149.4 8.1 129.7 0 109.3 0 66.6 0 32 34.6 32 77.3V256c-17.7 0-32 14.3-32 32s14.3 32 32 32v48c0 28.4 12.4 54 32 71.6V480c0 17.7 14.3 32 32 32s32-14.3 32-32v-16h256v16c0 17.7 14.3 32 32 32s32-14.3 32-32v-40.4c19.6-17.6 32-43.1 32-71.6v-48c17.7 0 32-14.3 32-32s-14.3-32-32-32H96z"/></svg><span data-i18n="cap_bath_1">2 baños completos dentro de la villa</span></li>
+            <li><svg class="icon-bano" style="color: #64748b; width: 1.0em" viewBox="0 0 448 512" fill="currentColor" aria-hidden="true"><path d="M24 0C10.7 0 0 10.7 0 24s10.7 24 24 24h8v148.9c-1.9 1.4-3.8 2.9-5.6 4.4C10.9 214.5 0 232.9 0 255.9c0 46.9 14.3 84.1 37 112.5 14.2 17.7 31.1 31.3 48.5 41.8l-19.9 59.7c-3.3 9.8-1.6 20.5 4.4 28.8S85.7 512 96 512h256c10.3 0 19.9-4.9 26-13.3s7.7-19.1 4.4-28.8l-19.8-59.5c17.4-10.5 34.3-24.1 48.5-41.8 22.7-28.4 37-65.5 37-112.5 0-23.1-10.9-41.5-26.4-54.6-1.8-1.5-3.7-3-5.6-4.4V48.2h8c13.3 0 24-10.7 24-24S437.3 0 424 0zm72 80c0-8.8 7.2-16 16-16h32c8.8 0 16 7.2 16 16s-7.2 16-16 16h-32c-8.8 0-16-7.2-16-16m128 208c-88.4 0-160-14.3-160-32s71.6-32 160-32 160 14.3 160 32-71.6 32-160 32"/></svg><span data-i18n="cap_bath_2">1 medio baño exterior</span></li>
+            <li><svg class="icon-bano" style="color: #3b82f6; width: 1.15em" viewBox="0 0 512 512" fill="currentColor" aria-hidden="true"><path d="M64 131.9C64 112.1 80.1 96 99.9 96c9.5 0 18.6 3.8 25.4 10.5l16.2 16.2c-21 38.9-17.4 87.5 10.9 123L151 247c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0L345 121c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0l-1.3 1.3c-35.5-28.3-84.1-31.9-123-10.9l-16.3-16.2C151.8 42.5 126.4 32 99.9 32 44.7 32 0 76.7 0 131.9V448c0 17.7 14.3 32 32 32s32-14.3 32-32zM256 352a32 32 0 1 0 0-64 32 32 0 1 0 0 64m64 64a32 32 0 1 0-64 0 32 32 0 1 0 64 0m0-128a32 32 0 1 0 0-64 32 32 0 1 0 0 64m64 64a32 32 0 1 0-64 0 32 32 0 1 0 64 0m0-128a32 32 0 1 0 0-64 32 32 0 1 0 0 64m64 64a32 32 0 1 0-64 0 32 32 0 1 0 64 0m32-32a32 32 0 1 0 0-64 32 32 0 1 0 0 64"/></svg><span data-i18n="cap_bath_3">Ducha exterior disponible</span></li>
+          </ul>
+        </div>
+
+        <p class="nota" data-i18n-html="cap_note" data-prefix='<i class="bi bi-lightbulb-fill" style="color: #eab308; margin-right: 6px"></i>'>
+          <i class="bi bi-lightbulb-fill" style="color: #eab308; margin-right: 6px"></i><strong>Nota:</strong> Esta capacidad está pensada para garantizar una estancia confortable. Si necesitas alojar un grupo diferente, <strong>consúltanos previamente</strong> y con gusto te ayudaremos.
+        </p>
+      </section>
+
+      <section id="actividades" class="actividades-section">
+        <h2 data-i18n="activities_title">Aventuras y Experiencias Cercanas</h2>
+        <p class="section-subtitle" data-i18n="activities_subtitle">
+          Planifica tu visita con los detalles clave de cada lugar imperdible en
+          los alrededores.
+        </p>
+
+        <div class="actividades-grid" id="actividades-container"></div>
+
+        <p class="nota">
+          <i class="bi bi-lightbulb-fill" style="color: #eab308; margin-right: 6px"></i
+          ><span data-i18n-html="disclaimer"
+            ><strong>Nota:</strong> La información sobre horarios, tarifas y servicios de terceros es
+            de carácter informativo y puede variar sin previo aviso. Recomendamos
+            consultar los sitios web oficiales antes de su visita.</span
+          >
+        </p>
+      </section>
+
+      <section id="anfitriones" class="anfitriones">
+        <h2 data-i18n="hosts_title">Tus Anfitriones</h2>
+        <div class="anfitriones-content">
+          <img
+            src="Images/Hosts/jose1.jpeg"
+            alt="Tu Foto"
+            class="anfitriones-img"
+          />
+          <div class="anfitriones-text">
+            <h3 data-i18n="hosts_greeting">
+              ¡Hola! Un gusto saludarle. Mi nombre es José Rafael Villegas
+              García
+            </h3>
+            <p data-i18n="hosts_desc">
+              Diseñamos Villa Aliris para compartir nuestra pasión por la
+              naturaleza y la tranquilidad. Estamos a su disposición para
+              ofrecerle recomendaciones locales y asegurarnos de que su visita
+              sea inolvidable.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <section id="contacto" class="contacto">
+      <div class="container">
+        <h2 data-i18n="contact_title">¿Deseas más información?</h2>
+        <p data-i18n="contact_subtitle">
+          Nuestra web es un espacio informativo para que conozcas la
+          experiencia. Para consultar disponibilidad, tarifas o resolver
+          cualquier duda, escríbenos directamente y con gusto te atenderemos.
+        </p>
+
+        <div class="contacto-botones">
+          <a
+            href="https://wa.me/50664799811?text=Hola!%20Me%20interesa%20información%20sobre%20la%20propiedad"
+            target="_blank"
+            class="btn-contacto btn-whatsapp"
+            data-i18n="btn_whatsapp"
+            >Consultar por WhatsApp</a
+          >
+
+          <button
+            type="button"
+            class="btn-contacto btn-airbnb"
+            onclick="abrirModalAirbnb()"
+          >
+            <span data-i18n="btn_airbnb">Reservar en Airbnb</span>
+            <span class="btn-airbnb-pronto" data-i18n="btn_airbnb_soon"
+              >Próximamente</span
+            >
+          </button>
+        </div>
+
+        <div class="contacto-botones-secundarios">
+          <button
+            type="button"
+            class="btn-contacto btn-form"
+            onclick="abrirModalFormulario()"
+            data-i18n="btn_form"
+          >
+            Enviar Mensaje Directo
+          </button>
+
+          <button
+            type="button"
+            class="btn-contacto btn-faq"
+            data-faq-abrir
+            data-i18n="btn_faq"
+          >
+            Preguntas Frecuentes
+          </button>
+
+          <button
+            type="button"
+            class="btn-contacto btn-reglas"
+            data-reglas-abrir
+            data-i18n="btn_rules"
+          >
+            Reglas de la casa
+          </button>
+        </div>
+      </div>
+
+      <p class="contacto-instagram-text">
+        <span data-i18n="instagram_text"
+          >También puedes seguirnos en Instagram:</span
+        >
+        <a
+          href="https://www.instagram.com/villaaliris"
+          target="_blank"
+          class="contacto-instagram-link"
+        >
+          <i class="bi bi-instagram"></i> @villaaliris
+        </a>
+        <span class="contacto-email-line">
+          <a
+            href="mailto:info@villaaliris.com?subject=Consulta%20sobre%20Villa%20Aliris"
+            class="contacto-email-link"
+          >
+            <i class="bi bi-envelope"></i> info@villaaliris.com
+          </a>
+        </span>
+      </p>
+    </section>
+
+    <div id="lightboxModal" class="modal-lightbox">
+      <div class="modal-contenido">
+        <button id="lightboxCerrar" class="modal-cerrar">×</button>
+        <img id="lightboxImg" src="" alt="Imagen ampliada" />
+      </div>
+    </div>
+
+    <div
+      id="contactoModal"
+      class="modal-lightbox"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="contactoTitulo"
+      onclick="if (event.target === this) cerrarModalFormulario()"
+    >
+      <div class="modal-contenido modal-tarjeta">
+        <div class="modal-header">
+          <h3 id="contactoTitulo" data-i18n="form_title">
+            Escríbenos un mensaje
+          </h3>
+          <button
+            type="button"
+            onclick="cerrarModalFormulario()"
+            class="modal-cerrar"
+            aria-label="Cerrar"
+            data-i18n-aria-label="faq_close"
+          >
+            ×
+          </button>
+        </div>
+
+        <div class="modal-cuerpo">
+          <form
+            id="formContacto"
+            action="https://formspree.io/f/mvzeeooy"
+            method="POST"
+            onsubmit="enviarFormulario(event)"
+          >
+            <div class="form-campo">
+              <label for="nombre" data-i18n="form_name">Tu Nombre</label>
+              <input type="text" name="nombre" id="nombre" required />
+            </div>
+            <div class="form-campo">
+              <label for="email" data-i18n="form_email">Correo Electrónico</label>
+              <input type="email" name="email" id="email" autocomplete="email" required />
+            </div>
+            <div class="form-campo">
+              <label for="mensaje" data-i18n="form_message">Mensaje</label>
+              <textarea name="mensaje" id="mensaje" rows="4" required></textarea>
+            </div>
+            <button type="submit" class="form-enviar" data-i18n="form_send">
+              Enviar Mensaje
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div
+      id="airbnbModal"
+      class="modal-lightbox"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="airbnbTitulo"
+      onclick="if (event.target === this) cerrarModalAirbnb()"
+    >
+      <div class="modal-contenido airbnb-modal">
+        <button
+          type="button"
+          class="modal-cerrar"
+          onclick="cerrarModalAirbnb()"
+          data-i18n-aria-label="faq_close"
+          aria-label="Cerrar"
+        >
+          ×
+        </button>
+
+        <div class="airbnb-icono" aria-hidden="true">
+          <i class="bi bi-house-heart-fill"></i>
+        </div>
+        <h3 id="airbnbTitulo" data-i18n="airbnb_title">
+          ¡Muy pronto en Airbnb!
+        </h3>
+        <p data-i18n="airbnb_text">
+          Estamos ultimando los detalles para registrar Villa Aliris en la
+          plataforma. Muy pronto podrás reservar tu estadía directamente en
+          Airbnb.
+        </p>
+        <button
+          type="button"
+          id="airbnbAvisar"
+          class="btn-airbnb-aviso"
+          onclick="abrirFormularioAirbnb()"
+          data-i18n="airbnb_notify"
+        >
+          Avísame cuando esté disponible
+        </button>
+        <button
+          type="button"
+          class="btn-airbnb-cerrar"
+          onclick="cerrarModalAirbnb()"
+          data-i18n="faq_close"
+        >
+          Cerrar
+        </button>
+      </div>
+    </div>
+
+    <div
+      id="faqModal"
+      class="modal-lightbox"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="faqTitulo"
+    >
+      <div class="modal-contenido modal-tarjeta modal-tarjeta--ancho faq-modal">
+        <button
+          type="button"
+          class="modal-cerrar"
+          data-faq-cerrar
+          data-i18n-aria-label="faq_close"
+          aria-label="Cerrar"
+        >
+          ×
+        </button>
+
+        <div class="faq-header">
+          <h3 id="faqTitulo" data-i18n="faq_title">Preguntas Frecuentes</h3>
+          <p data-i18n="faq_subtitle">Resolvemos las dudas más comunes antes de tu llegada.</p>
+        </div>
+
+        <div class="faq-lista">
+          <details class="faq-item">
+            <summary data-i18n="faq_q1">¿Cuál es el horario de check-in y check-out?</summary>
+            <div class="faq-respuesta" data-i18n-html="faq_a1">
+              El <strong>check-in</strong> es a partir de las <strong>3:00 p. m.</strong> y el <strong>check-out</strong> es hasta las <strong>11:00 a. m.</strong> Si necesitas llegar antes o salir más tarde, consúltanos y lo coordinamos según disponibilidad.
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary data-i18n="faq_q2">¿Qué tipo de vehículo necesito para llegar a la villa?</summary>
+            <div class="faq-respuesta" data-i18n-html="faq_a2">
+              Puedes llegar en un <strong>vehículo convencional</strong>; no necesitas 4x4. La propiedad cuenta con estacionamiento seguro. Al confirmar tu estadía te compartiremos la ubicación exacta e indicaciones para llegar.
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary data-i18n="faq_q3">¿Aceptan mascotas?</summary>
+            <div class="faq-respuesta" data-i18n-html="faq_a3">
+              Sí, Villa Aliris es <strong>pet friendly</strong>. Te pedimos avisarnos con anticipación cuántas mascotas viajan contigo y de qué tamaño son, mantenerlas bajo supervisión y recoger sus desechos para que todos disfruten de la propiedad.
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary data-i18n="faq_q4">¿Cuántas personas pueden hospedarse?</summary>
+            <div class="faq-respuesta" data-i18n-html="faq_a4">
+              La villa está diseñada para alojar cómodamente hasta <strong>8 personas</strong>, en 3 dormitorios y una oficina con sofá cama. Si tu grupo es diferente, consúltanos antes de reservar.
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary data-i18n="faq_q5">¿Hay Wi-Fi y espacio para teletrabajo?</summary>
+            <div class="faq-respuesta" data-i18n-html="faq_a5">
+              Sí. Contamos con <strong>Wi-Fi de alta velocidad</strong> y una <strong>oficina privada</strong> pensada para teletrabajo. Además, los dormitorios tienen A/C.
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary data-i18n="faq_q6">¿Es segura la propiedad? ¿Hay estacionamiento?</summary>
+            <div class="faq-respuesta" data-i18n-html="faq_a6">
+              Sí. La villa cuenta con <strong>estacionamiento seguro</strong> y <strong>cámaras de seguridad externas</strong> para tu tranquilidad.
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary data-i18n="faq_q7">¿La cocina está equipada? ¿Puedo hacer una parrillada?</summary>
+            <div class="faq-respuesta" data-i18n-html="faq_a7">
+              Sí, la villa tiene <strong>cocina equipada</strong> y un <strong>rancho para parrillada</strong> para disfrutar al aire libre.
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary data-i18n="faq_q8">¿Qué tan lejos está del aeropuerto y de los servicios?</summary>
+            <div class="faq-respuesta" data-i18n-html="faq_a8">
+              Estamos a unos <strong>30 min en auto del Aeropuerto LIR</strong>, a 12 min del centro de Liberia y a 12 min de Walmart. <a href="#ubicacion" data-faq-cerrar>Ver ubicación y distancias</a>
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary data-i18n="faq_q9">¿Cómo consulto disponibilidad y tarifas?</summary>
+            <div class="faq-respuesta" data-i18n-html="faq_a9">
+              Escríbenos por <strong>WhatsApp</strong>, correo o mediante el formulario de contacto y con gusto te atenderemos. <a href="#contacto" data-faq-cerrar>Ir a Contacto</a>
+            </div>
+          </details>
+        </div>
+      </div>
+    </div>
+
+    <div
+      id="reglasModal"
+      class="modal-lightbox"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="reglasTitulo"
+    >
+      <div class="modal-contenido modal-tarjeta">
+        <div class="modal-header">
+          <h3 id="reglasTitulo" data-i18n="rules_title">Reglas de la casa</h3>
+          <button
+            type="button"
+            class="modal-cerrar"
+            data-reglas-cerrar
+            data-i18n-aria-label="rules_close"
+            aria-label="Cerrar"
+          >
+            ×
+          </button>
+        </div>
+
+        <div class="modal-cuerpo">
+          <p class="reglas-intro" data-i18n="rules_intro">
+            Para que todos disfruten de la villa y de la naturaleza que la rodea, te pedimos tener en cuenta lo siguiente:
+          </p>
+
+          <div class="regla-item">
+            <h4 data-i18n="rules_capacity_title">Capacidad</h4>
+            <p data-i18n="rules_capacity_text">Máximo 8 personas. Si esperas visitas, avísanos antes.</p>
+          </div>
+          <div class="regla-item">
+            <h4 data-i18n="rules_quiet_title">Silencio</h4>
+            <p data-i18n="rules_quiet_text">De 10:00 p. m. a 7:00 a. m., te pedimos evitar música alta y ruidos fuertes.</p>
+          </div>
+          <div class="regla-item">
+            <h4 data-i18n="rules_events_title">Fiestas y eventos</h4>
+            <p data-i18n="rules_events_text">No se permiten, salvo autorización previa.</p>
+          </div>
+          <div class="regla-item">
+            <h4 data-i18n="rules_smoking_title">Fumado</h4>
+            <p data-i18n="rules_smoking_text">Solo en áreas exteriores. Por favor no dejes colillas.</p>
+          </div>
+          <div class="regla-item">
+            <h4 data-i18n="rules_pets_title">Mascotas</h4>
+            <p data-i18n="rules_pets_text">Avísanos cuántas y de qué tamaño, mantenlas supervisadas y recoge sus desechos.</p>
+          </div>
+          <div class="regla-item">
+            <h4 data-i18n="rules_pool_title">Piscina</h4>
+            <p data-i18n="rules_pool_text">Úsala bajo tu responsabilidad, supervisa siempre a los menores y evita el vidrio en el área.</p>
+          </div>
+          <div class="regla-item">
+            <h4 data-i18n="rules_bbq_title">Rancho de parrillada</h4>
+            <p data-i18n="rules_bbq_text">Apaga bien el fuego y deja la parrilla limpia al terminar.</p>
+          </div>
+          <div class="regla-item">
+            <h4 data-i18n="rules_nature_title">Naturaleza y propiedad</h4>
+            <p data-i18n="rules_nature_text">Respeta la fauna y los senderos, y avísanos de cualquier daño o pérdida.</p>
+          </div>
+
+          <p class="nota reglas-nota" data-i18n-html="rules_note" data-prefix='<i class="bi bi-lightbulb-fill" style="color: #eab308; margin-right: 6px"></i>'>
+            <i class="bi bi-lightbulb-fill" style="color: #eab308; margin-right: 6px"></i>Check-in a partir de las 3:00 p. m. y check-out hasta las 11:00 a. m. Si tienes dudas, escríbenos y con gusto te ayudamos.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <div class="container" style="text-align: center; padding: 2rem 0">
+        <p data-i18n="footer_rights">
+          © 2026 Villa Aliris Liberia, Guanacaste — Todos los derechos
+          reservados.
+        </p>
+        <p style="font-size: 0.8rem; margin-top: 0.5rem" data-i18n="footer_loc">
+          Guanacaste, Costa Rica
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      let traducciones = {};
+      let aventurasData = [];
+      let currentLang = localStorage.getItem("idioma_villa") || "es";
+
+      const ICON_CONFIG = {
+        flame: { class: "bi-fire", color: "#ea580c" },
+        water: { class: "bi-water", color: "#0ea5e9" },
+        safari: { class: "bi-shield-fill-check", color: "#10b981" },
+        city: { class: "bi-buildings-fill", color: "#6366f1" },
+      };
+
+      // ---------- BLOQUEO DE SCROLL DEL FONDO (modales) ----------
+      // overflow:hidden en body no basta en iOS/Android/tablets; se fija el body
+      // y se restaura la posición exacta al cerrar. Idempotente por modal.
+      const _bloqueos = new Set();
+      let _scrollGuardado = 0;
+
+      function bloquearScroll(clave) {
+        if (_bloqueos.has(clave)) return;
+        if (_bloqueos.size === 0) {
+          const root = document.documentElement;
+          _scrollGuardado = window.pageYOffset || root.scrollTop || 0;
+          const anchoBarra = window.innerWidth - root.clientWidth;
+          document.body.style.top = -_scrollGuardado + "px";
+          if (anchoBarra > 0) document.body.style.paddingRight = anchoBarra + "px";
+          root.classList.add("scroll-bloqueado");
+        }
+        _bloqueos.add(clave);
+      }
+
+      function desbloquearScroll(clave) {
+        if (!_bloqueos.delete(clave) || _bloqueos.size > 0) return;
+        const root = document.documentElement;
+        root.classList.remove("scroll-bloqueado");
+        document.body.style.top = "";
+        document.body.style.paddingRight = "";
+        window.scrollTo(0, _scrollGuardado);
+      }
+
+      // ---------- ENLACES INTERNOS: SCROLL EXACTO ----------
+      // Recalcula el destino en cada fotograma, así los cambios de diseño
+      // (imágenes lazy, tarjetas de actividades, menú móvil que se pliega,
+      // modal que libera el scroll) no desvían el aterrizaje.
+      let _animScroll = null;
+
+      function irAAncla(hash) {
+        const destino = hash && hash !== "#" ? document.querySelector(hash) : null;
+        if (hash !== "#" && !destino) return false;
+
+        const header = document.querySelector("header");
+        const posicionDestino = () => {
+          if (!destino) return 0;
+          const alto = header ? header.getBoundingClientRect().height : 0;
+          const y = destino.getBoundingClientRect().top + window.pageYOffset - alto;
+          return Math.max(0, Math.min(y, document.documentElement.scrollHeight - window.innerHeight));
+        };
+
+        if (_animScroll) _animScroll.cancelar();
+        const reducido = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        const inicio = window.pageYOffset;
+        const t0 = performance.now();
+        const DURACION = reducido ? 0 : 600;
+        const VERIFICAR_HASTA = 900; // ms extra para corregir cambios tardíos
+        let activo = true;
+        const ease = (t) => 1 - Math.pow(1 - t, 3);
+
+        const cancelar = () => {
+          activo = false;
+          ["wheel", "touchstart", "keydown", "mousedown"].forEach((ev) =>
+            window.removeEventListener(ev, cancelar),
+          );
+          _animScroll = null;
+        };
+        ["wheel", "touchstart", "keydown", "mousedown"].forEach((ev) =>
+          window.addEventListener(ev, cancelar, { passive: true }),
+        );
+        _animScroll = { cancelar };
+
+        const paso = (ahora) => {
+          if (!activo) return;
+          const t = DURACION ? Math.min(1, (ahora - t0) / DURACION) : 1;
+          const objetivo = posicionDestino();
+          const y = t < 1 ? inicio + (objetivo - inicio) * ease(t) : objetivo;
+          if (Math.abs(window.pageYOffset - y) > 0.5) window.scrollTo(0, y);
+          if (ahora - t0 < DURACION + VERIFICAR_HASTA) requestAnimationFrame(paso);
+          else cancelar();
+        };
+        requestAnimationFrame(paso);
+
+        if (history.pushState && location.hash !== hash) {
+          history.pushState(null, "", hash === "#" ? location.pathname + location.search : hash);
+        }
+        return true;
+      }
+
+      document.addEventListener("click", (e) => {
+        if (e.defaultPrevented || e.button !== 0) return;
+        if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+        const a = e.target.closest && e.target.closest('a[href^="#"]');
+        if (!a || a.hasAttribute("data-faq-abrir") || a.hasAttribute("data-reglas-abrir")) return;
+        if (irAAncla(a.getAttribute("href"))) e.preventDefault();
+      });
+
+      document.addEventListener("DOMContentLoaded", () => {
+        // Menú hamburguesa (móviles)
+        const menuToggle = document.getElementById("menuToggle");
+        const navCollapse = document.getElementById("navCollapse");
+
+        if (menuToggle && navCollapse) {
+          const cerrarMenu = () => {
+            menuToggle.classList.remove("active");
+            navCollapse.classList.remove("active");
+            menuToggle.setAttribute("aria-expanded", "false");
+          };
+
+          menuToggle.addEventListener("click", () => {
+            const abierto = navCollapse.classList.toggle("active");
+            menuToggle.classList.toggle("active", abierto);
+            menuToggle.setAttribute("aria-expanded", String(abierto));
+          });
+
+          // Cerrar el menú al hacer clic en un enlace de navegación
+          navCollapse.querySelectorAll(".nav-menu a").forEach((enlace) => {
+            enlace.addEventListener("click", cerrarMenu);
+          });
+
+          // Cerrar el menú si la ventana vuelve a tamaño de escritorio
+          window.addEventListener("resize", () => {
+            if (window.innerWidth > 1100) cerrarMenu();
+          });
+        }
+
+        const selectLang = document.getElementById("langSelect");
+        if (selectLang) {
+          selectLang.value = currentLang;
+          selectLang.addEventListener("change", (e) => {
+            cambiarIdioma(e.target.value);
+          });
+        }
+
+        cargarTraducciones();
+        cargarAventuras();
+        iniciarFaq();
+        iniciarReglas();
+
+        // Lightbox de imágenes
+        const modal = document.getElementById("lightboxModal");
+        const modalImg = document.getElementById("lightboxImg");
+        const cerrarBtn = document.getElementById("lightboxCerrar");
+
+        const imagenes = document.querySelectorAll(
+          ".grid-galeria img, .ave-card img, .anfitriones-img",
+        );
+
+        imagenes.forEach((img) => {
+          img.addEventListener("click", () => {
+            modal.classList.add("activo");
+            bloquearScroll("lightbox");
+            modalImg.src = img.currentSrc || img.src;
+            modalImg.alt = img.alt;
+          });
+        });
+
+        const cerrarModal = () => {
+          modal.classList.remove("activo");
+          desbloquearScroll("lightbox");
+          modalImg.src = "";
+        };
+
+        if (cerrarBtn) cerrarBtn.addEventListener("click", cerrarModal);
+
+        if (modal) {
+          modal.addEventListener("click", (e) => {
+            if (e.target === modal) cerrarModal();
+          });
+        }
+
+        document.addEventListener("keydown", (e) => {
+          if (e.key === "Escape") {
+            if (modal && modal.classList.contains("activo")) cerrarModal();
+            const contactoM = document.getElementById("contactoModal");
+            if (contactoM && contactoM.classList.contains("activo")) {
+              cerrarModalFormulario();
+            }
+            const airbnbM = document.getElementById("airbnbModal");
+            if (airbnbM && airbnbM.classList.contains("activo")) {
+              cerrarModalAirbnb();
+            }
+            const faqM = document.getElementById("faqModal");
+            if (faqM && faqM.classList.contains("activo")) {
+              cerrarModalFaq();
+            }
+            const reglasM = document.getElementById("reglasModal");
+            if (reglasM && reglasM.classList.contains("activo")) {
+              cerrarModalReglas();
+            }
+          }
+        });
+      });
+
+      async function cargarTraducciones() {
+        try {
+          const response = await fetch(
+            "lang/translations.json?v=" + Date.now(),
+          );
+          traducciones = await response.json();
+          cambiarIdioma(currentLang);
+        } catch (error) {
+          console.error("Error al cargar las traducciones:", error);
+        }
+      }
+
+      function cargarAventuras() {
+        fetch("Data/adventures.json?v=" + Date.now())
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error(`Error HTTP: ${response.status}`);
+            }
+            return response.json();
+          })
+          .then((data) => {
+            aventurasData = data;
+            renderizarTarjetas(currentLang);
+          })
+          .catch((error) =>
+            console.error("Error al cargar aventuras.json:", error),
+          );
+      }
+
+      function cambiarIdioma(lang) {
+        currentLang = lang;
+        localStorage.setItem("idioma_villa", lang);
+
+        if (traducciones[lang]) {
+          const elementos = document.querySelectorAll("[data-i18n]");
+          elementos.forEach((el) => {
+            const clave = el.getAttribute("data-i18n");
+            if (traducciones[lang][clave]) {
+              el.textContent = traducciones[lang][clave];
+            }
+          });
+
+          document.querySelectorAll("[data-i18n-html]").forEach((el) => {
+            const clave = el.getAttribute("data-i18n-html");
+            if (traducciones[lang][clave]) {
+              el.innerHTML = (el.dataset.prefix || "") + traducciones[lang][clave];
+            }
+          });
+
+          const elementosAlt = document.querySelectorAll("[data-i18n-alt]");
+          elementosAlt.forEach((el) => {
+            const clave = el.getAttribute("data-i18n-alt");
+            if (traducciones[lang][clave]) {
+              el.alt = traducciones[lang][clave];
+            }
+          });
+
+          document.querySelectorAll("[data-i18n-aria-label]").forEach((el) => {
+            const clave = el.getAttribute("data-i18n-aria-label");
+            if (traducciones[lang][clave]) {
+              el.setAttribute("aria-label", traducciones[lang][clave]);
+            }
+          });
+
+          if (traducciones[lang]["title"]) {
+            document.title = traducciones[lang]["title"];
+          }
+        }
+
+        renderizarTarjetas(lang);
+
+        // Igualamos el ancho de los botones de contacto al del texto más largo,
+        // una vez que el nuevo idioma ya se pintó en el DOM.
+        requestAnimationFrame(igualarAnchoBotonesContacto);
+      }
+
+      function igualarAnchoBotonesContacto() {
+        const botones = document.querySelectorAll(
+          ".contacto-botones .btn-contacto",
+        );
+        if (!botones.length) return;
+
+        // Reseteamos a su ancho natural antes de medir.
+        botones.forEach((btn) => {
+          btn.style.width = "auto";
+        });
+
+        let anchoMaximo = 0;
+        botones.forEach((btn) => {
+          anchoMaximo = Math.max(anchoMaximo, btn.getBoundingClientRect().width);
+        });
+
+        // No dejamos que el botón más ancho fuerce overflow en pantallas pequeñas.
+        const contenedor = document.querySelector(".contacto-botones");
+        const anchoDisponible = contenedor
+          ? contenedor.getBoundingClientRect().width
+          : anchoMaximo;
+        anchoMaximo = Math.min(anchoMaximo, anchoDisponible);
+
+        botones.forEach((btn) => {
+          btn.style.width = anchoMaximo + "px";
+        });
+      }
+
+      window.addEventListener("resize", () => {
+        clearTimeout(window._resizeBotonesTimeout);
+        window._resizeBotonesTimeout = setTimeout(
+          igualarAnchoBotonesContacto,
+          150,
+        );
+      });
+
+      function renderizarTarjetas(lang) {
+        const container = document.getElementById("actividades-container");
+        if (!container || aventurasData.length === 0) return;
+
+        container.innerHTML = aventurasData
+          .map((item) => {
+            const nombre = item.nombre[lang] || item.nombre["es"];
+            const descripcion =
+              item.descripcion[lang] || item.descripcion["es"];
+            const horario = item.horario[lang] || item.horario["es"];
+            const botonTexto = item.botonWeb
+              ? item.botonWeb[lang] || item.botonWeb["es"]
+              : "Sitio Web";
+
+            const costoNac =
+              item.costo?.nacionales?.[lang] || item.costo?.nacionales?.["es"];
+            const costoExt =
+              item.costo?.extranjeros?.[lang] ||
+              item.costo?.extranjeros?.["es"];
+
+            const labels = {
+              es: {
+                horario: "Horario: ",
+                costo: "Costo: ",
+                nac: "Nacionales",
+                ext: "Extranjeros",
+              },
+              en: {
+                horario: "Hours: ",
+                costo: "Cost: ",
+                nac: "Locals",
+                ext: "Tourists",
+              },
+              pt: {
+                horario: "Horário: ",
+                costo: "Custo: ",
+                nac: "Nacionais",
+                ext: "Estrangeiros",
+              },
+            }[lang] || {
+              horario: "Horario: ",
+              costo: "Costo: ",
+              nac: "Nacionales",
+              ext: "Extranjeros",
+            };
+
+            const iconData = ICON_CONFIG[item.icono] || {
+              class: "bi-geo-alt-fill",
+              color: "#6366f1",
+            };
+
+            let costoTexto = "";
+            if (costoNac && costoExt) {
+              costoTexto = `${labels.nac} ${costoNac} / ${labels.ext} ${costoExt}`;
+            } else if (costoExt) {
+              costoTexto = costoExt;
+            }
+
+            const linkHTML = item.sitioWeb
+              ? `
+      <a href="${item.sitioWeb}" target="_blank" rel="noopener noreferrer" class="btn-link">
+        <i class="bi bi-globe" style="margin-right: 5px"></i> ${botonTexto}
+      </a>
+    `
+              : "";
+
+            return `
+      <div class="actividad-card" id="${item.id}">
+        <div class="actividad-icon">
+          <i class="bi ${iconData.class}" style="color: ${iconData.color}"></i>
+        </div>
+        <h3>${nombre}</h3>
+        <p>${descripcion}</p>
+        <ul class="actividad-detalles">
+          <li>
+            <i class="bi bi-clock" style="margin-right: 6px"></i>
+            <span><strong>${labels.horario}</strong> ${horario}</span>
+          </li>
+          ${
+            costoTexto
+              ? `
+          <li>
+            <i class="bi bi-ticket-perforated" style="margin-right: 6px"></i>
+            <span><strong>${labels.costo}</strong> ${costoTexto}</span>
+          </li>`
+              : ""
+          }
+        </ul>
+        ${linkHTML}
+      </div>
+    `;
+          })
+          .join("");
+      }
+
+      // ---------- PREGUNTAS FRECUENTES ----------
+      let faqUltimoFoco = null;
+
+      function abrirModalFaq(e) {
+        if (e) e.preventDefault();
+        const modal = document.getElementById("faqModal");
+        if (!modal) return;
+        faqUltimoFoco = document.activeElement;
+        modal.classList.add("activo");
+        document.body.classList.add("faq-abierto");
+        bloquearScroll("faq");
+        modal.querySelector(".faq-lista").scrollTop = 0;
+        modal.querySelector(".modal-cerrar").focus({ preventScroll: true });
+      }
+
+      function cerrarModalFaq() {
+        const modal = document.getElementById("faqModal");
+        if (!modal) return;
+        modal.classList.remove("activo");
+        document.body.classList.remove("faq-abierto");
+        desbloquearScroll("faq");
+        modal
+          .querySelectorAll("details[open]")
+          .forEach((d) => d.removeAttribute("open"));
+        if (faqUltimoFoco && faqUltimoFoco.focus) {
+          faqUltimoFoco.focus({ preventScroll: true });
+        }
+      }
+
+      function iniciarFaq() {
+        const modal = document.getElementById("faqModal");
+        if (!modal) return;
+
+        document
+          .querySelectorAll("[data-faq-abrir]")
+          .forEach((el) => el.addEventListener("click", abrirModalFaq));
+
+        // Cierra con el fondo, con la X o con los enlaces internos (data-faq-cerrar)
+        modal.addEventListener("click", (e) => {
+          if (e.target === modal || e.target.closest("[data-faq-cerrar]")) {
+            cerrarModalFaq();
+          }
+        });
+
+        // Acordeón: solo una respuesta abierta a la vez
+        const items = modal.querySelectorAll("details");
+        items.forEach((d) => {
+          d.addEventListener("toggle", () => {
+            if (!d.open) return;
+            items.forEach((otro) => {
+              if (otro !== d) otro.open = false;
+            });
+          });
+        });
+      }
+
+      // ---------- REGLAS DE LA CASA ----------
+      let reglasUltimoFoco = null;
+
+      function abrirModalReglas(e) {
+        if (e) e.preventDefault();
+        const modal = document.getElementById("reglasModal");
+        if (!modal) return;
+        reglasUltimoFoco = document.activeElement;
+        modal.classList.add("activo");
+        document.body.classList.add("reglas-abierto");
+        bloquearScroll("reglas");
+        modal.querySelector(".modal-cuerpo").scrollTop = 0;
+        modal.querySelector(".modal-cerrar").focus({ preventScroll: true });
+      }
+
+      function cerrarModalReglas() {
+        const modal = document.getElementById("reglasModal");
+        if (!modal) return;
+        modal.classList.remove("activo");
+        document.body.classList.remove("reglas-abierto");
+        desbloquearScroll("reglas");
+        if (reglasUltimoFoco && reglasUltimoFoco.focus) {
+          reglasUltimoFoco.focus({ preventScroll: true });
+        }
+      }
+
+      function iniciarReglas() {
+        const modal = document.getElementById("reglasModal");
+        if (!modal) return;
+
+        document
+          .querySelectorAll("[data-reglas-abrir]")
+          .forEach((el) => el.addEventListener("click", abrirModalReglas));
+
+        // Cierra con el fondo o con la X
+        modal.addEventListener("click", (e) => {
+          if (e.target === modal || e.target.closest("[data-reglas-cerrar]")) {
+            cerrarModalReglas();
+          }
+        });
+      }
+
+      // ---------- AVISO "MUY PRONTO EN AIRBNB" ----------
+      // Reutiliza el modal de formulario existente (#contactoModal): solo cambia
+      // el título, el texto del botón, el mensaje sugerido y añade campos ocultos
+      // para identificar el origen en el correo que llega por Formspree.
+      let modoAirbnb = false;
+      let mensajeAirbnbSugerido = "";
+      let airbnbUltimoFoco = null;
+
+      function tr(clave, respaldo) {
+        return (traducciones[currentLang] || {})[clave] || respaldo;
+      }
+
+      function abrirModalAirbnb() {
+        const modal = document.getElementById("airbnbModal");
+        if (!modal) return;
+        airbnbUltimoFoco = document.activeElement;
+        modal.classList.add("activo");
+        bloquearScroll("airbnb");
+        const aviso = document.getElementById("airbnbAvisar");
+        if (aviso) aviso.focus({ preventScroll: true });
+      }
+
+      function cerrarModalAirbnb() {
+        const modal = document.getElementById("airbnbModal");
+        if (!modal) return;
+        modal.classList.remove("activo");
+        desbloquearScroll("airbnb");
+        if (airbnbUltimoFoco && airbnbUltimoFoco.focus) {
+          airbnbUltimoFoco.focus({ preventScroll: true });
+        }
+      }
+
+      function aplicarModoFormulario(activo) {
+        const modal = document.getElementById("contactoModal");
+        const form = document.getElementById("formContacto");
+        if (!modal || !form) return;
+        const titulo = modal.querySelector("h3");
+        const enviar = form.querySelector('button[type="submit"]');
+        const mensaje = document.getElementById("mensaje");
+
+        form
+          .querySelectorAll("input[data-origen-airbnb]")
+          .forEach((el) => el.remove());
+
+        const claveTitulo = activo ? "airbnb_form_title" : "form_title";
+        const claveEnviar = activo ? "airbnb_form_send" : "form_send";
+        const textoTitulo = activo
+          ? "Te avisamos cuando estemos en Airbnb"
+          : "Escríbenos un mensaje";
+        const textoEnviar = activo ? "Avísame" : "Enviar Mensaje";
+
+        titulo.setAttribute("data-i18n", claveTitulo);
+        titulo.textContent = tr(claveTitulo, textoTitulo);
+        enviar.setAttribute("data-i18n", claveEnviar);
+        enviar.textContent = tr(claveEnviar, textoEnviar);
+
+        if (activo) {
+          mensajeAirbnbSugerido = tr(
+            "airbnb_prefill",
+            "Quiero que me contacten cuando Villa Aliris esté disponible en Airbnb.",
+          );
+          mensaje.value = mensajeAirbnbSugerido;
+          const ocultos = {
+            _subject: "Aviso de disponibilidad en Airbnb - Villa Aliris",
+            origen: "Aviso de disponibilidad en Airbnb",
+            idioma: currentLang,
+          };
+          Object.keys(ocultos).forEach((nombre) => {
+            const input = document.createElement("input");
+            input.type = "hidden";
+            input.name = nombre;
+            input.value = ocultos[nombre];
+            input.setAttribute("data-origen-airbnb", "");
+            form.appendChild(input);
+          });
+        } else if (mensajeAirbnbSugerido && mensaje.value === mensajeAirbnbSugerido) {
+          mensaje.value = "";
+          mensajeAirbnbSugerido = "";
+        }
+        modoAirbnb = activo;
+      }
+
+      function abrirFormularioAirbnb() {
+        aplicarModoFormulario(true);
+        // Se abre primero el formulario y luego se cierra el aviso para no
+        // liberar el bloqueo de scroll entre ambos.
+        abrirModalFormulario(true);
+        cerrarModalAirbnb();
+        airbnbUltimoFoco = null;
+      }
+
+      function abrirModalFormulario(desdeAirbnb) {
+        if (modoAirbnb && desdeAirbnb !== true) aplicarModoFormulario(false);
+        document.getElementById("contactoModal").classList.add("activo");
+        document.body.classList.add("contacto-abierto");
+        bloquearScroll("contacto");
+        const cuerpo = document.querySelector("#contactoModal .modal-cuerpo");
+        if (cuerpo) cuerpo.scrollTop = 0;
+      }
+
+      function cerrarModalFormulario() {
+        const modal = document.getElementById("contactoModal");
+        modal.classList.remove("activo");
+        document.body.classList.remove("contacto-abierto");
+        desbloquearScroll("contacto");
+        if (modoAirbnb) {
+          // Se restaura el formulario normal cuando termina el fundido de salida.
+          setTimeout(() => {
+            if (!modal.classList.contains("activo")) aplicarModoFormulario(false);
+          }, 350);
+        }
+      }
+
+      async function enviarFormulario(event) {
+        event.preventDefault();
+        const form = event.target;
+        const eraAirbnb = modoAirbnb;
+        const data = new FormData(form);
+
+        try {
+          const response = await fetch(form.action, {
+            method: form.method,
+            body: data,
+            headers: { Accept: "application/json" },
+          });
+
+          if (response.ok) {
+            alert(
+              eraAirbnb
+                ? tr(
+                    "airbnb_ok",
+                    "¡Listo! Te contactaremos apenas Villa Aliris esté disponible en Airbnb.",
+                  )
+                : tr(
+                    "form_ok",
+                    "¡Mensaje enviado con éxito! Nos pondremos en contacto pronto.",
+                  ),
+            );
+            form.reset();
+            cerrarModalFormulario();
+          } else {
+            alert(
+              tr(
+                "form_fail",
+                "Hubo un problema al enviar el mensaje. Inténtalo de nuevo.",
+              ),
+            );
+          }
+        } catch (error) {
+          alert(
+            tr(
+              "form_conn_error",
+              "Error de conexión. Revisa tu internet e inténtalo de nuevo.",
+            ),
+          );
+        }
+      }
+    </script>
+  </body>
+</html>

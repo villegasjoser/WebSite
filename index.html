@@ -57,7 +57,7 @@
     <link
       rel="preload"
       as="style"
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Dancing+Script:wght@600;700&family=Cinzel:wght@500;600&display=swap"
       onload="
         this.onload = null;
         this.rel = 'stylesheet';
@@ -66,7 +66,7 @@
     <noscript>
       <link
         rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Dancing+Script:wght@600;700&family=Cinzel:wght@500;600&display=swap"
       />
     </noscript>
 
@@ -189,14 +189,50 @@
       .brand:hover .logo-img {
         transform: scale(1.08);
       }
-      header h2 {
-        font-size: 1.1rem;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
+      /* NOMBRE DE MARCA: caligrafía + serif espaciada (estilo del rótulo) */
+      header h2.brand-name {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         margin: 0;
-        line-height: 1.2;
-        color: #0f172a;
+        line-height: 1;
+        text-transform: none;
         white-space: nowrap;
+        font-weight: 400;
+        letter-spacing: normal;
+        color: #8a6a4d;
+      }
+      .brand-name .brand-script {
+        font-family: "Dancing Script", "Segoe Script", cursive;
+        font-weight: 700;
+        font-size: 2.1rem;
+        line-height: 1;
+        color: #8a6a4d;
+      }
+      .brand-name .brand-sub {
+        font-family: "Cinzel", Georgia, "Times New Roman", serif;
+        font-weight: 600;
+        font-size: 0.62rem;
+        letter-spacing: 0.55em;
+        padding-left: 0.55em; /* compensa el espacio final del letter-spacing para centrar */
+        color: #4a3a2c;
+        margin-top: 0.15rem;
+      }
+      @media (max-width: 480px) {
+        .brand {
+          gap: 0.5rem;
+        }
+        .logo-img {
+          height: 40px;
+        }
+        .brand-name .brand-script {
+          font-size: 1.7rem;
+        }
+        .brand-name .brand-sub {
+          font-size: 0.52rem;
+          letter-spacing: 0.5em;
+          padding-left: 0.5em;
+        }
       }
 
       /* MENÚ DE NAVEGACIÓN */
@@ -1503,7 +1539,10 @@
               height="1024"
             />
           </picture>
-          <h2 data-i18n="nav_brand">Villa Aliris Liberia</h2>
+          <h2 class="brand-name" aria-label="Villa Aliris Liberia">
+            <span class="brand-script" aria-hidden="true">Villa Aliris</span>
+            <span class="brand-sub" aria-hidden="true">LIBERIA</span>
+          </h2>
         </a>
 
         <button
