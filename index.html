@@ -422,8 +422,11 @@
       }
       section h2 {
         text-align: center;
-        font-size: 2.2rem;
-        line-height: 1.25;
+        font-family: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+        font-weight: 600;
+        letter-spacing: 0;
+        font-size: clamp(2rem, 5vw, 2.5rem);
+        line-height: 1.2;
         margin-bottom: 2.5rem;
         position: relative;
         padding-bottom: 0.5rem;
@@ -450,26 +453,41 @@
         font-size: 1.1rem;
       }
 
-      /* GALERÍA MODERNA - HERO GRID IMPLEMENTADO */
+      /* GALERÍA POR ÁREAS: un grupo por área, con título serif centrado */
+      .galeria-grupo {
+        margin-top: 3rem;
+      }
+      .galeria-grupo:first-child {
+        margin-top: 0;
+      }
+      .galeria-grupo-titulo {
+        font-family: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+        font-weight: 600;
+        letter-spacing: 0;
+        font-size: clamp(1.5rem, 4vw, 1.9rem);
+        line-height: 1.2;
+        text-align: center;
+        margin-bottom: 1.25rem;
+      }
       .grid-galeria {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-        grid-auto-flow: dense;
-        gap: 1.5rem;
+        grid-template-columns: minmax(0, 1fr); /* celular: 1 columna */
+        gap: 1.25rem;
       }
-      .grid-galeria picture,
       .ave-card img,
       .anfitriones-img {
         cursor: pointer;
       }
       .grid-galeria picture {
+        position: relative;
         display: block;
-        width: 100%;
-        height: 100%;
-        min-height: 250px;
-        border-radius: 16px;
+        aspect-ratio: 4 / 3; /* misma proporción para todas las fotos */
+        border-radius: 12px;
         overflow: hidden;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        isolation: isolate; /* el zoom no se sale del redondeo (Safari) */
+        background: #e2e8f0;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        cursor: pointer;
       }
       .grid-galeria picture img {
         width: 100%;
@@ -477,19 +495,38 @@
         object-fit: cover;
         display: block;
       }
-      .grid-galeria picture:hover img {
-        transform: scale(1.06);
-      }
-      .grid-galeria picture:hover {
-        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.18);
-      }
-
       @media (min-width: 768px) {
-        .grid-galeria picture.hero-img {
-          grid-column: span 2;
-          grid-row: span 2;
-          min-height: 520px;
+        .grid-galeria {
+          grid-template-columns: repeat(2, minmax(0, 1fr)); /* tablet y PC: 2 columnas */
         }
+        .grid-galeria picture.ancho-completo {
+          grid-column: 1 / -1;
+          aspect-ratio: 16 / 9;
+        }
+      }
+      @media (prefers-reduced-motion: no-preference) {
+        .grid-galeria picture:hover img {
+          transform: scale(1.02);
+        }
+      }
+      .foto-etiqueta {
+        position: absolute;
+        left: 0.75rem;
+        bottom: 0.75rem;
+        z-index: 1;
+        max-width: calc(100% - 1.5rem);
+        padding: 0.35rem 0.7rem;
+        border-radius: 4px;
+        background: rgba(255, 255, 255, 0.88);
+        -webkit-backdrop-filter: blur(4px);
+        backdrop-filter: blur(4px);
+        color: #2c3e35;
+        font-size: 0.7rem;
+        font-weight: 600;
+        line-height: 1.3;
+        text-transform: uppercase;
+        letter-spacing: 0.14em;
+        pointer-events: none;
       }
 
       /* AMENIDADES */
@@ -1030,6 +1067,44 @@
         transform: scale(1.1);
       }
 
+      /* Navegación del visor de la galería (Anterior / Siguiente) */
+      .lightbox-nav {
+        display: none;
+        justify-content: space-between;
+        gap: 1rem;
+        min-width: min(20rem, 85vw);
+        margin-top: 0.9rem;
+      }
+      .modal-lightbox.lightbox-galeria .lightbox-nav {
+        display: flex;
+      }
+      .modal-lightbox.lightbox-galeria .modal-contenido img {
+        max-height: calc(100vh - 11rem);
+        max-height: calc(100dvh - 11rem);
+        margin-inline: auto;
+      }
+      .lightbox-nav button {
+        flex: 1;
+        max-width: 11rem;
+        padding: 0.7rem 1rem;
+        border-radius: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.35);
+        background: rgba(255, 255, 255, 0.08);
+        color: #fff;
+        font-family: "Montserrat", sans-serif;
+        font-weight: 600;
+        font-size: 0.95rem;
+        cursor: pointer;
+        transition: background-color 0.2s ease;
+      }
+      .lightbox-nav button:hover {
+        background: rgba(255, 255, 255, 0.2);
+      }
+      .lightbox-nav button:focus-visible {
+        outline: 2px solid #10b981;
+        outline-offset: 2px;
+      }
+
       /* TARJETA COMÚN DE MODALES (preguntas, reglas y mensaje directo) */
       .modal-tarjeta {
         display: flex;
@@ -1343,7 +1418,6 @@
 
       .actividades-section h2 {
         text-align: center;
-        font-weight: 700;
         margin-bottom: 10px;
       }
 
@@ -1404,6 +1478,12 @@
         margin: 0 0 16px 0;
         font-size: 0.9rem;
         color: #374151;
+      }
+
+      .actividad-detalles strong {
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.14em;
       }
 
       .actividad-detalles li {
@@ -1625,223 +1705,7 @@
     <main class="container">
       <section id="galeria">
         <h2 data-i18n="gallery_title">Explora la Propiedad</h2>
-        <div class="grid-galeria">
-          <picture class="hero-img">
-            <source
-              srcset="Images/MainPage/Property/herogrid.webp"
-              type="image/webp"
-            />
-            <img
-              src="Images/MainPage/Property/herogrid.jpeg"
-              alt="Piscina"
-              data-i18n-alt="gallery_piscina"
-            />
-          </picture>
-          <picture>
-            <source
-              srcset="Images/MainPage/Property/piscina.webp"
-              type="image/webp"
-            />
-            <img
-              src="Images/MainPage/Property/piscina.jpeg"
-              alt="Terraza"
-              data-i18n-alt="gallery_terrace"
-              loading="lazy"
-            />
-          </picture>
-          <picture>
-            <source
-              srcset="Images/MainPage/Property/piscina-casa.webp"
-              type="image/webp"
-            />
-            <img
-              src="Images/MainPage/Property/piscina-casa.jpeg"
-              alt="Camastro"
-              data-i18n-alt="gallery_sunchairs"
-              loading="lazy"
-            />
-          </picture>
-          <picture>
-            <source
-              srcset="Images/MainPage/Property/dining.webp"
-              type="image/webp"
-            />
-            <img
-              src="Images/MainPage/Property/dining.jpeg"
-              alt="Comedor Terraza"
-              data-i18n-alt="gallery_dining"
-              loading="lazy"
-            />
-          </picture>
-          <picture>
-            <source
-              srcset="Images/MainPage/Property/terrace.webp"
-              type="image/webp"
-            />
-            <img
-              src="Images/MainPage/Property/terrace.jpeg"
-              alt="Sala Terraza"
-              data-i18n-alt="gallery_terraza"
-              loading="lazy"
-            />
-          </picture>
-          <picture>
-            <source
-              srcset="Images/MainPage/Property/sala.webp"
-              type="image/webp"
-            />
-            <img
-              src="Images/MainPage/Property/sala.jpeg"
-              alt="Sala de estar"
-              data-i18n-alt="gallery_sala"
-              loading="lazy"
-            />
-          </picture>
-          <picture>
-            <source
-              srcset="Images/MainPage/Property/cocina.webp"
-              type="image/webp"
-            />
-            <img
-              src="Images/MainPage/Property/cocina.jpeg"
-              alt="Área de cocina"
-              data-i18n-alt="gallery_cocina"
-              loading="lazy"
-            />
-          </picture>
-          <picture>
-            <source
-              srcset="Images/MainPage/Property/principal.webp"
-              type="image/webp"
-            />
-            <img
-              src="Images/MainPage/Property/principal.jpeg"
-              alt="Habitación Principal"
-              data-i18n-alt="gallery_principal"
-              loading="lazy"
-            />
-          </picture>
-          <picture>
-            <source
-              srcset="Images/MainPage/Property/bath.webp"
-              type="image/webp"
-            />
-            <img
-              src="Images/MainPage/Property/bath.jpeg"
-              alt="Baño Principal"
-              data-i18n-alt="gallery_bath"
-              loading="lazy"
-            />
-          </picture>
-          <picture>
-            <source
-              srcset="Images/MainPage/Property/secundario1.webp"
-              type="image/webp"
-            />
-            <img
-              src="Images/MainPage/Property/secundario1.jpeg"
-              alt="Habitación Secundaria"
-              data-i18n-alt="gallery_habsecundaria1"
-              loading="lazy"
-            />
-          </picture>
-          <picture>
-            <source
-              srcset="Images/MainPage/Property/secundario.webp"
-              type="image/webp"
-            />
-            <img
-              src="Images/MainPage/Property/secundario.jpeg"
-              alt="Habitación Secundaria"
-              data-i18n-alt="gallery_habsecundaria2"
-              loading="lazy"
-            />
-          </picture>
-          <picture>
-            <source
-              srcset="Images/MainPage/Property/bath2.webp"
-              type="image/webp"
-            />
-            <img
-              src="Images/MainPage/Property/bath2.jpeg"
-              alt="Baño Secundario"
-              data-i18n-alt="gallery_bathsecundario"
-              loading="lazy"
-            />
-          </picture>
-          <picture>
-            <source
-              srcset="Images/MainPage/Property/rancho.webp"
-              type="image/webp"
-            />
-            <img
-              src="Images/MainPage/Property/rancho.jpeg"
-              alt="Rancho para parrillada"
-              data-i18n-alt="gallery_rancho"
-              loading="lazy"
-            />
-          </picture>
-          <picture>
-            <source
-              srcset="Images/MainPage/Property/exterior.webp"
-              type="image/webp"
-            />
-            <img
-              src="Images/MainPage/Property/exterior.jpeg"
-              alt="Área Exterior"
-              data-i18n-alt="gallery_exterior"
-              loading="lazy"
-            />
-          </picture>
-          <picture>
-            <source
-              srcset="Images/MainPage/Property/oficina.webp"
-              type="image/webp"
-            />
-            <img
-              src="Images/MainPage/Property/oficina.jpeg"
-              alt="Oficina"
-              data-i18n-alt="gallery_oficina"
-              loading="lazy"
-            />
-          </picture>
-          <picture>
-            <source
-              srcset="Images/MainPage/Property/fachada.webp"
-              type="image/webp"
-            />
-            <img
-              src="Images/MainPage/Property/fachada.jpeg"
-              alt="Fachada de Villa Aliris"
-              data-i18n-alt="gallery_fachada"
-              loading="lazy"
-            />
-          </picture>
-          <picture>
-            <source
-              srcset="Images/MainPage/Property/frente.webp"
-              type="image/webp"
-            />
-            <img
-              src="Images/MainPage/Property/frente.jpeg"
-              alt="Frente de Villa Aliris"
-              data-i18n-alt="gallery_frente"
-              loading="lazy"
-            />
-          </picture>
-          <picture>
-            <source
-              srcset="Images/MainPage/Property/fuente.webp"
-              type="image/webp"
-            />
-            <img
-              src="Images/MainPage/Property/fuente.jpeg"
-              alt="Fuente"
-              data-i18n-alt="gallery_fuente"
-              loading="lazy"
-            />
-          </picture> 
-        </div>
+        <div id="galeriaGrupos"></div>
       </section>
 
       <section id="amenidades">
@@ -2298,8 +2162,12 @@
 
     <div id="lightboxModal" class="modal-lightbox">
       <div class="modal-contenido">
-        <button id="lightboxCerrar" class="modal-cerrar">×</button>
+        <button id="lightboxCerrar" class="modal-cerrar" aria-label="Cerrar">×</button>
         <img id="lightboxImg" src="" alt="Imagen ampliada" />
+        <div class="lightbox-nav" id="lightboxNav">
+          <button type="button" id="lightboxPrev" data-i18n="lightbox_prev">Anterior</button>
+          <button type="button" id="lightboxNext" data-i18n="lightbox_next">Siguiente</button>
+        </div>
       </div>
     </div>
 
@@ -2576,6 +2444,89 @@
         city: { class: "bi-buildings-fill", color: "#6366f1" },
       };
 
+      // ---------- GALERÍA: DATOS ----------
+      // Lista de datos lista para venir de una base de datos. Cada foto:
+      //   area: id del grupo, archivo: nombre sin extensión (.webp / .jpeg),
+      //   alt: texto alternativo (español), claveAlt: clave en translations.json,
+      //   destacada: true => ocupa todo el ancho del grupo.
+      // El orden de GALERIA_AREAS y el de las fotos define lo que se ve.
+      const GALERIA_RUTA = "Images/MainPage/Property/";
+      const GALERIA_AREAS = [
+        { id: "piscina", titulo: "Piscina y jardín", clave: "gallery_area_piscina" },
+        { id: "fachada", titulo: "Fachada y entrada", clave: "gallery_area_fachada" },
+        { id: "terraza", titulo: "Terraza cubierta", clave: "gallery_area_terraza" },
+        { id: "sala", titulo: "Sala y cocina", clave: "gallery_area_sala" },
+        { id: "dormitorios", titulo: "Dormitorios y baños", clave: "gallery_area_dormitorios" },
+        { id: "oficina", titulo: "Oficina", clave: "gallery_area_oficina" },
+        { id: "noche", titulo: "Noche y ambiente", clave: "gallery_area_noche" },
+      ];
+      const GALERIA = [
+        { area: "piscina", archivo: "herogrid", alt: "Piscina", claveAlt: "gallery_piscina", destacada: true },
+        { area: "piscina", archivo: "piscina", alt: "Terraza", claveAlt: "gallery_terrace" },
+        { area: "piscina", archivo: "piscina-casa", alt: "Camastro", claveAlt: "gallery_sunchairs" },
+        { area: "fachada", archivo: "fachada", alt: "Fachada de Villa Aliris", claveAlt: "gallery_fachada" },
+        { area: "fachada", archivo: "frente", alt: "Frente de Villa Aliris", claveAlt: "gallery_frente" },
+        { area: "fachada", archivo: "fuente", alt: "Fuente", claveAlt: "gallery_fuente" },
+        { area: "terraza", archivo: "dining", alt: "Comedor Terraza", claveAlt: "gallery_dining" },
+        { area: "terraza", archivo: "terrace", alt: "Sala Terraza", claveAlt: "gallery_terraza" },
+        { area: "sala", archivo: "sala", alt: "Sala de estar", claveAlt: "gallery_sala" },
+        { area: "sala", archivo: "cocina", alt: "Área de cocina", claveAlt: "gallery_cocina" },
+        { area: "dormitorios", archivo: "principal", alt: "Habitación Principal", claveAlt: "gallery_principal" },
+        { area: "dormitorios", archivo: "bath", alt: "Baño Principal", claveAlt: "gallery_bath" },
+        { area: "dormitorios", archivo: "secundario1", alt: "Habitación Secundaria", claveAlt: "gallery_habsecundaria1" },
+        { area: "dormitorios", archivo: "secundario", alt: "Habitación Secundaria", claveAlt: "gallery_habsecundaria2" },
+        { area: "dormitorios", archivo: "bath2", alt: "Baño Secundario", claveAlt: "gallery_bathsecundario" },
+        { area: "oficina", archivo: "oficina", alt: "Oficina", claveAlt: "gallery_oficina" },
+        { area: "noche", archivo: "rancho", alt: "Rancho para parrillada", claveAlt: "gallery_rancho" },
+        { area: "noche", archivo: "exterior", alt: "Área Exterior", claveAlt: "gallery_exterior" },
+      ];
+
+      function renderizarGaleria() {
+        const cont = document.getElementById("galeriaGrupos");
+        if (!cont) return;
+        let primera = true;
+        GALERIA_AREAS.forEach((area) => {
+          const fotos = GALERIA.filter((f) => f.area === area.id);
+          if (!fotos.length) return;
+
+          // Si, sin contar las destacadas, quedan fotos impares, la última va a todo el ancho
+          const normales = fotos.filter((f) => !f.destacada);
+          const ultimaImpar = normales.length % 2 === 1 ? normales[normales.length - 1] : null;
+
+          const grupo = document.createElement("div");
+          grupo.className = "galeria-grupo";
+          const titulo = document.createElement("h3");
+          titulo.className = "galeria-grupo-titulo";
+          titulo.setAttribute("data-i18n", area.clave);
+          titulo.textContent = area.titulo;
+          const grid = document.createElement("div");
+          grid.className = "grid-galeria";
+
+          fotos.forEach((f) => {
+            const pic = document.createElement("picture");
+            if (f.destacada || f === ultimaImpar) pic.className = "ancho-completo";
+            const src = document.createElement("source");
+            src.srcset = GALERIA_RUTA + f.archivo + ".webp";
+            src.type = "image/webp";
+            const img = document.createElement("img");
+            img.src = GALERIA_RUTA + f.archivo + ".jpeg";
+            img.alt = f.alt;
+            img.setAttribute("data-i18n-alt", f.claveAlt);
+            if (!primera) img.loading = "lazy";
+            const et = document.createElement("span");
+            et.className = "foto-etiqueta";
+            et.setAttribute("data-i18n", f.claveAlt);
+            et.textContent = f.alt;
+            pic.append(src, img, et);
+            grid.appendChild(pic);
+            primera = false;
+          });
+
+          grupo.append(titulo, grid);
+          cont.appendChild(grupo);
+        });
+      }
+
       // ---------- BLOQUEO DE SCROLL DEL FONDO (modales) ----------
       // overflow:hidden en body no basta en iOS/Android/tablets; se fija el body
       // y se restaura la posición exacta al cerrar. Idempotente por modal.
@@ -2705,6 +2656,7 @@
           });
         }
 
+        renderizarGaleria();
         cargarTraducciones();
         cargarAventuras();
         iniciarFaq();
@@ -2719,20 +2671,43 @@
           ".grid-galeria img, .ave-card img, .anfitriones-img",
         );
 
+        // Fotos de la galería: se pueden recorrer con Anterior / Siguiente
+        const fotosGaleria = Array.from(document.querySelectorAll(".grid-galeria img"));
+        let indiceActual = -1;
+
+        const mostrarFoto = (img) => {
+          modalImg.src = img.currentSrc || img.src;
+          modalImg.alt = img.alt;
+        };
+
+        const moverFoto = (paso) => {
+          if (indiceActual < 0 || !fotosGaleria.length) return;
+          indiceActual = (indiceActual + paso + fotosGaleria.length) % fotosGaleria.length;
+          mostrarFoto(fotosGaleria[indiceActual]);
+        };
+
         imagenes.forEach((img) => {
           img.addEventListener("click", () => {
             modal.classList.add("activo");
             bloquearScroll("lightbox");
-            modalImg.src = img.currentSrc || img.src;
-            modalImg.alt = img.alt;
+            indiceActual = fotosGaleria.indexOf(img);
+            modal.classList.toggle("lightbox-galeria", indiceActual >= 0);
+            mostrarFoto(img);
           });
         });
 
         const cerrarModal = () => {
           modal.classList.remove("activo");
+          modal.classList.remove("lightbox-galeria");
+          indiceActual = -1;
           desbloquearScroll("lightbox");
           modalImg.src = "";
         };
+
+        const btnPrev = document.getElementById("lightboxPrev");
+        const btnNext = document.getElementById("lightboxNext");
+        if (btnPrev) btnPrev.addEventListener("click", () => moverFoto(-1));
+        if (btnNext) btnNext.addEventListener("click", () => moverFoto(1));
 
         if (cerrarBtn) cerrarBtn.addEventListener("click", cerrarModal);
 
@@ -2743,6 +2718,10 @@
         }
 
         document.addEventListener("keydown", (e) => {
+          if (modal && modal.classList.contains("activo") && indiceActual >= 0) {
+            if (e.key === "ArrowLeft") moverFoto(-1);
+            if (e.key === "ArrowRight") moverFoto(1);
+          }
           if (e.key === "Escape") {
             if (modal && modal.classList.contains("activo")) cerrarModal();
             const contactoM = document.getElementById("contactoModal");
