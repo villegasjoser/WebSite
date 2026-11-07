@@ -583,11 +583,12 @@
           gap: 0.75rem;
         }
       }
-      /* Tablets (iPad): la foto se ve más pequeña, centrada dentro de la tarjeta, sin recortarse */
+      /* Tablets (iPad): tarjetas angostas (la foto llena la tarjeta), centradas en la pantalla */
       @media (min-width: 601px) and (max-width: 900px) {
-        .ave-card picture {
-          max-width: 230px; /* tamaño de la foto; súbelo o bájalo a gusto */
-          margin-inline: auto;
+        .grid-aves {
+          grid-template-columns: repeat(2, 270px); /* ancho de cada tarjeta = tamaño de la foto; súbelo o bájalo a gusto */
+          justify-content: center;
+          gap: 1.5rem;
         }
       }
       .ave-card {
