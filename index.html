@@ -567,8 +567,20 @@
       }
       .grid-aves {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 2rem;
+        grid-template-columns: repeat(3, minmax(0, 1fr)); /* 3 aves por fila en escritorio */
+        gap: 1.25rem;
+        max-width: 840px;
+        margin-inline: auto;
+      }
+      @media (max-width: 900px) {
+        .grid-aves {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+      @media (max-width: 600px) {
+        .grid-aves {
+          gap: 0.75rem;
+        }
       }
       .ave-card {
         background: #f8fafc;
@@ -592,6 +604,7 @@
       .ave-card picture {
         display: block;
         width: 100%;
+        aspect-ratio: 3 / 4; /* recuadro vertical, igual que las fotos */
         border-radius: 12px; /* las 4 esquinas de la foto redondeadas */
         overflow: hidden;
         isolation: isolate; /* evita que el zoom se salga del redondeo (Safari) */
@@ -600,7 +613,9 @@
       .ave-card img {
         display: block;
         width: 100%;
-        height: auto; /* respeta la proporción real: la foto se ve completa */
+        height: 100%;
+        object-fit: cover; /* llena el recuadro; como tiene la misma proporción que la foto, no se corta */
+        object-position: center;
       }
       .ave-card:hover img {
         transform: scale(1.03);
