@@ -268,6 +268,14 @@
       .nav-menu a:hover {
         color: #10b981;
       }
+      /* Sección activa (scrollspy): solo color + subrayado, sin cambiar
+         tamaño ni peso para que el menú no se desacomode */
+      .nav-menu a.nav-activa {
+        color: #10b981;
+        text-decoration: underline;
+        text-decoration-thickness: 2px;
+        text-underline-offset: 6px;
+      }
 
       /* BOTÓN HAMBURGUESA (oculto en escritorio) */
       .menu-toggle {
@@ -2802,6 +2810,7 @@
             window.removeEventListener(ev, cancelar),
           );
           _animScroll = null;
+          if (window.actualizarNavActiva) window.actualizarNavActiva();
         };
         ["wheel", "touchstart", "keydown", "mousedown"].forEach((ev) =>
           window.addEventListener(ev, cancelar, { passive: true }),
@@ -2832,6 +2841,81 @@
         if (!a || a.hasAttribute("data-faq-abrir") || a.hasAttribute("data-reglas-abrir")) return;
         if (irAAncla(a.getAttribute("href"))) e.preventDefault();
       });
+
+      // ---------- RESALTADO DE SECCIÓN ACTIVA (scrollspy) ----------
+      // Marca en el menú la sección visible. "Preguntas" y "Reglas" abren
+      // modales, así que se excluyen. Las secciones sin enlace en el menú
+      // (capacidad, anfitriones) no resaltan nada.
+      (function () {
+        let enlaces = [];
+        let ticking = false;
+        let actual = null;
+
+        function marcar(id) {
+          if (id === actual) return;
+          actual = id;
+          enlaces.forEach(({ a, id: aid }) => {
+            if (aid === id) a.classList.add("nav-activa"), a.setAttribute("aria-current", "location");
+            else a.classList.remove("nav-activa"), a.removeAttribute("aria-current");
+          });
+        }
+
+        function actualizar() {
+          ticking = false;
+          // Con un modal abierto el body queda fijo: no tocar nada
+          if (document.documentElement.classList.contains("scroll-bloqueado")) return;
+          // Durante el scroll animado de irAAncla el resaltado ya apunta al destino
+          if (typeof _animScroll !== "undefined" && _animScroll) return;
+
+          const header = document.querySelector("header");
+          const linea = (header ? header.getBoundingClientRect().height : 0) + window.innerHeight * 0.25;
+          const alFinal = window.innerHeight + window.pageYOffset >= document.documentElement.scrollHeight - 4;
+
+          let id = null;
+          if (alFinal && enlaces.length) {
+            id = enlaces[enlaces.length - 1].id; // al final de la página: Contacto
+          } else {
+            // Todas las secciones con id relevante, en orden de documento
+            const secciones = Array.from(document.querySelectorAll("main section[id], section[id]"));
+            for (const sec of secciones) {
+              if (sec.getBoundingClientRect().top <= linea) id = sec.id;
+              else break;
+            }
+            // Si la sección actual no tiene enlace en el menú, no resaltar nada
+            if (!enlaces.some((e) => e.id === id)) id = null;
+          }
+          marcar(id);
+        }
+
+        function pedir() {
+          if (!ticking) {
+            ticking = true;
+            requestAnimationFrame(actualizar);
+          }
+        }
+
+        window.actualizarNavActiva = actualizar;
+
+        document.addEventListener("DOMContentLoaded", () => {
+          enlaces = Array.from(document.querySelectorAll(".nav-menu a[href^='#']"))
+            .filter((a) => !a.hasAttribute("data-faq-abrir") && !a.hasAttribute("data-reglas-abrir"))
+            .map((a) => ({ a, id: a.getAttribute("href").slice(1) }))
+            .filter((e) => document.getElementById(e.id));
+
+          // Al hacer clic, resaltar de inmediato el destino (sin recorrer las intermedias)
+          document.querySelector(".nav-menu").addEventListener("click", (ev) => {
+            const a = ev.target.closest && ev.target.closest("a");
+            const item = a && enlaces.find((e) => e.a === a);
+            if (item) marcar(item.id);
+          });
+
+          window.addEventListener("scroll", pedir, { passive: true });
+          window.addEventListener("resize", pedir);
+          // Las imágenes lazy cambian alturas: recalcular tras cargar
+          window.addEventListener("load", pedir);
+          actualizar();
+        });
+      })();
 
       document.addEventListener("DOMContentLoaded", () => {
         // Menú hamburguesa (móviles)
