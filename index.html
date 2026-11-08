@@ -1995,6 +1995,9 @@
         }
       }
     </style>
+    <!-- Mapbox GL JS (mapa de ubicación) -->
+    <link href="https://api.mapbox.com/mapbox-gl-js/v3.0.0/mapbox-gl.css" rel="stylesheet" />
+    <script defer src="https://api.mapbox.com/mapbox-gl-js/v3.0.0/mapbox-gl.js"></script>
   </head>
   <body>
     <header>
@@ -2279,15 +2282,7 @@
         </p>
 
         <div class="mapa-container">
-          <iframe
-            src="https://www.google.com/maps/d/embed?mid=1xI4qHOseEnxMYuc1S8-CPiO2wS4DLP4&ehbc=2E312F"
-            width="100%"
-            height="100%"
-            style="border: 0"
-            allowfullscreen=""
-            loading="lazy"
-            title="Mapa de ubicación de Villa Aliris en Liberia, Guanacaste"
-          ></iframe>
+          <div id="map" aria-label="Mapa de ubicación de Villa Aliris" style="width: 100%; height: 100%"></div>
         </div>
 
         <div class="puntos-interes">
@@ -3961,6 +3956,69 @@
       })();
 
       actualizarTextosNavegacion();
+    </script>
+    <script>
+      // ===== MAPA MAPBOX =====
+      // Reemplaza estos dos valores (cópialos desde Studio > Share y desde Tokens):
+      const MAPBOX_TOKEN = "pk.eyJ1IjoidmlsbGFhbGlyaXMiLCJhIjoiY213N3l1Mml6MHhybTMwb3BxY3I5NGRldiJ9.uUvAXzqexgAsGmXwpPk0wA";
+      const MAPBOX_STYLE = "mapbox://styles/mapbox/outdoors-v12";
+
+      window.addEventListener("load", function () {
+        if (typeof mapboxgl === "undefined") return;
+        mapboxgl.accessToken = MAPBOX_TOKEN;
+
+        const villa = [-85.460833, 10.658806]; // [longitud, latitud]
+
+        const map = new mapboxgl.Map({
+          container: "map",
+          style: MAPBOX_STYLE,
+          center: villa,
+          zoom: 14,
+          cooperativeGestures: true, // en móvil, un dedo desplaza la página y dos mueven el mapa
+        });
+
+        map.addControl(new mapboxgl.NavigationControl());
+
+        // Destino para el botón "¿Cómo llegar?" (reutiliza el popup de Google Maps / Waze)
+        const destinoVilla = {
+          nombre: "Villa Aliris",
+          gmaps:
+            "https://www.google.com/maps/dir/?api=1&destination=" + villa[1] + "," + villa[0] + "&travelmode=driving",
+          waze: "https://waze.com/ul?ll=" + villa[1] + "," + villa[0] + "&navigate=yes",
+        };
+
+        const popup = new mapboxgl.Popup({ offset: 30, maxWidth: "240px" }).setHTML(
+          '<div style="text-align:center;font-family:inherit;">' +
+            '<img src="Images/android-chrome-192x192.png" alt="Villa Aliris" width="90" height="90" ' +
+            'style="width:90px;height:90px;border-radius:50%;display:block;margin:0 auto;" />' +
+            '<strong style="display:block;margin-top:8px;font-size:1rem;">Villa Aliris</strong>' +
+            '<span style="font-size:0.85rem;color:#64748b;">Liberia, Guanacaste</span>' +
+            '<button type="button" data-villa-como style="margin-top:10px;width:100%;padding:9px 12px;' +
+            "border:0;border-radius:8px;background:#047857;color:#fff;font:inherit;font-weight:600;" +
+            'cursor:pointer;">' +
+            '<i class="bi bi-signpost-split-fill" aria-hidden="true" style="margin-right:6px"></i>' +
+            '<span data-dir-i18n="dir_how">¿Cómo llegar?</span></button>' +
+            "</div>",
+        );
+
+        // Traduce el texto del botón cada vez que se abre el popup
+        popup.on("open", function () {
+          if (typeof actualizarTextosNavegacion === "function") actualizarTextosNavegacion();
+        });
+
+        // Un solo listener para el botón del popup (el popup se crea y destruye al abrir/cerrar)
+        document.addEventListener("click", function (e) {
+          if (!e.target.closest("[data-villa-como]")) return;
+          if (typeof abrirDirModal !== "function") return;
+          dirDestino = destinoVilla;
+          abrirDirModal();
+        });
+
+        new mapboxgl.Marker({ color: "#10b981" })
+          .setLngLat(villa)
+          .setPopup(popup)
+          .addTo(map);
+      });
     </script>
   </body>
 </html>
