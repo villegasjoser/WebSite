@@ -3987,13 +3987,13 @@
           waze: "https://waze.com/ul?ll=" + villa[1] + "," + villa[0] + "&navigate=yes",
         };
 
-        const popup = new mapboxgl.Popup({ offset: 30, maxWidth: "240px" }).setHTML(
+        const popup = new mapboxgl.Popup({ anchor: "bottom", offset: 36, maxWidth: "240px", focusAfterOpen: false }).setHTML(
           '<div style="text-align:center;font-family:inherit;">' +
-            '<img src="Images/android-chrome-192x192.png" alt="Villa Aliris" width="90" height="90" ' +
-            'style="width:90px;height:90px;border-radius:50%;display:block;margin:0 auto;" />' +
+            '<img src="Images/android-chrome-192x192.png" alt="Villa Aliris" width="76" height="76" ' +
+            'style="width:76px;height:76px;border-radius:50%;display:block;margin:0 auto;" />' +
             '<strong style="display:block;margin-top:8px;font-size:1rem;">Villa Aliris</strong>' +
             '<span style="font-size:0.85rem;color:#64748b;">Liberia, Guanacaste</span>' +
-            '<button type="button" data-villa-como style="margin-top:10px;width:100%;padding:9px 12px;' +
+            '<button type="button" data-villa-como style="margin-top:8px;width:100%;padding:8px 12px;' +
             "border:0;border-radius:8px;background:#047857;color:#fff;font:inherit;font-weight:600;" +
             'cursor:pointer;">' +
             '<i class="bi bi-signpost-split-fill" aria-hidden="true" style="margin-right:6px"></i>' +
@@ -4004,6 +4004,9 @@
         // Traduce el texto del botón cada vez que se abre el popup
         popup.on("open", function () {
           if (typeof actualizarTextosNavegacion === "function") actualizarTextosNavegacion();
+          // Mapbox no desplaza el mapa solo: centramos el bloque pin + popup en el recuadro
+          const alto = popup.getElement() ? popup.getElement().offsetHeight : 200;
+          map.easeTo({ center: villa, offset: [0, (alto + 45) / 2], duration: 350 });
         });
 
         // Un solo listener para el botón del popup (el popup se crea y destruye al abrir/cerrar)
