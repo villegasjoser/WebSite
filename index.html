@@ -2854,7 +2854,105 @@
     <script>
       let traducciones = {};
       let aventurasData = [];
-      let currentLang = localStorage.getItem("idioma_villa") || "es";
+      // ---------- IDIOMA AUTOMÁTICO SEGÚN UBICACIÓN ----------
+      // Prioridad: 1) idioma elegido manualmente por el visitante,
+      //            2) idioma detectado por país (cacheado en la sesión),
+      //            3) idioma del navegador mientras se detecta el país.
+      const IDIOMAS_SOPORTADOS = ["es", "en", "pt"];
+      const CLAVE_ELEGIDO = "idioma_villa_elegido"; // elección manual (persistente)
+      const CLAVE_AUTO = "idioma_villa_auto"; // detección por país (sesión)
+
+      // Países → idioma. Cualquier país que no esté en estas listas usa inglés.
+      const PAISES_PT = ["BR", "PT", "AO", "MZ", "CV", "GW", "ST", "TL"];
+      const PAISES_ES = [
+        "ES", "MX", "GT", "SV", "HN", "NI", "CR", "PA", "CO", "VE", "EC",
+        "PE", "BO", "CL", "AR", "UY", "PY", "DO", "CU", "PR", "GQ",
+      ];
+
+      function leerAlmacen(storage, clave) {
+        try {
+          return storage.getItem(clave);
+        } catch (e) {
+          return null;
+        }
+      }
+      function guardarAlmacen(storage, clave, valor) {
+        try {
+          storage.setItem(clave, valor);
+        } catch (e) {}
+      }
+
+      function idiomaPorPais(pais) {
+        if (PAISES_PT.includes(pais)) return "pt";
+        if (PAISES_ES.includes(pais)) return "es";
+        return "en";
+      }
+
+      function idiomaDelNavegador() {
+        const langs =
+          navigator.languages && navigator.languages.length
+            ? navigator.languages
+            : [navigator.language || "es"];
+        for (const l of langs) {
+          const base = String(l).slice(0, 2).toLowerCase();
+          if (IDIOMAS_SOPORTADOS.includes(base)) return base;
+        }
+        return "es";
+      }
+
+      // Consulta el país por IP (sin pedir permiso de ubicación al usuario).
+      // Prueba varios proveedores gratuitos y se rinde a los 2.5 s de cada uno.
+      async function obtenerPais() {
+        const proveedores = [
+          { url: "https://api.country.is/", leer: (d) => d.country },
+          { url: "https://ipwho.is/", leer: (d) => d.country_code },
+          { url: "https://ipapi.co/json/", leer: (d) => d.country_code },
+        ];
+        for (const p of proveedores) {
+          try {
+            const ctrl = new AbortController();
+            const timer = setTimeout(() => ctrl.abort(), 2500);
+            const r = await fetch(p.url, { signal: ctrl.signal });
+            clearTimeout(timer);
+            if (!r.ok) continue;
+            const pais = p.leer(await r.json());
+            if (typeof pais === "string" && /^[A-Za-z]{2}$/.test(pais)) {
+              return pais.toUpperCase();
+            }
+          } catch (e) {
+            /* probamos el siguiente proveedor */
+          }
+        }
+        return null;
+      }
+
+      async function detectarIdiomaPorUbicacion() {
+        // Si ya hay elección manual o detección previa en esta sesión, no hacemos nada.
+        if (leerAlmacen(localStorage, CLAVE_ELEGIDO)) return;
+        if (leerAlmacen(sessionStorage, CLAVE_AUTO)) return;
+
+        const pais = await obtenerPais();
+        if (!pais) return; // se queda con el idioma del navegador
+
+        const lang = idiomaPorPais(pais);
+        guardarAlmacen(sessionStorage, CLAVE_AUTO, lang);
+
+        // Si mientras tanto el visitante eligió un idioma, se respeta su elección.
+        if (leerAlmacen(localStorage, CLAVE_ELEGIDO)) return;
+        if (lang === currentLang) return;
+
+        cambiarIdioma(lang);
+        const sel = document.getElementById("langSelect");
+        if (sel) sel.value = lang;
+      }
+
+      let currentLang = (() => {
+        const elegido = leerAlmacen(localStorage, CLAVE_ELEGIDO);
+        if (IDIOMAS_SOPORTADOS.includes(elegido)) return elegido;
+        const auto = leerAlmacen(sessionStorage, CLAVE_AUTO);
+        if (IDIOMAS_SOPORTADOS.includes(auto)) return auto;
+        return idiomaDelNavegador();
+      })();
 
       const ICON_CONFIG = {
         flame: { class: "bi-fire", color: "#ea580c" },
@@ -3147,12 +3245,14 @@
         if (selectLang) {
           selectLang.value = currentLang;
           selectLang.addEventListener("change", (e) => {
+            guardarAlmacen(localStorage, CLAVE_ELEGIDO, e.target.value);
             cambiarIdioma(e.target.value);
           });
         }
 
         renderizarGaleria();
         cargarTraducciones();
+        detectarIdiomaPorUbicacion();
         cargarAventuras();
         iniciarFaq();
         iniciarReglas();
@@ -3303,7 +3403,7 @@
 
       function cambiarIdioma(lang) {
         currentLang = lang;
-        localStorage.setItem("idioma_villa", lang);
+        document.documentElement.lang = lang;
 
         if (traducciones[lang]) {
           const elementos = document.querySelectorAll("[data-i18n]");
