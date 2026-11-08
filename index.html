@@ -3166,8 +3166,10 @@
           ".grid-galeria img, .ave-card img, .anfitriones-img",
         );
 
-        // Fotos de la galería: se pueden recorrer con Anterior / Siguiente
+        // Fotos de la galería y de las aves: cada grupo se recorre con Anterior / Siguiente
         const fotosGaleria = Array.from(document.querySelectorAll(".grid-galeria img"));
+        const fotosAves = Array.from(document.querySelectorAll(".ave-card img"));
+        let listaActual = [];
         let indiceActual = -1;
 
         const mostrarFoto = (img) => {
@@ -3176,16 +3178,21 @@
         };
 
         const moverFoto = (paso) => {
-          if (indiceActual < 0 || !fotosGaleria.length) return;
-          indiceActual = (indiceActual + paso + fotosGaleria.length) % fotosGaleria.length;
-          mostrarFoto(fotosGaleria[indiceActual]);
+          if (indiceActual < 0 || !listaActual.length) return;
+          indiceActual = (indiceActual + paso + listaActual.length) % listaActual.length;
+          mostrarFoto(listaActual[indiceActual]);
         };
 
         imagenes.forEach((img) => {
           img.addEventListener("click", () => {
             modal.classList.add("activo");
             bloquearScroll("lightbox");
-            indiceActual = fotosGaleria.indexOf(img);
+            listaActual = fotosGaleria.includes(img)
+              ? fotosGaleria
+              : fotosAves.includes(img)
+                ? fotosAves
+                : [];
+            indiceActual = listaActual.indexOf(img);
             modal.classList.toggle("lightbox-galeria", indiceActual >= 0);
             mostrarFoto(img);
           });
@@ -3194,6 +3201,7 @@
         const cerrarModal = () => {
           modal.classList.remove("activo");
           modal.classList.remove("lightbox-galeria");
+          listaActual = [];
           indiceActual = -1;
           desbloquearScroll("lightbox");
           modalImg.src = "";
@@ -3961,7 +3969,8 @@
       // ===== MAPA MAPBOX =====
       // Reemplaza estos dos valores (cópialos desde Studio > Share y desde Tokens):
       const MAPBOX_TOKEN = "pk.eyJ1IjoidmlsbGFhbGlyaXMiLCJhIjoiY213N3l1Mml6MHhybTMwb3BxY3I5NGRldiJ9.uUvAXzqexgAsGmXwpPk0wA";
-      const MAPBOX_STYLE = "mapbox://styles/mapbox/outdoors-v12";
+      //const MAPBOX_STYLE = "mapbox://styles/mapbox/outdoors-v12";
+      const MAPBOX_STYLE = "mapbox://styles/villaaliris/cmw83awlb000d01qpglbrc05a";
 
       window.addEventListener("load", function () {
         if (typeof mapboxgl === "undefined") return;
