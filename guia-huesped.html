@@ -1,0 +1,354 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#0f172a" />
+    <meta name="robots" content="noindex, nofollow, noarchive, nosnippet" />
+    <meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <title>Guía del huésped | Villa Aliris</title>
+    <link rel="icon" type="image/png" href="logo-villa-aliris.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Cormorant+Garamond:wght@600;700&family=Dancing+Script:wght@700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet" />
+    <style>
+      :root { --pizarra:#0f172a; --texto:#1e293b; --suave:#64748b; --borde:#e2e8f0; --fondo:#f8fafc; --esmeralda:#10b981; --esm-osc:#047857; --esm-claro:#ecfdf5; --marron:#8a6a4d; --marron-osc:#4a3a2c; --wa:#0e7a3d; --barra:60px; --safe-t:env(safe-area-inset-top,0px); --safe-b:env(safe-area-inset-bottom,0px); --lado: max(20px, calc((100% - 960px) / 2)); }
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      @media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+      body { background: var(--fondo); color: var(--texto); font-family: "Montserrat", system-ui, sans-serif; line-height: 1.5; -webkit-text-size-adjust: 100%; }
+      button { font: inherit; color: inherit; cursor: pointer; border: 0; background: none; }
+      button:focus-visible, a:focus-visible, summary:focus-visible { outline: 3px solid var(--esmeralda); outline-offset: 2px; }
+
+      /* En teléfono ocupa toda la pantalla; en pantallas grandes el contenido se centra (máx. 960 px) */
+      .app { min-height: 100vh; min-height: 100dvh; background: var(--fondo); display: flex; flex-direction: column; }
+
+      .topbar { position: sticky; top: 0; z-index: 30; height: calc(var(--barra) + var(--safe-t)); padding: var(--safe-t) var(--lado) 0; background: #fff; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04); display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+      .brand { display: flex; align-items: center; gap: 10px; min-width: 0; }
+      .brand img { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; flex-shrink: 0; }
+      .brand-name { display: flex; flex-direction: column; align-items: center; line-height: 1; white-space: nowrap; }
+      .brand-script { font-family: "Dancing Script", "Segoe Script", cursive; font-weight: 700; font-size: 1.55rem; color: var(--marron); }
+      .brand-sub { font-family: "Cinzel", Georgia, serif; font-weight: 600; font-size: 0.5rem; letter-spacing: 0.55em; padding-left: 0.55em; color: var(--marron-osc); margin-top: 2px; }
+      .idiomas { display: flex; gap: 2px; background: #f1f5f9; border-radius: 999px; padding: 3px; flex-shrink: 0; }
+      .idiomas button { padding: 5px 10px; border-radius: 999px; font-size: 0.72rem; font-weight: 700; color: var(--suave); }
+      .idiomas button[aria-pressed="true"] { background: var(--pizarra); color: #fff; }
+
+      .hero { padding: 2rem var(--lado) 1.75rem; color: #fff; background: linear-gradient(rgba(15, 23, 42, 0.5), rgba(15, 23, 42, 0.88)), url("Images/MainPage/main.webp") center/cover no-repeat, var(--pizarra); }
+      .hero h1, .hero p { max-width: 640px; }
+      .hero h1 { font-family: "Cormorant Garamond", Georgia, serif; font-weight: 700; font-size: 2.5rem; line-height: 1.05; text-wrap: balance; text-shadow: 0 2px 14px rgba(0, 0, 0, 0.5); }
+      .hero h1::after { content: ""; display: block; width: 48px; height: 4px; background: var(--esmeralda); border-radius: 2px; margin-top: 0.9rem; }
+      .hero p { margin-top: 0.9rem; font-size: 0.95rem; font-weight: 600; color: #e2e8f0; white-space: pre-line; }
+
+      .chips { position: sticky; top: calc(var(--barra) + var(--safe-t)); z-index: 20; display: flex; gap: 8px; overflow-x: auto; padding: 10px var(--lado); background: var(--fondo); border-bottom: 1px solid var(--borde); scrollbar-width: none; }
+      .chips::-webkit-scrollbar { display: none; }
+      .chip { flex-shrink: 0; padding: 7px 14px; border-radius: 999px; border: 1px solid var(--borde); background: #fff; font-size: 0.78rem; font-weight: 600; color: #334155; }
+      .chip[aria-current="true"] { background: var(--pizarra); border-color: var(--pizarra); color: #fff; }
+      .chips:empty { display: none; }
+
+      main { flex: 1; padding: 20px var(--lado) 24px; display: flex; flex-direction: column; gap: 16px; }
+      .sec { scroll-margin-top: calc(var(--barra) + var(--safe-t) + 64px); background: #fff; border: 1px solid var(--borde); border-radius: 16px; overflow: hidden; box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04); }
+      .sec-cab { display: flex; align-items: center; gap: 12px; padding: 16px 16px 12px; }
+      .sec-ic { width: 42px; height: 42px; border-radius: 50%; background: var(--esm-claro); display: grid; place-items: center; flex-shrink: 0; }
+      .ic { width: 24px; height: 24px; fill: none; stroke: var(--esm-osc); stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
+      .sec h2 { font-family: "Cormorant Garamond", Georgia, serif; font-weight: 600; font-size: 1.55rem; line-height: 1.1; color: #111827; }
+
+      .fila { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 16px; border-top: 1px solid #f1f5f9; }
+      .et { font-size: 0.72rem; font-weight: 600; color: var(--suave); }
+      .val { font-size: 1rem; font-weight: 700; color: var(--pizarra); overflow-wrap: anywhere; }
+      .copiar { flex-shrink: 0; padding: 6px 14px; border-radius: 999px; border: 1px solid var(--esmeralda); background: #fff; color: var(--esm-osc); font-size: 0.75rem; font-weight: 700; }
+      .copiar.ok { background: var(--esm-claro); }
+      .fila.simple { justify-content: flex-start; font-size: 0.95rem; font-weight: 600; }
+      details.fila { display: block; }
+      summary { list-style: none; display: flex; align-items: center; gap: 12px; font-size: 0.95rem; font-weight: 600; cursor: pointer; }
+      summary::-webkit-details-marker { display: none; }
+      summary span { flex: 1; }
+      .chev { width: 18px; height: 18px; fill: none; stroke: var(--suave); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; transition: transform 0.2s; }
+      details[open] .chev { transform: rotate(180deg); }
+      details p { margin: 8px 0 2px 36px; font-size: 0.9rem; color: #475569; white-space: pre-line; }
+
+      .acciones { position: sticky; bottom: 0; z-index: 30; display: flex; gap: 10px; padding: 10px var(--lado) calc(10px + var(--safe-b)); background: #fff; border-top: 1px solid var(--borde); }
+      .acciones:empty { display: none; }
+      .acc { flex: 1; display: flex; align-items: center; justify-content: center; gap: 8px; padding: 12px 10px; border-radius: 12px; color: #fff; text-decoration: none; font-size: 0.78rem; font-weight: 700; line-height: 1.2; text-align: center; }
+      .acc .ic { stroke: #fff; width: 20px; height: 20px; }
+      .acc.sos { background: var(--pizarra); }
+      .acc.wa { background: var(--wa); }
+      .acc small { display: block; font-size: 0.95rem; }
+
+      .nota { text-align: center; font-size: 0.72rem; color: var(--suave); padding: 4px 0 8px; }
+      .estado { text-align: center; padding: 48px 16px; color: var(--suave); font-weight: 600; }
+      .estado button { margin-top: 14px; padding: 10px 20px; border-radius: 12px; background: var(--pizarra); color: #fff; font-weight: 700; }
+      @media (min-width: 720px) {
+        .chips { display: none; } /* en pantallas anchas todo cabe a la vista: la navegación por chips no aporta */
+        .sec { scroll-margin-top: calc(var(--barra) + var(--safe-t) + 16px); }
+        .hero { padding-top: 3.5rem; padding-bottom: 3rem; }
+        .hero h1 { font-size: 3.4rem; }
+        .hero p { font-size: 1.05rem; }
+        main { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; padding-top: 28px; }
+        main > .nota, main > .estado { grid-column: 1 / -1; }
+        .acciones { justify-content: center; }
+        .acc { flex: 0 1 320px; }
+      }
+      .toast { position: fixed; left: 50%; bottom: calc(92px + var(--safe-b)); transform: translateX(-50%); background: var(--pizarra); color: #fff; padding: 8px 18px; border-radius: 999px; font-size: 0.8rem; font-weight: 600; opacity: 0; pointer-events: none; transition: opacity 0.2s; z-index: 50; }
+      .toast.ver { opacity: 1; }
+    </style>
+  </head>
+  <body>
+    <div class="app">
+      <header class="topbar">
+        <div class="brand">
+          <img src="Images/MainPage/logo.jpeg" alt="" onerror="this.style.display = 'none'" />
+          <div class="brand-name"><span class="brand-script">Villa Aliris</span><span class="brand-sub">LIBERIA</span></div>
+        </div>
+        <div class="idiomas" id="idiomas" role="group" aria-label="Idioma / Language"></div>
+      </header>
+
+      <section class="hero" id="hero" aria-live="polite"></section>
+      <nav class="chips" id="chips" aria-label="Secciones"></nav>
+      <main id="main"></main>
+      <div class="acciones" id="acciones"></div>
+    </div>
+    <div class="toast" id="toast" role="status"></div>
+
+    <script>
+      // La guía se lee del archivo JSON publicado junto a esta página; si no existe, de la API del servidor
+      const FUENTES = ["guest-guide.json", "/api/guia"];
+      const CLAVE_IDIOMA = "idioma_villa_elegido"; // misma clave que el sitio principal
+      const CLAVE_CACHE = "guia_villa_cache";
+      const IDIOMAS = { es: "ES", en: "EN", pt: "PT" };
+
+      const UI = {
+        es: { titulo: "Guía del huésped", cargando: "Cargando la guía…", error: "No se pudo cargar la guía.", reintentar: "Reintentar", actualizado: "Actualizado el", vacio: "La guía aún no tiene contenido.", copiar: "Copiar", copiado: "Copiado", locale: "es-CR" },
+        en: { titulo: "Guest guide", cargando: "Loading the guide…", error: "The guide could not be loaded.", reintentar: "Try again", actualizado: "Updated on", vacio: "The guide has no content yet.", copiar: "Copy", copiado: "Copied", locale: "en-US" },
+        pt: { titulo: "Guia do hóspede", cargando: "Carregando o guia…", error: "Não foi possível carregar o guia.", reintentar: "Tentar de novo", actualizado: "Atualizado em", vacio: "O guia ainda não tem conteúdo.", copiar: "Copiar", copiado: "Copiado", locale: "pt-BR" },
+      };
+
+      // Mismos nombres de ícono que usa la página de edición
+      const ICONOS = {
+        info: '<circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/>',
+        wifi: '<path d="M5 12.5a10 10 0 0 1 14 0"/><path d="M8.5 16a5 5 0 0 1 7 0"/><path d="M2 9a14 14 0 0 1 20 0"/><circle cx="12" cy="19" r="1"/>',
+        llave: '<circle cx="8" cy="15" r="4"/><path d="M11 12l9-9M16 7l3 3M14 9l2 2"/>',
+        casa: '<path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/>',
+        mapa: '<path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/>',
+        libro: '<path d="M5 4h11a3 3 0 0 1 3 3v13H8a3 3 0 0 1-3-3z"/><path d="M5 17a3 3 0 0 1 3-3h11"/>',
+        reloj: '<circle cx="12" cy="13" r="8"/><path d="M12 9v4l3 2M5 4L3 6M19 4l2 2"/>',
+        nofumar: '<circle cx="12" cy="12" r="9"/><path d="M5.6 5.6l12.8 12.8"/><path d="M8 14h6M16 14h1"/>',
+        piscina: '<path d="M3 18c1.5 0 1.5 1 3 1s1.5-1 3-1 1.5 1 3 1 1.5-1 3-1 1.5 1 3 1 1.5-1 3-1"/><path d="M8 15V6a2 2 0 0 1 4 0M14 15V6a2 2 0 0 1 4 0M8 10h6"/>',
+        playa: '<path d="M3 12a9 9 0 0 1 18 0z"/><path d="M12 12v8M8 20h8"/>',
+        cubiertos: '<path d="M7 3v8M5 3v5a2 2 0 0 0 4 0V3M7 11v10"/><path d="M17 21V3c-2 1-3 4-3 8h3"/>',
+        brujula: '<circle cx="12" cy="12" r="9"/><path d="M15.6 8.4l-2.1 5.1-5.1 2.1 2.1-5.1z"/>',
+        cafe: '<path d="M5 8h11v6a5 5 0 0 1-5 5h-1a5 5 0 0 1-5-5z"/><path d="M16 10h2a2 2 0 0 1 0 4h-2M8 3v2M12 3v2"/>',
+        aire: '<rect x="3" y="5" width="18" height="7" rx="2"/><path d="M7 16v2M12 16v3M17 16v2"/>',
+        telefono: '<path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/>',
+      };
+
+      const $ = (s) => document.querySelector(s);
+      const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+      const ic = (n, cls = "ic") => `<svg viewBox="0 0 24 24" class="${cls}" aria-hidden="true">${ICONOS[n] || ICONOS.info}</svg>`;
+      const almacen = {
+        leer(k) { try { return localStorage.getItem(k); } catch (e) { return null; } },
+        guardar(k, v) { try { localStorage.setItem(k, v); } catch (e) {} },
+      };
+
+      function idiomaInicial() {
+        const g = almacen.leer(CLAVE_IDIOMA);
+        if (IDIOMAS[g]) return g;
+        for (const l of navigator.languages || [navigator.language || "es"]) {
+          const b = String(l).slice(0, 2).toLowerCase();
+          if (IDIOMAS[b]) return b;
+        }
+        return "es";
+      }
+
+      let lang = idiomaInicial();
+      let G = null;
+      let bloqueo = 0; // tras tocar un chip, el scroll automático no cambia la selección
+      let elegido = null; // sección elegida con un chip (se conserva mientras siga en la misma fila)
+      let ultimaFila = null;
+
+      // Texto en el idioma activo; si falta la traducción, se muestra el español
+      const t = (o) => String(o && typeof o === "object" ? o[lang] || o.es || "" : o ?? "").trim();
+      const u = (k) => UI[lang][k];
+
+      function normalizar(d) {
+        return { ...d, cabecera: { ...d.cabecera }, contacto: { ...d.contacto }, ui: { ...d.ui }, secciones: Array.isArray(d.secciones) ? d.secciones : [] };
+      }
+
+      function mostrarEstado(html) {
+        $("#chips").innerHTML = "";
+        $("#acciones").innerHTML = "";
+        $("#main").innerHTML = `<div class="estado">${html}</div>`;
+      }
+
+      async function cargar() {
+        $("#hero").innerHTML = `<h1>${esc(u("titulo"))}</h1>`;
+        mostrarEstado(esc(u("cargando")));
+        const fallos = [];
+        for (const url of FUENTES) {
+          try {
+            const r = await fetch(url, { cache: "no-cache" });
+            if (!r.ok) { fallos.push(`${url}: HTTP ${r.status}`); continue; }
+            const d = await r.json();
+            if (d && Array.isArray(d.secciones)) {
+              almacen.guardar(CLAVE_CACHE, JSON.stringify(d));
+              G = normalizar(d);
+              return render();
+            }
+            fallos.push(`${url}: no tiene el formato de la guía`);
+          } catch (e) { fallos.push(`${url}: ${e.message}`); }
+        }
+        if (location.protocol === "file:") fallos.unshift("La página se abrió como archivo local; ábrala desde un servidor (http://)");
+        // Sin conexión: se usa la última copia guardada en el teléfono
+        const copia = almacen.leer(CLAVE_CACHE);
+        if (copia) {
+          try { G = normalizar(JSON.parse(copia)); return render(); } catch (e) {}
+        }
+        mostrarEstado(`${esc(u("error"))}<br /><button type="button" id="reintentar">${esc(u("reintentar"))}</button>` +
+          `<p class="nota" style="margin-top:18px">${fallos.map(esc).join("<br />")}</p>`);
+        $("#reintentar").addEventListener("click", cargar);
+      }
+
+      function filaHtml(s, it) {
+        if (s.tipo === "campos") {
+          const et = t(it.etiqueta), val = t(it.valor);
+          if (!et && !val) return "";
+          return `<div class="fila"><div><div class="et">${esc(et)}</div><div class="val">${esc(val)}</div></div>` +
+            (it.copiable && val ? `<button type="button" class="copiar" data-copiar="${esc(val)}">${esc(t(G.ui.copiar) || u("copiar"))}</button>` : "") + `</div>`;
+        }
+        const tx = t(it.texto), det = t(it.detalle);
+        if (!tx) return "";
+        if (!det) return `<div class="fila simple">${ic(it.icono)}<span>${esc(tx)}</span></div>`;
+        return `<details class="fila"><summary>${ic(it.icono)}<span>${esc(tx)}</span>` +
+          `<svg viewBox="0 0 24 24" class="chev" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary><p>${esc(det)}</p></details>`;
+      }
+
+      function render() {
+        document.documentElement.lang = lang;
+        const titulo = t(G.cabecera.titulo) || u("titulo");
+        document.title = titulo + " | Villa Aliris";
+
+        $("#idiomas").innerHTML = Object.keys(IDIOMAS).map((l) => `<button type="button" data-lang="${l}" aria-pressed="${l === lang}">${IDIOMAS[l]}</button>`).join("");
+
+        const sub = t(G.cabecera.subtitulo);
+        $("#hero").innerHTML = `<h1>${esc(titulo)}</h1>${sub ? `<p>${esc(sub)}</p>` : ""}`;
+
+        const secs = G.secciones
+          .filter((s) => s.visible !== false)
+          .map((s, i) => ({ s, id: "sec-" + (s.id || i), titulo: t(s.titulo), filas: (s.items || []).map((it) => filaHtml(s, it)).join("") }))
+          .filter((x) => x.titulo || x.filas);
+
+        $("#chips").innerHTML = secs.length > 1 ? secs.map((x) => `<button type="button" class="chip" data-ir="${esc(x.id)}">${esc(x.titulo)}</button>`).join("") : "";
+
+        const act = G.actualizado ? new Date(G.actualizado) : null;
+        $("#main").innerHTML = secs.length
+          ? secs.map((x) => `<article class="sec" id="${esc(x.id)}"><div class="sec-cab"><div class="sec-ic">${ic(x.s.icono)}</div><h2>${esc(x.titulo)}</h2></div>${x.filas}</article>`).join("") +
+            (act && !isNaN(act) ? `<p class="nota">${esc(u("actualizado"))} ${esc(act.toLocaleDateString(u("locale"), { day: "numeric", month: "long", year: "numeric" }))}</p>` : "")
+          : `<div class="estado">${esc(u("vacio"))}</div>`;
+
+        // Botones fijos de contacto
+        const tactil = window.matchMedia("(pointer: coarse)").matches;
+        const c = G.contacto, tel = String(c.emergencia || "").replace(/[^\d+]/g, ""), wa = String(c.whatsapp || "").replace(/\D/g, "");
+        $("#acciones").innerHTML =
+          // El enlace de llamada solo existe en pantallas táctiles; en PC es texto, para no marcar por accidente
+          (tel ? `<${tactil ? `a href="tel:${esc(tel)}"` : "div"} class="acc sos">${ic("telefono")}<span>${esc(t(c.etiquetaEmergencia) || "")}<small>${esc(c.emergencia)}</small></span></${tactil ? "a" : "div"}>` : "") +
+          (wa ? `<a class="acc wa" href="https://wa.me/${esc(wa)}" target="_blank" rel="noopener">${ic("telefono")}<span>${esc(t(c.etiquetaWhatsapp) || "WhatsApp")}</span></a>` : "");
+
+        bloqueo = 0;
+        elegido = null;
+        ultimaFila = null;
+        actualizarActivo();
+      }
+
+      // Marca en la barra de chips la sección que se está leyendo
+      // (siempre un solo chip; en pantallas anchas, entre las tarjetas de una misma fila gana la tocada, o la primera)
+      function marcarChips(ids) {
+        const barra = $("#chips");
+        let primero = null;
+        document.querySelectorAll(".chip").forEach((c) => {
+          const on = ids.includes(c.dataset.ir);
+          c.setAttribute("aria-current", on);
+          if (on && !primero) primero = c;
+        });
+        if (primero) barra.scrollTo({ left: primero.offsetLeft - (barra.clientWidth - primero.offsetWidth) / 2 });
+      }
+
+      function actualizarActivo() {
+        if (Date.now() < bloqueo) return;
+        const secs = [...document.querySelectorAll(".sec")];
+        if (!secs.length || !$("#chips").offsetParent) return;
+        const tops = secs.map((x) => x.getBoundingClientRect().top);
+        const linea = $("#chips").getBoundingClientRect().bottom + 24;
+        const alFinal = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4;
+        const previas = tops.filter((y) => y <= linea);
+        const ref = alFinal ? Math.max(...tops) : previas.length ? Math.max(...previas) : Math.min(...tops);
+        const fila = secs.filter((x, i) => Math.abs(tops[i] - ref) < 2).map((x) => x.id);
+        const clave = fila.join();
+        if (ultimaFila !== null && clave !== ultimaFila) elegido = null;
+        ultimaFila = clave;
+        marcarChips([fila.includes(elegido) ? elegido : fila[0]]);
+      }
+
+      let pendiente = false;
+      function alHacerScroll() {
+        if (pendiente) return;
+        pendiente = true;
+        requestAnimationFrame(() => { pendiente = false; actualizarActivo(); });
+      }
+      window.addEventListener("scroll", alHacerScroll, { passive: true });
+      window.addEventListener("resize", alHacerScroll);
+
+      let temporizador;
+      function aviso(txt) {
+        const el = $("#toast");
+        el.textContent = txt;
+        el.classList.add("ver");
+        clearTimeout(temporizador);
+        temporizador = setTimeout(() => el.classList.remove("ver"), 1600);
+      }
+
+      async function copiar(txt) {
+        try {
+          await navigator.clipboard.writeText(txt);
+        } catch (e) {
+          const ta = document.createElement("textarea");
+          ta.value = txt;
+          ta.style.cssText = "position:fixed;opacity:0";
+          document.body.appendChild(ta);
+          ta.select();
+          try { document.execCommand("copy"); } catch (e2) {}
+          ta.remove();
+        }
+      }
+
+      $("#idiomas").addEventListener("click", (e) => {
+        const b = e.target.closest("[data-lang]");
+        if (!b || b.dataset.lang === lang) return;
+        lang = b.dataset.lang;
+        almacen.guardar(CLAVE_IDIOMA, lang);
+        G ? render() : cargar();
+      });
+
+      $("#chips").addEventListener("click", (e) => {
+        const b = e.target.closest("[data-ir]");
+        if (!b) return;
+        bloqueo = Date.now() + 1200;
+        elegido = b.dataset.ir;
+        ultimaFila = null; // la próxima actualización adopta la fila donde termine el scroll
+        marcarChips([elegido]);
+        document.getElementById(b.dataset.ir).scrollIntoView({ block: "start" });
+      });
+
+      $("#main").addEventListener("click", async (e) => {
+        const b = e.target.closest("[data-copiar]");
+        if (!b) return;
+        await copiar(b.dataset.copiar);
+        b.classList.add("ok");
+        setTimeout(() => b.classList.remove("ok"), 1600);
+        aviso(t(G.ui.copiado) || u("copiado"));
+      });
+
+      cargar();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,277 @@
+{
+  "cabecera": {
+    "titulo": {
+      "es": "Guía del huésped",
+      "en": "Guest guide",
+      "pt": "Guia do hóspede"
+    },
+    "subtitulo": {
+      "es": "Guanacaste, Costa Rica · Acceso exclusivo",
+      "en": "Guanacaste, Costa Rica · Private access",
+      "pt": "Guanacaste, Costa Rica · Acesso exclusivo"
+    }
+  },
+  "secciones": [
+    {
+      "id": "conectividad",
+      "icono": "wifi",
+      "visible": true,
+      "tipo": "campos",
+      "titulo": {
+        "es": "Conectividad",
+        "en": "Connectivity",
+        "pt": "Conectividade"
+      },
+      "items": [
+        {
+          "etiqueta": {
+            "es": "Red Wi-Fi",
+            "en": "Wi-Fi network",
+            "pt": "Rede Wi-Fi"
+          },
+          "valor": {
+            "es": "VillaAliris_Guest",
+            "en": "VillaAliris_Guest",
+            "pt": "VillaAliris_Guest"
+          },
+          "copiable": false
+        },
+        {
+          "etiqueta": {
+            "es": "Clave",
+            "en": "Password",
+            "pt": "Senha"
+          },
+          "valor": {
+            "es": "Aliris2026CR",
+            "en": "Aliris2026CR",
+            "pt": "Aliris2026CR"
+          },
+          "copiable": true
+        }
+      ]
+    },
+    {
+      "id": "llegada",
+      "icono": "llave",
+      "visible": true,
+      "tipo": "campos",
+      "titulo": {
+        "es": "Llegada y acceso",
+        "en": "Arrival and access",
+        "pt": "Chegada e acesso"
+      },
+      "items": [
+        {
+          "etiqueta": {
+            "es": "Check-in",
+            "en": "Check-in",
+            "pt": "Check-in"
+          },
+          "valor": {
+            "es": "3:00 PM",
+            "en": "3:00 PM",
+            "pt": "15:00"
+          },
+          "copiable": false
+        },
+        {
+          "etiqueta": {
+            "es": "Check-out",
+            "en": "Check-out",
+            "pt": "Check-out"
+          },
+          "valor": {
+            "es": "11:00 AM",
+            "en": "11:00 AM",
+            "pt": "11:00"
+          },
+          "copiable": false
+        },
+        {
+          "etiqueta": {
+            "es": "Acceso",
+            "en": "Access",
+            "pt": "Acesso"
+          },
+          "valor": {
+            "es": "Portón eléctrico (código enviado por Airbnb)",
+            "en": "Electric gate (code sent through Airbnb)",
+            "pt": "Portão elétrico (código enviado pelo Airbnb)"
+          },
+          "copiable": false
+        }
+      ]
+    },
+    {
+      "id": "reglas",
+      "icono": "casa",
+      "visible": true,
+      "tipo": "iconos",
+      "titulo": {
+        "es": "Reglas de la casa",
+        "en": "House rules",
+        "pt": "Regras da casa"
+      },
+      "items": [
+        {
+          "icono": "reloj",
+          "texto": {
+            "es": "Horas de silencio",
+            "en": "Quiet hours",
+            "pt": "Horário de silêncio"
+          },
+          "detalle": {
+            "es": "De 10:00 p. m. a 7:00 a. m., te pedimos evitar música alta y ruidos fuertes.",
+            "en": "From 10:00 PM to 7:00 AM, please avoid loud music and noise.\n",
+            "pt": "Das 22h00 às 7h00, pedimos que evite música alta e ruídos fortes.\n"
+          }
+        },
+        {
+          "icono": "nofumar",
+          "texto": {
+            "es": "No fumar",
+            "en": "No smoking",
+            "pt": "Proibido fumar"
+          },
+          "detalle": {
+            "es": "Solo en áreas exteriores. Por favor no dejes colillas.",
+            "en": "Outdoor areas only. Please do not leave cigarette butts behind.\n",
+            "pt": "Somente em áreas externas. Por favor, não deixe bitucas.\n"
+          }
+        },
+        {
+          "icono": "piscina",
+          "texto": {
+            "es": "Seguridad en la piscina",
+            "en": "Pool safety",
+            "pt": "Segurança na piscina"
+          },
+          "detalle": {
+            "es": "Úsala bajo tu responsabilidad, supervisa siempre a los menores y evita el vidrio en el área.",
+            "en": "Use it at your own risk, always supervise minors, and keep glass out of the area.",
+            "pt": "Use por sua conta e risco, supervisione sempre os menores e evite vidro na área."
+          }
+        }
+      ]
+    },
+    {
+      "id": "explora",
+      "icono": "mapa",
+      "visible": true,
+      "tipo": "iconos",
+      "titulo": {
+        "es": "Explora Guanacaste",
+        "en": "Explore Guanacaste",
+        "pt": "Explore Guanacaste"
+      },
+      "items": [
+        {
+          "icono": "playa",
+          "texto": {
+            "es": "Playas",
+            "en": "Beaches",
+            "pt": "Praias"
+          },
+          "detalle": {
+            "es": "",
+            "en": "",
+            "pt": ""
+          }
+        },
+        {
+          "icono": "cubiertos",
+          "texto": {
+            "es": "Restaurantes",
+            "en": "Restaurants",
+            "pt": "Restaurantes"
+          },
+          "detalle": {
+            "es": "",
+            "en": "",
+            "pt": ""
+          }
+        },
+        {
+          "icono": "brujula",
+          "texto": {
+            "es": "Experiencias",
+            "en": "Experiences",
+            "pt": "Experiências"
+          },
+          "detalle": {
+            "es": "",
+            "en": "",
+            "pt": ""
+          }
+        }
+      ]
+    },
+    {
+      "id": "manuales",
+      "icono": "libro",
+      "visible": true,
+      "tipo": "iconos",
+      "titulo": {
+        "es": "Manuales de la casa",
+        "en": "House manuals",
+        "pt": "Manuais da casa"
+      },
+      "items": [
+        {
+          "icono": "cafe",
+          "texto": {
+            "es": "Cafetera",
+            "en": "Coffee maker",
+            "pt": "Cafeteira"
+          },
+          "detalle": {
+            "es": "",
+            "en": "",
+            "pt": ""
+          }
+        },
+        {
+          "icono": "aire",
+          "texto": {
+            "es": "Aire acondicionado",
+            "en": "Air conditioning",
+            "pt": "Ar-condicionado"
+          },
+          "detalle": {
+            "es": "",
+            "en": "",
+            "pt": ""
+          }
+        }
+      ]
+    }
+  ],
+  "contacto": {
+    "emergencia": "911",
+    "whatsapp": "50688247176",
+    "etiquetaEmergencia": {
+      "es": "Contacto de emergencia",
+      "en": "Emergency contact",
+      "pt": "Contato de emergência"
+    },
+    "etiquetaWhatsapp": {
+      "es": "WhatsApp anfitrión",
+      "en": "WhatsApp host",
+      "pt": "WhatsApp anfitrião"
+    }
+  },
+  "ui": {
+    "copiar": {
+      "es": "Copiar",
+      "en": "Copy",
+      "pt": "Copiar"
+    },
+    "copiado": {
+      "es": "Copiado",
+      "en": "Copied",
+      "pt": "Copiado"
+    }
+  },
+  "actualizado": "2026-11-13T01:14:00.325Z"
+}
