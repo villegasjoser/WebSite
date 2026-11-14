@@ -174,9 +174,9 @@
             "pt": "Praias"
           },
           "detalle": {
-            "es": "",
-            "en": "",
-            "pt": ""
+            "es": "Playa Cabuyal\nPlaya Virador\nPlaya Rajada",
+            "en": "Cabuyal Beach\nVirador Beach\nRajada Beach",
+            "pt": "Praia Cabuyal\nPraia Virador\nPrai Rajada"
           }
         },
         {
@@ -273,5 +273,5 @@
       "pt": "Copiado"
     }
   },
-  "actualizado": "2026-11-13T01:14:00.325Z"
+  "actualizado": "2026-11-14T04:03:38.089Z"
 }
